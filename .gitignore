@@ -59,6 +59,8 @@
 # Ignore PyPi build files.
 dist/
 build/
+install/
+log/
 
 # Python virtual environment
 venv/
