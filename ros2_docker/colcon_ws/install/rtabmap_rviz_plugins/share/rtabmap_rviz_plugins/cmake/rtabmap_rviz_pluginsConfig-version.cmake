@@ -1,1 +1,0 @@
-/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_rviz_plugins/ament_cmake_core/rtabmap_rviz_pluginsConfig-version.cmake

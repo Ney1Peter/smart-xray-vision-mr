@@ -1,1 +1,0 @@
-/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_description/ament_cmake_environment_hooks/local_setup.zsh

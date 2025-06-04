@@ -1,1 +1,0 @@
-/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap_ros/rtabmap_util/scripts/republish_tf_static.py

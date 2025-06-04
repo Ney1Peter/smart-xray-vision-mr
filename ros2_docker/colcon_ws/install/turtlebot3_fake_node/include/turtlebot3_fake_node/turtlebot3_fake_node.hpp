@@ -1,1 +1,0 @@
-/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/turtlebot3_simulations/turtlebot3_fake_node/include/turtlebot3_fake_node/turtlebot3_fake_node.hpp

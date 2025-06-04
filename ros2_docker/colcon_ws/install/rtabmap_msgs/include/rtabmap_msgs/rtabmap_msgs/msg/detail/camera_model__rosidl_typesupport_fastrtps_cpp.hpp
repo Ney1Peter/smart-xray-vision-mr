@@ -1,1 +1,0 @@
-/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_msgs/rosidl_typesupport_fastrtps_cpp/rtabmap_msgs/msg/detail/camera_model__rosidl_typesupport_fastrtps_cpp.hpp

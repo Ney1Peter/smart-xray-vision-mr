@@ -1,1 +1,0 @@
-/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap_ros/rtabmap_util/scripts/yaml_to_camera_info.py

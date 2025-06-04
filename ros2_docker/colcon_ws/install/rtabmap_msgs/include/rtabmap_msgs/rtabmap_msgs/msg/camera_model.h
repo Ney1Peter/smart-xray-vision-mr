@@ -1,1 +1,0 @@
-/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_msgs/rosidl_generator_c/rtabmap_msgs/msg/camera_model.h

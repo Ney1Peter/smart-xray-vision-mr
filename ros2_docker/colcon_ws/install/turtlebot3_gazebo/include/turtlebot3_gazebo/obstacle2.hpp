@@ -1,1 +1,0 @@
-/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/turtlebot3_gazebo/obstacle2.hpp
