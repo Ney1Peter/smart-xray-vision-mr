@@ -1,0 +1,34 @@
+[0.472s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/build
+[0.653s] running develop
+[0.773s] Removing /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/lib/python3.12/site-packages/rtabmap-python.egg-link (link to .)
+[0.791s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/build
+[0.792s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap_ros/rtabmap_python': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/rtabmap_python build --build-base /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/build install --record /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/install.log --single-version-externally-managed install_data --force
+[0.949s] running egg_info
+[0.961s] writing ../../../build/rtabmap_python/rtabmap_python.egg-info/PKG-INFO
+[0.961s] writing dependency_links to ../../../build/rtabmap_python/rtabmap_python.egg-info/dependency_links.txt
+[0.961s] writing requirements to ../../../build/rtabmap_python/rtabmap_python.egg-info/requires.txt
+[0.961s] writing top-level names to ../../../build/rtabmap_python/rtabmap_python.egg-info/top_level.txt
+[0.985s] reading manifest file '../../../build/rtabmap_python/rtabmap_python.egg-info/SOURCES.txt'
+[0.986s] writing manifest file '../../../build/rtabmap_python/rtabmap_python.egg-info/SOURCES.txt'
+[0.986s] running build
+[0.986s] running build_py
+[0.986s] creating /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/build
+[0.986s] creating /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/build/lib
+[0.986s] creating /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/build/lib/rtabmap_python
+[0.986s] copying rtabmap_python/__init__.py -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/build/lib/rtabmap_python
+[0.987s] copying rtabmap_python/compression.py -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/build/lib/rtabmap_python
+[0.987s] running install
+[0.992s] running install_lib
+[1.005s] creating /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/lib/python3.12/site-packages/rtabmap_python
+[1.005s] copying /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/build/lib/rtabmap_python/__init__.py -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/lib/python3.12/site-packages/rtabmap_python
+[1.005s] copying /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/build/lib/rtabmap_python/compression.py -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/lib/python3.12/site-packages/rtabmap_python
+[1.005s] byte-compiling /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/lib/python3.12/site-packages/rtabmap_python/__init__.py to __init__.cpython-312.pyc
+[1.006s] byte-compiling /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/lib/python3.12/site-packages/rtabmap_python/compression.py to compression.cpython-312.pyc
+[1.006s] running install_data
+[1.007s] copying resource/rtabmap_python -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/share/ament_index/resource_index/packages
+[1.007s] copying package.xml -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/share/rtabmap_python
+[1.007s] running install_egg_info
+[1.021s] Copying ../../../build/rtabmap_python/rtabmap_python.egg-info to /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/lib/python3.12/site-packages/rtabmap_python-0.1.0-py3.12.egg-info
+[1.022s] running install_scripts
+[1.103s] writing list of installed files to '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/install.log'
+[1.119s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap_ros/rtabmap_python' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap_python/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/rtabmap_python build --build-base /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/build install --record /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap_python/install.log --single-version-externally-managed install_data --force

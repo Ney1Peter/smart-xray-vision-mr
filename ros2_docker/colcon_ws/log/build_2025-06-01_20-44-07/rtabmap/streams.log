@@ -1,0 +1,1076 @@
+[0.037s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap -DCMAKE_INSTALL_PREFIX=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap
+[1.068s] -- The C compiler identification is GNU 13.3.0
+[1.068s] -- The CXX compiler identification is GNU 13.3.0
+[1.068s] -- Detecting C compiler ABI info
+[1.068s] -- Detecting C compiler ABI info - done
+[1.068s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.068s] -- Detecting C compile features
+[1.068s] -- Detecting C compile features - done
+[1.068s] -- Detecting CXX compiler ABI info
+[1.068s] -- Detecting CXX compiler ABI info - done
+[1.068s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.068s] -- Detecting CXX compile features
+[1.068s] -- Detecting CXX compile features - done
+[1.068s] -- MOBILE_BUILD=OFF
+[1.068s] -- Checking for module 'libusb-1.0'
+[1.069s] --   Found libusb-1.0, version 1.0.27
+[1.069s] -- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[1.069s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[1.069s] -- Found Pcap: /usr/lib/x86_64-linux-gnu/libpcap.so  
+[1.069s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")  
+[1.069s] -- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.43") 
+[1.069s] [33mCMake Warning (dev) at CMakeLists.txt:88 (EXEC_PROGRAM):
+[1.069s]   Policy CMP0153 is not set: The exec_program command should not be called.
+[1.069s]   Run "cmake --help-policy CMP0153" for policy details.  Use the cmake_policy
+[1.069s]   command to set the policy and suppress this warning.
+[1.069s] 
+[1.069s]   Use execute_process() instead.
+[1.069s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.069s] [0m
+[2.185s] -- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+[2.185s] -- Found OpenMP: TRUE (found version "4.5") found components: CXX 
+[2.192s] [33mCMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+[2.192s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[2.192s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[2.192s]   cmake_policy command to set the policy and suppress this warning.
+[2.192s] 
+[2.192s]   CMake variable FLANN_ROOT is set to:
+[2.192s] 
+[2.193s]     /usr
+[2.193s] 
+[2.193s]   For compatibility, find_package is ignoring the variable, but code in a
+[2.193s]   .cmake module might still use it.
+[2.193s] Call Stack (most recent call first):
+[2.193s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+[2.193s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+[2.193s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+[2.193s]   CMakeLists.txt:240 (FIND_PACKAGE)
+[2.194s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[2.194s] [0m
+[2.194s] -- Found flann version 1.9.2
+[2.197s] -- Found Qhull version 8.0.2
+[3.848s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[4.459s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[4.461s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[4.462s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[4.463s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[4.464s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[4.465s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[4.467s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[4.467s] -- Found PCL_2D: /usr/include/pcl-1.14  
+[4.468s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[4.469s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[4.471s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[4.471s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.14  
+[4.472s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[4.473s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[4.475s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[4.475s] -- PCL definitions don't contain "-march=native", make sure all libraries using Eigen are also compiled without that flag to avoid some segmentation faults (with gdb referring to some Eigen functions).
+[4.493s] -- Found SQLite3: /usr/include /usr/lib/x86_64-linux-gnu/libsqlite3.so
+[4.569s] -- Found OpenMP_C: -fopenmp (found version "4.5") 
+[4.569s] -- Found OpenMP: TRUE (found version "4.5") found components: C CXX 
+[4.570s] -- Found OpenMP: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so;/usr/lib/x86_64-linux-gnu/libpthread.a
+[4.570s] -- Add PCL_OMP to definitions
+[4.570s] -- Found OpenCV: /usr/include/opencv4
+[4.570s] -- Found PCL: /usr/include/pcl-1.14;/usr/include/eigen3;/usr/include;/usr/include/ni
+[4.570s] -- Found ZLIB: /usr/include
+[4.585s] -- Found Threads: TRUE  
+[4.587s] -- Found GLEW: /usr/lib/x86_64-linux-gnu/libGLEW.so  
+[4.589s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so  found components: OpenGL GLX 
+[4.868s] -- Found Python3: /usr/bin/python3 (found suitable version "3.12.3", minimum required is "3.12") found components: Interpreter Development.Module Development.Embed 
+[4.990s] -- Found MPI_C: /usr/lib/x86_64-linux-gnu/libmpi.so (found version "3.1") 
+[4.990s] -- Found MPI: TRUE (found version "3.1") found components: C 
+[5.304s] -- Found HDF5: /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so;/usr/lib/x86_64-linux-gnu/libcrypto.so;/usr/lib/x86_64-linux-gnu/libcurl.so;/usr/lib/x86_64-linux-gnu/libpthread.a;/usr/lib/x86_64-linux-gnu/libsz.so;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libdl.a;/usr/lib/x86_64-linux-gnu/libm.so (found version "1.10.10") found components: C HL 
+[5.310s] -- Found NetCDF: /usr/include (found version "4.9.2") 
+[5.314s] -- Found OGG: /usr/lib/x86_64-linux-gnu/libogg.so  
+[5.318s] -- Found THEORA: /usr/lib/x86_64-linux-gnu/libtheora.so  
+[5.322s] -- Found JsonCpp: /usr/lib/x86_64-linux-gnu/libjsoncpp.so (found suitable version "1.9.5", minimum required is "0.7.0") 
+[5.377s] -- Found LibXml2: /usr/lib/x86_64-linux-gnu/libxml2.so (found version "2.9.14") 
+[5.406s] -- Found GL2PS: /usr/lib/x86_64-linux-gnu/libgl2ps.so (found suitable version "1.4.2", minimum required is "1.4.2") 
+[5.441s] -- Found SQLite3: /usr/include (found version "3.45.1") 
+[5.451s] -- Found LibPROJ: /usr/lib/x86_64-linux-gnu/libproj.so (found version "9.4.0") 
+[5.453s] -- Found Eigen3: /usr/include/eigen3 (found version "3.4.0") 
+[5.548s] -- Found X11: /usr/include   
+[5.647s] -- Found EXPAT: /usr/lib/x86_64-linux-gnu/libexpat.so (found version "2.6.1") 
+[5.648s] -- Found double-conversion: /usr/lib/x86_64-linux-gnu/libdouble-conversion.so  
+[5.650s] -- Found LZ4: /usr/lib/x86_64-linux-gnu/liblz4.so (found version "1.9.4") 
+[5.651s] -- Found LZMA: /usr/lib/x86_64-linux-gnu/liblzma.so (found version "5.4.5") 
+[5.668s] -- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80") 
+[5.691s] -- Found TIFF: /usr/lib/x86_64-linux-gnu/libtiff.so (found version "4.5.1")  
+[5.695s] -- Found Freetype: /usr/lib/x86_64-linux-gnu/libfreetype.so (found version "2.13.2") 
+[5.700s] -- Found utf8cpp: /usr/include/utf8cpp  
+[5.712s] -- VTK>=9 detected, will use VTK_QT_VERSION=5 for Qt version.
+[5.718s] -- VTK_RENDERING_BACKEND=
+[5.771s] -- Found OpenNI2: /usr/include/openni2
+[5.775s] -- Found DC1394: /usr/include/dc1394
+[5.791s] -- Found Eigen3: /usr/include/eigen3 (Required is at least version "2.91.0") 
+[5.794s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+[5.798s] -- Found g2o (targets)
+[5.798s] -- g2o include dir: /opt/ros/jazzy/include/g2o/core;/opt/ros/jazzy/include
+[5.798s] -- Latest g2o factory version detected with shared ptr (factory file: /opt/ros/jazzy/include/g2o/core/factory.h).
+[5.840s] -- GTSAM include directory:  /opt/ros/jazzy/lib/cmake/GTSAM/../../../include
+[5.858s] -- FlyCapture2_INCLUDE_DIR=FlyCapture2_INCLUDE_DIR-NOTFOUND
+[5.858s] -- FlyCapture2_LIBRARY=FlyCapture2_LIBRARY-NOTFOUND
+[5.858s] -- Triclops_INCLUDE_DIR=Triclops_INCLUDE_DIR-NOTFOUND
+[5.858s] -- Triclops_LIBRARY=Triclops_LIBRARY-NOTFOUND
+[5.858s] -- FlyCaptureBridge_LIBRARY=FlyCaptureBridge_LIBRARY-NOTFOUND
+[5.873s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: thread filesystem system program_options date_time 
+[5.879s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: thread filesystem system program_options date_time chrono 
+[5.882s] -- Found libpointmatcher: /opt/ros/jazzy/include;/usr/include/eigen3
+[5.890s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: thread filesystem system program_options date_time 
+[5.895s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: thread filesystem system program_options date_time chrono timer serialization 
+[5.926s] -- Found RealSense2: 
+[5.942s] -- Found octomap 1.9.7: /usr/include
+[5.956s] -- Architecture: x86_64
+[5.968s] -- Performing Test COMPILER_SUPPORTS_CXX17
+[6.059s] -- Performing Test COMPILER_SUPPORTS_CXX17 - Success
+[6.065s] -- Found Pthreads
+[6.067s] -- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY
+[6.159s] -- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success
+[6.160s] -- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY
+[6.263s] -- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success
+[6.263s] -- Performing Test COMPILER_HAS_DEPRECATED_ATTR
+[6.357s] -- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success
+[6.397s] [0mCMake Deprecation Warning at examples/LidarMapping/CMakeLists.txt:1 (cmake_minimum_required):
+[6.397s]   Compatibility with CMake < 3.5 will be removed from a future version of
+[6.397s]   CMake.
+[6.397s] 
+[6.397s]   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+[6.397s]   CMake that the project does not need compatibility with older versions.
+[6.397s] 
+[6.397s] [0m
+[6.420s] -- --------------------------------------------
+[6.420s] -- Info :
+[6.420s] --   RTAB-Map Version =     0.21.10
+[6.420s] --   CMAKE_VERSION =        3.28.3
+[6.420s] --   CMAKE_INSTALL_PREFIX = /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap
+[6.420s] --   CMAKE_BUILD_TYPE =     Release
+[6.420s] --   CMAKE_INSTALL_LIBDIR = lib
+[6.420s] --   BUILD_APP =            ON
+[6.420s] --   BUILD_TOOLS =          ON
+[6.420s] --   BUILD_EXAMPLES =       ON
+[6.420s] --   BUILD_SHARED_LIBS =    ON
+[6.420s] --   CMAKE_CXX_FLAGS =  -fmessage-length=0 -fopenmp -std=c++17
+[6.420s] --   FLANN_KDTREE_MEM_OPT = OFF
+[6.420s] --   PCL_DEFINITIONS = -DEIGEN_HAS_CXX17_OVERALIGN=0
+[6.420s] --   PCL_VERSION = 1.14.0
+[6.421s] -- 
+[6.421s] -- Optional dependencies ('*' affects some default parameters) :
+[6.421s] --  *With OpenCV 4.6.0 xfeatures2d = NO, nonfree = NO (License: Apache 2)
+[6.421s] --   With Qt 5.15.13            = YES (License: Open Source or Commercial)
+[6.421s] --   With VTK 9.1              = YES (License: BSD)
+[6.421s] --   With external SQLite3     = YES (License: Public Domain)
+[6.421s] --   With ORB OcTree           = YES (License: GPLv3)
+[6.421s] --   With SupertPoint          = NO (WITH_TORCH=OFF)
+[6.421s] --   With Python3              = NO (WITH_PYTHON=OFF)
+[6.421s] --   With Madgwick             = YES (License: GPL)
+[6.421s] --   With FastCV               = NO (FastCV not found)
+[6.421s] --   With PDAL                 = NO (PDAL not found)
+[6.421s] --   With libLAS               = NO (WITH_LIBLAS=OFF)
+[6.421s] --   With CudaSift             = NO (WITH_CUDASIFT=OFF)
+[6.421s] -- 
+[6.421s] --  Solvers:
+[6.421s] --   With TORO                 = YES (License: Creative Commons [Attribution-NonCommercial-ShareAlike])
+[6.421s] --  *With g2o 1.0.0            = YES (License: BSD)
+[6.421s] --  *With GTSAM 4.2.0          = YES (License: BSD)
+[6.422s] --  *With Ceres                = NO (WITH_CERES=OFF)
+[6.422s] --   With MRPT                 = NO (MRPT not found)
+[6.422s] --   With VERTIGO              = YES (License: GPLv3)
+[6.422s] --   With cvsba                = NO (WITH_CVSBA=OFF)
+[6.422s] --  *With libpointmatcher 1.4.2 = YES (License: BSD)
+[6.422s] --   With CCCoreLib            = NO (WITH_CCCORELIB=OFF)
+[6.422s] --   With Open3D               = NO (WITH_OPEN3D=OFF)
+[6.422s] --   With OpenGV               = NO (OpenGV not found)
+[6.422s] -- 
+[6.422s] --  Reconstruction Approaches:
+[6.422s] --   With OctoMap 1.9.7        = YES (License: BSD)
+[6.422s] --   With GridMap              = NO (grid_map_core not found)
+[6.422s] --   With CPUTSDF              = NO (WITH_CPUTSDF=OFF)
+[6.422s] --   With OpenChisel           = NO (WITH_OPENCHISEL=OFF)
+[6.422s] --   With AliceVision          = NO (WITH_ALICE_VISION=OFF)
+[6.422s] -- 
+[6.422s] --  Camera Drivers:
+[6.422s] --   With Freenect             = NO (libfreenect not found)
+[6.422s] --   With OpenNI               = NO (OpenNI not found)
+[6.423s] --   With OpenNI2              = YES (License: Apache v2)
+[6.423s] --   With Freenect2            = NO (libfreenect2 not found)
+[6.423s] --   With Kinect for Windows 2 = NO (Kinect for Windows 2 SDK not found)
+[6.423s] --   With Kinect for Azure     = NO (Kinect for Azure SDK not found)
+[6.423s] --   With dc1394               = YES (License: LGPL)
+[6.423s] --   With FlyCapture2/Triclops = NO (Point Grey SDK not found)
+[6.423s] --   With ZED                  = NO (ZED sdk and/or cuda not found)
+[6.423s] --   With ZEDOC                = NO (ZED Open Capture not found)
+[6.423s] --   With RealSense            = NO (librealsense not found)
+[6.423s] --   With RealSense2 2.55.1    = YES (License: Apache-2)
+[6.423s] --   With MyntEyeS             = NO (mynteye s sdk not found)
+[6.423s] --   With DepthAI              = NO (WITH_DEPTHAI=OFF)
+[6.423s] --   With XVisio SDK           = NO (WITH_XVSDK=OFF)
+[6.423s] -- 
+[6.423s] --  Odometry Approaches:
+[6.423s] --   With loam_velodyne        = NO (WITH_LOAM=OFF)
+[6.423s] --   With floam                = NO (WITH_FLOAM=OFF)
+[6.423s] --   With libfovis             = NO (WITH_FOVIS=OFF)
+[6.424s] --   With libviso2             = NO (WITH_VISO2=OFF)
+[6.424s] --   With dvo_core             = NO (WITH_DVO=OFF)
+[6.424s] --   With okvis                = NO (WITH_OKVIS=OFF)
+[6.424s] --   With msckf_vio            = NO (WITH_MSCKF_VIO=OFF)
+[6.424s] --   With VINS-Fusion          = NO (WITH_VINS=OFF)
+[6.424s] --   With OpenVINS             = NO (WITH_OPENVINS=OFF)
+[6.424s] --   With ORB_SLAM             = NO (WITH_ORB_SLAM=OFF)
+[6.424s] -- Show all options with: cmake -LA | grep WITH_
+[6.424s] -- --------------------------------------------
+[6.424s] -- Configuring done (6.4s)
+[6.837s] -- Generating done (0.3s)
+[6.901s] -- Build files have been written to: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap
+[6.938s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap -DCMAKE_INSTALL_PREFIX=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap
+[6.940s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap -- -j22 -l22
+[6.996s] [  1%] [32mBuilding CXX object utilite/src/CMakeFiles/rtabmap_utilite.dir/UEventsSender.cpp.o[0m
+[6.997s] [  1%] [32mBuilding CXX object utilite/src/CMakeFiles/rtabmap_utilite.dir/UEventsManager.cpp.o[0m
+[6.997s] [  1%] [32mBuilding CXX object utilite/src/CMakeFiles/rtabmap_utilite.dir/UEventsHandler.cpp.o[0m
+[6.997s] [  1%] [32mBuilding CXX object utilite/src/CMakeFiles/rtabmap_utilite.dir/UThread.cpp.o[0m
+[6.997s] [  2%] [32mBuilding CXX object utilite/src/CMakeFiles/rtabmap_utilite.dir/ULogger.cpp.o[0m
+[6.997s] [  2%] [32mBuilding CXX object utilite/src/CMakeFiles/rtabmap_utilite.dir/UVariant.cpp.o[0m
+[6.998s] [  3%] [32mBuilding CXX object utilite/src/CMakeFiles/rtabmap_utilite.dir/UFile.cpp.o[0m
+[6.998s] [  3%] [32mBuilding CXX object utilite/src/CMakeFiles/rtabmap_utilite.dir/UProcessInfo.cpp.o[0m
+[6.998s] [  3%] [32mBuilding CXX object utilite/src/CMakeFiles/rtabmap_utilite.dir/UConversion.cpp.o[0m
+[6.999s] [  3%] [32mBuilding CXX object utilite/src/CMakeFiles/rtabmap_utilite.dir/UDirectory.cpp.o[0m
+[7.000s] [  4%] [32mBuilding CXX object utilite/src/CMakeFiles/rtabmap_utilite.dir/UTimer.cpp.o[0m
+[8.356s] [  5%] [32m[1mLinking CXX shared library ../../bin/librtabmap_utilite.so[0m
+[8.448s] [  5%] Built target rtabmap_utilite
+[8.471s] [  5%] [32mBuilding CXX object utilite/resource_generator/CMakeFiles/res_tool.dir/main.cpp.o[0m
+[9.289s] [  5%] [32m[1mLinking CXX executable ../../bin/rtabmap-res_tool[0m
+[9.370s] [  5%] Built target res_tool
+[9.382s] [  5%] [34m[1m[Creating resources][0m
+[9.385s]  Using namespace=rtabmap
+[9.385s]  Using target directory=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap/corelib/src
+[9.385s] Input file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/resources/DatabaseSchema.sql" size = 5901 bytes
+[9.385s] Output file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap/corelib/src/DatabaseSchema_sql.h" size = 12029 bytes
+[9.385s] Input file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/resources/backward_compatibility/DatabaseSchema_0_18_3.sql" size = 5749 bytes
+[9.386s] Output file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap/corelib/src/DatabaseSchema_0_18_3_sql.h" size = 11753 bytes
+[9.386s] Input file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/resources/backward_compatibility/DatabaseSchema_0_18_0.sql" size = 5749 bytes
+[9.386s] Output file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap/corelib/src/DatabaseSchema_0_18_0_sql.h" size = 11753 bytes
+[9.386s] Input file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/resources/backward_compatibility/DatabaseSchema_0_17_0.sql" size = 5432 bytes
+[9.386s] Output file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap/corelib/src/DatabaseSchema_0_17_0_sql.h" size = 11119 bytes
+[9.386s] Input file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/resources/backward_compatibility/DatabaseSchema_0_16_2.sql" size = 5362 bytes
+[9.386s] Output file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap/corelib/src/DatabaseSchema_0_16_2_sql.h" size = 10979 bytes
+[9.386s] Input file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/resources/backward_compatibility/DatabaseSchema_0_16_1.sql" size = 5286 bytes
+[9.386s] Output file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap/corelib/src/DatabaseSchema_0_16_1_sql.h" size = 10827 bytes
+[9.386s] Input file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/resources/backward_compatibility/DatabaseSchema_0_16_0.sql" size = 5273 bytes
+[9.386s] Output file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap/corelib/src/DatabaseSchema_0_16_0_sql.h" size = 10801 bytes
+[9.417s] [  7%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/DBDriver.cpp.o[0m
+[9.419s] [  8%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/DBReader.cpp.o[0m
+[9.419s] [  8%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Recovery.cpp.o[0m
+[9.419s] [  7%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Memory.cpp.o[0m
+[9.420s] [  9%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/SensorCaptureThread.cpp.o[0m
+[9.420s] [  9%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/RtabmapThread.cpp.o[0m
+[9.420s] [ 10%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/CameraModel.cpp.o[0m
+[9.420s] [ 10%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraFreenect.cpp.o[0m
+[9.420s] [ 10%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/DBDriverSqlite3.cpp.o[0m
+[9.420s] [ 10%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/SensorCapture.cpp.o[0m
+[9.420s] [ 10%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Camera.cpp.o[0m
+[9.421s] [ 10%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Statistics.cpp.o[0m
+[9.421s] [ 11%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraImages.cpp.o[0m
+[9.422s] [ 11%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Rtabmap.cpp.o[0m
+[9.423s] [ 11%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraFreenect2.cpp.o[0m
+[9.425s] [ 11%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraK4W2.cpp.o[0m
+[9.426s] [ 12%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraK4A.cpp.o[0m
+[9.427s] [ 12%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraOpenNI2.cpp.o[0m
+[9.427s] [ 12%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraOpenni.cpp.o[0m
+[9.431s] [ 13%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraOpenNICV.cpp.o[0m
+[9.447s] [ 13%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraRealSense.cpp.o[0m
+[9.458s] [ 14%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraRealSense2.cpp.o[0m
+[15.741s] [ 14%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraRGBDImages.cpp.o[0m
+[16.603s] [ 14%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraStereoDC1394.cpp.o[0m
+[16.905s] [ 15%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraStereoFlyCapture2.cpp.o[0m
+[18.178s] [ 15%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraStereoImages.cpp.o[0m
+[18.178s] [ 15%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraStereoVideo.cpp.o[0m
+[18.475s] [ 16%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraStereoZed.cpp.o[0m
+[18.919s] [ 16%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraStereoZedOC.cpp.o[0m
+[19.587s] [ 17%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraStereoTara.cpp.o[0m
+[20.105s] [ 17%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraVideo.cpp.o[0m
+[21.024s] [ 17%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraMyntEye.cpp.o[0m
+[22.575s] [ 18%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraDepthAI.cpp.o[0m
+[22.600s] [ 18%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/camera/CameraSeerSense.cpp.o[0m
+[24.732s] [ 19%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/EpipolarGeometry.cpp.o[0m
+[24.794s] [ 19%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/VisualWord.cpp.o[0m
+[24.984s] [ 19%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/VWDictionary.cpp.o[0m
+[25.885s] [ 20%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/BayesFilter.cpp.o[0m
+[26.037s] [ 20%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Parameters.cpp.o[0m
+[26.518s] [ 21%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Signature.cpp.o[0m
+[26.614s] [ 21%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Features2d.cpp.o[0m
+[26.805s] [ 21%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Transform.cpp.o[0m
+[27.327s] [ 22%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/GeodeticCoords.cpp.o[0m
+[27.385s] [ 22%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/util2d.cpp.o[0m
+[27.989s] [ 22%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/util3d.cpp.o[0m
+[28.248s] [ 23%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/util3d_filtering.cpp.o[0m
+[28.984s] [ 23%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/util3d_mapping.cpp.o[0m
+[29.764s] [ 24%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/util3d_transforms.cpp.o[0m
+[29.940s] [ 24%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/util3d_registration.cpp.o[0m
+[30.026s] [ 24%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/util3d_surface.cpp.o[0m
+[30.088s] [ 25%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/util3d_features.cpp.o[0m
+[30.985s] [ 25%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/util3d_correspondences.cpp.o[0m
+[34.865s] [ 26%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/util3d_motion_estimation.cpp.o[0m
+[35.251s] [ 26%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/rvl_codec.cpp.o[0m
+[35.447s] [ 26%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/SensorData.cpp.o[0m
+[35.665s] [ 27%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Graph.cpp.o[0m
+[36.140s] [ 27%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Compression.cpp.o[0m
+[40.101s] [ 28%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Link.cpp.o[0m
+[40.161s] [ 28%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/LaserScan.cpp.o[0m
+[40.172s] [ 28%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Optimizer.cpp.o[0m
+[40.353s] [ 29%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/OptimizerTORO.cpp.o[0m
+[41.860s] [ 29%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/OptimizerG2O.cpp.o[0m
+[42.474s] [ 29%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/OptimizerGTSAM.cpp.o[0m
+[42.586s] [ 30%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/OptimizerCVSBA.cpp.o[0m
+[42.856s] [ 30%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/OptimizerCeres.cpp.o[0m
+[43.128s] [ 31%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Registration.cpp.o[0m
+[43.698s] [ 31%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/RegistrationIcp.cpp.o[0m
+[43.792s] [ 31%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/RegistrationVis.cpp.o[0m
+[43.859s] [ 32%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Odometry.cpp.o[0m
+[44.397s] [ 32%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/OdometryThread.cpp.o[0m
+[45.009s] [ 33%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryF2M.cpp.o[0m
+[45.988s] [ 33%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryMono.cpp.o[0m
+[48.944s] [ 33%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryF2F.cpp.o[0m
+[50.560s] [ 34%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryFovis.cpp.o[0m
+[50.560s] [ 34%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryViso2.cpp.o[0m
+[51.260s] [ 35%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryDVO.cpp.o[0m
+[53.239s] [ 35%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryOkvis.cpp.o[0m
+[53.896s] [ 35%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryORBSLAM2.cpp.o[0m
+[53.991s] [ 36%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryORBSLAM3.cpp.o[0m
+[54.519s] [ 36%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryLOAM.cpp.o[0m
+[56.323s] [ 36%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryFLOAM.cpp.o[0m
+[56.981s] [ 37%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryMSCKF.cpp.o[0m
+[57.023s] [ 37%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryVINS.cpp.o[0m
+[58.010s] [ 38%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryOpenVINS.cpp.o[0m
+[58.303s] [ 38%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/odometry/OdometryOpen3D.cpp.o[0m
+[58.383s] [ 38%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/IMU.cpp.o[0m
+[59.187s] [ 39%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/IMUThread.cpp.o[0m
+[61.506s] [ 39%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/IMUFilter.cpp.o[0m
+[61.542s] [ 40%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/imufilter/ComplementaryFilter.cpp.o[0m
+[62.404s] [ 40%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/Stereo.cpp.o[0m
+[62.443s] In file included from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/vertigo/gtsam/switchVariableLinear.h:14[m[K,
+[62.443s]                  from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/vertigo/gtsam/betweenFactorSwitchable.h:17[m[K,
+[62.443s]                  from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/OptimizerGTSAM.cpp:60[m[K:
+[62.443s] [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/vertigo/gtsam/DerivedValue.h:117:25:[m[K [01;35m[Kwarning: [m[K‘[01m[Kgtsam::Value& rtabmap::DerivedValue<DERIVED>::[01;32m[Koperator=[m[K(const gtsam::Value&) [35m[K[with DERIVED = vertigo::SwitchVariableLinear][m[K[m[K’ was hidden [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Woverloaded-virtual=-Woverloaded-virtual=]8;;[m[K]
+[62.443s]   117 |   virtual gtsam::Value& [01;35m[Koperator[m[K=(const gtsam::Value& rhs) {
+[62.443s]       |                         [01;35m[K^~~~~~~~[m[K
+[62.443s] [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/vertigo/gtsam/switchVariableLinear.h:22:10:[m[K [01;36m[Knote: [m[K  by ‘[01m[Kvertigo::SwitchVariableLinear::operator=[m[K’
+[62.443s]    22 |   struct [01;36m[KSwitchVariableLinear[m[K : public rtabmap::DerivedValue<SwitchVariableLinear> {
+[62.443s]       |          [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[62.462s] [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/vertigo/gtsam/DerivedValue.h:117:25:[m[K [01;35m[Kwarning: [m[K‘[01m[Kgtsam::Value& rtabmap::DerivedValue<DERIVED>::[01;32m[Koperator=[m[K(const gtsam::Value&) [35m[K[with DERIVED = vertigo::SwitchVariableSigmoid][m[K[m[K’ was hidden [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Woverloaded-virtual=-Woverloaded-virtual=]8;;[m[K]
+[62.462s]   117 |   virtual gtsam::Value& [01;35m[Koperator[m[K=(const gtsam::Value& rhs) {
+[62.462s]       |                         [01;35m[K^~~~~~~~[m[K
+[62.462s] In file included from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/vertigo/gtsam/betweenFactorSwitchable.h:18[m[K:
+[62.462s] [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/vertigo/gtsam/switchVariableSigmoid.h:22:10:[m[K [01;36m[Knote: [m[K  by ‘[01m[Kvertigo::SwitchVariableSigmoid::operator=[m[K’
+[62.462s]    22 |   struct [01;36m[KSwitchVariableSigmoid[m[K : public rtabmap::DerivedValue<SwitchVariableSigmoid> {
+[62.462s]       |          [01;36m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[62.609s] [ 40%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/StereoDense.cpp.o[0m
+[63.153s] [ 41%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/StereoCameraModel.cpp.o[0m
+[63.783s] [ 41%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/stereo/StereoBM.cpp.o[0m
+[64.864s] [ 42%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/stereo/StereoSGBM.cpp.o[0m
+[65.094s] [ 42%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/GlobalMap.cpp.o[0m
+[65.296s] [ 42%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/LocalGridMaker.cpp.o[0m
+[65.424s] [ 43%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/LocalGrid.cpp.o[0m
+[65.673s] [ 43%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/global_map/OccupancyGrid.cpp.o[0m
+[65.962s] [ 43%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/global_map/CloudMap.cpp.o[0m
+[66.097s] [ 44%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/MarkerDetector.cpp.o[0m
+[66.251s] [ 44%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/GlobalDescriptorExtractor.cpp.o[0m
+[66.297s] [ 45%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/GainCompensator.cpp.o[0m
+[66.878s] [ 45%] [32mBuilding C object corelib/src/CMakeFiles/rtabmap_core.dir/rtflann/ext/lz4.c.o[0m
+[67.073s] [ 45%] [32mBuilding C object corelib/src/CMakeFiles/rtabmap_core.dir/rtflann/ext/lz4hc.c.o[0m
+[68.063s] [ 46%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/FlannIndex.cpp.o[0m
+[68.180s] [ 46%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/clams/discrete_depth_distortion_model_helpers.cpp.o[0m
+[68.840s] [ 47%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/clams/discrete_depth_distortion_model.cpp.o[0m
+[69.413s] [ 47%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/clams/frame_projector.cpp.o[0m
+[69.731s] [ 47%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/clams/slam_calibrator.cpp.o[0m
+[69.792s] [ 48%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/opencv/ORBextractor.cc.o[0m
+[70.023s] [ 48%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/opencv/solvepnp.cpp.o[0m
+[70.150s] [ 49%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/opencv/five-point.cpp.o[0m
+[70.440s] [ 49%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/lidar/LidarVLP16.cpp.o[0m
+[72.156s] [ 49%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/toro3d/posegraph3.cpp.o[0m
+[72.252s] [ 50%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/toro3d/treeoptimizer3_iteration.cpp.o[0m
+[72.280s] [ 50%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/toro3d/treeoptimizer3.cpp.o[0m
+[72.357s] In file included from [01m[K/usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h:31[m[K,
+[72.357s]                  from [01m[K/usr/include/eigen3/Eigen/src/Core/util/ConfigureVectorization.h:346[m[K,
+[72.357s]                  from [01m[K/usr/include/eigen3/Eigen/Core:22[m[K,
+[72.357s]                  from [01m[K/usr/include/eigen3/Eigen/StdVector:14[m[K,
+[72.357s]                  from [01m[K/usr/include/pcl-1.14/pcl/point_cloud.h:45[m[K,
+[72.358s]                  from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/../include/rtabmap/core/util3d_registration.h:33[m[K,
+[72.358s]                  from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/util3d_registration.cpp:28[m[K:
+[72.358s] In function ‘[01m[K__m128[01;32m[K _mm_loadu_ps[m[K(const float*)[m[K’,
+[72.358s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadu[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(4) float][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h:739:22[m[K,
+[72.359s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadt[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(4) float; int Alignment = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h:969:26[m[K,
+[72.359s]     inlined from ‘[01m[KPacketType Eigen::internal::evaluator<Eigen::PlainObjectBase<Derived> >::[01;32m[Kpacket[m[K(Eigen::Index) const [35m[K[with int LoadMode = 0; PacketType = __vector(4) float; Derived = Eigen::Matrix<float, 3, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:245:40[m[K,
+[72.359s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacket[m[K(Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(4) float; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:681:114[m[K,
+[72.361s]     inlined from ‘[01m[Kstatic void Eigen::internal::dense_assignment_loop<Kernel, 3, 0>::[01;32m[Krun[m[K(Kernel&) [35m[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false> >, Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >, Eigen::internal::assign_op<float, float>, 0>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:437:75[m[K,
+[72.362s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_dense_assignment_loop[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false>; SrcXprType = Eigen::Matrix<float, 3, 1>; Functor = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:785:37[m[K,
+[72.364s]     inlined from ‘[01m[Kstatic void Eigen::internal::Assignment<DstXprType, SrcXprType, Functor, Eigen::internal::Dense2Dense, Weak>::[01;32m[Krun[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false>; SrcXprType = Eigen::Matrix<float, 3, 1>; Functor = Eigen::internal::assign_op<float, float>; Weak = void][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:954:31[m[K,
+[72.364s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment_no_alias[m[K(Dst&, const Src&, const Func&) [35m[K[with Dst = Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false>; Src = Eigen::Matrix<float, 3, 1>; Func = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49[m[K,
+[72.364s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&, const Func&, typename enable_if<(! evaluator_assume_aliasing<Src>::value), void*>::type) [35m[K[with Dst = Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false>; Src = Eigen::Matrix<float, 3, 1>; Func = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:858:27[m[K,
+[72.364s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&) [35m[K[with Dst = Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false>; Src = Eigen::Matrix<float, 3, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:836:18[m[K,
+[72.364s]     inlined from ‘[01m[KDerived& Eigen::MatrixBase<Derived>::[01;32m[Koperator=[m[K(const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::Matrix<float, 3, 1>; Derived = Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Assign.h:66:28[m[K,
+[72.364s]     inlined from ‘[01m[Ktypename Eigen::internal::umeyama_transform_matrix_type<MatrixType, OtherMatrixType>::type Eigen::[01;32m[Kumeyama[m[K(const MatrixBase<Derived>&, const MatrixBase<U>&, bool) [35m[K[with Derived = Matrix<float, 3, -1>; OtherDerived = Matrix<float, 3, -1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Geometry/Umeyama.h:157:23[m[K:
+[72.365s] [01m[K/usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h:940:23:[m[K [01;35m[Kwarning: [m[Karray subscript ‘[01m[K__m128_u[0][m[K’ is partly outside array bounds of ‘[01m[Kconst VectorType [1][m[K’ {aka ‘[01m[Kconst Eigen::Matrix<float, 3, 1> [1][m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Warray-bounds=-Warray-bounds=]8;;[m[K]
+[72.365s]   940 |   return *(__m128_u *)[01;35m[K__P[m[K;
+[72.365s]       |                       [01;35m[K^~~[m[K
+[72.365s] In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:50[m[K,
+[72.365s]                  from [01m[K/usr/include/pcl-1.14/pcl/point_cloud.h:46[m[K:
+[72.365s] [01m[K/usr/include/eigen3/Eigen/src/Geometry/Umeyama.h:[m[K In function ‘[01m[Ktypename Eigen::internal::umeyama_transform_matrix_type<MatrixType, OtherMatrixType>::type Eigen::[01;32m[Kumeyama[m[K(const MatrixBase<Derived>&, const MatrixBase<U>&, bool) [35m[K[with Derived = Matrix<float, 3, -1>; OtherDerived = Matrix<float, 3, -1>][m[K[m[K’:
+[72.365s] [01m[K/usr/include/eigen3/Eigen/src/Geometry/Umeyama.h:119:20:[m[K [01;36m[Knote: [m[Kat offset [0, 8] into object ‘[01m[Kdst_mean[m[K’ of size 12
+[72.365s]   119 |   const VectorType [01;36m[Kdst_mean[m[K = dst.rowwise().sum() * one_over_n;
+[72.365s]       |                    [01;36m[K^~~~~~~~[m[K
+[72.366s] In function ‘[01m[K__m128[01;32m[K _mm_loadu_ps[m[K(const float*)[m[K’,
+[72.366s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadu[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(4) float][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h:739:22[m[K,
+[72.366s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadt[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(4) float; int Alignment = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h:969:26[m[K,
+[72.366s]     inlined from ‘[01m[KPacketType Eigen::internal::evaluator<Eigen::PlainObjectBase<Derived> >::[01;32m[Kpacket[m[K(Eigen::Index) const [35m[K[with int LoadMode = 0; PacketType = __vector(4) float; Derived = Eigen::Matrix<float, 3, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:245:40[m[K,
+[72.370s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacket[m[K(Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(4) float; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:681:114[m[K,
+[72.371s]     inlined from ‘[01m[Kstatic void Eigen::internal::dense_assignment_loop<Kernel, 3, 0>::[01;32m[Krun[m[K(Kernel&) [35m[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false> >, Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >, Eigen::internal::assign_op<float, float>, 0>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:437:75[m[K,
+[72.371s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_dense_assignment_loop[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false>; SrcXprType = Eigen::Matrix<float, 3, 1>; Functor = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:785:37[m[K,
+[72.371s]     inlined from ‘[01m[Kstatic void Eigen::internal::Assignment<DstXprType, SrcXprType, Functor, Eigen::internal::Dense2Dense, Weak>::[01;32m[Krun[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false>; SrcXprType = Eigen::Matrix<float, 3, 1>; Functor = Eigen::internal::assign_op<float, float>; Weak = void][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:954:31[m[K,
+[72.371s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment_no_alias[m[K(Dst&, const Src&, const Func&) [35m[K[with Dst = Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false>; Src = Eigen::Matrix<float, 3, 1>; Func = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49[m[K,
+[72.371s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&, const Func&, typename enable_if<(! evaluator_assume_aliasing<Src>::value), void*>::type) [35m[K[with Dst = Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false>; Src = Eigen::Matrix<float, 3, 1>; Func = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:858:27[m[K,
+[72.371s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&) [35m[K[with Dst = Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false>; Src = Eigen::Matrix<float, 3, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:836:18[m[K,
+[72.371s]     inlined from ‘[01m[KDerived& Eigen::MatrixBase<Derived>::[01;32m[Koperator=[m[K(const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::Matrix<float, 3, 1>; Derived = Eigen::Block<Eigen::Block<Eigen::Matrix<float, 4, 4>, 4, 1, true>, -1, 1, false>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Assign.h:66:28[m[K,
+[72.371s]     inlined from ‘[01m[Ktypename Eigen::internal::umeyama_transform_matrix_type<MatrixType, OtherMatrixType>::type Eigen::[01;32m[Kumeyama[m[K(const MatrixBase<Derived>&, const MatrixBase<U>&, bool) [35m[K[with Derived = Matrix<float, 3, -1>; OtherDerived = Matrix<float, 3, -1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Geometry/Umeyama.h:151:23[m[K:
+[72.371s] [01m[K/usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h:940:23:[m[K [01;35m[Kwarning: [m[Karray subscript ‘[01m[K__m128_u[0][m[K’ is partly outside array bounds of ‘[01m[Kconst VectorType [1][m[K’ {aka ‘[01m[Kconst Eigen::Matrix<float, 3, 1> [1][m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Warray-bounds=-Warray-bounds=]8;;[m[K]
+[72.371s]   940 |   return *(__m128_u *)[01;35m[K__P[m[K;
+[72.371s]       |                       [01;35m[K^~~[m[K
+[72.371s] [01m[K/usr/include/eigen3/Eigen/src/Geometry/Umeyama.h:[m[K In function ‘[01m[Ktypename Eigen::internal::umeyama_transform_matrix_type<MatrixType, OtherMatrixType>::type Eigen::[01;32m[Kumeyama[m[K(const MatrixBase<Derived>&, const MatrixBase<U>&, bool) [35m[K[with Derived = Matrix<float, 3, -1>; OtherDerived = Matrix<float, 3, -1>][m[K[m[K’:
+[72.372s] [01m[K/usr/include/eigen3/Eigen/src/Geometry/Umeyama.h:119:20:[m[K [01;36m[Knote: [m[Kat offset [0, 8] into object ‘[01m[Kdst_mean[m[K’ of size 12
+[72.372s]   119 |   const VectorType [01;36m[Kdst_mean[m[K = dst.rowwise().sum() * one_over_n;
+[72.372s]       |                    [01;36m[K^~~~~~~~[m[K
+[72.961s] [ 50%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/toro3d/posegraph2.cpp.o[0m
+[73.125s] [ 51%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/toro3d/treeoptimizer2.cpp.o[0m
+[73.680s] [ 51%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/vertigo/g2o/edge_se2Switchable.cpp.o[0m
+[73.823s] [ 52%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/vertigo/g2o/edge_se3Switchable.cpp.o[0m
+[74.339s] [ 52%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/vertigo/g2o/edge_switchPrior.cpp.o[0m
+[74.530s] [ 52%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/vertigo/g2o/types_g2o_robust.cpp.o[0m
+[74.592s] [ 53%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/vertigo/g2o/vertex_switchLinear.cpp.o[0m
+[75.705s] [ 53%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/global_map/OctoMap.cpp.o[0m
+[75.844s] In function ‘[01m[K__m128[01;32m[K _mm_loadu_ps[m[K(const float*)[m[K’,
+[75.844s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadu[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(4) float][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h:739:22[m[K,
+[75.845s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadt[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(4) float; int Alignment = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h:969:26[m[K,
+[75.845s]     inlined from ‘[01m[KPacketType Eigen::internal::evaluator<Eigen::PlainObjectBase<Derived> >::[01;32m[Kpacket[m[K(Eigen::Index, Eigen::Index) const [35m[K[with int LoadMode = 0; PacketType = __vector(4) float; Derived = Eigen::Matrix<float, 3, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:238:42[m[K,
+[75.845s]     inlined from ‘[01m[KPacketType Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<BinaryOp, Lhs, Rhs>, Eigen::internal::IndexBased, Eigen::internal::IndexBased>::[01;32m[Kpacket[m[K(Eigen::Index, Eigen::Index) const [35m[K[with int LoadMode = 0; PacketType = __vector(4) float; BinaryOp = Eigen::internal::scalar_difference_op<float, float>; Lhs = const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>; Rhs = const Eigen::Matrix<float, 3, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:783:80[m[K,
+[75.845s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacket[m[K(Eigen::Index, Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(4) float; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> > >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:675:116[m[K,
+[75.846s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacketByOuterInner[m[K(Eigen::Index, Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(4) float; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> > >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:689:48[m[K,
+[75.846s]     inlined from ‘[01m[Kstatic void Eigen::internal::dense_assignment_loop<Kernel, 4, 0>::[01;32m[Krun[m[K(Kernel&) [35m[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false> >, Eigen::internal::evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> > >, Eigen::internal::assign_op<float, float>, 0>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:572:86[m[K,
+[75.846s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_dense_assignment_loop[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; SrcXprType = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Functor = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:785:37[m[K,
+[75.847s]     inlined from ‘[01m[Kstatic void Eigen::internal::Assignment<DstXprType, SrcXprType, Functor, Eigen::internal::Dense2Dense, Weak>::[01;32m[Krun[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; SrcXprType = Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Functor = Eigen::internal::assign_op<float, float>; Weak = void][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:954:31[m[K,
+[75.847s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment_no_alias[m[K(Dst&, const Src&, const Func&) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; Src = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Func = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49[m[K,
+[75.847s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&, const Func&, typename enable_if<(! evaluator_assume_aliasing<Src>::value), void*>::type) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; Src = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Func = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:858:27[m[K,
+[75.847s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; Src = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:836:18[m[K,
+[75.848s]     inlined from ‘[01m[KDerived& Eigen::MatrixBase<Derived>::[01;32m[Koperator=[m[K(const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Derived = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Assign.h:66:28[m[K,
+[75.848s]     inlined from ‘[01m[Kvoid pcl::registration::TransformationEstimationSVD<PointSource, PointTarget, Scalar>::[01;32m[KgetTransformationFromCorrelation[m[K(const Eigen::Matrix<LhsScalar, -1, -1, 0>&, const Eigen::Matrix<Scalar, 4, 1>&, const Eigen::Matrix<LhsScalar, -1, -1, 0>&, const Eigen::Matrix<Scalar, 4, 1>&, Matrix4&) const [35m[K[with PointSource = pcl::PointXYZINormal; PointTarget = pcl::PointXYZINormal; Scalar = float][m[K[m[K’ at [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_svd.hpp:216:43[m[K:
+[75.848s] [01m[K/usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h:940:23:[m[K [01;35m[Kwarning: [m[Karray subscript ‘[01m[K__m128_u[0][m[K’ is partly outside array bounds of ‘[01m[Kconst Eigen::Matrix<float, 3, 1> [1][m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Warray-bounds=-Warray-bounds=]8;;[m[K]
+[75.848s]   940 |   return *(__m128_u *)[01;35m[K__P[m[K;
+[75.848s]       |                       [01;35m[K^~~[m[K
+[75.849s] In file included from [01m[K/usr/include/pcl-1.14/pcl/registration/transformation_estimation_svd.h:157[m[K,
+[75.849s]                  from [01m[K/usr/include/pcl-1.14/pcl/registration/icp.h:48[m[K,
+[75.849s]                  from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/util3d_registration.cpp:34[m[K:
+[75.849s] [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_svd.hpp:[m[K In member function ‘[01m[Kvoid pcl::registration::TransformationEstimationSVD<PointSource, PointTarget, Scalar>::[01;32m[KgetTransformationFromCorrelation[m[K(const Eigen::Matrix<LhsScalar, -1, -1, 0>&, const Eigen::Matrix<Scalar, 4, 1>&, const Eigen::Matrix<LhsScalar, -1, -1, 0>&, const Eigen::Matrix<Scalar, 4, 1>&, Matrix4&) const [35m[K[with PointSource = pcl::PointXYZINormal; PointTarget = pcl::PointXYZINormal; Scalar = float][m[K[m[K’:
+[75.849s] [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_svd.hpp:215:37:[m[K [01;36m[Knote: [m[Kat offset [0, 8] into object ‘[01m[KRc[m[K’ of size 12
+[75.849s]   215 |   const Eigen::Matrix<Scalar, 3, 1> [01;36m[KRc[m[K(R * centroid_src.head(3));
+[75.850s]       |                                     [01;36m[K^~[m[K
+[75.926s] In function ‘[01m[K__m128[01;32m[K _mm_loadu_ps[m[K(const float*)[m[K’,
+[75.926s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadu[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(4) float][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h:739:22[m[K,
+[75.926s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadt[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(4) float; int Alignment = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h:969:26[m[K,
+[75.926s]     inlined from ‘[01m[KPacketType Eigen::internal::evaluator<Eigen::PlainObjectBase<Derived> >::[01;32m[Kpacket[m[K(Eigen::Index, Eigen::Index) const [35m[K[with int LoadMode = 0; PacketType = __vector(4) float; Derived = Eigen::Matrix<float, 3, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:238:42[m[K,
+[75.927s]     inlined from ‘[01m[KPacketType Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<BinaryOp, Lhs, Rhs>, Eigen::internal::IndexBased, Eigen::internal::IndexBased>::[01;32m[Kpacket[m[K(Eigen::Index, Eigen::Index) const [35m[K[with int LoadMode = 0; PacketType = __vector(4) float; BinaryOp = Eigen::internal::scalar_difference_op<float, float>; Lhs = const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>; Rhs = const Eigen::Matrix<float, 3, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:783:80[m[K,
+[75.927s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacket[m[K(Eigen::Index, Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(4) float; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> > >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:675:116[m[K,
+[75.927s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacketByOuterInner[m[K(Eigen::Index, Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(4) float; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> > >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:689:48[m[K,
+[75.927s]     inlined from ‘[01m[Kstatic void Eigen::internal::dense_assignment_loop<Kernel, 4, 0>::[01;32m[Krun[m[K(Kernel&) [35m[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false> >, Eigen::internal::evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> > >, Eigen::internal::assign_op<float, float>, 0>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:572:86[m[K,
+[75.927s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_dense_assignment_loop[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; SrcXprType = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Functor = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:785:37[m[K,
+[75.928s]     inlined from ‘[01m[Kstatic void Eigen::internal::Assignment<DstXprType, SrcXprType, Functor, Eigen::internal::Dense2Dense, Weak>::[01;32m[Krun[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; SrcXprType = Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Functor = Eigen::internal::assign_op<float, float>; Weak = void][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:954:31[m[K,
+[75.928s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment_no_alias[m[K(Dst&, const Src&, const Func&) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; Src = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Func = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49[m[K,
+[75.928s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&, const Func&, typename enable_if<(! evaluator_assume_aliasing<Src>::value), void*>::type) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; Src = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Func = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:858:27[m[K,
+[75.928s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; Src = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:836:18[m[K,
+[75.928s]     inlined from ‘[01m[KDerived& Eigen::MatrixBase<Derived>::[01;32m[Koperator=[m[K(const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Derived = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Assign.h:66:28[m[K,
+[75.929s]     inlined from ‘[01m[Kvoid pcl::registration::TransformationEstimationSVD<PointSource, PointTarget, Scalar>::[01;32m[KgetTransformationFromCorrelation[m[K(const Eigen::Matrix<LhsScalar, -1, -1, 0>&, const Eigen::Matrix<Scalar, 4, 1>&, const Eigen::Matrix<LhsScalar, -1, -1, 0>&, const Eigen::Matrix<Scalar, 4, 1>&, Matrix4&) const [35m[K[with PointSource = pcl::PointNormal; PointTarget = pcl::PointNormal; Scalar = float][m[K[m[K’ at [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_svd.hpp:216:43[m[K:
+[75.929s] [01m[K/usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h:940:23:[m[K [01;35m[Kwarning: [m[Karray subscript ‘[01m[K__m128_u[0][m[K’ is partly outside array bounds of ‘[01m[Kconst Eigen::Matrix<float, 3, 1> [1][m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Warray-bounds=-Warray-bounds=]8;;[m[K]
+[75.929s]   940 |   return *(__m128_u *)[01;35m[K__P[m[K;
+[75.934s]       |                       [01;35m[K^~~[m[K
+[75.934s] [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_svd.hpp:[m[K In member function ‘[01m[Kvoid pcl::registration::TransformationEstimationSVD<PointSource, PointTarget, Scalar>::[01;32m[KgetTransformationFromCorrelation[m[K(const Eigen::Matrix<LhsScalar, -1, -1, 0>&, const Eigen::Matrix<Scalar, 4, 1>&, const Eigen::Matrix<LhsScalar, -1, -1, 0>&, const Eigen::Matrix<Scalar, 4, 1>&, Matrix4&) const [35m[K[with PointSource = pcl::PointNormal; PointTarget = pcl::PointNormal; Scalar = float][m[K[m[K’:
+[75.934s] [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_svd.hpp:215:37:[m[K [01;36m[Knote: [m[Kat offset [0, 8] into object ‘[01m[KRc[m[K’ of size 12
+[75.934s]   215 |   const Eigen::Matrix<Scalar, 3, 1> [01;36m[KRc[m[K(R * centroid_src.head(3));
+[75.935s]       |                                     [01;36m[K^~[m[K
+[76.015s] In function ‘[01m[K__m128[01;32m[K _mm_loadu_ps[m[K(const float*)[m[K’,
+[76.015s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadu[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(4) float][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h:739:22[m[K,
+[76.015s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadt[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(4) float; int Alignment = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h:969:26[m[K,
+[76.015s]     inlined from ‘[01m[KPacketType Eigen::internal::evaluator<Eigen::PlainObjectBase<Derived> >::[01;32m[Kpacket[m[K(Eigen::Index, Eigen::Index) const [35m[K[with int LoadMode = 0; PacketType = __vector(4) float; Derived = Eigen::Matrix<float, 3, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:238:42[m[K,
+[76.016s]     inlined from ‘[01m[KPacketType Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<BinaryOp, Lhs, Rhs>, Eigen::internal::IndexBased, Eigen::internal::IndexBased>::[01;32m[Kpacket[m[K(Eigen::Index, Eigen::Index) const [35m[K[with int LoadMode = 0; PacketType = __vector(4) float; BinaryOp = Eigen::internal::scalar_difference_op<float, float>; Lhs = const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>; Rhs = const Eigen::Matrix<float, 3, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:783:80[m[K,
+[76.016s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacket[m[K(Eigen::Index, Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(4) float; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> > >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:675:116[m[K,
+[76.016s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacketByOuterInner[m[K(Eigen::Index, Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(4) float; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> > >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:689:48[m[K,
+[76.016s]     inlined from ‘[01m[Kstatic void Eigen::internal::dense_assignment_loop<Kernel, 4, 0>::[01;32m[Krun[m[K(Kernel&) [35m[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false> >, Eigen::internal::evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> > >, Eigen::internal::assign_op<float, float>, 0>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:572:86[m[K,
+[76.016s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_dense_assignment_loop[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; SrcXprType = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Functor = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:785:37[m[K,
+[76.016s]     inlined from ‘[01m[Kstatic void Eigen::internal::Assignment<DstXprType, SrcXprType, Functor, Eigen::internal::Dense2Dense, Weak>::[01;32m[Krun[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; SrcXprType = Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Functor = Eigen::internal::assign_op<float, float>; Weak = void][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:954:31[m[K,
+[76.016s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment_no_alias[m[K(Dst&, const Src&, const Func&) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; Src = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Func = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49[m[K,
+[76.020s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&, const Func&, typename enable_if<(! evaluator_assume_aliasing<Src>::value), void*>::type) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; Src = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Func = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:858:27[m[K,
+[76.021s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; Src = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:836:18[m[K,
+[76.021s]     inlined from ‘[01m[KDerived& Eigen::MatrixBase<Derived>::[01;32m[Koperator=[m[K(const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Derived = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Assign.h:66:28[m[K,
+[76.021s]     inlined from ‘[01m[Kvoid pcl::registration::TransformationEstimation2D<PointSource, PointTarget, Scalar>::[01;32m[KgetTransformationFromCorrelation[m[K(const Eigen::Matrix<LhsScalar, -1, -1, 0>&, const Eigen::Matrix<Scalar, 4, 1>&, const Eigen::Matrix<LhsScalar, -1, -1, 0>&, const Eigen::Matrix<Scalar, 4, 1>&, Matrix4&) const [35m[K[with PointSource = pcl::PointXYZ; PointTarget = pcl::PointXYZ; Scalar = float][m[K[m[K’ at [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_2D.hpp:181:52[m[K,
+[76.021s]     inlined from ‘[01m[Kvoid pcl::registration::TransformationEstimation2D<PointSource, PointTarget, Scalar>::[01;32m[KestimateRigidTransformation[m[K(pcl::ConstCloudIterator<PointT>&, pcl::ConstCloudIterator<PointTarget>&, Matrix4&) const [35m[K[with PointSource = pcl::PointXYZ; PointTarget = pcl::PointXYZ; Scalar = float][m[K[m[K’ at [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_2D.hpp:148:35[m[K:
+[76.021s] [01m[K/usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h:940:23:[m[K [01;35m[Kwarning: [m[Karray subscript ‘[01m[K__m128_u[0][m[K’ is partly outside array bounds of ‘[01m[Kconst Eigen::Matrix<float, 3, 1> [1][m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Warray-bounds=-Warray-bounds=]8;;[m[K]
+[76.021s]   940 |   return *(__m128_u *)[01;35m[K__P[m[K;
+[76.021s]       |                       [01;35m[K^~~[m[K
+[76.021s] In file included from [01m[K/usr/include/pcl-1.14/pcl/registration/transformation_estimation_2D.h:150[m[K,
+[76.021s]                  from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/util3d_registration.cpp:35[m[K:
+[76.021s] [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_2D.hpp:[m[K In function ‘[01m[Kvoid pcl::registration::TransformationEstimation2D<PointSource, PointTarget, Scalar>::[01;32m[KestimateRigidTransformation[m[K(pcl::ConstCloudIterator<PointT>&, pcl::ConstCloudIterator<PointTarget>&, Matrix4&) const [35m[K[with PointSource = pcl::PointXYZ; PointTarget = pcl::PointXYZ; Scalar = float][m[K[m[K’:
+[76.021s] [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_2D.hpp:180:37:[m[K [01;36m[Knote: [m[Kat offset [0, 8] into object ‘[01m[KRc[m[K’ of size 12
+[76.021s]   180 |   const Eigen::Matrix<Scalar, 3, 1> [01;36m[KRc[m[K(R * centroid_src.head(3).matrix());
+[76.021s]       |                                     [01;36m[K^~[m[K
+[76.146s] In function ‘[01m[K__m128[01;32m[K _mm_loadu_ps[m[K(const float*)[m[K’,
+[76.147s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadu[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(4) float][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h:739:22[m[K,
+[76.147s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadt[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(4) float; int Alignment = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h:969:26[m[K,
+[76.147s]     inlined from ‘[01m[KPacketType Eigen::internal::evaluator<Eigen::PlainObjectBase<Derived> >::[01;32m[Kpacket[m[K(Eigen::Index, Eigen::Index) const [35m[K[with int LoadMode = 0; PacketType = __vector(4) float; Derived = Eigen::Matrix<float, 3, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:238:42[m[K,
+[76.147s]     inlined from ‘[01m[KPacketType Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<BinaryOp, Lhs, Rhs>, Eigen::internal::IndexBased, Eigen::internal::IndexBased>::[01;32m[Kpacket[m[K(Eigen::Index, Eigen::Index) const [35m[K[with int LoadMode = 0; PacketType = __vector(4) float; BinaryOp = Eigen::internal::scalar_difference_op<float, float>; Lhs = const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>; Rhs = const Eigen::Matrix<float, 3, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:783:80[m[K,
+[76.147s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacket[m[K(Eigen::Index, Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(4) float; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> > >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:675:116[m[K,
+[76.147s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacketByOuterInner[m[K(Eigen::Index, Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(4) float; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> > >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:689:48[m[K,
+[76.148s]     inlined from ‘[01m[Kstatic void Eigen::internal::dense_assignment_loop<Kernel, 4, 0>::[01;32m[Krun[m[K(Kernel&) [35m[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false> >, Eigen::internal::evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> > >, Eigen::internal::assign_op<float, float>, 0>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:572:86[m[K,
+[76.148s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_dense_assignment_loop[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; SrcXprType = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Functor = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:785:37[m[K,
+[76.148s]     inlined from ‘[01m[Kstatic void Eigen::internal::Assignment<DstXprType, SrcXprType, Functor, Eigen::internal::Dense2Dense, Weak>::[01;32m[Krun[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; SrcXprType = Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Functor = Eigen::internal::assign_op<float, float>; Weak = void][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:954:31[m[K,
+[76.148s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment_no_alias[m[K(Dst&, const Src&, const Func&) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; Src = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Func = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49[m[K,
+[76.148s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&, const Func&, typename enable_if<(! evaluator_assume_aliasing<Src>::value), void*>::type) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; Src = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Func = assign_op<float, float>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:858:27[m[K,
+[76.148s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>; Src = Eigen::CwiseBinaryOp<scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:836:18[m[K,
+[76.149s]     inlined from ‘[01m[KDerived& Eigen::MatrixBase<Derived>::[01;32m[Koperator=[m[K(const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::CwiseBinaryOp<Eigen::internal::scalar_difference_op<float, float>, const Eigen::Block<const Eigen::Matrix<float, 4, 1>, -1, 1, false>, const Eigen::Matrix<float, 3, 1> >; Derived = Eigen::Block<Eigen::Matrix<float, 4, 4>, -1, -1, false>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Assign.h:66:28[m[K,
+[76.149s]     inlined from ‘[01m[Kvoid pcl::registration::TransformationEstimation2D<PointSource, PointTarget, Scalar>::[01;32m[KgetTransformationFromCorrelation[m[K(const Eigen::Matrix<LhsScalar, -1, -1, 0>&, const Eigen::Matrix<Scalar, 4, 1>&, const Eigen::Matrix<LhsScalar, -1, -1, 0>&, const Eigen::Matrix<Scalar, 4, 1>&, Matrix4&) const [35m[K[with PointSource = pcl::PointXYZI; PointTarget = pcl::PointXYZI; Scalar = float][m[K[m[K’ at [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_2D.hpp:181:52[m[K,
+[76.149s]     inlined from ‘[01m[Kvoid pcl::registration::TransformationEstimation2D<PointSource, PointTarget, Scalar>::[01;32m[KestimateRigidTransformation[m[K(pcl::ConstCloudIterator<PointT>&, pcl::ConstCloudIterator<PointTarget>&, Matrix4&) const [35m[K[with PointSource = pcl::PointXYZI; PointTarget = pcl::PointXYZI; Scalar = float][m[K[m[K’ at [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_2D.hpp:148:35[m[K:
+[76.149s] [01m[K/usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h:940:23:[m[K [01;35m[Kwarning: [m[Karray subscript ‘[01m[K__m128_u[0][m[K’ is partly outside array bounds of ‘[01m[Kconst Eigen::Matrix<float, 3, 1> [1][m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Warray-bounds=-Warray-bounds=]8;;[m[K]
+[76.149s]   940 |   return *(__m128_u *)[01;35m[K__P[m[K;
+[76.149s]       |                       [01;35m[K^~~[m[K
+[76.150s] [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_2D.hpp:[m[K In function ‘[01m[Kvoid pcl::registration::TransformationEstimation2D<PointSource, PointTarget, Scalar>::[01;32m[KestimateRigidTransformation[m[K(pcl::ConstCloudIterator<PointT>&, pcl::ConstCloudIterator<PointTarget>&, Matrix4&) const [35m[K[with PointSource = pcl::PointXYZI; PointTarget = pcl::PointXYZI; Scalar = float][m[K[m[K’:
+[76.150s] [01m[K/usr/include/pcl-1.14/pcl/registration/impl/transformation_estimation_2D.hpp:180:37:[m[K [01;36m[Knote: [m[Kat offset [0, 8] into object ‘[01m[KRc[m[K’ of size 12
+[76.150s]   180 |   const Eigen::Matrix<Scalar, 3, 1> [01;36m[KRc[m[K(R * centroid_src.head(3).matrix());
+[76.150s]       |                                     [01;36m[K^~[m[K
+[76.410s] [ 54%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/optimizer/gtsam/GravityFactor.cpp.o[0m
+[76.488s] [ 54%] [32mBuilding CXX object corelib/src/CMakeFiles/rtabmap_core.dir/imufilter/MadgwickFilter.cpp.o[0m
+[83.442s] In file included from [01m[K/usr/include/eigen3/Eigen/src/Core/util/ConfigureVectorization.h:346[m[K,
+[83.442s]                  from [01m[K/usr/include/eigen3/Eigen/Core:22[m[K,
+[83.442s]                  from [01m[K/usr/include/pcl-1.14/pcl/types.h:52[m[K,
+[83.443s]                  from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap/corelib/src/include/rtabmap/core/Version.h:96[m[K,
+[83.443s]                  from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/../include/rtabmap/core/Parameters.h:33[m[K,
+[83.443s]                  from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/../include/rtabmap/core/Graph.h:35[m[K,
+[83.443s]                  from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/OptimizerGTSAM.cpp:27[m[K:
+[83.443s] In function ‘[01m[K__m128d[01;32m[K _mm_loadu_pd[m[K(const double*)[m[K’,
+[83.443s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadu[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(2) double][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h:746:22[m[K,
+[83.443s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadt[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(2) double; int Alignment = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h:969:26[m[K,
+[83.443s]     inlined from ‘[01m[KPacketType Eigen::internal::evaluator<Eigen::PlainObjectBase<Derived> >::[01;32m[Kpacket[m[K(Eigen::Index, Eigen::Index) const [35m[K[with int LoadMode = 0; PacketType = __vector(2) double; Derived = Eigen::Matrix<double, 1, 1, 0, 1, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:238:42[m[K,
+[83.443s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacket[m[K(Eigen::Index, Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(2) double; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<double, 2, 1>, -1, -1, false> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Matrix<double, 1, 1, 0, 1, 1> >; Functor = Eigen::internal::assign_op<double, double>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:675:116[m[K,
+[83.443s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacketByOuterInner[m[K(Eigen::Index, Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(2) double; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<double, 2, 1>, -1, -1, false> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Matrix<double, 1, 1, 0, 1, 1> >; Functor = Eigen::internal::assign_op<double, double>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:689:48[m[K,
+[83.443s]     inlined from ‘[01m[Kstatic void Eigen::internal::dense_assignment_loop<Kernel, 4, 0>::[01;32m[Krun[m[K(Kernel&) [35m[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Block<Eigen::Matrix<double, 2, 1>, -1, -1, false> >, Eigen::internal::evaluator<Eigen::Matrix<double, 1, 1, 0, 1, 1> >, Eigen::internal::assign_op<double, double>, 0>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:572:86[m[K,
+[83.443s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_dense_assignment_loop[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Matrix<double, 2, 1>, -1, -1, false>; SrcXprType = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Functor = assign_op<double, double>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:785:37[m[K,
+[83.443s]     inlined from ‘[01m[Kstatic void Eigen::internal::Assignment<DstXprType, SrcXprType, Functor, Eigen::internal::Dense2Dense, Weak>::[01;32m[Krun[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Block<Eigen::Matrix<double, 2, 1>, -1, -1, false>; SrcXprType = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Functor = Eigen::internal::assign_op<double, double>; Weak = void][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:954:31[m[K,
+[83.443s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment_no_alias[m[K(Dst&, const Src&, const Func&) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<double, 2, 1>, -1, -1, false>; Src = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Func = assign_op<double, double>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49[m[K,
+[83.443s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&, const Func&, typename enable_if<(! evaluator_assume_aliasing<Src>::value), void*>::type) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<double, 2, 1>, -1, -1, false>; Src = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Func = assign_op<double, double>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:858:27[m[K,
+[83.443s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment[m[K(Dst&, const Src&) [35m[K[with Dst = Eigen::Block<Eigen::Matrix<double, 2, 1>, -1, -1, false>; Src = Eigen::Matrix<double, 1, 1, 0, 1, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:836:18[m[K,
+[83.443s]     inlined from ‘[01m[KDerived& Eigen::MatrixBase<Derived>::[01;32m[Koperator=[m[K(const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Derived = Eigen::Block<Eigen::Matrix<double, 2, 1>, -1, -1, false>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Assign.h:66:28[m[K,
+[83.443s]     inlined from ‘[01m[KEigen::CommaInitializer<MatrixType>::[01;32m[KCommaInitializer[m[K(XprType&, const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::Matrix<double, 1, 1, 0, 1, 1>; XprType = Eigen::Matrix<double, 2, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CommaInitializer.h:48:51[m[K,
+[83.443s]     inlined from ‘[01m[KEigen::CommaInitializer<Derived> Eigen::DenseBase<Derived>::[01;32m[Koperator<<[m[K(const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Derived = Eigen::Matrix<double, 2, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CommaInitializer.h:159:72[m[K,
+[83.443s]     inlined from ‘[01m[Kgtsam::BearingRange<A1, A2, B, R>::TangentVector gtsam::BearingRange<A1, A2, B, R>::[01;32m[KlocalCoordinates[m[K(const gtsam::BearingRange<A1, A2, B, R>&) const [35m[K[with A1 = gtsam::Pose2; A2 = Eigen::Matrix<double, 2, 1>; B = gtsam::Rot2; R = double][m[K[m[K’ at [01m[K/opt/ros/jazzy/include/gtsam/geometry/BearingRange.h:141:12[m[K:
+[83.443s] [01m[K/usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h:134:24:[m[K [01;35m[Kwarning: [m[Karray subscript ‘[01m[K__m128d_u[0][m[K’ is partly outside array bounds of ‘[01m[Kgtsam::internal::LieGroupTraits<gtsam::Rot2>::TangentVector [1][m[K’ {aka ‘[01m[KEigen::Matrix<double, 1, 1, 0, 1, 1> [1][m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Warray-bounds=-Warray-bounds=]8;;[m[K]
+[83.443s]   134 |   return *(__m128d_u *)[01;35m[K__P[m[K;
+[83.443s]       |                        [01;35m[K^~~[m[K
+[83.443s] In file included from [01m[K/opt/ros/jazzy/include/gtsam/geometry/Pose2.h:23[m[K,
+[83.443s]                  from [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/OptimizerGTSAM.cpp:39[m[K:
+[83.443s] [01m[K/opt/ros/jazzy/include/gtsam/geometry/BearingRange.h:[m[K In member function ‘[01m[Kgtsam::BearingRange<A1, A2, B, R>::TangentVector gtsam::BearingRange<A1, A2, B, R>::[01;32m[KlocalCoordinates[m[K(const gtsam::BearingRange<A1, A2, B, R>&) const [35m[K[with A1 = gtsam::Pose2; A2 = Eigen::Matrix<double, 2, 1>; B = gtsam::Rot2; R = double][m[K[m[K’:
+[83.444s] [01m[K/opt/ros/jazzy/include/gtsam/geometry/BearingRange.h:138:39:[m[K [01;36m[Knote: [m[Kobject ‘[01m[Kv1[m[K’ of size 8
+[83.444s]   138 |     typename traits<B>::TangentVector [01;36m[Kv1[m[K = traits<B>::Local(bearing_, other.bearing_);
+[83.444s]       |                                       [01;36m[K^~[m[K
+[83.603s] In function ‘[01m[K__m128d[01;32m[K _mm_loadu_pd[m[K(const double*)[m[K’,
+[83.603s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadu[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(2) double][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h:746:22[m[K,
+[83.603s]     inlined from ‘[01m[KPacket Eigen::internal::[01;32m[Kploadt[m[K(const typename unpacket_traits<T>::type*) [35m[K[with Packet = __vector(2) double; int Alignment = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h:969:26[m[K,
+[83.603s]     inlined from ‘[01m[KPacketType Eigen::internal::evaluator<Eigen::PlainObjectBase<Derived> >::[01;32m[Kpacket[m[K(Eigen::Index) const [35m[K[with int LoadMode = 0; PacketType = __vector(2) double; Derived = Eigen::Matrix<double, 1, 1, 0, 1, 1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:245:40[m[K,
+[83.603s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacket[m[K(Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(2) double; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Matrix<double, -1, -1> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Matrix<double, 1, 1, 0, 1, 1> >; Functor = Eigen::internal::assign_op<double, double>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:681:114[m[K,
+[83.603s]     inlined from ‘[01m[Kstatic void Eigen::internal::dense_assignment_loop<Kernel, 3, 0>::[01;32m[Krun[m[K(Kernel&) [35m[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<double, -1, -1> >, Eigen::internal::evaluator<Eigen::Matrix<double, 1, 1, 0, 1, 1> >, Eigen::internal::assign_op<double, double>, 0>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:437:75[m[K,
+[83.603s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_dense_assignment_loop[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Matrix<double, -1, -1>; SrcXprType = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Functor = assign_op<double, double>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:785:37[m[K,
+[83.603s]     inlined from ‘[01m[Kstatic void Eigen::internal::Assignment<DstXprType, SrcXprType, Functor, Eigen::internal::Dense2Dense, Weak>::[01;32m[Krun[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Matrix<double, -1, -1>; SrcXprType = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Functor = Eigen::internal::assign_op<double, double>; Weak = void][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:954:31[m[K,
+[83.603s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment_no_alias[m[K(Dst&, const Src&, const Func&) [35m[K[with Dst = Eigen::Matrix<double, -1, -1>; Src = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Func = assign_op<double, double>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49[m[K,
+[83.604s]     inlined from ‘[01m[KDerived& Eigen::PlainObjectBase<Derived>::[01;32m[K_set_noalias[m[K(const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Derived = Eigen::Matrix<double, -1, -1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:797:41[m[K,
+[83.604s]     inlined from ‘[01m[KEigen::PlainObjectBase<Derived>::[01;32m[KPlainObjectBase[m[K(const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Derived = Eigen::Matrix<double, -1, -1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:594:19[m[K,
+[83.604s]     inlined from ‘[01m[KEigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::[01;32m[KMatrix[m[K(const Eigen::EigenBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::Matrix<double, 1, 1, 0, 1, 1>; _Scalar = double; int _Rows = -1; int _Cols = -1; int _Options = 0; int _MaxRows = -1; int _MaxCols = -1][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Matrix.h:423:29[m[K,
+[83.604s]     inlined from ‘[01m[Kvirtual std::map<int, rtabmap::Transform> rtabmap::OptimizerGTSAM::[01;32m[Koptimize[m[K(int, const std::map<int, rtabmap::Transform>&, const std::multimap<int, rtabmap::Link>&, cv::Mat&, std::__cxx11::list<std::map<int, rtabmap::Transform> >*, double*, int*)[m[K’ at [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/OptimizerGTSAM.cpp:578:80[m[K:
+[83.604s] [01m[K/usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h:134:24:[m[K [01;35m[Kwarning: [m[Karray subscript ‘[01m[K__m128d_u[0][m[K’ is partly outside array bounds of ‘[01m[KEigen::Matrix<double, 1, 1, 0, 1, 1> [1][m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Warray-bounds=-Warray-bounds=]8;;[m[K]
+[83.604s]   134 |   return *(__m128d_u *)[01;35m[K__P[m[K;
+[83.604s]       |                        [01;35m[K^~~[m[K
+[83.604s] [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/OptimizerGTSAM.cpp:[m[K In member function ‘[01m[Kvirtual std::map<int, rtabmap::Transform> rtabmap::OptimizerGTSAM::[01;32m[Koptimize[m[K(int, const std::map<int, rtabmap::Transform>&, const std::multimap<int, rtabmap::Link>&, cv::Mat&, std::__cxx11::list<std::map<int, rtabmap::Transform> >*, double*, int*)[m[K’:
+[83.604s] [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/OptimizerGTSAM.cpp:572:85:[m[K [01;36m[Knote: [m[Kobject ‘[01m[Kinformation[m[K’ of size 8
+[83.604s]   572 |                                                         Eigen::Matrix<double, 1, 1> [01;36m[Kinformation[m[K = Eigen::Matrix<double, 1, 1>::Identity();
+[83.604s]       |                                                                                     [01;36m[K^~~~~~~~~~~[m[K
+[83.896s] In function ‘[01m[Kvoid[01;32m[K _mm_store_pd[m[K(double*, __m128d)[m[K’,
+[83.896s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kpstore[m[K(Scalar*, const Packet&) [35m[K[with Scalar = double; Packet = __vector(2) double][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h:790:126[m[K,
+[83.896s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kpstoret[m[K(Scalar*, const Packet&) [35m[K[with Scalar = double; Packet = __vector(2) double; int Alignment = 16][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h:978:11[m[K,
+[83.896s]     inlined from ‘[01m[Kvoid Eigen::internal::assign_op<DstScalar, SrcScalar>::[01;32m[KassignPacket[m[K(DstScalar*, const Packet&) const [35m[K[with int Alignment = 16; Packet = __vector(2) double; DstScalar = double; SrcScalar = double][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h:28:50[m[K,
+[83.896s]     inlined from ‘[01m[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::[01;32m[KassignPacket[m[K(Eigen::Index) [35m[K[with int StoreMode = 16; int LoadMode = 0; PacketType = __vector(2) double; DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Matrix<double, -1, -1> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Matrix<double, 1, 1, 0, 1, 1> >; Functor = Eigen::internal::assign_op<double, double>; int Version = 0][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:681:47[m[K,
+[83.896s]     inlined from ‘[01m[Kstatic void Eigen::internal::dense_assignment_loop<Kernel, 3, 0>::[01;32m[Krun[m[K(Kernel&) [35m[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<double, -1, -1> >, Eigen::internal::evaluator<Eigen::Matrix<double, 1, 1, 0, 1, 1> >, Eigen::internal::assign_op<double, double>, 0>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:437:75[m[K,
+[83.896s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_dense_assignment_loop[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Matrix<double, -1, -1>; SrcXprType = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Functor = assign_op<double, double>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:785:37[m[K,
+[83.896s]     inlined from ‘[01m[Kstatic void Eigen::internal::Assignment<DstXprType, SrcXprType, Functor, Eigen::internal::Dense2Dense, Weak>::[01;32m[Krun[m[K(DstXprType&, const SrcXprType&, const Functor&) [35m[K[with DstXprType = Eigen::Matrix<double, -1, -1>; SrcXprType = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Functor = Eigen::internal::assign_op<double, double>; Weak = void][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:954:31[m[K,
+[83.896s]     inlined from ‘[01m[Kvoid Eigen::internal::[01;32m[Kcall_assignment_no_alias[m[K(Dst&, const Src&, const Func&) [35m[K[with Dst = Eigen::Matrix<double, -1, -1>; Src = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Func = assign_op<double, double>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49[m[K,
+[83.896s]     inlined from ‘[01m[KDerived& Eigen::PlainObjectBase<Derived>::[01;32m[K_set_noalias[m[K(const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Derived = Eigen::Matrix<double, -1, -1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:797:41[m[K,
+[83.896s]     inlined from ‘[01m[KEigen::PlainObjectBase<Derived>::[01;32m[KPlainObjectBase[m[K(const Eigen::DenseBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::Matrix<double, 1, 1, 0, 1, 1>; Derived = Eigen::Matrix<double, -1, -1>][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:594:19[m[K,
+[83.896s]     inlined from ‘[01m[KEigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::[01;32m[KMatrix[m[K(const Eigen::EigenBase<OtherDerived>&) [35m[K[with OtherDerived = Eigen::Matrix<double, 1, 1, 0, 1, 1>; _Scalar = double; int _Rows = -1; int _Cols = -1; int _Options = 0; int _MaxRows = -1; int _MaxCols = -1][m[K[m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Matrix.h:423:29[m[K,
+[83.896s]     inlined from ‘[01m[Kvirtual std::map<int, rtabmap::Transform> rtabmap::OptimizerGTSAM::[01;32m[Koptimize[m[K(int, const std::map<int, rtabmap::Transform>&, const std::multimap<int, rtabmap::Link>&, cv::Mat&, std::__cxx11::list<std::map<int, rtabmap::Transform> >*, double*, int*)[m[K’ at [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/OptimizerGTSAM.cpp:578:80[m[K:
+[83.896s] [01m[K/usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h:169:19:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvoid*[01;32m[K __builtin_memcpy[m[K(void*, const void*, long unsigned int)[m[K’ reading 16 or more bytes from a region of size 8 [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wstringop-overread-Wstringop-overread]8;;[m[K]
+[83.897s]   169 |   [01;35m[K*(__m128d *)__P = __A[m[K;
+[83.897s]       |   [01;35m[K~~~~~~~~~~~~~~~~^~~~~[m[K
+[83.897s] [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/OptimizerGTSAM.cpp:[m[K In member function ‘[01m[Kvirtual std::map<int, rtabmap::Transform> rtabmap::OptimizerGTSAM::[01;32m[Koptimize[m[K(int, const std::map<int, rtabmap::Transform>&, const std::multimap<int, rtabmap::Link>&, cv::Mat&, std::__cxx11::list<std::map<int, rtabmap::Transform> >*, double*, int*)[m[K’:
+[83.897s] [01m[K/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/corelib/src/optimizer/OptimizerGTSAM.cpp:572:85:[m[K [01;36m[Knote: [m[Ksource object ‘[01m[Kinformation[m[K’ of size 8
+[83.897s]   572 |                                                         Eigen::Matrix<double, 1, 1> [01;36m[Kinformation[m[K = Eigen::Matrix<double, 1, 1>::Identity();
+[83.897s]       |                                                                                     [01;36m[K^~~~~~~~~~~[m[K
+[89.857s] [ 54%] [32m[1mLinking CXX shared library ../../bin/librtabmap_core.so[0m
+[92.380s] [ 54%] Built target rtabmap_core
+[92.400s] [ 54%] [32mBuilding CXX object tools/Camera/CMakeFiles/camera.dir/main.cpp.o[0m
+[92.400s] [ 54%] [32mBuilding CXX object tools/EurocDataset/CMakeFiles/euroc_dataset.dir/main.cpp.o[0m
+[92.400s] [ 54%] Built target rtabmap_gui_autogen_timestamp_deps
+[92.401s] [ 54%] [32mBuilding CXX object tools/ImagesJoiner/CMakeFiles/imagesJoiner.dir/main.cpp.o[0m
+[92.401s] [ 54%] [32mBuilding CXX object tools/ExtractObject/CMakeFiles/extractObject.dir/main.cpp.o[0m
+[92.401s] [ 54%] [32mBuilding CXX object tools/RgbdDataset/CMakeFiles/rgbd_dataset.dir/main.cpp.o[0m
+[92.401s] [ 55%] [32mBuilding CXX object tools/KittiDataset/CMakeFiles/kitti_dataset.dir/main.cpp.o[0m
+[92.401s] [ 55%] [32mBuilding CXX object tools/ConsoleApp/CMakeFiles/consoleApp.dir/main.cpp.o[0m
+[92.404s] [ 55%] [32mBuilding CXX object tools/StereoEval/CMakeFiles/stereoEval.dir/main.cpp.o[0m
+[92.404s] [ 55%] [32mBuilding CXX object tools/Reprocess/CMakeFiles/reprocess.dir/main.cpp.o[0m
+[92.404s] [ 55%] [32mBuilding CXX object tools/DetectMoreLoopClosures/CMakeFiles/detectMoreLoopClosures.dir/main.cpp.o[0m
+[92.404s] [ 55%] [32mBuilding CXX object tools/CleanupLocalGrids/CMakeFiles/cleanupLocalGrids.dir/main.cpp.o[0m
+[92.405s] [ 56%] [32mBuilding CXX object tools/Recovery/CMakeFiles/recovery.dir/main.cpp.o[0m
+[92.406s] [ 57%] [32mBuilding CXX object tools/LidarViewer/CMakeFiles/lidar_viewer.dir/main.cpp.o[0m
+[92.406s] [ 57%] [32mBuilding CXX object tools/Export/CMakeFiles/export.dir/main.cpp.o[0m
+[92.406s] [ 57%] [32mBuilding CXX object tools/GlobalBundleAdjustment/CMakeFiles/globalBundleAdjustment.dir/main.cpp.o[0m
+[92.408s] [ 58%] [32mBuilding CXX object tools/Info/CMakeFiles/info.dir/main.cpp.o[0m
+[92.421s] [ 58%] [34m[1mAutomatic MOC and UIC for target rtabmap_gui[0m
+[92.814s] [ 58%] [32m[1mLinking CXX executable ../../bin/rtabmap-recovery[0m
+[93.899s] [ 58%] [32m[1mLinking CXX executable ../../bin/rtabmap-imagesJoiner[0m
+[95.183s] [ 58%] Built target imagesJoiner
+[95.812s] [ 58%] Built target recovery
+[97.220s] [ 59%] [32m[1mLinking CXX executable ../../bin/rtabmap-camera[0m
+[99.506s] [ 60%] [32m[1mLinking CXX executable ../../bin/rtabmap-stereoEval[0m
+[99.829s] [ 60%] Built target camera
+[101.209s] [ 60%] Built target stereoEval
+[101.801s] [ 61%] [32m[1mLinking CXX executable ../../bin/rtabmap-cleanupLocalGrids[0m
+[102.312s] [ 61%] [32m[1mLinking CXX executable ../../bin/rtabmap-console[0m
+[102.349s] [ 62%] [32m[1mLinking CXX executable ../../bin/rtabmap-globalBundleAdjustment[0m
+[102.888s] [ 62%] Built target rtabmap_gui_autogen
+[102.904s] [ 63%] [34m[1m[Creating resources][0m
+[102.909s]  Using namespace=rtabmap
+[102.909s]  Using target directory=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap/guilib/src
+[102.909s] Input file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/data/presets/camera_tof_icp.ini" size = 687 bytes
+[102.909s] Output file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap/guilib/src/camera_tof_icp_ini.h" size = 1571 bytes
+[102.909s] Input file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/rtabmap/data/presets/lidar3d_icp.ini" size = 1137 bytes
+[102.909s] Output file "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap/guilib/src/lidar3d_icp_ini.h" size = 2465 bytes
+[102.909s] [ 64%] [34m[1mAutomatic RCC for GuiLib.qrc[0m
+[102.997s] [ 64%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/KeypointItem.cpp.o[0m
+[102.997s] [ 64%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/rtabmap_gui_autogen/mocs_compilation.cpp.o[0m
+[102.997s] [ 64%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/ImageView.cpp.o[0m
+[102.997s] [ 64%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/MainWindow.cpp.o[0m
+[102.997s] [ 65%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/PdfPlot.cpp.o[0m
+[102.998s] [ 66%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/ProgressDialog.cpp.o[0m
+[103.003s] [ 66%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/AboutDialog.cpp.o[0m
+[103.003s] [ 66%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/ConsoleWidget.cpp.o[0m
+[103.008s] [ 66%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/StatsToolBox.cpp.o[0m
+[103.010s] [ 67%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/PreferencesDialog.cpp.o[0m
+[103.526s] [ 67%] Built target globalBundleAdjustment
+[103.538s] [ 68%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/DatabaseViewer.cpp.o[0m
+[103.557s] [ 68%] Built target cleanupLocalGrids
+[103.579s] [ 68%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/utilite/UPlot.cpp.o[0m
+[103.676s] [ 68%] [32m[1mLinking CXX executable ../../bin/rtabmap-info[0m
+[103.710s] [ 68%] Built target consoleApp
+[103.726s] [ 69%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/CloudViewer.cpp.o[0m
+[103.859s] [ 70%] [32m[1mLinking CXX executable ../../bin/rtabmap-detectMoreLoopClosures[0m
+[104.962s] [ 70%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/CloudViewerCellPicker.cpp.o[0m
+[105.049s] [ 71%] [32m[1mLinking CXX executable ../../bin/rtabmap-rgbd_dataset[0m
+[105.396s] [ 71%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/CloudViewerInteractorStyle.cpp.o[0m
+[105.425s] [ 71%] Built target detectMoreLoopClosures
+[105.448s] [ 71%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/LoopClosureViewer.cpp.o[0m
+[105.450s] [ 72%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/OdometryViewer.cpp.o[0m
+[106.026s] [ 72%] Built target info
+[106.041s] [ 73%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/DataRecorder.cpp.o[0m
+[106.428s] [ 73%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/CameraViewer.cpp.o[0m
+[106.439s] [ 73%] Built target rgbd_dataset
+[106.452s] [ 73%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/CalibrationDialog.cpp.o[0m
+[106.530s] [ 73%] [32m[1mLinking CXX executable ../../bin/rtabmap-euroc_dataset[0m
+[106.962s] [ 74%] [32m[1mLinking CXX executable ../../bin/rtabmap-reprocess[0m
+[108.139s] [ 74%] Built target euroc_dataset
+[108.169s] [ 75%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/ExportDialog.cpp.o[0m
+[108.506s] [ 76%] [32m[1mLinking CXX executable ../../bin/rtabmap-lidar_viewer[0m
+[108.740s] [ 76%] Built target reprocess
+[108.758s] [ 76%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/ExportBundlerDialog.cpp.o[0m
+[110.218s] [ 76%] [32m[1mLinking CXX executable ../../bin/rtabmap-kitti_dataset[0m
+[110.550s] [ 76%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/PostProcessingDialog.cpp.o[0m
+[110.678s] [ 77%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/ExportCloudsDialog.cpp.o[0m
+[111.590s] [ 77%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/EditConstraintDialog.cpp.o[0m
+[111.962s] [ 77%] Built target kitti_dataset
+[111.978s] [ 78%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/MapVisibilityWidget.cpp.o[0m
+[112.212s] [ 78%] Built target lidar_viewer
+[112.232s] [ 78%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/GraphViewer.cpp.o[0m
+[112.367s] [ 79%] [32m[1mLinking CXX executable ../../bin/rtabmap-extractObject[0m
+[113.126s] [ 79%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/EditDepthArea.cpp.o[0m
+[113.802s] [ 80%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/EditMapArea.cpp.o[0m
+[113.839s] [ 80%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/MultiSessionLocWidget.cpp.o[0m
+[115.066s] [ 81%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/MultiSessionLocSubView.cpp.o[0m
+[115.114s] [ 81%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/CreateSimpleCalibrationDialog.cpp.o[0m
+[115.421s] [ 81%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/ParametersToolBox.cpp.o[0m
+[115.934s] [ 81%] Built target extractObject
+[115.968s] [ 82%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/DepthCalibrationDialog.cpp.o[0m
+[116.115s] [ 82%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/LinkRefiningDialog.cpp.o[0m
+[116.565s] [ 83%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/3rdParty/QMultiComboBox.cpp.o[0m
+[116.594s] [ 83%] [32m[1mLinking CXX executable ../../bin/rtabmap-export[0m
+[116.805s] [ 83%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/opencv/vtkImageMatSource.cpp.o[0m
+[117.858s] [ 83%] [32mBuilding CXX object guilib/src/CMakeFiles/rtabmap_gui.dir/rtabmap_gui_autogen/EWIEGA46WW/qrc_GuiLib.cpp.o[0m
+[119.215s] [ 83%] Built target export
+[158.297s] [ 84%] [32m[1mLinking CXX shared library ../../bin/librtabmap_gui.so[0m
+[159.013s] [ 84%] Built target rtabmap_gui
+[159.030s] [ 84%] [32mBuilding CXX object tools/EpipolarGeometry/CMakeFiles/epipolar_geometry.dir/main.cpp.o[0m
+[159.030s] [ 84%] [32mBuilding CXX object examples/BOWMapping/CMakeFiles/bow_mapping.dir/main.cpp.o[0m
+[159.030s] [ 84%] Built target noEventsExample_autogen_timestamp_deps
+[159.030s] [ 85%] [32mBuilding CXX object tools/DatabaseViewer/CMakeFiles/databaseViewer.dir/main.cpp.o[0m
+[159.030s] [ 86%] [32mBuilding CXX object tools/OdometryViewer/CMakeFiles/odometryViewer.dir/main.cpp.o[0m
+[159.031s] [ 86%] [32mBuilding CXX object app/src/CMakeFiles/rtabmap_app.dir/main.cpp.o[0m
+[159.031s] [ 86%] Built target lidar_mapping_autogen_timestamp_deps
+[159.032s] [ 87%] [32mBuilding CXX object tools/CameraRGBD/CMakeFiles/rgbd_camera.dir/main.cpp.o[0m
+[159.032s] [ 88%] [32mBuilding CXX object tools/DataRecorder/CMakeFiles/dataRecorder.dir/main.cpp.o[0m
+[159.033s] [ 88%] Built target wifi_mapping_autogen_timestamp_deps
+[159.033s] [ 89%] [32mBuilding CXX object tools/Matcher/CMakeFiles/matcher.dir/main.cpp.o[0m
+[159.033s] [ 89%] [32mBuilding CXX object tools/Calibration/CMakeFiles/calibration.dir/main.cpp.o[0m
+[159.033s] [ 89%] Built target rgbd_mapping_autogen_timestamp_deps
+[159.033s] [ 89%] [32mBuilding CXX object tools/Report/CMakeFiles/report.dir/main.cpp.o[0m
+[159.049s] [ 89%] [34m[1mAutomatic MOC and UIC for target noEventsExample[0m
+[159.049s] [ 89%] [34m[1mAutomatic MOC and UIC for target lidar_mapping[0m
+[159.053s] [ 90%] [34m[1mAutomatic MOC and UIC for target wifi_mapping[0m
+[159.053s] [ 91%] [34m[1mAutomatic MOC and UIC for target rgbd_mapping[0m
+[159.253s] [ 91%] Built target noEventsExample_autogen
+[159.287s] [ 91%] [32mBuilding CXX object examples/NoEventsExample/CMakeFiles/noEventsExample.dir/noEventsExample_autogen/mocs_compilation.cpp.o[0m
+[159.288s] [ 92%] [32mBuilding CXX object examples/NoEventsExample/CMakeFiles/noEventsExample.dir/main.cpp.o[0m
+[159.718s] [ 92%] Built target rgbd_mapping_autogen
+[159.742s] [ 93%] [32mBuilding CXX object examples/RGBDMapping/CMakeFiles/rgbd_mapping.dir/rgbd_mapping_autogen/mocs_compilation.cpp.o[0m
+[159.754s] [ 93%] [32mBuilding CXX object examples/RGBDMapping/CMakeFiles/rgbd_mapping.dir/main.cpp.o[0m
+[159.825s] [ 93%] Built target lidar_mapping_autogen
+[159.860s] [ 93%] [32mBuilding CXX object examples/LidarMapping/CMakeFiles/lidar_mapping.dir/main.cpp.o[0m
+[159.861s] [ 94%] [32mBuilding CXX object examples/LidarMapping/CMakeFiles/lidar_mapping.dir/lidar_mapping_autogen/mocs_compilation.cpp.o[0m
+[159.999s] [ 94%] Built target wifi_mapping_autogen
+[160.037s] [ 94%] [32mBuilding CXX object examples/WifiMapping/CMakeFiles/wifi_mapping.dir/wifi_mapping_autogen/mocs_compilation.cpp.o[0m
+[160.040s] [ 95%] [32mBuilding CXX object examples/WifiMapping/CMakeFiles/wifi_mapping.dir/main.cpp.o[0m
+[165.694s] [ 96%] [32m[1mLinking CXX executable ../../bin/rtabmap-epipolar_geometry[0m
+[165.859s] [ 96%] [32m[1mLinking CXX executable ../../bin/rtabmap-calibration[0m
+[166.520s] [ 96%] [32m[1mLinking CXX executable ../../bin/rtabmap-dataRecorder[0m
+[166.952s] [ 96%] [32m[1mLinking CXX executable ../../bin/rtabmap-bow_mapping[0m
+[166.992s] [ 96%] [32m[1mLinking CXX executable ../../bin/rtabmap-odometryViewer[0m
+[167.089s] [ 96%] [32m[1mLinking CXX executable ../../bin/rtabmap-databaseViewer[0m
+[167.659s] [ 96%] Built target calibration
+[167.951s] [ 97%] [32m[1mLinking CXX executable ../../bin/rtabmap[0m
+[168.369s] [ 97%] Built target odometryViewer
+[168.395s] [ 97%] Built target epipolar_geometry
+[168.622s] [ 97%] Built target dataRecorder
+[168.902s] [ 97%] Built target bow_mapping
+[169.188s] [ 97%] Built target databaseViewer
+[169.588s] [ 97%] Built target rtabmap_app
+[171.205s] [ 97%] [32m[1mLinking CXX executable ../../bin/rtabmap-matcher[0m
+[171.284s] [ 97%] [32m[1mLinking CXX executable ../../bin/rtabmap-noEventsExample[0m
+[171.687s] [ 97%] [32m[1mLinking CXX executable ../../bin/rtabmap-rgbd_camera[0m
+[171.758s] [ 97%] [32m[1mLinking CXX executable ../../bin/rtabmap-wifi_mapping[0m
+[172.355s] [ 97%] Built target matcher
+[172.452s] [ 98%] [32m[1mLinking CXX executable ../../bin/rtabmap-report[0m
+[172.619s] [ 99%] Built target noEventsExample
+[173.000s] [ 99%] Built target rgbd_camera
+[173.045s] [ 99%] Built target wifi_mapping
+[173.218s] [100%] [32m[1mLinking CXX executable ../../bin/rtabmap-lidar_mapping[0m
+[173.543s] [100%] [32m[1mLinking CXX executable ../../bin/rtabmap-rgbd_mapping[0m
+[173.592s] [100%] Built target report
+[174.280s] [100%] Built target lidar_mapping
+[174.637s] [100%] Built target rgbd_mapping
+[174.664s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap -- -j22 -l22
+[174.670s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap
+[174.676s] -- Install configuration: "Release"
+[174.677s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/librtabmap_utilite.so.0.21.10
+[174.677s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/librtabmap_utilite.so.0.21
+[174.677s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/librtabmap_utilite.so
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/Posix
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/Posix/UThreadC.h
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UThreadNode.h
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/USemaphore.h
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UEventsManager.h
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UtiLite.h
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UException.h
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UThreadC.h
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/ULogger.h
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UMath.h
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UFile.h
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UVariant.h
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UProcessInfo.h
+[174.678s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UConversion.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UDirectory.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/Win32
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/Win32/UThreadC.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/Win32/UWin32.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UEvent.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UMutex.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UEventsSender.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UObjDeletionThread.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UStl.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UEventsHandler.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UThread.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UTimer.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UDestroyer.h
+[174.679s] -- Up-to-date: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap
+[174.679s] -- Up-to-date: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/utilite_export.h
+[174.679s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/rtabmap-0.21/RTABMap_utiliteTargets.cmake
+[174.680s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/rtabmap-0.21/RTABMap_utiliteTargets-release.cmake
+[174.680s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-res_tool-0.3.0
+[174.680s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-res_tool
+[174.680s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-res_tool-0.3.0" to ""
+[174.681s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/librtabmap_core.so.0.21.10
+[174.689s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/librtabmap_core.so.0.21
+[174.689s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/librtabmap_core.so.0.21.10" to ""
+[174.689s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/librtabmap_core.so
+[174.689s] -- Up-to-date: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap
+[174.689s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core
+[174.689s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/rvl_codec.h
+[174.689s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/OdometryThread.h
+[174.690s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/ParticleFilter.h
+[174.690s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/EnvSensor.h
+[174.690s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/GlobalDescriptorExtractor.h
+[174.690s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/BayesFilter.h
+[174.690s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Camera.h
+[174.690s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Parameters.h
+[174.690s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/EpipolarGeometry.h
+[174.690s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/LASWriter.h
+[174.690s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/util3d.h
+[174.690s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/util3d_motion_estimation.h
+[174.690s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry
+[174.690s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryF2M.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryDVO.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryF2F.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryOpenVINS.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryOpen3D.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryLOAM.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryFovis.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryViso2.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryOkvis.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryORBSLAM3.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryVINS.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryMono.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryMSCKF.h
+[174.691s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryORBSLAM2.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/odometry/OdometryFLOAM.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/SensorData.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/CameraRGBD.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/CameraInfo.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/CameraModel.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/GlobalDescriptor.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/SensorCaptureInfo.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/DBDriverSqlite3.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/VWDictionary.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Statistics.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Optimizer.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/CameraEvent.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/PythonInterface.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/IMUFilter.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/OccupancyGrid.h
+[174.692s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/OdometryInfo.h
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/stereo
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/stereo/StereoBM.h
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/stereo/StereoSGBM.h
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/stereo/stereoRectifyFisheye.h
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/FlannIndex.h
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/RtabmapThread.h
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/util3d_transforms.h
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/CameraThread.h
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/util2d.h
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/util3d_filtering.h
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/GlobalMap.h
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Compression.h
+[174.693s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/ParamEvent.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Recovery.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/RegistrationInfo.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Stereo.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/OdometryEvent.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/RtabmapEvent.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/DBReader.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/RegistrationIcp.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/clams
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/clams/discrete_depth_distortion_model.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/clams/slam_calibrator.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/clams/frame_projector.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/GeodeticCoords.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraOpenNICV.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraSeerSense.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraRealSense.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraMyntEye.h
+[174.694s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraStereoZedOC.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraStereoTara.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraK4W2.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraDepthAI.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraOpenNI2.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraFreenect2.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraStereoImages.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraStereoVideo.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraRealSense2.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraOpenni.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraStereoDC1394.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraImages.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraK4A.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraFreenect.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraRGBDImages.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraVideo.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraStereoFlyCapture2.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/camera/CameraStereoZed.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Landmark.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/global_map
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/global_map/GridMap.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/global_map/OccupancyGrid.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/global_map/OctoMap.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/global_map/CloudMap.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Registration.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Features2d.h
+[174.695s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/GPS.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/LocalGrid.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/StereoCameraModel.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Graph.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Odometry.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Rtabmap.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/SensorEvent.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/util3d_correspondences.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Lidar.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/UserDataEvent.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/SensorCaptureThread.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/VisualWord.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/IMU.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Link.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/util3d_features.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/MarkerDetector.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/RegistrationVis.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/LocalGridMaker.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Transform.h
+[174.696s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/CameraStereo.h
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/LaserScan.h
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/SensorCapture.h
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Signature.h
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/StereoDense.h
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/OctoMap.h
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/optimizer
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/optimizer/OptimizerTORO.h
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/optimizer/OptimizerCeres.h
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/optimizer/OptimizerG2O.h
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/optimizer/OptimizerCVSBA.h
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/optimizer/OptimizerGTSAM.h
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Memory.h
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/impl
+[174.697s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/impl/util3d_mapping.hpp
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/impl/LocalMapMaker.hpp
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/impl/util3d.hpp
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/impl/util3d_surface.hpp
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/lidar
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/lidar/LidarVLP16.h
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/DBDriver.h
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/util3d_registration.h
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/IMUThread.h
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/PDALWriter.h
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/util3d_mapping.h
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/CameraRGB.h
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/ProgressState.h
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Image.h
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/util3d_surface.h
+[174.698s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/GainCompensator.h
+[174.699s] -- Up-to-date: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap
+[174.699s] -- Up-to-date: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core
+[174.699s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/rtabmap_core_export.h
+[174.699s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/core/Version.h
+[174.699s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/rtabmap-0.21/RTABMap_coreTargets.cmake
+[174.699s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/rtabmap-0.21/RTABMap_coreTargets-release.cmake
+[174.700s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/librtabmap_gui.so.0.21.10
+[174.703s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/librtabmap_gui.so.0.21
+[174.703s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/librtabmap_gui.so.0.21.10" to ""
+[174.703s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/librtabmap_gui.so
+[174.703s] -- Up-to-date: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap
+[174.703s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui
+[174.703s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/TexturingState.h
+[174.703s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/MultiSessionLocSubView.h
+[174.703s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/PdfPlot.h
+[174.703s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/ConsoleWidget.h
+[174.703s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/ProgressDialog.h
+[174.703s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/ExportBundlerDialog.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/AboutDialog.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/CreateSimpleCalibrationDialog.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/ParametersToolBox.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/ImageView.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/LoopClosureViewer.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/ExportCloudsDialog.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/EditConstraintDialog.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/DepthCalibrationDialog.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/CloudViewerInteractorStyle.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/KeypointItem.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/MapVisibilityWidget.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/MultiSessionLocWidget.h
+[174.704s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/GraphViewer.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/DataRecorder.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/PreferencesDialog.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/DatabaseViewer.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/OdometryViewer.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/ExportDialog.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/EditDepthArea.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/CloudViewer.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/PostProcessingDialog.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/CameraViewer.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/CalibrationDialog.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/StatsToolBox.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/EditMapArea.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/RecoveryState.h
+[174.705s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/MainWindow.h
+[174.706s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/CloudViewerCellPicker.h
+[174.706s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/LinkRefiningDialog.h
+[174.706s] -- Up-to-date: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite
+[174.706s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UCv2Qt.h
+[174.706s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UPlot.h
+[174.706s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/utilite/UImageView.h
+[174.706s] -- Up-to-date: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap
+[174.706s] -- Up-to-date: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui
+[174.706s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/include/rtabmap-0.21/rtabmap/gui/rtabmap_gui_export.h
+[174.706s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/rtabmap-0.21/RTABMap_guiTargets.cmake
+[174.706s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/rtabmap-0.21/RTABMap_guiTargets-release.cmake
+[174.707s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap
+[174.707s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap" to ""
+[174.707s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-console
+[174.708s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-console" to ""
+[174.708s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-extractObject
+[174.708s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-extractObject" to ""
+[174.708s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-camera
+[174.709s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-camera" to ""
+[174.709s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-kitti_dataset
+[174.709s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-kitti_dataset" to ""
+[174.709s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-rgbd_dataset
+[174.710s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-rgbd_dataset" to ""
+[174.710s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-euroc_dataset
+[174.710s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-euroc_dataset" to ""
+[174.710s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-recovery
+[174.710s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-recovery" to ""
+[174.711s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-reprocess
+[174.711s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-reprocess" to ""
+[174.711s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-detectMoreLoopClosures
+[174.711s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-detectMoreLoopClosures" to ""
+[174.711s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-export
+[174.712s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-export" to ""
+[174.712s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-report
+[174.712s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-report" to ""
+[174.712s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-info
+[174.713s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-info" to ""
+[174.713s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-cleanupLocalGrids
+[174.713s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-cleanupLocalGrids" to ""
+[174.713s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-globalBundleAdjustment
+[174.713s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-globalBundleAdjustment" to ""
+[174.713s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-rgbd_camera
+[174.714s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-rgbd_camera" to ""
+[174.714s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-lidar_viewer
+[174.714s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-lidar_viewer" to ""
+[174.714s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-databaseViewer
+[174.714s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-databaseViewer" to ""
+[174.715s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-odometryViewer
+[174.715s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-odometryViewer" to ""
+[174.715s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-dataRecorder
+[174.715s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-dataRecorder" to ""
+[174.716s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-calibration
+[174.716s] -- Set non-toolchain portion of runtime path of "/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/bin/rtabmap-calibration" to ""
+[174.717s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/rtabmap-0.21/RTABMapTargets.cmake
+[174.717s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/rtabmap-0.21/RTABMapConfig.cmake
+[174.717s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/lib/rtabmap-0.21/RTABMapConfigVersion.cmake
+[174.717s] -- Installing: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/rtabmap/share/rtabmap/package.xml
+[174.720s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/rtabmap

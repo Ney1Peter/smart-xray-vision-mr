@@ -1,0 +1,52 @@
+[0.006s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_fake_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/turtlebot3_simulations/turtlebot3_fake_node -DCMAKE_INSTALL_PREFIX=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node
+[0.017s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.148s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.153s] -- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[0.172s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.177s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.187s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.195s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.223s] -- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[0.251s] -- Found rclcpp: 28.1.9 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.282s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.283s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.349s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.395s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[0.412s] -- Found tf2: 0.36.11 (/opt/ros/jazzy/share/tf2/cmake)
+[0.415s] -- Found tf2_msgs: 0.36.11 (/opt/ros/jazzy/share/tf2_msgs/cmake)
+[0.457s] -- Found turtlebot3_msgs: 2.4.0 (/opt/ros/jazzy/share/turtlebot3_msgs/cmake)
+[0.544s] -- Configuring done (0.5s)
+[0.553s] -- Generating done (0.0s)
+[0.555s] -- Build files have been written to: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_fake_node
+[0.561s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_fake_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/turtlebot3_simulations/turtlebot3_fake_node -DCMAKE_INSTALL_PREFIX=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node
+[0.561s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_fake_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_fake_node -- -j22 -l22
+[0.609s] [100%] Built target turtlebot3_fake_node
+[0.618s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_fake_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_fake_node -- -j22 -l22
+[0.620s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_fake_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_fake_node
+[0.624s] -- Install configuration: ""
+[0.624s] -- Execute custom install script
+[0.625s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/lib/turtlebot3_fake_node/turtlebot3_fake_node
+[0.625s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/launch/rviz2.launch.py
+[0.625s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/launch/turtlebot3_fake_node.launch.py
+[0.625s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/param/burger.yaml
+[0.625s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/param/waffle.yaml
+[0.626s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/param/waffle_pi.yaml
+[0.626s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/include//turtlebot3_fake_node/turtlebot3_fake_node.hpp
+[0.626s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/ament_index/resource_index/package_run_dependencies/turtlebot3_fake_node
+[0.626s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/ament_index/resource_index/parent_prefix_path/turtlebot3_fake_node
+[0.626s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/environment/ament_prefix_path.sh
+[0.626s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/environment/ament_prefix_path.dsv
+[0.627s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/environment/path.sh
+[0.627s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/environment/path.dsv
+[0.627s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/local_setup.bash
+[0.627s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/local_setup.sh
+[0.627s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/local_setup.zsh
+[0.627s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/local_setup.dsv
+[0.627s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/package.dsv
+[0.632s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/ament_index/resource_index/packages/turtlebot3_fake_node
+[0.633s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.633s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.633s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/cmake/turtlebot3_fake_nodeConfig.cmake
+[0.633s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/cmake/turtlebot3_fake_nodeConfig-version.cmake
+[0.633s] -- Up-to-date symlink: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_fake_node/share/turtlebot3_fake_node/package.xml
+[0.634s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_fake_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_fake_node

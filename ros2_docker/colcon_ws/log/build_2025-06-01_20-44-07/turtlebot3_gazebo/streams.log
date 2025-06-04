@@ -1,0 +1,151 @@
+[0.411s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/turtlebot3_simulations/turtlebot3_gazebo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo
+[1.058s] -- The C compiler identification is GNU 13.3.0
+[1.058s] -- The CXX compiler identification is GNU 13.3.0
+[1.058s] -- Detecting C compiler ABI info
+[1.058s] -- Detecting C compiler ABI info - done
+[1.058s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.058s] -- Detecting C compile features
+[1.058s] -- Detecting C compile features - done
+[1.058s] -- Detecting CXX compiler ABI info
+[1.058s] -- Detecting CXX compiler ABI info - done
+[1.058s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.058s] -- Detecting CXX compile features
+[1.058s] -- Detecting CXX compile features - done
+[1.058s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.059s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.059s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.059s] -- Found ros_gz_sim: 1.0.14 (/opt/ros/jazzy/share/ros_gz_sim/cmake)
+[1.059s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.059s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.059s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.059s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.129s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.132s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.202s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.220s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.238s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.541s] -- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[1.580s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[1.783s] -- Configuring done (1.4s)
+[1.798s] -- Generating done (0.0s)
+[1.803s] -- Build files have been written to: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_gazebo
+[1.819s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/turtlebot3_simulations/turtlebot3_gazebo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo
+[1.820s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_gazebo -- -j22 -l22
+[1.903s] [ 50%] [32mBuilding CXX object CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o[0m
+[18.156s] [100%] [32m[1mLinking CXX executable turtlebot3_drive[0m
+[18.645s] [100%] Built target turtlebot3_drive
+[18.727s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_gazebo -- -j22 -l22
+[18.733s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_gazebo
+[18.759s] -- Install configuration: ""
+[18.761s] -- Execute custom install script
+[18.762s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/turtlebot3_drive
+[18.810s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/empty_world.launch.py
+[18.869s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/robot_state_publisher.launch.py
+[18.928s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/spawn_turtlebot3.launch.py
+[18.969s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_house.launch.py
+[19.049s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_world.launch.py
+[19.071s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/model-1_4.sdf
+[19.161s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/model.config
+[19.254s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/model.sdf
+[19.274s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger_cam/model-1_4.sdf
+[19.366s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger_cam/model.config
+[19.383s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger_cam/model.sdf
+[19.534s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/bases/burger_base.stl
+[19.563s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/bases/waffle_base.stl
+[19.673s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/bases/waffle_pi_base.stl
+[19.781s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/burger_base.dae
+[19.815s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/lds.dae
+[19.840s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/r200.dae
+[19.862s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/astra.dae
+[19.884s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/astra.jpg
+[19.997s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/lds.stl
+[20.038s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/r200.dae
+[20.132s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/r200.jpg
+[20.214s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/tire.dae
+[20.315s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/waffle_base.dae
+[20.410s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/waffle_pi_base.dae
+[20.492s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/wheels/left_tire.stl
+[20.577s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/wheels/right_tire.stl
+[20.681s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/model.config
+[20.800s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/materials/textures/Maple.jpg
+[20.890s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/materials/textures/Wood_Floor_Dark.jpg
+[21.015s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/meshes/cafe_table.dae
+[21.130s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/model-1_4.sdf
+[21.162s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/model.config
+[21.202s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/model.sdf
+[21.301s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can/meshes/trash_can.dae
+[21.462s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can/model.config
+[21.604s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can/model.sdf
+[21.725s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/scripts/mailbox.material
+[21.865s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/textures/Mailbox_Diffuse.png
+[21.883s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/textures/Mailbox_Diffuse.tga.orig
+[21.997s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/textures/Mailbox_Spec.png
+[22.095s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/meshes/mailbox.dae
+[22.177s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/model-1_3.sdf
+[22.302s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/model-1_4.sdf
+[22.382s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/model.config
+[22.464s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/model.sdf
+[22.558s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/model.config
+[22.638s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/model.sdf
+[22.728s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/scripts/table_lightmap.material
+[22.837s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/textures/marble.png
+[22.925s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/textures/table_lightmap.png
+[22.972s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/meshes/table_lightmap.dae
+[23.000s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/model-1_4.sdf
+[23.039s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/model.config
+[23.110s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/model.sdf
+[23.199s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/textures/bricks.png
+[23.284s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/textures/wood.png
+[23.298s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/model-1_4.sdf
+[23.313s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/model.config
+[23.327s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/model.sdf
+[23.352s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model-1_4_.sdf
+[23.373s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model.config
+[23.394s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model.sdf
+[23.413s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/meshes/hexagon.dae
+[23.503s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/meshes/wall.dae
+[23.591s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/model-1_4.sdf
+[23.620s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/model.config
+[23.641s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/model.sdf
+[23.676s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params/turtlebot3_burger_bridge.yaml
+[23.699s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params/turtlebot3_burger_cam_bridge.yaml
+[23.741s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params/turtlebot3_waffle_bridge.yaml
+[23.833s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params/turtlebot3_waffle_pi_bridge.yaml
+[23.920s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//rviz/tb3_gazebo.rviz
+[24.012s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/common_properties.urdf
+[24.076s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_burger.urdf
+[24.133s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_burger_cam.urdf
+[24.181s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_waffle.urdf
+[24.235s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_waffle_pi.urdf
+[24.286s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/empty_world.world
+[24.341s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_autorace_2020.world
+[24.456s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage1.world
+[24.584s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage2.world
+[24.613s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage3.world
+[24.648s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage4.world
+[24.683s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_house.world
+[24.713s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_world.world
+[24.735s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo/obstacle1.hpp
+[24.763s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo/obstacle2.hpp
+[24.790s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo/obstacles.hpp
+[24.813s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo/traffic_bar_plugin.hpp
+[24.899s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo/traffic_light_plugin.hpp
+[24.931s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo/turtlebot3_drive.hpp
+[24.960s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/ament_index/resource_index/package_run_dependencies/turtlebot3_gazebo
+[25.009s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/ament_index/resource_index/parent_prefix_path/turtlebot3_gazebo
+[25.032s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/ament_prefix_path.sh
+[25.054s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/ament_prefix_path.dsv
+[25.077s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/path.sh
+[25.108s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/path.dsv
+[25.132s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.bash
+[25.157s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.sh
+[25.174s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.zsh
+[25.223s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.dsv
+[25.293s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/package.dsv
+[25.335s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/ament_index/resource_index/packages/turtlebot3_gazebo
+[25.364s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/ament_cmake_export_include_directories-extras.cmake
+[25.390s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/ament_cmake_export_dependencies-extras.cmake
+[25.411s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/turtlebot3_gazeboConfig.cmake
+[25.498s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/turtlebot3_gazeboConfig-version.cmake
+[25.515s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/package.xml
+[25.634s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_gazebo

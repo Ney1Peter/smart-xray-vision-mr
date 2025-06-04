@@ -1,0 +1,81 @@
+[0.032s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/turtlebot3/turtlebot3_node -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node
+[1.066s] -- The C compiler identification is GNU 13.3.0
+[1.066s] -- The CXX compiler identification is GNU 13.3.0
+[1.066s] -- Detecting C compiler ABI info
+[1.066s] -- Detecting C compiler ABI info - done
+[1.066s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.066s] -- Detecting C compile features
+[1.066s] -- Detecting C compile features - done
+[1.066s] -- Detecting CXX compiler ABI info
+[1.066s] -- Detecting CXX compiler ABI info - done
+[1.066s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.066s] -- Detecting CXX compile features
+[1.066s] -- Detecting CXX compile features - done
+[1.066s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.066s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.066s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.066s] -- Found dynamixel_sdk: 3.8.3 (/opt/ros/jazzy/share/dynamixel_sdk/cmake)
+[1.066s] -- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[1.066s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.067s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.067s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.067s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.067s] -- Found message_filters: 4.11.6 (/opt/ros/jazzy/share/message_filters/cmake)
+[1.067s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.067s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.067s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.067s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.067s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.067s] -- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[1.068s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[1.068s] -- Found std_srvs: 5.3.6 (/opt/ros/jazzy/share/std_srvs/cmake)
+[1.068s] -- Found tf2: 0.36.11 (/opt/ros/jazzy/share/tf2/cmake)
+[1.068s] -- Found tf2_ros: 0.36.11 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[1.098s] -- Found turtlebot3_msgs: 2.4.0 (/opt/ros/jazzy/share/turtlebot3_msgs/cmake)
+[1.246s] -- Configuring done (1.2s)
+[1.264s] -- Generating done (0.0s)
+[1.267s] -- Build files have been written to: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_node
+[1.280s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/turtlebot3/turtlebot3_node -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node
+[1.281s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_node -- -j22 -l22
+[1.321s] [ 14%] [32mBuilding CXX object CMakeFiles/turtlebot3_node_lib.dir/src/devices/motor_power.cpp.o[0m
+[1.321s] [ 14%] [32mBuilding CXX object CMakeFiles/turtlebot3_node_lib.dir/src/devices/sound.cpp.o[0m
+[1.321s] [ 21%] [32mBuilding CXX object CMakeFiles/turtlebot3_node_lib.dir/src/dynamixel_sdk_wrapper.cpp.o[0m
+[1.321s] [ 28%] [32mBuilding CXX object CMakeFiles/turtlebot3_node_lib.dir/src/diff_drive_controller.cpp.o[0m
+[1.321s] [ 35%] [32mBuilding CXX object CMakeFiles/turtlebot3_node_lib.dir/src/sensors/battery_state.cpp.o[0m
+[1.324s] [ 42%] [32mBuilding CXX object CMakeFiles/turtlebot3_node_lib.dir/src/sensors/sensor_state.cpp.o[0m
+[1.324s] [ 57%] [32mBuilding CXX object CMakeFiles/turtlebot3_node_lib.dir/src/turtlebot3.cpp.o[0m
+[1.324s] [ 57%] [32mBuilding CXX object CMakeFiles/turtlebot3_node_lib.dir/src/sensors/joint_state.cpp.o[0m
+[1.325s] [ 64%] [32mBuilding CXX object CMakeFiles/turtlebot3_node_lib.dir/src/odometry.cpp.o[0m
+[1.328s] [ 71%] [32mBuilding CXX object CMakeFiles/turtlebot3_node_lib.dir/src/devices/reset.cpp.o[0m
+[1.328s] [ 78%] [32mBuilding CXX object CMakeFiles/turtlebot3_node_lib.dir/src/sensors/imu.cpp.o[0m
+[35.320s] [ 85%] [32m[1mLinking CXX static library libturtlebot3_node_lib.a[0m
+[36.299s] [ 85%] Built target turtlebot3_node_lib
+[36.391s] [ 92%] [32mBuilding CXX object CMakeFiles/turtlebot3_ros.dir/src/node_main.cpp.o[0m
+[42.598s] [100%] [32m[1mLinking CXX executable turtlebot3_ros[0m
+[46.984s] [100%] Built target turtlebot3_ros
+[47.078s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_node -- -j22 -l22
+[47.085s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_node
+[47.103s] -- Install configuration: ""
+[47.106s] -- Execute custom install script
+[47.113s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/param/burger.yaml
+[47.135s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/param/waffle.yaml
+[47.169s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/param/waffle_pi.yaml
+[47.193s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/lib/turtlebot3_node/turtlebot3_ros
+[47.207s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/ament_index/resource_index/package_run_dependencies/turtlebot3_node
+[47.235s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/ament_index/resource_index/parent_prefix_path/turtlebot3_node
+[47.260s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/environment/ament_prefix_path.sh
+[47.273s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/environment/ament_prefix_path.dsv
+[47.296s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/environment/path.sh
+[47.309s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/environment/path.dsv
+[47.340s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/local_setup.bash
+[47.376s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/local_setup.sh
+[47.390s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/local_setup.zsh
+[47.414s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/local_setup.dsv
+[47.428s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/package.dsv
+[47.462s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/ament_index/resource_index/packages/turtlebot3_node
+[47.496s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/cmake/ament_cmake_export_dependencies-extras.cmake
+[47.531s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/cmake/ament_cmake_export_include_directories-extras.cmake
+[47.566s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/cmake/turtlebot3_nodeConfig.cmake
+[47.583s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/cmake/turtlebot3_nodeConfig-version.cmake
+[47.599s] -- Symlinking: /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/turtlebot3_node/share/turtlebot3_node/package.xml
+[47.627s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/turtlebot3_node

@@ -1,0 +1,41 @@
+[1.716s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/ros_tcp_endpoint': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/ros_tcp_endpoint/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/ros_tcp_endpoint/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/ros_tcp_endpoint/build --no-deps symlink_data
+[1.871s] /usr/lib/python3/dist-packages/setuptools/dist.py:744: SetuptoolsDeprecationWarning: Invalid dash-separated options
+[1.872s] !!
+[1.872s] 
+[1.872s]         ********************************************************************************
+[1.872s]         Usage of dash-separated 'script-dir' will not be supported in future
+[1.872s]         versions. Please use the underscore name 'script_dir' instead.
+[1.872s] 
+[1.872s]         This deprecation is overdue, please update your project and remove deprecated
+[1.872s]         calls to avoid build errors in the future.
+[1.872s] 
+[1.872s]         See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html for details.
+[1.872s]         ********************************************************************************
+[1.872s] 
+[1.872s] !!
+[1.873s]   opt = self.warn_dash_deprecation(opt, section)
+[2.084s] running develop
+[2.302s] running egg_info
+[2.303s] creating ros_tcp_endpoint.egg-info
+[2.323s] writing ros_tcp_endpoint.egg-info/PKG-INFO
+[2.323s] writing dependency_links to ros_tcp_endpoint.egg-info/dependency_links.txt
+[2.323s] writing entry points to ros_tcp_endpoint.egg-info/entry_points.txt
+[2.324s] writing requirements to ros_tcp_endpoint.egg-info/requires.txt
+[2.324s] writing top-level names to ros_tcp_endpoint.egg-info/top_level.txt
+[2.324s] writing manifest file 'ros_tcp_endpoint.egg-info/SOURCES.txt'
+[2.367s] reading manifest file 'ros_tcp_endpoint.egg-info/SOURCES.txt'
+[2.368s] writing manifest file 'ros_tcp_endpoint.egg-info/SOURCES.txt'
+[2.391s] running build_ext
+[2.391s] Creating /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/ros_tcp_endpoint/lib/python3.12/site-packages/ros-tcp-endpoint.egg-link (link to .)
+[2.391s] Installing default_server_endpoint script to /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/ros_tcp_endpoint/lib/ros_tcp_endpoint
+[2.392s] 
+[2.392s] Installed /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/ros_tcp_endpoint
+[2.392s] running symlink_data
+[2.393s] creating /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/ros_tcp_endpoint/share/ament_index
+[2.393s] creating /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/ros_tcp_endpoint/share/ament_index/resource_index
+[2.393s] creating /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/ros_tcp_endpoint/share/ament_index/resource_index/packages
+[2.393s] symbolically linking /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/ros_tcp_endpoint/resource/ros_tcp_endpoint -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/ros_tcp_endpoint/share/ament_index/resource_index/packages
+[2.393s] symbolically linking /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/ros_tcp_endpoint/package.xml -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint
+[2.393s] creating /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/launch
+[2.393s] symbolically linking /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/ros_tcp_endpoint/launch/endpoint.py -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/launch
+[2.468s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/ros_tcp_endpoint' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/ros_tcp_endpoint/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/ros_tcp_endpoint/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/ros_tcp_endpoint/build --no-deps symlink_data

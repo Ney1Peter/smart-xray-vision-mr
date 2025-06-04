@@ -1,0 +1,55 @@
+[0.477s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/unity_slam_example/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example/build
+[0.559s] /usr/lib/python3/dist-packages/setuptools/dist.py:744: SetuptoolsDeprecationWarning: Invalid dash-separated options
+[0.559s] !!
+[0.559s] 
+[0.559s]         ********************************************************************************
+[0.560s]         Usage of dash-separated 'script-dir' will not be supported in future
+[0.560s]         versions. Please use the underscore name 'script_dir' instead.
+[0.560s] 
+[0.560s]         This deprecation is overdue, please update your project and remove deprecated
+[0.560s]         calls to avoid build errors in the future.
+[0.560s] 
+[0.560s]         See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html for details.
+[0.560s]         ********************************************************************************
+[0.560s] 
+[0.560s] !!
+[0.560s]   opt = self.warn_dash_deprecation(opt, section)
+[0.663s] running develop
+[0.784s] Removing /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/unity_slam_example/lib/python3.12/site-packages/unity-slam-example.egg-link (link to .)
+[0.801s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/unity_slam_example/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example/build
+[0.802s] Invoking command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/unity_slam_example': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/unity_slam_example/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/unity_slam_example build --build-base /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example/build install --record /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example/install.log --install-scripts $base/lib/unity_slam_example --single-version-externally-managed install_data --force
+[0.879s] /usr/lib/python3/dist-packages/setuptools/dist.py:744: SetuptoolsDeprecationWarning: Invalid dash-separated options
+[0.879s] !!
+[0.879s] 
+[0.879s]         ********************************************************************************
+[0.880s]         Usage of dash-separated 'script-dir' will not be supported in future
+[0.880s]         versions. Please use the underscore name 'script_dir' instead.
+[0.880s] 
+[0.880s]         This deprecation is overdue, please update your project and remove deprecated
+[0.880s]         calls to avoid build errors in the future.
+[0.880s] 
+[0.880s]         See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html for details.
+[0.880s]         ********************************************************************************
+[0.880s] 
+[0.880s] !!
+[0.880s]   opt = self.warn_dash_deprecation(opt, section)
+[0.961s] running egg_info
+[0.973s] writing ../../build/unity_slam_example/unity_slam_example.egg-info/PKG-INFO
+[0.973s] writing dependency_links to ../../build/unity_slam_example/unity_slam_example.egg-info/dependency_links.txt
+[0.973s] writing requirements to ../../build/unity_slam_example/unity_slam_example.egg-info/requires.txt
+[0.973s] writing top-level names to ../../build/unity_slam_example/unity_slam_example.egg-info/top_level.txt
+[0.985s] reading manifest file '../../build/unity_slam_example/unity_slam_example.egg-info/SOURCES.txt'
+[0.986s] writing manifest file '../../build/unity_slam_example/unity_slam_example.egg-info/SOURCES.txt'
+[0.986s] running build
+[0.986s] running install
+[0.990s] running install_data
+[0.990s] copying resource/unity_slam_example -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/unity_slam_example/share/ament_index/resource_index/packages
+[0.990s] copying package.xml -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/unity_slam_example/share/unity_slam_example
+[0.991s] copying rviz/nav2_unity.rviz -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/unity_slam_example/share/unity_slam_example
+[0.991s] copying launch/unity_slam_example.py -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/unity_slam_example/share/unity_slam_example
+[0.991s] copying launch/unity_viz_example.py -> /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/unity_slam_example/share/unity_slam_example
+[0.991s] running install_egg_info
+[1.012s] Copying ../../build/unity_slam_example/unity_slam_example.egg-info to /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/unity_slam_example/lib/python3.12/site-packages/unity_slam_example-0.0.1-py3.12.egg-info
+[1.013s] running install_scripts
+[1.090s] writing list of installed files to '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example/install.log'
+[1.107s] Invoked command in '/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/src/unity_slam_example' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/install/unity_slam_example/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/unity_slam_example build --build-base /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example/build install --record /home/zheng/Robotics-Nav2-SLAM-Example/ros2_docker/colcon_ws/build/unity_slam_example/install.log --install-scripts $base/lib/unity_slam_example --single-version-externally-managed install_data --force
