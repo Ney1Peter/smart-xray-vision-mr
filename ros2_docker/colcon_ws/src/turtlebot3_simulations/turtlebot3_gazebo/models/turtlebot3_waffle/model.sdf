@@ -372,18 +372,18 @@
       <pose>0.069 -0.047 0.107 0 0 0</pose>
       <sensor name="rgbd_sensor" type="rgbd_camera">
         <frame name="camera_rgb_optical_frame"/>
-        <!-- 相对于 link 的位姿；0 即与 link 重合 -->
+        <!-- Overlaps with link -->
         <pose>0 0 0 0 0 0</pose>
 
-        <!-- GZ 侧基础 topic；会自动派生三个子话题 -->
-        <topic>/camera</topic>          <!-- 将来 ROS 侧会看到
+        <!-- Three sub-topics -->
+        <topic>/camera</topic>          <!--
                                           /camera/image
                                           /camera/depth_image
                                           /camera/points           -->
 
         <update_rate>15</update_rate>
 
-        <!-- 彩色相机参数 -->
+        <!-- Color camera parameters -->
         <camera>
           <image>
             <width>640</width>
@@ -394,12 +394,12 @@
           <clip><near>0.02</near><far>10.0</far></clip>
         </camera>
 
-        <!-- 深度相机参数 -->
+        <!-- Depth parameters -->
         <depth_camera>
           <image>
             <width>640</width>
             <height>480</height>
-            <format>FLOAT32</format>   <!-- GZ Sim 要求 32 位浮点深度 -->
+            <format>FLOAT32</format>  
           </image>
           <clip><near>0.02</near><far>10.0</far></clip>
         </depth_camera>
@@ -491,8 +491,8 @@
     <joint name="camera_rgb_optical_joint" type="fixed">
       <parent>camera_rgb_frame</parent>
       <child>camera_rgb_optical_frame</child>
-      <!-- REP-103 规定的相机光学系：x 右、y 下、z 前
-          => roll = -90°, yaw = -90° -->
+
+
       <pose>0 0 0 -1.57079632679 0 -1.57079632679</pose>
     </joint>
 
