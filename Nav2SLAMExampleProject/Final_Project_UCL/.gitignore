@@ -1,8 +1,8 @@
 ########################
-# Unity 项目通用忽略项 #
+# General Unity ignores #
 ########################
 
-# Unity 本地缓存 / 构建输出
+# Unity local caches / build output
 [Ll]ibrary/
 [Ll]ogs/
 [Tt]emp/
@@ -10,16 +10,16 @@
 [Bb]uild/
 [Bb]uilds/
 MemoryCaptures/
-Assets/**/AssetStoreTools*		# 老版 Asset Store 工具
-# 如果你的项目使用 Addressables，可视需求排除它的缓存：
+Assets/**/AssetStoreTools*      # legacy Asset Store Tools
+# If you’re using Addressables, uncomment to ignore its build cache:
 # ServerData/
 
-# 渲染管线生成缓存（HDRP/URP）
+# Render-pipeline-generated data (HDRP/URP)
 Assets/**/LightingData.asset
 Assets/**/Lightmap-*.png
 Assets/**/ReflectionProbeCache/
 
-# VS / VSCode
+# VS / VS Code
 .vscode/
 .vs/
 *.csproj
@@ -27,31 +27,31 @@ Assets/**/ReflectionProbeCache/
 *.user
 *.suo
 
-# Rider
+# JetBrains Rider
 .idea/
 *.sln.iml
 
-# Mac / Windows / Linux 系统垃圾
+# OS-specific junk
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# Unity Crash & Profiler
+# Unity crash & profiler dumps
 sysinfo.txt
 crash_*.log
 report-*.mdmp
 
-# TextMesh Pro 本地包下载缓存
+# TextMesh Pro local package cache
 TextMesh Pro/**/Resources/*
 
-# Collab / Plastic SCM 本地文件（若用到）
+# Plastic SCM / Collab local files (if used)
 .plastic/
 PlasticSCM/
 
-########################
-# 仅保留必须提交的内容 #
-########################
+
+
+# Keep only essentials #
 !Assets/
 !Packages/
 !ProjectSettings/
-!UserSettings/EditorUserSettings.asset	# 可选：若想同步快捷键、布局则取消忽略
+!UserSettings/EditorUserSettings.asset   # un-ignore if you want to share layouts / shortcuts
