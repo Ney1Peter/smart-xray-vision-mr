@@ -1,0 +1,57 @@
+########################
+# Unity 项目通用忽略项 #
+########################
+
+# Unity 本地缓存 / 构建输出
+[Ll]ibrary/
+[Ll]ogs/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+MemoryCaptures/
+Assets/**/AssetStoreTools*		# 老版 Asset Store 工具
+# 如果你的项目使用 Addressables，可视需求排除它的缓存：
+# ServerData/
+
+# 渲染管线生成缓存（HDRP/URP）
+Assets/**/LightingData.asset
+Assets/**/Lightmap-*.png
+Assets/**/ReflectionProbeCache/
+
+# VS / VSCode
+.vscode/
+.vs/
+*.csproj
+*.sln
+*.user
+*.suo
+
+# Rider
+.idea/
+*.sln.iml
+
+# Mac / Windows / Linux 系统垃圾
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Unity Crash & Profiler
+sysinfo.txt
+crash_*.log
+report-*.mdmp
+
+# TextMesh Pro 本地包下载缓存
+TextMesh Pro/**/Resources/*
+
+# Collab / Plastic SCM 本地文件（若用到）
+.plastic/
+PlasticSCM/
+
+########################
+# 仅保留必须提交的内容 #
+########################
+!Assets/
+!Packages/
+!ProjectSettings/
+!UserSettings/EditorUserSettings.asset	# 可选：若想同步快捷键、布局则取消忽略
