@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>KdTree</id>
+    <version>1.4.1</version>
+    <authors>codeandcats@gmail.com, RobIII</authors>
+    <owners>codeandcats@gmail.com, RobIII</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://raw.github.com/codeandcats/KdTree/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/codeandcats/KdTree</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/codeandcats/KdTree/master/Images/kdtree.png</iconUrl>
+    <description>Generic multi-dimensional binary search tree.</description>
+    <releaseNotes>* Remove requirement to limit number of result in radial search</releaseNotes>
+    <copyright>Copyright codeandcats@gmail.com 2013</copyright>
+    <tags>kdtree kd-tree binary search tree bst spatial</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework=".NETFramework4.5.1" />
+      <group targetFramework=".NETFramework4.5.2" />
+      <group targetFramework=".NETFramework4.6" />
+      <group targetFramework=".NETFramework4.6.1" />
+      <group targetFramework=".NETFramework4.6.2" />
+      <group targetFramework=".NETFramework4.7" />
+      <group targetFramework=".NETFramework4.7.1" />
+      <group targetFramework=".NETCoreApp2.0" />
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+</package>

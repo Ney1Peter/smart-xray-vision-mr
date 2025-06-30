@@ -1,0 +1,107 @@
+﻿// DeformationCompute.compute
+
+#pragma kernel CSMain // 定义主内核函数
+
+// --- 输入/输出缓冲区 ---
+
+// 输入: 存储高斯点的原始静息位置 (只读)
+StructuredBuffer<float3> originalPositions;
+
+// 输入/输出: 存储高斯点当前的位置 (可读写)
+RWStructuredBuffer<float3> positions;
+
+// 输出: 用于原子计数的缓冲区 (只包含一个 uint 元素)
+// 注意: 类型需要与 C# 中创建 ComputeBuffer/GraphicsBuffer 时兼容
+// RWStructuredBuffer<uint> 通常用于 stride=4 的结构化 Buffer
+// RWByteAddressBuffer 可用于 ComputeBufferType.Raw
+RWStructuredBuffer<uint> affectedCounter;
+
+// --- 从 C# 传递的参数 ---
+float3 center; // 变形中心 (世界坐标)
+float3 offsetLocal; // 本次变形的位移量 (高斯物体局部坐标)
+float viewRadius; // 变形影响半径
+uint splatCount; // 高斯点总数
+float4x4 transformMatrix; // 高斯物体的 LocalToWorld 矩阵
+bool accumulateDeformation; // 是否启用累积变形模式
+
+// --- 辅助函数: 局部坐标转世界坐标 ---
+float3 TransformLocalToWorld(float3 localPos)
+{
+    // 乘以 localToWorld 矩阵 (使用齐次坐标)
+    float4 worldPosH = mul(transformMatrix, float4(localPos, 1.0f));
+    // 进行透视除法 (对于点，w 通常是 1)
+    return worldPosH.xyz / worldPosH.w;
+}
+
+// --- 内核主函数 ---
+// 定义每个线程组中的线程数量 (例如 64x1x1)
+// 这个值应与 C# Dispatch 函数中的计算相匹配
+[numthreads(64, 1, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID) // id.x 是当前线程的全局索引
+{
+    // 获取当前线程要处理的高斯点的索引
+    uint index = id.x;
+
+    // 安全检查：防止越界访问
+    if (index >= splatCount)
+    {
+        return;
+    }
+
+    // --- 计算距离和强度 ---
+    // 1. 读取静息状态的局部位置 (用于距离判断和非累积模式)
+    float3 originalPosLocal = originalPositions[index];
+    // 2. 计算其世界坐标 (基于静息状态计算距离通常更稳定)
+    float3 worldPos = TransformLocalToWorld(originalPosLocal);
+    // 3. 计算到变形中心的距离
+    float dist = distance(worldPos, center);
+
+    // --- 读取当前状态并准备计算最终位置 ---
+    // 4. 读取当前点的位置 (用于累积模式或保持现状)
+    float3 currentPosLocal = positions[index];
+    // 5. 初始化最终位置为当前位置 (默认不改变)
+    float3 finalPosLocal = currentPosLocal;
+
+    // --- 判断是否在影响半径内 ---
+    if (dist < viewRadius)
+    {
+        // 6. [新增] 原子地增加受影响点计数器
+        // InterlockedAdd(目标地址, 要加的值)
+        // 对 affectedCounter 缓冲区的第一个 uint 元素原子地加 1
+        InterlockedAdd(affectedCounter[0], 1u); // 使用 'u' 表示无符号整数
+
+        // 7. 计算衰减强度 (0到1之间)
+        float strength = saturate(1.0f - dist / viewRadius); // saturate 确保结果在 [0, 1]
+
+        // 8. 计算本次变形产生的位移增量 (delta)
+        float3 deltaPos = offsetLocal * strength;
+
+        // 9. 根据 accumulateDeformation 标志决定最终位置
+        if (accumulateDeformation)
+        {
+            // 累积模式：在当前位置上叠加位移增量
+            finalPosLocal = currentPosLocal + deltaPos;
+        }
+        else // 非累积模式
+        {
+            // 非累积模式：基于原始静息位置加上位移增量
+            finalPosLocal = originalPosLocal + deltaPos;
+        }
+    }
+    else // 如果在影响半径之外
+    {
+        if (!accumulateDeformation)
+        {
+            // 非累积模式下，将范围外的点重置回其原始静息状态
+            finalPosLocal = originalPosLocal;
+        }
+        // else (如果是累积模式)
+        // {
+        //     // 累积模式下，范围外的点保持其当前的累积状态
+        //     // 因为 finalPosLocal 初始化为 currentPosLocal，所以这里无需额外操作
+        // }
+    }
+
+    // 10. 将最终计算出的位置写回到输出缓冲区
+    positions[index] = finalPosLocal;
+}

@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - QDSUIToggleButton
+  - QDSUIIcon
+  - QDSUITextSecondaryColor
+  - QDSUISecondaryButton
+  - QDSUISection
+  - QDSUISharedThemeColor
+  - QDSUIPrimaryButton
+  - QDSUIAccentColor
+  - QDSUITextInvertedColor
+  - QDSUITextSecondaryInvertedColor
+  - QDSUITextInputField
+  - QDSUIToggleCheckboxRadio
+  - QDSUITooltip
+  - QDSUIBackplateGradient
+  - QDSUIDestructiveButton
+  - QDSUIToggleBorderlessButton
+  - QDSUIBorderlessButton
+  - QDSUIToggleSwitch
+  - SamplesInfoPanel
+  - Change Object
+  - Label
+  - ExampleLabel
+  - UI
+  - MRUK_RecreatedMesh
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - GS
+  - RoomMesh
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - XR Simulation
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  m_RenderingLayers:
+  - Default

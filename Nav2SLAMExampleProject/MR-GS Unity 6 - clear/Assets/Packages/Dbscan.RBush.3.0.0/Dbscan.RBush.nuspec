@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Dbscan.RBush</id>
+    <version>3.0.0</version>
+    <title>Dbscan.RBush</title>
+    <authors>viceroypenguin</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>readme.md</readme>
+    <description>Boilerplate code to connect RBush with Dbscan.</description>
+    <copyright>Copyright © 2017-2022 Turning Code, LLC (and others)</copyright>
+    <tags>.NET Algorithm Dbscan RBush R-Tree</tags>
+    <repository type="git" url="https://github.com/viceroypenguin/Dbscan" commit="e3e9570418fff3ffb39e05ef3337624384ef27ef" />
+    <dependencies>
+      <group targetFramework=".NETStandard1.2">
+        <dependency id="Dbscan" version="3.0.0" exclude="Build,Analyzers" />
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="RBush" version="3.0.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Dbscan" version="3.0.0" exclude="Build,Analyzers" />
+        <dependency id="RBush" version="3.0.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net6.0">
+        <dependency id="Dbscan" version="3.0.0" exclude="Build,Analyzers" />
+        <dependency id="RBush" version="3.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

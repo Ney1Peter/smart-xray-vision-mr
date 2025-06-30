@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dbscan.RBush</name>
+    </assembly>
+    <members>
+        <member name="T:Dbscan.RBush.DbscanRBush">
+            <summary>
+            Contains static methods to run the DBSCAN algorithm using the RBush spatial index.
+            </summary>
+        </member>
+        <member name="M:Dbscan.RBush.DbscanRBush.CalculateClusters``1(System.Collections.Generic.IEnumerable{``0},System.Double,System.Int32)">
+            <summary>
+            Run the DBSCAN algorithm on a collection of points, using the <see cref="T:Dbscan.RBush.RBushSpatialIndex`1"/> index.
+            </summary>
+            <typeparam name="T">The type of elements to cluster.</typeparam>
+            <param name="data">The collection of elements to cluster.</param>
+            <param name="epsilon">The epsilon parameter to use in the algorithm; used to determine the radius of the circle to find neighboring points.</param>
+            <param name="minimumPointsPerCluster">The minimum number of points required to create a cluster or to add additional points to the cluster.</param>
+            <returns>A <see cref="T:Dbscan.ClusterSet`1"/> containing the list of <see cref="T:Dbscan.Cluster`1"/>s and a list of unclustered points.</returns>
+            <remarks>This method is an O(N log N) operation, where N is the Length of the dataset</remarks>
+        </member>
+        <member name="T:Dbscan.RBush.EnvelopePointInfo`1">
+            <summary>
+            A holding class for algorithm related information about a point.
+            </summary>
+            <typeparam name="T">The type of the element this object is holding.</typeparam>
+        </member>
+        <member name="M:Dbscan.RBush.EnvelopePointInfo`1.#ctor(`0)">
+            <summary>
+            Initializes a new <see cref="T:Dbscan.RBush.EnvelopePointInfo`1"/> with the object it is holding.
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="P:Dbscan.RBush.EnvelopePointInfo`1.Envelope">
+            <inheritdoc />
+        </member>
+        <member name="T:Dbscan.RBush.RBushSpatialIndex`1">
+            <summary>
+            An implementation of the <see cref="T:Dbscan.ISpatialIndex`1"/> using a simple <see cref="T:System.Collections.Generic.List`1"/>
+            to hold the elements and a linear search of all items to <see cref="M:Dbscan.RBush.RBushSpatialIndex`1.Search(Dbscan.IPointData@,System.Double)"/>
+            for nearby items.
+            </summary>
+            <typeparam name="T">The type of items in the index.</typeparam>
+        </member>
+        <member name="M:Dbscan.RBush.RBushSpatialIndex`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a <see cref="T:Dbscan.ListSpatialIndex`1"/> with a collection of data, using the
+            Euclidean distance between two points as the distance function to search for points 
+            in a given neighborhood.
+            </summary>
+            <param name="data">The collection of data to put into the index</param>
+        </member>
+        <member name="M:Dbscan.RBush.RBushSpatialIndex`1.Search">
+            <summary>
+            Get all of the elements within the current <see cref="T:Dbscan.RBush.RBushSpatialIndex`1"/>.
+            </summary>
+            <returns>
+            A list of every element contained in the <see cref="T:Dbscan.RBush.RBushSpatialIndex`1"/>.
+            </returns>
+        </member>
+        <member name="M:Dbscan.RBush.RBushSpatialIndex`1.Search(Dbscan.IPointData@,System.Double)">
+            <summary>
+            Get all of the elements from this <see cref="T:Dbscan.RBush.RBushSpatialIndex`1"/>
+            within a circle centered at the point <see cref="P:Dbscan.IPointData.Point"/>
+            with a radius of <paramref name="epsilon"/>.
+            </summary>
+            <param name="p">The center of the search circle.</param>
+            <param name="epsilon">The radius of the search circle.</param>
+            <returns>
+            A list of the points that are within the search area.
+            </returns>
+        </member>
+        <member name="T:Roslyn.Utilities.PerformanceSensitiveAttribute">
+            <summary>
+            Indicates that a code element is performance sensitive under a known scenario.
+            </summary>
+            <remarks>
+            <para>When applying this attribute, only explicitly set the values for properties specifically indicated by the
+            test/measurement technique described in the associated <see cref="P:Roslyn.Utilities.PerformanceSensitiveAttribute.Uri"/>.</para>
+            </remarks>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.Uri">
+            <summary>
+            Gets the location where the original problem is documented, likely with steps to reproduce the issue and/or
+            validate performance related to a change in the method.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.Constraint">
+            <summary>
+            Gets or sets a description of the constraint imposed by the original performance issue.
+            </summary>
+            <remarks>
+            <para>Constraints are normally specified by other specific properties that allow automated validation of the
+            constraint. This property supports documenting constraints which cannot be described in terms of other
+            constraint properties.</para>
+            </remarks>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowCaptures">
+            <summary>
+            Gets or sets a value indicating whether captures are allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowImplicitBoxing">
+            <summary>
+            Gets or sets a value indicating whether implicit boxing of value types is allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowGenericEnumeration">
+            <summary>
+            Gets or sets a value indicating whether enumeration of a generic
+            <see cref="T:System.Collections.Generic.IEnumerable`1"/> is allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowLocks">
+            <summary>
+            Gets or sets a value indicating whether locks are allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.OftenCompletesSynchronously">
+            <summary>
+            Gets or sets a value indicating whether the asynchronous state machine typically completes synchronously.
+            </summary>
+            <remarks>
+            <para>When <see langword="true"/>, validation of this performance constraint typically involves analyzing
+            the method to ensure synchronous completion of the state machine does not require the allocation of a
+            <see cref="T:System.Threading.Tasks.Task"/>, either through caching the result or by using
+            <see cref="!:System.Threading.Tasks.ValueTask&lt;TResult&gt;"/>.</para>
+            </remarks>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.IsParallelEntry">
+            <summary>
+            Gets or sets a value indicating whether this is an entry point to a parallel algorithm.
+            </summary>
+            <remarks>
+            <para>Parallelization APIs and algorithms, e.g. <c>Parallel.ForEach</c>, may be efficient for parallel entry
+            points (few direct calls but large amounts of iterative work), but are problematic when called inside the
+            iterations themselves. Performance-sensitive code should avoid the use of heavy parallelization APIs except
+            for known entry points to the parallel portion of code.</para>
+            </remarks>
+        </member>
+    </members>
+</doc>

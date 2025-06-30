@@ -1,0 +1,126 @@
+﻿#pragma kernel ComputeErrors
+
+// 输入 Buffers
+StructuredBuffer<float3> SourcePoints; // 源点云 P'
+StructuredBuffer<float3> TargetPoints; // 原始目标点云 Q (按原始索引)
+
+// 输入: 哈希网格数据结构 (由 C# 构建并上传)
+StructuredBuffer<uint> CellCounts; // 每个哈希桶(格子)包含多少个点
+StructuredBuffer<uint> CellOffsets; // 每个哈希桶(格子)在排序后索引列表中的起始偏移量
+StructuredBuffer<uint> SortedTargetIndices; // 按哈希桶排序(分组)后的目标点原始索引列表
+
+// 输入: 哈希网格参数
+float3 gridOrigin; // 网格起始点坐标 (例如包围盒最小角点)
+float gridCellSize; // 网格单元尺寸
+float invCellSize; // 1.0 / gridCellSize (预计算以加速)
+uint3 gridResolution; // 网格在 XYZ 轴上的格子数量
+uint numGridCells; // 网格总格子数 = gridResolution.x * gridResolution.y * gridResolution.z
+float searchRadius; // 限定的搜索半径
+float searchRadiusSq; // 搜索半径的平方 (避免开方)
+
+// 输入: 点云数量
+uint numSourcePoints;
+// uint numTargetPoints; // 如果 TargetPoints 缓冲区大小已知，可以省略
+
+// 输出: 误差距离
+RWStructuredBuffer<float> OutputErrorDistances;
+
+// --- 辅助函数 ---
+
+// 世界坐标转换为整数格子坐标
+int3 WorldToGrid(float3 pos)
+{
+    return int3(floor((pos - gridOrigin) * invCellSize));
+}
+
+// 3D 格子坐标转换为 1D 哈希索引 (简单示例，可能需要更好的哈希函数)
+// 注意边界检查和哈希冲突处理在实际应用中很重要
+uint GridToHash(int3 gridPos)
+{
+    // 边界检查 (确保格子坐标在有效范围内)
+    gridPos = max(int3(0, 0, 0), min(gridPos, (int3) gridResolution - 1));
+    // 简单线性索引
+    return gridPos.x + gridPos.y * gridResolution.x + gridPos.z * gridResolution.x * gridResolution.y;
+}
+
+// 获取目标点坐标 (使用排序后的索引来访问原始点)
+float3 GetTargetPointFromSorted(uint sortedListIndex)
+{
+    uint originalIndex = SortedTargetIndices[sortedListIndex];
+    // 安全检查: return TargetPoints[min(originalIndex, numTargetPoints-1)];
+    return TargetPoints[originalIndex];
+}
+
+
+[numthreads(64, 1, 1)]
+void ComputeErrors(uint3 id : SV_DispatchThreadID)
+{
+    uint index = id.x;
+    if (index >= numSourcePoints)
+        return;
+
+    float3 p_source = SourcePoints[index];
+    float min_dist_sq = searchRadiusSq; // 初始化为搜索半径平方，只找更近的
+    bool foundNeighbor = false;
+
+    // 计算源点所在的格子坐标
+    int3 centerGridPos = WorldToGrid(p_source);
+
+    // 遍历中心格子及其 3x3x3 的邻居格子
+    [loop]
+    for (int z = -1; z <= 1; ++z)
+    {
+        [loop]
+        for (int y = -1; y <= 1; ++y)
+        {
+            [loop]
+            for (int x = -1; x <= 1; ++x)
+            {
+                int3 cellPos = centerGridPos + int3(x, y, z);
+
+                // 检查格子坐标是否在网格内 (虽然 GridToHash 里也检查了)
+                if (all(cellPos >= 0) && all(cellPos < (int3) gridResolution))
+                {
+                    uint hash = GridToHash(cellPos);
+
+                    // 获取这个格子包含的目标点的数量和在排序列表中的偏移量
+                    uint count = CellCounts[hash];
+                    if (count > 0)
+                    {
+                        uint offset = CellOffsets[hash];
+
+                        // 遍历这个格子里的所有目标点
+                        [loop] // 提示编译器这是一个重要的循环
+                        for (uint i = 0; i < count; ++i)
+                        {
+                            uint targetIndexInSortedList = offset + i;
+                            float3 p_target = GetTargetPointFromSorted(targetIndexInSortedList);
+
+                            // 计算距离平方
+                            float3 diff = p_source - p_target;
+                            float distSq = dot(diff, diff);
+
+                            // 如果在搜索半径内且比当前最小距离更近
+                            if (distSq < min_dist_sq)
+                            {
+                                min_dist_sq = distSq;
+                                foundNeighbor = true;
+                            }
+                        } // end for i
+                    } // end if count > 0
+                } // end if cellPos valid
+            } // end for x
+        } // end for y
+    } // end for z
+
+    // --- 计算误差 ---
+    float error_dist = sqrt(min_dist_sq);
+    // 如果在半径内没找到任何点，可以设置一个特殊值，例如 -1 或 FLT_MAX
+    if (!foundNeighbor)
+    {
+        error_dist = -1.0f; // 或者 searchRadius, 或者 FLT_MAX
+    }
+
+    // --- 写入结果 ---
+    OutputErrorDistances[index] = error_dist;
+}

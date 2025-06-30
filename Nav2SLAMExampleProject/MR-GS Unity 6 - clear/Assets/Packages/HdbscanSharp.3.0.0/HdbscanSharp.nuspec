@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>HdbscanSharp</id>
+    <version>3.0.0</version>
+    <title>HDBSCAN implementation</title>
+    <authors>doxakis</authors>
+    <licenseUrl>https://github.com/doxakis/HdbscanSharp/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/doxakis/HdbscanSharp</projectUrl>
+    <description>HDBSCAN is a clustering algorithm developed by Campello, Moulavi, and Sander. It extends DBSCAN by converting it into a hierarchical clustering algorithm, and then using a technique to extract a flat clustering based in the stability of clusters.</description>
+    <tags>Hdbscan unsupervised machine learning clustering algorithm</tags>
+    <repository type="git" url="https://github.com/doxakis/HdbscanSharp" commit="41a824a78cea6bf8b2a51ad29d2767bcb2c068cf" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="System.Numerics.Tensors" version="9.0.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Numerics.Tensors" version="9.0.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

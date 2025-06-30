@@ -1,0 +1,365 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|f:\\unity project\\unity-vr-gaussian-splatting-1\\mr-gs\\assets\\scripts\\my 3dgs\\gaussiansplatknndragdeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\my 3dgs\\gaussiansplatknndragdeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|f:\\unity project\\unity-vr-gaussian-splatting-1\\mr-gs\\assets\\scripts\\my 3dgs\\gsinteractivedeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\my 3dgs\\gsinteractivedeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F02AEB98-4310-6ACA-E886-4F8EACC172BE}|KNN.csproj|f:\\unity project\\unity-vr-gaussian-splatting-1\\mr-gs\\assets\\knn-main\\knncontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F02AEB98-4310-6ACA-E886-4F8EACC172BE}|KNN.csproj|solutionrelative:assets\\knn-main\\knncontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|f:\\unity project\\unity-vr-gaussian-splatting-1\\mr-gs\\assets\\scripts\\gicp\\complexregistrations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gicp\\complexregistrations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F02AEB98-4310-6ACA-E886-4F8EACC172BE}|KNN.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\knn-main\\demo\\knnvisualizationdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F02AEB98-4310-6ACA-E886-4F8EACC172BE}|KNN.csproj|solutionrelative:assets\\knn-main\\demo\\knnvisualizationdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\scripts\\my 3dgs\\gaussiansplatviewdrag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\my 3dgs\\gaussiansplatviewdrag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\scripts\\my 3dgs\\arapdragcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\my 3dgs\\arapdragcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\scripts\\my 3dgs\\localgsalignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\my 3dgs\\localgsalignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\scripts\\my 3dgs\\gsviewprojectionaligner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\my 3dgs\\gsviewprojectionaligner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\package\\Shaders\\RenderGaussianSplats.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36B22403-09D0-9D77-BC04-A92CF7FE5722}|GaussianSplatting.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\package\\runtime\\gaussiansplatasset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\scripts\\my 3dgs\\gaussiansplatcolorpicker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\my 3dgs\\gaussiansplatcolorpicker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\scripts\\my 3dgs\\gaussiansplatlaplacian.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\my 3dgs\\gaussiansplatlaplacian.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Library\\PackageCache\\com.meta.xr.sdk.core@74.0.0\\Scripts\\BuildingBlocks\\RoomMesh\\RoomMeshEvent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.meta.xr.sdk.core@74.0.0\\Scripts\\BuildingBlocks\\RoomMesh\\RoomMeshEvent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\scripts\\dualgaussianrenderericpaligner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dualgaussianrenderericpaligner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\scripts\\gicp\\icp_gicpwrapperinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gicp\\icp_gicpwrapperinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\scripts\\gicp\\myregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gicp\\myregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\scripts\\meshtogaussianicpaligner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\meshtogaussianicpaligner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\visualcomparisonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\visualcomparisonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\assets\\scripts\\labelling manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C92B770-24E1-FEF5-B4C9-E1EDCEBA9CCA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\labelling manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "KnnContainer.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\KNN-main\\KnnContainer.cs",
+              "RelativeDocumentMoniker": "Assets\\KNN-main\\KnnContainer.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\KNN-main\\KnnContainer.cs",
+              "RelativeToolTip": "Assets\\KNN-main\\KnnContainer.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAwDsAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T00:07:15.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GaussianSplatKnnDragDeform.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\GaussianSplatKnnDragDeform.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\My 3DGS\\GaussianSplatKnnDragDeform.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\GaussianSplatKnnDragDeform.cs",
+              "RelativeToolTip": "Assets\\Scripts\\My 3DGS\\GaussianSplatKnnDragDeform.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAAIYAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T23:58:36.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GaussianSplatViewDrag.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\GaussianSplatViewDrag.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\My 3DGS\\GaussianSplatViewDrag.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\GaussianSplatViewDrag.cs",
+              "RelativeToolTip": "Assets\\Scripts\\My 3DGS\\GaussianSplatViewDrag.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAQwFMAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T23:16:21.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ARAPDragController.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\ARAPDragController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\My 3DGS\\ARAPDragController.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\ARAPDragController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\My 3DGS\\ARAPDragController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T22:29:58.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LocalGSAlignment.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\LocalGSAlignment.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\My 3DGS\\LocalGSAlignment.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\LocalGSAlignment.cs",
+              "RelativeToolTip": "Assets\\Scripts\\My 3DGS\\LocalGSAlignment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T22:50:20.066Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GSViewProjectionAligner.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\GSViewProjectionAligner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\My 3DGS\\GSViewProjectionAligner.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\GSViewProjectionAligner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\My 3DGS\\GSViewProjectionAligner.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAGYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T22:47:58.686Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GaussianSplatColorPicker.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\GaussianSplatColorPicker.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\My 3DGS\\GaussianSplatColorPicker.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\GaussianSplatColorPicker.cs",
+              "RelativeToolTip": "Assets\\Scripts\\My 3DGS\\GaussianSplatColorPicker.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAAFkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T20:20:50.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RenderGaussianSplats.shader",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\package\\Shaders\\RenderGaussianSplats.shader",
+              "RelativeDocumentMoniker": "..\\package\\Shaders\\RenderGaussianSplats.shader",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\package\\Shaders\\RenderGaussianSplats.shader",
+              "RelativeToolTip": "..\\package\\Shaders\\RenderGaussianSplats.shader",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-04-01T18:37:33.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GaussianSplatAsset.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\package\\Runtime\\GaussianSplatAsset.cs",
+              "RelativeDocumentMoniker": "..\\package\\Runtime\\GaussianSplatAsset.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\package\\Runtime\\GaussianSplatAsset.cs",
+              "RelativeToolTip": "..\\package\\Runtime\\GaussianSplatAsset.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYBAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T23:18:39.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "KnnVisualizationDemo.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\KNN-main\\Demo\\KnnVisualizationDemo.cs",
+              "RelativeDocumentMoniker": "Assets\\KNN-main\\Demo\\KnnVisualizationDemo.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\KNN-main\\Demo\\KnnVisualizationDemo.cs",
+              "RelativeToolTip": "Assets\\KNN-main\\Demo\\KnnVisualizationDemo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T23:27:11.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ComplexRegistrations.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\GICP\\ComplexRegistrations.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GICP\\ComplexRegistrations.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\GICP\\ComplexRegistrations.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GICP\\ComplexRegistrations.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAAAMQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T14:24:37.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RoomMeshEvent.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Library\\PackageCache\\com.meta.xr.sdk.core@74.0.0\\Scripts\\BuildingBlocks\\RoomMesh\\RoomMeshEvent.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.meta.xr.sdk.core@74.0.0\\Scripts\\BuildingBlocks\\RoomMesh\\RoomMeshEvent.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Library\\PackageCache\\com.meta.xr.sdk.core@74.0.0\\Scripts\\BuildingBlocks\\RoomMesh\\RoomMeshEvent.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.meta.xr.sdk.core@74.0.0\\Scripts\\BuildingBlocks\\RoomMesh\\RoomMeshEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T19:02:32.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "GaussianSplatLaplacian.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\GaussianSplatLaplacian.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\My 3DGS\\GaussianSplatLaplacian.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\GaussianSplatLaplacian.cs",
+              "RelativeToolTip": "Assets\\Scripts\\My 3DGS\\GaussianSplatLaplacian.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAYwJQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T21:25:17.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DualGaussianRendererICPAligner.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\DualGaussianRendererICPAligner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DualGaussianRendererICPAligner.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\DualGaussianRendererICPAligner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DualGaussianRendererICPAligner.cs",
+              "ViewState": "AQIAALcAAAAAAAAAAAAAADcAAAAXAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPBSURBVEhL7VRNbBNXEJ798a6x4rUwsRNCUqTaB2REEUgVFVWlVVUJ9cKB4q24VeoBIQ5FcEAQVWoOvaWuOCSHgoTKCW1yqFREG4sEIyVyiQKoCikQ1mkcWybOgmNvnJ\u002B1vfs6s4QcUCu11yqftfu8u9/MvDff9x5s4/8PbnOE2dlZuSbXuqfyU/Lo81EwFg2oN\u002BogSRLEw3EazeEvh03ilqxSZKGyELn8y2XA0bydvG2FoqHua1PX5OvZ6zYoUDS\u002BMmzi8nQjUHKRiSnGmA4MdBBB50RO5zhO53le93G\u002B5CYV/K4/iVxdcAUdWpCk5AIIKdEVdfycYhXW85q5uYLpwrT6wnpx8v7Cfc2sm5G6XYeQPwSSKIHIi96FzL7TH50eoORpI518WHio3jHuwPLacmZPaM\u002BM\u002Bq6qPTWfRh4UH5g8xw8hfyj3dS6DkQAv6y/Vylrl7Pif49Amt8HBzoP2oe5DxWhb1OaQWbSKsNHcMANuQHF451ipVto/kZ\u002BAFXsFXObuL1vlnru5u8pqcxWwAwrj2DGM\u002BwNTZwQqEP0kqs5X5lWaOc4EThw4kQ9IgfOtVusHbNdQtVEd4nhu8vDew2Z9o/5be6BdSXQk3p8pz1CRH0\u002B9d2rwzIdnPnBcJ/xk6Ukek5/nBG6kMlZZ81bwuPQYJJ8EXUoXBHyBTGewcxhnklUUxRP1DT7HH8J4VXtlOswBWZABNTLPfXzOwInYE/MT9Gzj/5zRa3ixnsjUguX1Zdit7Ib15vq9YDA48HZyAjmtXC3HCtVCe7FaBNvBXIy1X8lciT0zn8nYZnqWkRqLfxuPUIxXoOW2wHVdQLe8FvQf8MYtY8aY1n\u002BvH9AYgG3Rbv5\u002BM3Xx54s96dk05elmwL4jd1GMVwDF9MQtr5RhrjJHr/4WKLDFAz/SFeqaObr3qBeDjpnpCHaMqDHViu2KUYss1CDNeEYio9sR\u002B6L7gHpKy6YlX/rpUuLIO0cg3BaGRqMB\u002BXqeNp2JGlHbBs2qyeHmiz4qPYLaRm341he3fsXiPVezV\u002BP4Loez/z7XlzO2ChxPHIel1SW4MXWDWqSh9VRqF8/wEvByeZBAGqTkxJd5WXccJ0Pf0V1LqJdlWuYFcEHG5DYX5grEI3gbLfs8qy6uLJ7M5rNadb0aaTpN2BnYCX7RDz7B5204dEZf76e933hR/wFbZ9Ho9GiMCSw1uTAZH58bByyIORmEdoQgEU2QfQf7P\u002Bsf2KT/a2ydRbZsF9FNF3DZGjkDNaFWaVyL03Dpmm\u002BHj86ZbWzjbQD8BfQkxxdaIgF3AAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-03-30T22:44:36.196Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ICP_GICPWrapperInterface.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\GICP\\ICP_GICPWrapperInterface.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GICP\\ICP_GICPWrapperInterface.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\GICP\\ICP_GICPWrapperInterface.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GICP\\ICP_GICPWrapperInterface.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPBSURBVEhL7VRNbBNXEJ798a6x4rUwsRNCUqTaB2REEUgVFVWlVVUJ9cKB4q24VeoBIQ5FcEAQVWoOvaWuOCSHgoTKCW1yqFREG4sEIyVyiQKoCikQ1mkcWybOgmNvnJ\u002B1vfs6s4QcUCu11yqftfu8u9/MvDff9x5s4/8PbnOE2dlZuSbXuqfyU/Lo81EwFg2oN\u002BogSRLEw3EazeEvh03ilqxSZKGyELn8y2XA0bydvG2FoqHua1PX5OvZ6zYoUDS\u002BMmzi8nQjUHKRiSnGmA4MdBBB50RO5zhO53le93G\u002B5CYV/K4/iVxdcAUdWpCk5AIIKdEVdfycYhXW85q5uYLpwrT6wnpx8v7Cfc2sm5G6XYeQPwSSKIHIi96FzL7TH50eoORpI518WHio3jHuwPLacmZPaM\u002BM\u002Bq6qPTWfRh4UH5g8xw8hfyj3dS6DkQAv6y/Vylrl7Pif49Amt8HBzoP2oe5DxWhb1OaQWbSKsNHcMANuQHF451ipVto/kZ\u002BAFXsFXObuL1vlnru5u8pqcxWwAwrj2DGM\u002BwNTZwQqEP0kqs5X5lWaOc4EThw4kQ9IgfOtVusHbNdQtVEd4nhu8vDew2Z9o/5be6BdSXQk3p8pz1CRH0\u002B9d2rwzIdnPnBcJ/xk6Ukek5/nBG6kMlZZ81bwuPQYJJ8EXUoXBHyBTGewcxhnklUUxRP1DT7HH8J4VXtlOswBWZABNTLPfXzOwInYE/MT9Gzj/5zRa3ixnsjUguX1Zdit7Ib15vq9YDA48HZyAjmtXC3HCtVCe7FaBNvBXIy1X8lciT0zn8nYZnqWkRqLfxuPUIxXoOW2wHVdQLe8FvQf8MYtY8aY1n\u002BvH9AYgG3Rbv5\u002BM3Xx54s96dk05elmwL4jd1GMVwDF9MQtr5RhrjJHr/4WKLDFAz/SFeqaObr3qBeDjpnpCHaMqDHViu2KUYss1CDNeEYio9sR\u002B6L7gHpKy6YlX/rpUuLIO0cg3BaGRqMB\u002BXqeNp2JGlHbBs2qyeHmiz4qPYLaRm341he3fsXiPVezV\u002BP4Loez/z7XlzO2ChxPHIel1SW4MXWDWqSh9VRqF8/wEvByeZBAGqTkxJd5WXccJ0Pf0V1LqJdlWuYFcEHG5DYX5grEI3gbLfs8qy6uLJ7M5rNadb0aaTpN2BnYCX7RDz7B5204dEZf76e933hR/wFbZ9Ho9GiMCSw1uTAZH58bByyIORmEdoQgEU2QfQf7P\u002Bsf2KT/a2ydRbZsF9FNF3DZGjkDNaFWaVyL03Dpmm\u002BHj86ZbWzjbQD8BfQkxxdaIgF3AAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-03-28T21:39:51.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MyRegistration.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\GICP\\MyRegistration.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GICP\\MyRegistration.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\GICP\\MyRegistration.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GICP\\MyRegistration.cs",
+              "ViewState": "AQIAAJcAAAAAAAAAAAAAAMcAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPBSURBVEhL7VRNbBNXEJ798a6x4rUwsRNCUqTaB2REEUgVFVWlVVUJ9cKB4q24VeoBIQ5FcEAQVWoOvaWuOCSHgoTKCW1yqFREG4sEIyVyiQKoCikQ1mkcWybOgmNvnJ\u002B1vfs6s4QcUCu11yqftfu8u9/MvDff9x5s4/8PbnOE2dlZuSbXuqfyU/Lo81EwFg2oN\u002BogSRLEw3EazeEvh03ilqxSZKGyELn8y2XA0bydvG2FoqHua1PX5OvZ6zYoUDS\u002BMmzi8nQjUHKRiSnGmA4MdBBB50RO5zhO53le93G\u002B5CYV/K4/iVxdcAUdWpCk5AIIKdEVdfycYhXW85q5uYLpwrT6wnpx8v7Cfc2sm5G6XYeQPwSSKIHIi96FzL7TH50eoORpI518WHio3jHuwPLacmZPaM\u002BM\u002Bq6qPTWfRh4UH5g8xw8hfyj3dS6DkQAv6y/Vylrl7Pif49Amt8HBzoP2oe5DxWhb1OaQWbSKsNHcMANuQHF451ipVto/kZ\u002BAFXsFXObuL1vlnru5u8pqcxWwAwrj2DGM\u002BwNTZwQqEP0kqs5X5lWaOc4EThw4kQ9IgfOtVusHbNdQtVEd4nhu8vDew2Z9o/5be6BdSXQk3p8pz1CRH0\u002B9d2rwzIdnPnBcJ/xk6Ukek5/nBG6kMlZZ81bwuPQYJJ8EXUoXBHyBTGewcxhnklUUxRP1DT7HH8J4VXtlOswBWZABNTLPfXzOwInYE/MT9Gzj/5zRa3ixnsjUguX1Zdit7Ib15vq9YDA48HZyAjmtXC3HCtVCe7FaBNvBXIy1X8lciT0zn8nYZnqWkRqLfxuPUIxXoOW2wHVdQLe8FvQf8MYtY8aY1n\u002BvH9AYgG3Rbv5\u002BM3Xx54s96dk05elmwL4jd1GMVwDF9MQtr5RhrjJHr/4WKLDFAz/SFeqaObr3qBeDjpnpCHaMqDHViu2KUYss1CDNeEYio9sR\u002B6L7gHpKy6YlX/rpUuLIO0cg3BaGRqMB\u002BXqeNp2JGlHbBs2qyeHmiz4qPYLaRm341he3fsXiPVezV\u002BP4Loez/z7XlzO2ChxPHIel1SW4MXWDWqSh9VRqF8/wEvByeZBAGqTkxJd5WXccJ0Pf0V1LqJdlWuYFcEHG5DYX5grEI3gbLfs8qy6uLJ7M5rNadb0aaTpN2BnYCX7RDz7B5204dEZf76e933hR/wFbZ9Ho9GiMCSw1uTAZH58bByyIORmEdoQgEU2QfQf7P\u002Bsf2KT/a2ydRbZsF9FNF3DZGjkDNaFWaVyL03Dpmm\u002BHj86ZbWzjbQD8BfQkxxdaIgF3AAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-03-28T21:39:51.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MeshToGaussianICPAligner.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\MeshToGaussianICPAligner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MeshToGaussianICPAligner.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\MeshToGaussianICPAligner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MeshToGaussianICPAligner.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFMAAAAWAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPBSURBVEhL7VRNbBNXEJ798a6x4rUwsRNCUqTaB2REEUgVFVWlVVUJ9cKB4q24VeoBIQ5FcEAQVWoOvaWuOCSHgoTKCW1yqFREG4sEIyVyiQKoCikQ1mkcWybOgmNvnJ\u002B1vfs6s4QcUCu11yqftfu8u9/MvDff9x5s4/8PbnOE2dlZuSbXuqfyU/Lo81EwFg2oN\u002BogSRLEw3EazeEvh03ilqxSZKGyELn8y2XA0bydvG2FoqHua1PX5OvZ6zYoUDS\u002BMmzi8nQjUHKRiSnGmA4MdBBB50RO5zhO53le93G\u002B5CYV/K4/iVxdcAUdWpCk5AIIKdEVdfycYhXW85q5uYLpwrT6wnpx8v7Cfc2sm5G6XYeQPwSSKIHIi96FzL7TH50eoORpI518WHio3jHuwPLacmZPaM\u002BM\u002Bq6qPTWfRh4UH5g8xw8hfyj3dS6DkQAv6y/Vylrl7Pif49Amt8HBzoP2oe5DxWhb1OaQWbSKsNHcMANuQHF451ipVto/kZ\u002BAFXsFXObuL1vlnru5u8pqcxWwAwrj2DGM\u002BwNTZwQqEP0kqs5X5lWaOc4EThw4kQ9IgfOtVusHbNdQtVEd4nhu8vDew2Z9o/5be6BdSXQk3p8pz1CRH0\u002B9d2rwzIdnPnBcJ/xk6Ukek5/nBG6kMlZZ81bwuPQYJJ8EXUoXBHyBTGewcxhnklUUxRP1DT7HH8J4VXtlOswBWZABNTLPfXzOwInYE/MT9Gzj/5zRa3ixnsjUguX1Zdit7Ib15vq9YDA48HZyAjmtXC3HCtVCe7FaBNvBXIy1X8lciT0zn8nYZnqWkRqLfxuPUIxXoOW2wHVdQLe8FvQf8MYtY8aY1n\u002BvH9AYgG3Rbv5\u002BM3Xx54s96dk05elmwL4jd1GMVwDF9MQtr5RhrjJHr/4WKLDFAz/SFeqaObr3qBeDjpnpCHaMqDHViu2KUYss1CDNeEYio9sR\u002B6L7gHpKy6YlX/rpUuLIO0cg3BaGRqMB\u002BXqeNp2JGlHbBs2qyeHmiz4qPYLaRm341he3fsXiPVezV\u002BP4Loez/z7XlzO2ChxPHIel1SW4MXWDWqSh9VRqF8/wEvByeZBAGqTkxJd5WXccJ0Pf0V1LqJdlWuYFcEHG5DYX5grEI3gbLfs8qy6uLJ7M5rNadb0aaTpN2BnYCX7RDz7B5204dEZf76e933hR/wFbZ9Ho9GiMCSw1uTAZH58bByyIORmEdoQgEU2QfQf7P\u002Bsf2KT/a2ydRbZsF9FNF3DZGjkDNaFWaVyL03Dpmm\u002BHj86ZbWzjbQD8BfQkxxdaIgF3AAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-03-26T23:44:14.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "VisualComparisonManager.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\VisualComparisonManager.cs",
+              "RelativeDocumentMoniker": "Assets\\VisualComparisonManager.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\VisualComparisonManager.cs",
+              "RelativeToolTip": "Assets\\VisualComparisonManager.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAADEAAAAyAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPBSURBVEhL7VRNbBNXEJ798a6x4rUwsRNCUqTaB2REEUgVFVWlVVUJ9cKB4q24VeoBIQ5FcEAQVWoOvaWuOCSHgoTKCW1yqFREG4sEIyVyiQKoCikQ1mkcWybOgmNvnJ\u002B1vfs6s4QcUCu11yqftfu8u9/MvDff9x5s4/8PbnOE2dlZuSbXuqfyU/Lo81EwFg2oN\u002BogSRLEw3EazeEvh03ilqxSZKGyELn8y2XA0bydvG2FoqHua1PX5OvZ6zYoUDS\u002BMmzi8nQjUHKRiSnGmA4MdBBB50RO5zhO53le93G\u002B5CYV/K4/iVxdcAUdWpCk5AIIKdEVdfycYhXW85q5uYLpwrT6wnpx8v7Cfc2sm5G6XYeQPwSSKIHIi96FzL7TH50eoORpI518WHio3jHuwPLacmZPaM\u002BM\u002Bq6qPTWfRh4UH5g8xw8hfyj3dS6DkQAv6y/Vylrl7Pif49Amt8HBzoP2oe5DxWhb1OaQWbSKsNHcMANuQHF451ipVto/kZ\u002BAFXsFXObuL1vlnru5u8pqcxWwAwrj2DGM\u002BwNTZwQqEP0kqs5X5lWaOc4EThw4kQ9IgfOtVusHbNdQtVEd4nhu8vDew2Z9o/5be6BdSXQk3p8pz1CRH0\u002B9d2rwzIdnPnBcJ/xk6Ukek5/nBG6kMlZZ81bwuPQYJJ8EXUoXBHyBTGewcxhnklUUxRP1DT7HH8J4VXtlOswBWZABNTLPfXzOwInYE/MT9Gzj/5zRa3ixnsjUguX1Zdit7Ib15vq9YDA48HZyAjmtXC3HCtVCe7FaBNvBXIy1X8lciT0zn8nYZnqWkRqLfxuPUIxXoOW2wHVdQLe8FvQf8MYtY8aY1n\u002BvH9AYgG3Rbv5\u002BM3Xx54s96dk05elmwL4jd1GMVwDF9MQtr5RhrjJHr/4WKLDFAz/SFeqaObr3qBeDjpnpCHaMqDHViu2KUYss1CDNeEYio9sR\u002B6L7gHpKy6YlX/rpUuLIO0cg3BaGRqMB\u002BXqeNp2JGlHbBs2qyeHmiz4qPYLaRm341he3fsXiPVezV\u002BP4Loez/z7XlzO2ChxPHIel1SW4MXWDWqSh9VRqF8/wEvByeZBAGqTkxJd5WXccJ0Pf0V1LqJdlWuYFcEHG5DYX5grEI3gbLfs8qy6uLJ7M5rNadb0aaTpN2BnYCX7RDz7B5204dEZf76e933hR/wFbZ9Ho9GiMCSw1uTAZH58bByyIORmEdoQgEU2QfQf7P\u002Bsf2KT/a2ydRbZsF9FNF3DZGjkDNaFWaVyL03Dpmm\u002BHj86ZbWzjbQD8BfQkxxdaIgF3AAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-03-25T22:38:26.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Labelling Manager.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\Labelling Manager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Labelling Manager.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\Labelling Manager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Labelling Manager.cs",
+              "ViewState": "AQIAAH4AAAAAAAAAAAAgwMsAAABgAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPBSURBVEhL7VRNbBNXEJ798a6x4rUwsRNCUqTaB2REEUgVFVWlVVUJ9cKB4q24VeoBIQ5FcEAQVWoOvaWuOCSHgoTKCW1yqFREG4sEIyVyiQKoCikQ1mkcWybOgmNvnJ\u002B1vfs6s4QcUCu11yqftfu8u9/MvDff9x5s4/8PbnOE2dlZuSbXuqfyU/Lo81EwFg2oN\u002BogSRLEw3EazeEvh03ilqxSZKGyELn8y2XA0bydvG2FoqHua1PX5OvZ6zYoUDS\u002BMmzi8nQjUHKRiSnGmA4MdBBB50RO5zhO53le93G\u002B5CYV/K4/iVxdcAUdWpCk5AIIKdEVdfycYhXW85q5uYLpwrT6wnpx8v7Cfc2sm5G6XYeQPwSSKIHIi96FzL7TH50eoORpI518WHio3jHuwPLacmZPaM\u002BM\u002Bq6qPTWfRh4UH5g8xw8hfyj3dS6DkQAv6y/Vylrl7Pif49Amt8HBzoP2oe5DxWhb1OaQWbSKsNHcMANuQHF451ipVto/kZ\u002BAFXsFXObuL1vlnru5u8pqcxWwAwrj2DGM\u002BwNTZwQqEP0kqs5X5lWaOc4EThw4kQ9IgfOtVusHbNdQtVEd4nhu8vDew2Z9o/5be6BdSXQk3p8pz1CRH0\u002B9d2rwzIdnPnBcJ/xk6Ukek5/nBG6kMlZZ81bwuPQYJJ8EXUoXBHyBTGewcxhnklUUxRP1DT7HH8J4VXtlOswBWZABNTLPfXzOwInYE/MT9Gzj/5zRa3ixnsjUguX1Zdit7Ib15vq9YDA48HZyAjmtXC3HCtVCe7FaBNvBXIy1X8lciT0zn8nYZnqWkRqLfxuPUIxXoOW2wHVdQLe8FvQf8MYtY8aY1n\u002BvH9AYgG3Rbv5\u002BM3Xx54s96dk05elmwL4jd1GMVwDF9MQtr5RhrjJHr/4WKLDFAz/SFeqaObr3qBeDjpnpCHaMqDHViu2KUYss1CDNeEYio9sR\u002B6L7gHpKy6YlX/rpUuLIO0cg3BaGRqMB\u002BXqeNp2JGlHbBs2qyeHmiz4qPYLaRm341he3fsXiPVezV\u002BP4Loez/z7XlzO2ChxPHIel1SW4MXWDWqSh9VRqF8/wEvByeZBAGqTkxJd5WXccJ0Pf0V1LqJdlWuYFcEHG5DYX5grEI3gbLfs8qy6uLJ7M5rNadb0aaTpN2BnYCX7RDz7B5204dEZf76e933hR/wFbZ9Ho9GiMCSw1uTAZH58bByyIORmEdoQgEU2QfQf7P\u002Bsf2KT/a2ydRbZsF9FNF3DZGjkDNaFWaVyL03Dpmm\u002BHj86ZbWzjbQD8BfQkxxdaIgF3AAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-03-25T21:44:34.676Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "f8831ce0-9d0b-43f5-a412-2d12e0e72aa9",
+        "Display": 1,
+        "X": 156,
+        "Y": 140,
+        "Width": 2277,
+        "Height": 1058,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GSInteractiveDeform.cs",
+              "DocumentMoniker": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\GSInteractiveDeform.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\My 3DGS\\GSInteractiveDeform.cs",
+              "ToolTip": "F:\\Unity project\\Unity-VR-Gaussian-Splatting-1\\MR-GS\\Assets\\Scripts\\My 3DGS\\GSInteractiveDeform.cs",
+              "RelativeToolTip": "Assets\\Scripts\\My 3DGS\\GSInteractiveDeform.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAQwG8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T23:32:01.653Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

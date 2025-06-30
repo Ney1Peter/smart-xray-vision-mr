@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: bedroom
+  m_EditorClassIdentifier: 
+  m_FormatVersion: 20240801
+  m_SplatCount: 334210
+  m_BoundsMin: {x: -239.06369, y: -240.54573, z: -239.86276}
+  m_BoundsMax: {x: 240.93631, y: 239.45427, z: 240.13724}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: f6e0a2ee49165d93f5078d3de516f907
+  m_LayerInfo:
+  - x: 0
+    y: 334210
+  m_PosFormat: 0
+  m_ScaleFormat: 0
+  m_SHFormat: 0
+  m_ColorFormat: 0
+  m_clusteredSHData: {fileID: 0}
+  m_layerData:
+  - layer: 0
+    m_PosData: {fileID: 4900000, guid: ceff67422512dde4eba659fea8601db8, type: 3}
+    m_ColorData: {fileID: 4900000, guid: e60057a6f231d4c4bb7ae798dde7b137, type: 3}
+    m_OtherData: {fileID: 4900000, guid: 0b0b63a54f2e5d84f977537bee720118, type: 3}
+    m_SHData: {fileID: 4900000, guid: db815cf69e9b80c4b878de55ab9ca4ab, type: 3}
+    m_ChunkData: {fileID: 0}
+  m_Cameras: []
