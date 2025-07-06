@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 using System;
+using System.Reflection;          // ★ 反射需要 BindingFlags
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -39,6 +40,11 @@ namespace GaussianSplatting.Editor
         SerializedProperty m_PropCSSplatUtilities_fidelityFxSort;
         SerializedProperty m_gpuSortType;
         SerializedProperty m_PropOptimizeForQuest;
+
+        // New add
+        SerializedProperty m_PropGroupAlpha;    
+        SerializedProperty m_PropCurrentGroup;   
+
 
         bool m_ResourcesExpanded = false;
         int m_CameraIndex = 0;
@@ -82,6 +88,11 @@ namespace GaussianSplatting.Editor
             m_PropCSSplatUtilities_fidelityFxSort = serializedObject.FindProperty("m_CSSplatUtilities_fidelityFX");
             m_gpuSortType = serializedObject.FindProperty("m_gpuSortType");
             m_PropOptimizeForQuest = serializedObject.FindProperty("m_OptimizeForQuest");
+
+            // New add
+            m_PropGroupAlpha   = serializedObject.FindProperty("m_GroupAlpha");   
+            m_PropCurrentGroup = serializedObject.FindProperty("m_CurrentGroup"); 
+
             s_AllEditors.Add(this);
         }
 
@@ -151,6 +162,39 @@ namespace GaussianSplatting.Editor
                 }
             }
 
+
+            /* ====================  X-Ray Groups 面板  (★ 新增整段) ==================== */
+            EditorGUILayout.Space(8);
+            GUILayout.Label("X-Ray Groups", EditorStyles.boldLabel);
+
+            // 当前组号 & New Group
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.PropertyField(m_PropCurrentGroup, new GUIContent("Current"));
+            if (GUILayout.Button("New Group", GUILayout.Width(90)))
+            {
+                int newId = m_PropGroupAlpha.arraySize;
+                m_PropGroupAlpha.InsertArrayElementAtIndex(newId);
+                m_PropGroupAlpha.GetArrayElementAtIndex(newId).floatValue = 1f;   // 默认不透明
+                m_PropCurrentGroup.intValue = newId;
+            }
+            EditorGUILayout.EndHorizontal();
+
+            // 各组透明度滑条
+            for (int i = 0; i < m_PropGroupAlpha.arraySize; i++)
+            {
+                var p = m_PropGroupAlpha.GetArrayElementAtIndex(i);
+                p.floatValue = EditorGUILayout.Slider($"Group {i} α", p.floatValue, 0f, 1f);
+            }
+
+            /* 当 GUI 有改动时，把透明度推给 Shader */
+            if (GUI.changed)
+                ((GaussianSplatRenderer)target).UploadGroupAlpha();
+            /* ========================================================================== */
+
+
+            
+
+
             EditorGUILayout.Space();
             GUILayout.Label("Debugging Tweaks", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(m_PropRenderMode);
@@ -184,6 +228,20 @@ namespace GaussianSplatting.Editor
             {
                 MultiEditGUI();
             }
+
+            /* ---------- Add Selection → Group 按钮  ★ 新增 ---------- */
+            EditorGUILayout.Space(4);
+            if (GUILayout.Button("Add Selection → Group"))
+            {
+                foreach (UnityEngine.Object obj in targets)
+                {
+                    var r = obj as GaussianSplatRenderer;
+                    if (r == null) continue;
+                    AssignSelectionToGroup(r);     // 调下面的方法
+                }
+            }
+            /* ---------- 按钮段结束 ---------- */
+
 
             serializedObject.ApplyModifiedProperties();
         }
@@ -483,5 +541,61 @@ namespace GaussianSplatting.Editor
 
             Debug.Log($"Exported PLY {path} with {aliveCount:N0} splats");
         }
+
+        // ======================================================================
+        // ★ 新增：把当前选区 splat 写入当前组
+        void AssignSelectionToGroup(GaussianSplatRenderer r)
+        {
+            // 1. 取已选中的 splat 索引 —— 你已有或稍后实现
+            uint[] indices = ReadSelectedIndices(r);   // 若暂缺，可先返回 null
+            if (indices == null || indices.Length == 0)
+            {
+                Debug.LogWarning("No splat selected."); 
+                return;
+            }
+
+            // 2. 写 GroupIdBuffer
+            uint gid = (uint)r.CurrentGroup;
+            uint[] one = new uint[1] { gid };
+            foreach (uint idx in indices)
+                r.m_GroupIdBuffer.SetData(one, 0, (int)idx, 1);
+
+            Debug.Log($"Assigned {indices.Length} splats to Group {gid} on {r.name}");
+        }
+        // ======================================================================
+
+
+
+
+
+        // 放在 GaussianSplatRendererEditor.cs 末尾，与 AssignSelectionToGroup 同级
+        static uint[] ReadSelectedIndices(GaussianSplatRenderer r)
+        {
+            // ① 反射拿 m_GpuEditSelected（GraphicsBuffer<uint>，每 bit＝1 splat 已选）
+            var field = typeof(GaussianSplatRenderer)
+                .GetField("m_GpuEditSelected", BindingFlags.NonPublic | BindingFlags.Instance);
+            var buf   = field?.GetValue(r) as GraphicsBuffer;
+            if (buf == null) return null;               // 编辑模式下可能尚未分配
+
+            // ② 把 GPU 位图拉到 CPU
+            int wordCount = buf.count;                  // 每 word 是 32 个 splat
+            uint[] words  = new uint[wordCount];
+            buf.GetData(words);
+
+            // ③ 展开 bit → 具体 splat 索引
+            List<uint> list = new();
+            for (int w = 0; w < words.Length; ++w)
+            {
+                uint word = words[w];
+                if (word == 0) continue;
+                for (int b = 0; b < 32; ++b)
+                    if ((word & (1u << b)) != 0)
+                        list.Add((uint)(w * 32 + b));
+            }
+            return list.ToArray();
+        }
+
+
+
     }
 }

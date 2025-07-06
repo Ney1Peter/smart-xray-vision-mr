@@ -27,6 +27,11 @@ CGPROGRAM
 
 StructuredBuffer<uint> _OrderBuffer;
 
+// === X-Ray groups ===
+StructuredBuffer<uint>  _GroupId;       // 每个 splat 的组号
+float                   _GroupAlpha[32]; // 先写死 32 组足够调试
+
+
 struct v2f
 {
     half4 col : COLOR0;
@@ -43,6 +48,11 @@ v2f vert (uint vtxID : SV_VertexID, uint instID : SV_InstanceID)
 {
 	v2f o = (v2f)0;
     instID = _OrderBuffer[instID];
+
+	// ---------- X-Ray: 取该 splat 的分组透明度 ----------
+	uint gid          = _GroupId[instID];          // 0,1,2…
+	float alphaFactor = _GroupAlpha[gid];          // 组对应 α
+
 
 	SplatViewData view = _SplatViewData[instID];
 
@@ -66,6 +76,8 @@ v2f vert (uint vtxID : SV_VertexID, uint instID : SV_InstanceID)
 		o.col.g = f16tof32(view.color.x);
 		o.col.b = f16tof32(view.color.y >> 16);
 		o.col.a = f16tof32(view.color.y);
+		o.col.a *= alphaFactor;                        // 应用透明度表
+
 
 		uint idx = vtxID;
 		float2 quadPos = float2(idx&1, (idx>>1)&1) * 2.0 - 1.0;

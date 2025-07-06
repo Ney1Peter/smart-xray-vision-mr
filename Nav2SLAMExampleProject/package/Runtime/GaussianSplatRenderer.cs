@@ -152,8 +152,10 @@ namespace GaussianSplatting.Runtime
                 gs.SetAssetDataOnMaterial(mpb);
                 mpb.SetBuffer(GaussianSplatRenderer.Props.SplatChunks, gs.m_GpuChunks);
 
-                mpb.SetBuffer(GaussianSplatRenderer.Props.SplatViewData, gs.m_GpuView);
+                // set buffers
+                mpb.SetBuffer(GaussianSplatRenderer.Props.GroupId, gs.m_GroupIdBuffer);
 
+                mpb.SetBuffer(GaussianSplatRenderer.Props.SplatViewData, gs.m_GpuView);
                 mpb.SetBuffer(GaussianSplatRenderer.Props.OrderBuffer, gs.m_GpuSortKeys);
                 mpb.SetFloat(GaussianSplatRenderer.Props.SplatScale, gs.m_SplatScale);
                 mpb.SetFloat(GaussianSplatRenderer.Props.SplatOpacityScale, gs.m_OpacityScale);
@@ -272,7 +274,9 @@ namespace GaussianSplatting.Runtime
     }
 
     [ExecuteInEditMode]
-    public class GaussianSplatRenderer : MonoBehaviour
+    //public class GaussianSplatRenderer : MonoBehaviour
+    public class GaussianSplatRenderer : MonoBehaviour, ISerializationCallbackReceiver
+
     {
         public enum RenderMode
         {
@@ -332,6 +336,59 @@ namespace GaussianSplatting.Runtime
         internal Camera m_centerEyeCamera;
         internal Matrix4x4 m_centerCamMatrix;
         public bool m_OptimizeForQuest;
+
+
+        // ===== X-Ray 分组扩展 =====
+        [System.NonSerialized]
+        public GraphicsBuffer m_GroupIdBuffer;          // 每个 splat 一个 uint (GroupId)
+
+        [SerializeField]
+        List<float> m_GroupAlpha = new List<float> { 1.0f };   // Group 0 α = 1
+
+        [SerializeField, HideInInspector]
+        byte[] m_GroupIdBytes;           // 用于序列化 ComputeBuffer
+
+        [SerializeField] int m_CurrentGroup = 0;      // Inspector 当前激活组
+        public int CurrentGroup => m_CurrentGroup;    // 供 Editor 读取
+
+
+
+
+        // ----------  ISerializationCallbackReceiver ----------
+        public void OnBeforeSerialize()
+        {
+            if (m_GroupIdBuffer == null) return;
+
+            int n = m_GroupIdBuffer.count;
+            var tmp = new uint[n];
+            m_GroupIdBuffer.GetData(tmp);          // GPU → CPU
+            m_GroupIdBytes = new byte[n * 4];
+            Buffer.BlockCopy(tmp, 0, m_GroupIdBytes, 0, m_GroupIdBytes.Length);
+        }
+
+        public void OnAfterDeserialize() { }       // 不需实现逻辑
+
+
+        void RestoreGroupId()
+        {
+            if (m_GroupIdBytes == null || m_GroupIdBytes.Length == 0 || m_GroupIdBuffer == null) return;
+
+            int n = m_GroupIdBuffer.count;
+            var tmp = new uint[n];
+            Buffer.BlockCopy(m_GroupIdBytes, 0, tmp, 0, m_GroupIdBytes.Length);
+            m_GroupIdBuffer.SetData(tmp);
+        }
+
+
+        public void UploadGroupAlpha()
+        {
+            if (m_MatSplats      != null) m_MatSplats     .SetFloatArray(Props.GroupAlpha, m_GroupAlpha);
+            if (m_MatDebugPoints != null) m_MatDebugPoints.SetFloatArray(Props.GroupAlpha, m_GroupAlpha);
+            if (m_MatDebugBoxes  != null) m_MatDebugBoxes .SetFloatArray(Props.GroupAlpha, m_GroupAlpha);
+        }
+
+
+
 
 
         // these buffers are only for splat editing, and are lazily created
@@ -402,6 +459,10 @@ namespace GaussianSplatting.Runtime
             public static readonly int SplatPosMouseDown = Shader.PropertyToID("_SplatPosMouseDown");
             public static readonly int SplatOtherMouseDown = Shader.PropertyToID("_SplatOtherMouseDown");
             public static readonly int OptimizeForQuest = Shader.PropertyToID("_OptimizeForQuest");
+            // New properties for X-Ray Grouping
+            public static readonly int GroupId    = Shader.PropertyToID("_GroupId");
+            public static readonly int GroupAlpha = Shader.PropertyToID("_GroupAlpha");
+
         }
 
         [field: NonSerialized] public bool editModified { get; private set; }
@@ -573,6 +634,12 @@ namespace GaussianSplatting.Runtime
             }
             
             m_GpuView = new GraphicsBuffer(GraphicsBuffer.Target.Structured, m_Asset.splatCount, kGpuViewDataSize);
+
+            // --- allocate GroupId buffer, default all-0 ---
+            m_GroupIdBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Structured, m_SplatCount, 4)
+            { name = "GaussianGroupId" };
+            m_GroupIdBuffer.SetData(new uint[m_SplatCount]);        // 全部组号 0
+
             m_GpuIndexBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Index, 36, 2);
             // cube indices, most often we use only the first quad
             m_GpuIndexBuffer.SetData(new ushort[]
@@ -639,6 +706,9 @@ namespace GaussianSplatting.Runtime
 
             GaussianSplatRenderSystem.instance.RegisterSplat(this);
             UpdateRessources();
+            RestoreGroupId();      // 把组号字节反写回 GPU
+            UploadGroupAlpha();    // 推送透明度数组
+
         }
 
         public void UpdateSortingType(GpuSorting.SortType sortType)
@@ -693,6 +763,11 @@ namespace GaussianSplatting.Runtime
             mat.SetInteger(Props.SplatCount, m_SplatCount);
             mat.SetInteger(Props.SplatChunkCount, m_GpuChunksValid ? m_GpuChunks.count : 0);
             mat.SetInteger(Props.OptimizeForQuest, m_OptimizeForQuest ? 1 : 0);
+            if (m_GroupIdBuffer != null)
+                mat.SetBuffer(Props.GroupId, m_GroupIdBuffer);
+
+            if (m_GroupAlpha != null && m_GroupAlpha.Count > 0)
+                mat.SetFloatArray(Props.GroupAlpha, m_GroupAlpha);
         }
 
         static void DisposeBuffer(ref GraphicsBuffer buf)
@@ -723,6 +798,7 @@ namespace GaussianSplatting.Runtime
             DisposeBuffer(ref m_GpuEditDeleted);
             DisposeBuffer(ref m_GpuEditCountsBounds);
             DisposeBuffer(ref m_GpuEditCutouts);
+            DisposeBuffer(ref m_GroupIdBuffer);
 
             m_Sorter?.DisposeResources();
 
