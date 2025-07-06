@@ -1,0 +1,74 @@
+################################################################################
+# Unity (2025) – Quest 3 Project
+#
+# Guiding Principles
+#   1. Exclude every file or directory that Unity or your IDE can regenerate.
+#   2. Retain only true source, asset, and configuration files needed for builds
+#      (e.g., Assets/, Packages/, ProjectSettings/).
+################################################################################
+
+#############################
+# 1. Unity-Generated Caches #
+#############################
+# Library: build cache and serialized data
+[Ll]ibrary/
+# Temp: intermediate compilation artefacts
+[Tt]emp/
+# obj: IDE/compiler object files
+[Oo]bj/
+# Logs: editor/crash logs
+[Ll]ogs/
+# MemoryCaptures: performance snapshots
+[Mm]emoryCaptures/
+# Build / Builds: packaged application output (if present)
+[Bb]uild/
+[Bb]uilds/
+# UserSettings: machine-specific editor preferences
+[Uu]serSettings/
+
+################################
+# 2. IDE & Build System Output #
+################################
+# Visual Studio / VS Code / Rider
+.vs/
+*.sln
+*.csproj
+*.unityproj
+*.pidb
+*.user
+*.userprefs
+*.suo
+*.tmp
+*.svd
+*.pdb
+*.mdb
+
+############################
+# 3. Operating-System Noise #
+############################
+# macOS Finder metadata
+.DS_Store
+# Windows Explorer thumbnails
+Thumbs.db
+ehthumbs.db
+# Generic lock files
+*.lock
+
+###########################
+# 4. Archives & Back-ups  #
+###########################
+*.zip
+*.rar
+*.7z
+*.bak
+*.backup
+
+###########################
+# 5. Optional Exclusions  #
+###########################
+# Uncomment if you use a custom build directory
+# CustomBuild/
+
+################################################################################
+# End of File
+################################################################################
