@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: x-ray3
+  m_EditorClassIdentifier: 
+  m_FormatVersion: 20240801
+  m_SplatCount: 340877
+  m_BoundsMin: {x: -239.35841, y: -240.47934, z: -239.17055}
+  m_BoundsMax: {x: 240.64159, y: 239.52066, z: 240.82945}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: 8b80ed944f588ca5881f48f5025f7f6d
+  m_LayerInfo:
+  - x: 0
+    y: 340877
+  m_PosFormat: 0
+  m_ScaleFormat: 0
+  m_SHFormat: 0
+  m_ColorFormat: 0
+  m_clusteredSHData: {fileID: 0}
+  m_layerData:
+  - layer: 0
+    m_PosData: {fileID: 4900000, guid: 1f73b89dba7493a4aa4a3bd7d70698bd, type: 3}
+    m_ColorData: {fileID: 4900000, guid: fa27eb42fbe8e11489b93a4d2a65a1cf, type: 3}
+    m_OtherData: {fileID: 4900000, guid: 196ec46c3fc46784399ddb2c69e39ee1, type: 3}
+    m_SHData: {fileID: 4900000, guid: 5509411e01cd0474a8465b4997eb5ecc, type: 3}
+    m_ChunkData: {fileID: 0}
+  m_Cameras: []

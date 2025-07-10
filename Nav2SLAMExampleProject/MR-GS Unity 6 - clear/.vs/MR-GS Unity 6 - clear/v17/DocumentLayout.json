@@ -3,13 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\MR-GS Unity 6 - clear\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{43311CE8-0D46-7318-9619-A61CFF21598F}|GaussianSplatting.csproj|c:\\users\\changrui\\downloads\\mr-gs pack (2)\\mr-gs pack\\package\\runtime\\gaussiansplatrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{43311CE8-0D46-7318-9619-A61CFF21598F}|GaussianSplatting.csproj|c:\\users\\changrui\\downloads\\mr-gs pack (2)\\mr-gs pack\\package\\runtime\\gaussiansplatasset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{499F8C65-04FA-FBBE-9145-97E0B8E35F04}|GaussianSplattingEditor.csproj|c:\\users\\changrui\\downloads\\mr-gs pack (2)\\mr-gs pack\\package\\editor\\gaussiansplatasseteditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|c:\\users\\changrui\\downloads\\mr-gs pack (2)\\mr-gs pack\\mr-gs unity 6 - clear\\assets\\scripts\\gicp\\complexregistrationcombined.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\MR-GS Unity 6 - clear\\assets\\scripts\\gicp\\complexregistrationcombined.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gicp\\complexregistrationcombined.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -29,19 +32,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GaussianSplatAsset.cs",
-              "DocumentMoniker": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Runtime\\GaussianSplatAsset.cs",
-              "RelativeDocumentMoniker": "..\\package\\Runtime\\GaussianSplatAsset.cs",
-              "ToolTip": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Runtime\\GaussianSplatAsset.cs",
-              "RelativeToolTip": "..\\package\\Runtime\\GaussianSplatAsset.cs",
-              "ViewState": "AQIAAMgAAAAAAAAAAAA6wAAAAAAAAAAA",
+              "Title": "GaussianSplatRenderer.cs",
+              "DocumentMoniker": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Runtime\\GaussianSplatRenderer.cs",
+              "RelativeDocumentMoniker": "..\\package\\Runtime\\GaussianSplatRenderer.cs",
+              "ToolTip": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Runtime\\GaussianSplatRenderer.cs",
+              "RelativeToolTip": "..\\package\\Runtime\\GaussianSplatRenderer.cs",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAEwKAAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T12:36:42.127Z",
+              "WhenOpened": "2025-07-10T14:49:21.158Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "GaussianSplatAsset.cs",
+              "DocumentMoniker": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Runtime\\GaussianSplatAsset.cs",
+              "RelativeDocumentMoniker": "..\\package\\Runtime\\GaussianSplatAsset.cs",
+              "ToolTip": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Runtime\\GaussianSplatAsset.cs",
+              "RelativeToolTip": "..\\package\\Runtime\\GaussianSplatAsset.cs",
+              "ViewState": "AQIAAMkAAAAAAAAAAAAkwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-30T12:36:42.127Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "GaussianSplatAssetEditor.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Editor\\GaussianSplatAssetEditor.cs",
               "RelativeDocumentMoniker": "..\\package\\Editor\\GaussianSplatAssetEditor.cs",
@@ -49,12 +64,11 @@
               "RelativeToolTip": "..\\package\\Editor\\GaussianSplatAssetEditor.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T12:29:31.213Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T12:29:31.213Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ComplexRegistrationCombined.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GICP\\ComplexRegistrationCombined.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GICP\\ComplexRegistrationCombined.cs",
@@ -62,12 +76,11 @@
               "RelativeToolTip": "Assets\\Scripts\\GICP\\ComplexRegistrationCombined.cs",
               "ViewState": "AQIAAKIBAAAAAAAAAAD4v70BAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T16:40:33.672Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-28T16:40:33.672Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ComplexRegistrationCombinedV.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GICP\\ComplexRegistrationCombinedV.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GICP\\ComplexRegistrationCombinedV.cs",
