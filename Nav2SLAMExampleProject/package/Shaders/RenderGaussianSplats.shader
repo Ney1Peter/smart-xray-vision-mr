@@ -21,9 +21,38 @@ CGPROGRAM
 #pragma fragment frag
 #pragma require compute
 #pragma use_dxc
+#pragma target 5.0
+
 
 #include "UnityCG.cginc"
 #include "GaussianSplatting.hlsl"
+
+// ===== ★ 新增：裁剪线段数据 =====
+StructuredBuffer<float4> _ClipStart;  // xyz 起点, w 半径
+StructuredBuffer<float4> _ClipEnd;    // xyz 终点, w 半径
+uint                     _ClipCount;  // 条数
+
+inline bool InAnyClipRegion(float3 P)
+{
+    if (_ClipCount == 0) return false;
+
+    [loop]
+    for (uint i = 0; i < _ClipCount; i++)
+    {
+        float3 A = _ClipStart[i].xyz;
+        float3 B = _ClipEnd[i].xyz;
+        float  r = _ClipStart[i].w;
+
+        float3 pa = P - A;
+        float3 ba = B - A;
+        float  h  = saturate(dot(pa, ba) / dot(ba, ba));
+        float3 proj = A + h * ba;
+
+        if (length(P - proj) < r)
+            return true;
+    }
+    return false;
+}
 
 StructuredBuffer<uint> _OrderBuffer;
 
@@ -56,13 +85,14 @@ v2f vert (uint vtxID : SV_VertexID, uint instID : SV_InstanceID)
 
 	SplatViewData view = _SplatViewData[instID];
 
-	float4 centerClipPos = view.pos;
+	// 先默认 worldPos = mul(ObjectToWorld, splat.pos)
+	SplatData splat = LoadSplatData(instID);
+	float3 centerWorldPos = mul(unity_ObjectToWorld, float4(splat.pos, 1)).xyz;
 
-	// Need to recalculate here for Quest (Why tho?)
+	// Quest 分支仍可覆盖 clipPos，但 worldPos 已可用
+	float4 centerClipPos = view.pos;
 	if (_OptimizeForQuest) {
-		SplatData splat = LoadSplatData(instID);
-		float3 centerWorldPos = mul(unity_ObjectToWorld, float4(splat.pos, 1)).xyz;
-	    centerClipPos = mul(UNITY_MATRIX_VP, float4(centerWorldPos, 1));;
+		centerClipPos = mul(UNITY_MATRIX_VP, float4(centerWorldPos, 1));
 	}
 
 	bool behindCam = centerClipPos.w <= 0;
@@ -72,6 +102,17 @@ v2f vert (uint vtxID : SV_VertexID, uint instID : SV_InstanceID)
 	}
 	else
 	{
+
+		// ===== ★ 新增：裁剪判定 =====
+		if (InAnyClipRegion(centerWorldPos))
+		{
+			// 方法 A：完全丢弃
+			o.vertex = asfloat(0x7fc00000);   // NaN → primitive discard
+			return o;
+			// 如果你想留着混合，可改为：
+			// o.col.a = 0;
+		}
+
 		o.col.r = f16tof32(view.color.x >> 16);
 		o.col.g = f16tof32(view.color.x);
 		o.col.b = f16tof32(view.color.y >> 16);

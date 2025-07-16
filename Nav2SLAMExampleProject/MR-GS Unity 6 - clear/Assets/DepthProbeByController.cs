@@ -6,34 +6,32 @@ public class DepthProbeByController : MonoBehaviour
     [SerializeField] EnvironmentRaycastManager raycastManager;
     [SerializeField] Transform rightController;
     [SerializeField] Transform hmd;
-    [SerializeField] GameObject debugSpherePrefab;
+    [SerializeField] PointCloudPathClipper clipper;      // ← 拖 scene 1
 
     void Update()
     {
-        // ▶▶ 只在按下“右手 B”时触发
-        if (!OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
-            return;
+        // 右手 B：添加线段
+        if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
+            TryPickPoint();
 
+        // 左手 X：清空
+        if (OVRInput.GetDown(OVRInput.Button.Three, OVRInput.Controller.LTouch))
+            clipper.ClearAll();
+    }
+
+    void TryPickPoint()
+    {
         if (!raycastManager || !rightController || !hmd) return;
 
         Ray ray = new Ray(rightController.position, rightController.forward);
-
-        if (raycastManager.Raycast(ray, out var hit)
-            && hit.status == EnvironmentRaycastHitStatus.Hit)
+        if (raycastManager.Raycast(ray, out var hit) &&
+            hit.status == EnvironmentRaycastHitStatus.Hit)
         {
-            float dCtrl = Vector3.Distance(hit.point, ray.origin);
-            float dHmd = Vector3.Distance(hit.point, hmd.position);
+            Vector3 playerPos = hmd.position;
+            Vector3 targetPos = hit.point;
 
-            Debug.Log(
-                $"✅ 目标: {hit.point}  法线: {hit.normal}\n" +
-                $"   ↳距手柄: {dCtrl:F2} m\n" +
-                $"👤 玩家: {hmd.position}  朝向: {hmd.forward}\n" +
-                $"   ↳距玩家: {dHmd:F2} m");
-
-            if (debugSpherePrefab)
-                Instantiate(debugSpherePrefab, hit.point, Quaternion.identity);
+            clipper.AddSegment(playerPos, targetPos);
+            Debug.Log($"Add clip segment: {playerPos:F2} → {targetPos:F2}");
         }
-        else
-            Debug.Log("❌ 未命中");
     }
 }
