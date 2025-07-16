@@ -63,6 +63,9 @@ ehthumbs.db
 *.bak
 *.backup
 
+## Folder
+GS Model/
+
 ###########################
 # 5. Optional Exclusions  #
 ###########################

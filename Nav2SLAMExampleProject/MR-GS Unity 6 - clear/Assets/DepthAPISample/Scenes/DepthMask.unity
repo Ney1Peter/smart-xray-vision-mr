@@ -175,7 +175,7 @@ MonoBehaviour:
   m_grabVolumes:
   - {fileID: 249697193}
   m_controller: 1
-  m_parentTransform: {fileID: 0}
+  m_parentTransform: {fileID: 499622303}
   m_player: {fileID: 0}
 --- !u!54 &249697192
 Rigidbody:
@@ -309,6 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ovrManager: {fileID: 1883255218}
   environmentDepthManager: {fileID: 470313522}
+  environmentRaycastManager: {fileID: 1836144782}
 --- !u!4 &250171377
 Transform:
   m_ObjectHideFlags: 0
@@ -492,14 +493,17 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2762874143974431201, guid: 940ca5991157c5b418edaf5e5226df05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1836144782}
   m_SourcePrefab: {fileID: 100100000, guid: 940ca5991157c5b418edaf5e5226df05, type: 3}
 --- !u!114 &470313522 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -3339483757200392019, guid: 940ca5991157c5b418edaf5e5226df05, type: 3}
   m_PrefabInstance: {fileID: 470313521}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1836144780}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71a155ece80369d4e99bdaf5e59169b5, type: 3}
@@ -1171,7 +1175,7 @@ MonoBehaviour:
   m_grabVolumes:
   - {fileID: 898835722}
   m_controller: 2
-  m_parentTransform: {fileID: 0}
+  m_parentTransform: {fileID: 499622302}
   m_player: {fileID: 0}
 --- !u!54 &898835721
 Rigidbody:
@@ -1662,6 +1666,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: MRUK
       objectReference: {fileID: 0}
+    - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
+      propertyPath: <RoomCreatedEvent>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
+      propertyPath: <RoomUpdatedEvent>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
+      propertyPath: <SceneLoadedEvent>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
+      propertyPath: <RoomCreatedEvent>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
+      propertyPath: <RoomUpdatedEvent>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
+      propertyPath: <SceneLoadedEvent>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8047981335285221976, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2031,6 +2059,23 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &1836144780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2762874143974431201, guid: 940ca5991157c5b418edaf5e5226df05, type: 3}
+  m_PrefabInstance: {fileID: 470313521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1836144782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836144780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d8affdff7ba47d892cc734baac9ac71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1850866173
 GameObject:
   m_ObjectHideFlags: 0
