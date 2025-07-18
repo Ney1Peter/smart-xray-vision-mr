@@ -5,13 +5,13 @@ using GaussianSplatting.Runtime;
 [RequireComponent(typeof(GaussianSplatRenderer))]   // 防止忘挂错对象
 public class PointCloudPathClipper : MonoBehaviour
 {
-    [Header("一次可裁剪的线段上限")]
+    [Header("Upper limit of trimmable")]
     [SerializeField] private int maxSegments = 32;
 
-    [Header("裁剪半径  (米)")]
+    [Header("Clipping radius")]
     [SerializeField] private float radius = 0.20f;
 
-    [Header("靠近目标端保留的长度  (米)")]  // ← 只改这里！0.10 = 留 10 cm
+    [Header("Reserved length")]  // ← 只改这里！0.10 = 留 10 cm
     [SerializeField] private float endMargin = 1.0f;
 
     // ───────── internal ─────────
