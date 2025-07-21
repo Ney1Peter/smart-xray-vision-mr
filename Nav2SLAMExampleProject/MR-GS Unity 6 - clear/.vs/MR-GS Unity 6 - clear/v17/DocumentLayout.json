@@ -3,19 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{43311CE8-0D46-7318-9619-A61CFF21598F}|GaussianSplatting.csproj|c:\\users\\changrui\\final_project\\nav2slamexampleproject\\package\\runtime\\gaussiansplatrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\assets\\scripts\\gs_x-ray\\wallboxbuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gs_x-ray\\wallboxbuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|c:\\users\\changrui\\final_project\\nav2slamexampleproject\\mr-gs unity 6 - clear\\assets\\testintg x-ray\\wallmeshmarker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\testintg x-ray\\wallmeshmarker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\assets\\pointcloudpathclipper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\pointcloudpathclipper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\assets\\testintg x-ray\\wallmeshmarker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\testintg x-ray\\wallmeshmarker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\assets\\scripts\\gs_x-ray\\gs_cliptest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gs_x-ray\\gs_cliptest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|c:\\users\\changrui\\final_project\\nav2slamexampleproject\\mr-gs unity 6 - clear\\assets\\scripts\\gs_x-ray\\wallboxbuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gs_x-ray\\wallboxbuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{43311CE8-0D46-7318-9619-A61CFF21598F}|GaussianSplatting.csproj|c:\\users\\changrui\\final_project\\nav2slamexampleproject\\package\\runtime\\gaussiansplatrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Runtime\\GaussianSplatRenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -38,50 +42,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "GS_ClipTest.cs",
+              "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GS_X-ray\\GS_ClipTest.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GS_X-ray\\GS_ClipTest.cs",
+              "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GS_X-ray\\GS_ClipTest.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GS_X-ray\\GS_ClipTest.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAwwCUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T23:54:09.644Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "WallBoxBuilding.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GS_X-ray\\WallBoxBuilding.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GS_X-ray\\WallBoxBuilding.cs",
               "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GS_X-ray\\WallBoxBuilding.cs",
               "RelativeToolTip": "Assets\\Scripts\\GS_X-ray\\WallBoxBuilding.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFMAAAAAAAAA",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAQwFIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-20T23:15:53.297Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "WallMeshMarker.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Testintg X-ray\\WallMeshMarker.cs",
               "RelativeDocumentMoniker": "Assets\\Testintg X-ray\\WallMeshMarker.cs",
               "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Testintg X-ray\\WallMeshMarker.cs",
               "RelativeToolTip": "Assets\\Testintg X-ray\\WallMeshMarker.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMAAAAAAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAEoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-20T14:07:00.309Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PointCloudPathClipper.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\PointCloudPathClipper.cs",
               "RelativeDocumentMoniker": "Assets\\PointCloudPathClipper.cs",
               "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\PointCloudPathClipper.cs",
               "RelativeToolTip": "Assets\\PointCloudPathClipper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEIAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-16T15:42:21.602Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "GaussianSplatRenderer.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Runtime\\GaussianSplatRenderer.cs",
               "RelativeDocumentMoniker": "..\\package\\Runtime\\GaussianSplatRenderer.cs",
@@ -89,12 +105,11 @@
               "RelativeToolTip": "..\\package\\Runtime\\GaussianSplatRenderer.cs",
               "ViewState": "AQIAAE4AAAAAAAAAAAAAwJUBAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T15:18:57.072Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T15:18:57.072Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "GaussianSplatRenderer.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Runtime\\GaussianSplatRenderer.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Runtime\\GaussianSplatRenderer.cs",
@@ -106,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GaussianSplatAsset.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Runtime\\GaussianSplatAsset.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Runtime\\GaussianSplatAsset.cs",
@@ -118,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "GaussianSplatAssetEditor.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Editor\\GaussianSplatAssetEditor.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Downloads\\MR-GS pack (2)\\MR-GS pack\\package\\Editor\\GaussianSplatAssetEditor.cs",
@@ -130,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ComplexRegistrationCombinedV.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GICP\\ComplexRegistrationCombinedV.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GICP\\ComplexRegistrationCombinedV.cs",

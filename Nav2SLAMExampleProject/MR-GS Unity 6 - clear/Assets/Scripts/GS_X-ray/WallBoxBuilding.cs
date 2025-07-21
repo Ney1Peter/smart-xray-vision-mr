@@ -14,23 +14,18 @@ public class WallBoxBuilding : MonoBehaviour
     [Header("在 X/Y 方向各收缩的缝隙 (m)")]
     [SerializeField] float gap = 0.05f;
 
-    // 供外部访问（GazeHoleUpdater.SetVector）
+    // 供 GazeHoleUpdater 使用
     public static Material wallMat;
 
-    // --------------- ★① 入口改为协程 ----------------
     void Start() => StartCoroutine(WaitForRoomAndBuild());
 
     IEnumerator WaitForRoomAndBuild()
     {
-        // 每帧轮询，直到 MRUK 准备好房间
         while (MRUK.Instance == null || MRUK.Instance.GetCurrentRoom() == null)
-        {
-            yield return null;           // 下一帧再检查
-        }
+            yield return null;
 
         BuildBoxes();
     }
-    // ------------------------------------------------
 
     void BuildBoxes()
     {
@@ -41,7 +36,7 @@ public class WallBoxBuilding : MonoBehaviour
             return;
         }
 
-        // ★② 拿点云材质。m_MatSplats 是 public，所以能访问
+        // 取 3-DGS 材质
         var gsRenderer = FindObjectOfType<GaussianSplatRenderer>();
         wallMat = gsRenderer ? gsRenderer.m_MatSplats : null;
 
@@ -50,7 +45,7 @@ public class WallBoxBuilding : MonoBehaviour
         {
             if (!anchor.PlaneRect.HasValue) continue;
 
-            // 获取尺寸 / 方向
+            // 尺寸 & 方向
             var rect = anchor.PlaneRect.Value;
             float w = Mathf.Max(0, rect.size.x - gap * 2f);
             float h = Mathf.Max(0, rect.size.y - gap * 2f);
@@ -64,16 +59,20 @@ public class WallBoxBuilding : MonoBehaviour
             go.transform.position = c;
             go.transform.rotation = Quaternion.LookRotation(f, u);
 
+            // ★★ 关键新增：指定 Layer & Tag  ★★
+            go.layer = LayerMask.NameToLayer("WallBox"); // ← 确保 Project Settings 里已创建 “WallBox” 层
+            go.tag = "WallBox";                        // ← 可选：同名 Tag，供 CompareTag 双保险
+
             var box = go.AddComponent<BoxCollider>();
             box.size = new Vector3(w, h, thickness);
 
-            // 可见参考盒（MeshRenderer）——默认关闭
+            // 隐藏可视 Mesh
             var mesh = GameObject.CreatePrimitive(PrimitiveType.Cube);
             mesh.transform.SetParent(go.transform, false);
             mesh.transform.localScale = box.size;
             var rend = mesh.GetComponent<Renderer>();
             rend.enabled = false;
-            Destroy(mesh.GetComponent<Collider>()); // 删除多余 Collider
+            Destroy(mesh.GetComponent<Collider>());   // 删除多余 Collider
 
             count++;
         }

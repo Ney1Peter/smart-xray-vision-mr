@@ -28,6 +28,7 @@ TagManager:
   - ExampleLabel
   - UI
   - MRUK_RecreatedMesh
+  - WallBox
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - WallBox
   - 
   - 
   - 

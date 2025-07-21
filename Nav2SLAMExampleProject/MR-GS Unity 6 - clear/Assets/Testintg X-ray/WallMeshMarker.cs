@@ -1,45 +1,74 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// 每帧从摄像机视线发射射线，命中墙体方块时动态裁剪对应点云区域
+/// 实时在点云中挖渐变洞；射线只检测 “WallBox” 层的方块。
 /// </summary>
+[RequireComponent(typeof(Camera))]
 public class GazeHoleUpdater : MonoBehaviour
 {
-    [Header("裁剪器（必须）")]
-    public PointCloudPathClipper clipper;
+    [Header("裁剪器 (PointCloudPathClipper)")]
+    [SerializeField] PointCloudPathClipper clipper;
 
     [Header("洞半径 (m)")]
-    public float cutRadius = 0.5f;
+    [SerializeField] float cutRadius = 0.6f;
+
+    [Header("中心最小透明度")]
+    [Range(0f, 1f)]
+    [SerializeField] float centerAlpha = 0.05f;
 
     [Header("洞厚度 (m)")]
-    public float cutDepth = 0.3f;
+    [SerializeField] float cutDepth = 0.25f;
 
-    [Header("是否每帧清空再添加")]
-    public bool clearEachFrame = true;
+    [Header("最大检测距离 (m)")]
+    [SerializeField] float maxDistance = 10f;
+
+    [Header("每帧重置裁剪段")]
+    [SerializeField] bool clearEachFrame = true;
+
+    // Shader property IDs
+    static readonly int id_CutCenterR = Shader.PropertyToID("_CutCenterR");
+    static readonly int id_CutMinAlpha = Shader.PropertyToID("_CutMinAlpha");
 
     Camera cam;
-    int mask;
+    LayerMask wallMask;
 
-    void Start()
+    void Awake()
     {
         cam = GetComponent<Camera>();
-        mask = LayerMask.GetMask("Default");  // 确保墙体方块处于 Default 层或设定好的层
+
+        // 只检测名为 "WallBox" 的层
+        wallMask = LayerMask.GetMask("WallBox");
     }
 
     void Update()
     {
-        if (clipper == null || cam == null) return;
+        if (clipper == null || WallBoxBuilding.wallMat == null) return;
 
         if (clearEachFrame) clipper.ClearAll();
 
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
-        if (Physics.Raycast(ray, out var hit, 10f, mask))
+        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, wallMask))
         {
-            Vector3 A = hit.point;
-            Vector3 B = A + cam.transform.forward * cutDepth;
+            // 双保险：确保真的是墙体方块
+            if (!hit.collider.CompareTag("WallBox"))
+                return;
+
+            Vector3 center = hit.point;
+            Vector3 n = hit.normal.normalized;
+
+            Vector3 A = center - n * (cutDepth * 0.5f);
+            Vector3 B = center + n * (cutDepth * 0.5f);
 
             clipper.AddSegment(A, B, cutRadius);
-            Debug.DrawLine(A, B, Color.green, 0.1f);
+
+            WallBoxBuilding.wallMat.SetVector(id_CutCenterR,
+                new Vector4(center.x, center.y, center.z, cutRadius));
+            WallBoxBuilding.wallMat.SetFloat(id_CutMinAlpha, centerAlpha);
+        }
+        else
+        {
+            // 离开墙体时可选择关闭洞
+            // WallBoxBuilding.wallMat.SetVector(id_CutCenterR, Vector4.zero);
         }
     }
 }
