@@ -2,57 +2,65 @@
 using System.Collections;
 using Meta.XR.MRUtilityKit;
 
-[DefaultExecutionOrder(100)]  // 确保在 MRUK 初始化之后执行
 public class SceneWallClipper : MonoBehaviour
 {
-    [SerializeField] PointCloudPathClipper clipper;   // Inspector 拖 scene 1
-
-    [Tooltip("等待房间数据就绪的最大秒数")]
-    [SerializeField] private float timeout = 5f;
+    [SerializeField] PointCloudPathClipper clipper;
+    [SerializeField] float radius = 0.20f;   // 与裁剪器保持一致
+    [SerializeField] float thickness = 0.10f;   // 额外向前挖的厚度
 
     void Start()
     {
-        StartCoroutine(WaitAndCreateWallSegments());
+        StartCoroutine(WaitForRoomAndBuild());
     }
 
-    IEnumerator WaitAndCreateWallSegments()
+    IEnumerator WaitForRoomAndBuild()
     {
-        float t = 0f;
-        MRUKRoom room = null;
+        // 方式 1：简单轮询
+        while (MRUK.Instance == null || MRUK.Instance.GetCurrentRoom() == null)
+            yield return null;                 // 下一帧再试
 
-        // ▸ 等 MRUK 初始化、房间加载
-        while (room == null && t < timeout)
-        {
-            if (MRUK.Instance != null)
-            {
-                room = MRUK.Instance.GetCurrentRoom();
-            }
-            t += Time.deltaTime;
-            yield return null;
-        }
+        BuildWallSegments();
+    }
 
-        if (room == null)
-        {
-            Debug.LogWarning("SceneWallClipper - room not ready");
-            yield break;
-        }
+    void BuildWallSegments()
+    {
+        var room = MRUK.Instance.GetCurrentRoom();
+        int segCount = 0;
 
-        int added = 0;
-        foreach (var anchor in room.WallAnchors)   // ← 直接用墙列表
+        foreach (var anchor in room.WallAnchors)
         {
-            // anchor.PlaneRect 里有长宽，中心在 anchor.transform.position
             if (!anchor.PlaneRect.HasValue) continue;
 
             var rect = anchor.PlaneRect.Value;
-            Vector3 center = anchor.transform.position;
-            Vector3 right = anchor.transform.right * rect.size.x * 0.5f;
+            Vector3 c = anchor.transform.position;
+            Vector3 r = anchor.transform.right;
+            Vector3 up = anchor.transform.up;
+            Vector3 n = anchor.transform.forward;      // 墙外法线
 
-            Vector3 a = center - right;   // 左端
-            Vector3 b = center + right;   // 右端
+            float w = rect.size.x, h = rect.size.y;
+            int layers = Mathf.Max(1, Mathf.CeilToInt(h / (radius * 2f)));
 
-            clipper.AddSegment(a, b);
-            added++;
+            for (int i = 0; i < layers; i++)
+            {
+                float fy = (i + 0.5f) / layers - 0.5f;
+                Vector3 upOff = up * fy * h;
+
+                Vector3 A0 = c - r * w * 0.5f + upOff;
+                Vector3 B0 = c + r * w * 0.5f + upOff;
+                Vector3 shift = n * thickness;
+                Vector3 A1 = A0 + shift;
+                Vector3 B1 = B0 + shift;
+
+                clipper.AddSegment(A0, B0);   // 原墙面
+                clipper.AddSegment(A1, B1);   // 前移后墙面
+                segCount += 2;
+            }
+
+            // 隐藏可视化（可选）
+            var mr = anchor.GetComponent<MeshRenderer>();
+            if (mr) mr.enabled = false;
         }
-        Debug.Log($"SceneWallClipper: 增加了 {added} 条墙体裁剪线段");
+
+        Debug.Log($"SceneWallClipper ▶ 已写入 {segCount} 条墙体线段");
     }
 }

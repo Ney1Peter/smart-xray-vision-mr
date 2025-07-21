@@ -3,180 +3,146 @@ Shader "Gaussian Splatting/Render Splats"
 {
     SubShader
     {
-        Tags { "Queue" = "Transparent" "RenderType" = "Transparent " }
+        Tags { "Queue"="Transparent" "RenderType"="Transparent" }
 
         Pass
         {
             ZWrite Off
-
-
-
             Blend OneMinusDstAlpha One
-
-
             Cull Off
-            
-CGPROGRAM
-#pragma vertex vert
-#pragma fragment frag
-#pragma require compute
-#pragma use_dxc
-#pragma target 5.0
 
+            CGPROGRAM
+            #pragma vertex   vert
+            #pragma fragment frag
+            #pragma target   5.0
+            #pragma require  compute
+            #pragma use_dxc
 
-#include "UnityCG.cginc"
-#include "GaussianSplatting.hlsl"
+            #include "UnityCG.cginc"
+            #include "GaussianSplatting.hlsl"
 
-// ===== ★ 新增：裁剪线段数据 =====
-StructuredBuffer<float4> _ClipStart;  // xyz 起点, w 半径
-StructuredBuffer<float4> _ClipEnd;    // xyz 终点, w 半径
-uint                     _ClipCount;  // 条数
+            // ───── ① 线段裁剪（你原来的逻辑） ─────
+            StructuredBuffer<float4> _ClipStart; // xyz 起,w 半径
+            StructuredBuffer<float4> _ClipEnd;
+            uint                     _ClipCount;
 
-inline bool InAnyClipRegion(float3 P)
-{
-    if (_ClipCount == 0) return false;
+            inline bool InAnyClipRegion(float3 P)
+            {
+                if (_ClipCount == 0) return false;
+                [loop]
+                for (uint i = 0; i < _ClipCount; i++)
+                {
+                    float3 A = _ClipStart[i].xyz;
+                    float3 B = _ClipEnd[i].xyz;
+                    float  r = _ClipStart[i].w;
 
-    [loop]
-    for (uint i = 0; i < _ClipCount; i++)
-    {
-        float3 A = _ClipStart[i].xyz;
-        float3 B = _ClipEnd[i].xyz;
-        float  r = _ClipStart[i].w;
+                    float3 pa = P - A;
+                    float3 ba = B - A;
+                    float  h  = saturate(dot(pa, ba) / dot(ba, ba));
+                    float3 proj = A + h * ba;
+                    if (length(P - proj) < r) return true;
+                }
+                return false;
+            }
 
-        float3 pa = P - A;
-        float3 ba = B - A;
-        float  h  = saturate(dot(pa, ba) / dot(ba, ba));
-        float3 proj = A + h * ba;
+            // ───── ② 视线洞参数 ─────
+            float4 _CutCenterR;   // xyz = 圆心, w = 半径
+            float  _CutMinAlpha;  // 圆心最小 α (0~1). 0 = 完全透明
 
-        if (length(P - proj) < r)
-            return true;
-    }
-    return false;
-}
+            //#define FADE_ALPHA        // ← 取消注释 = 渐变透明；保留注释 = 硬剪 discard
 
-StructuredBuffer<uint> _OrderBuffer;
+            // ───── 其余原有 Uniform/Sampler 略 ─────
+            StructuredBuffer<uint>  _OrderBuffer;
+            StructuredBuffer<uint>  _GroupId;
+            float                   _GroupAlpha[32];
 
-// === X-Ray groups ===
-StructuredBuffer<uint>  _GroupId;       // 每个 splat 的组号
-float                   _GroupAlpha[32]; // 先写死 32 组足够调试
+            struct v2f
+            {
+                half4 col : COLOR0;
+                float2 pos : TEXCOORD0;
+                float3 worldPos : TEXCOORD1;
+                float4 vertex : SV_POSITION;
+            };
 
+            StructuredBuffer<SplatViewData> _SplatViewData;
+            ByteAddressBuffer _SplatSelectedBits;
+            uint _SplatBitsValid;
+            uint _OptimizeForQuest;
 
-struct v2f
-{
-    half4 col : COLOR0;
-    float2 pos : TEXCOORD0;
-    float4 vertex : SV_POSITION;
-};
+            v2f vert (uint vtxID : SV_VertexID, uint instID : SV_InstanceID)
+            {
+                v2f o = (v2f)0;
+                instID = _OrderBuffer[instID];
 
-StructuredBuffer<SplatViewData> _SplatViewData;
-ByteAddressBuffer _SplatSelectedBits;
-uint _SplatBitsValid;
-uint _OptimizeForQuest;
+                uint  gid          = _GroupId[instID];
+                float alphaFactor  = _GroupAlpha[gid];
 
-v2f vert (uint vtxID : SV_VertexID, uint instID : SV_InstanceID)
-{
-	v2f o = (v2f)0;
-    instID = _OrderBuffer[instID];
+                SplatData splat = LoadSplatData(instID);
+                float3 centerWorldPos = mul(unity_ObjectToWorld, float4(splat.pos,1)).xyz;
+                o.worldPos = centerWorldPos;
 
-	// ---------- X-Ray: 取该 splat 的分组透明度 ----------
-	uint gid          = _GroupId[instID];          // 0,1,2…
-	float alphaFactor = _GroupAlpha[gid];          // 组对应 α
+                SplatViewData view = _SplatViewData[instID];
+                float4 centerClipPos = _OptimizeForQuest ?
+                        mul(UNITY_MATRIX_VP, float4(centerWorldPos,1)) : view.pos;
 
+                if (centerClipPos.w <= 0)
+                {
+                    o.vertex = asfloat(0x7fc00000);
+                    return o;
+                }
 
-	SplatViewData view = _SplatViewData[instID];
+                // ─── 线段裁剪：如命中则直接抛弃 ───
+                if (InAnyClipRegion(centerWorldPos))
+                {
+                    o.vertex = asfloat(0x7fc00000);
+                    return o;
+                }
 
-	// 先默认 worldPos = mul(ObjectToWorld, splat.pos)
-	SplatData splat = LoadSplatData(instID);
-	float3 centerWorldPos = mul(unity_ObjectToWorld, float4(splat.pos, 1)).xyz;
+                // color
+                o.col.r = f16tof32(view.color.x >> 16);
+                o.col.g = f16tof32(view.color.x);
+                o.col.b = f16tof32(view.color.y >> 16);
+                o.col.a = f16tof32(view.color.y) * alphaFactor;
 
-	// Quest 分支仍可覆盖 clipPos，但 worldPos 已可用
-	float4 centerClipPos = view.pos;
-	if (_OptimizeForQuest) {
-		centerClipPos = mul(UNITY_MATRIX_VP, float4(centerWorldPos, 1));
-	}
+                // quad verts
+                uint   idx = vtxID;
+                float2 quadPos = float2(idx & 1, (idx >> 1) & 1) * 2 - 1;
+                quadPos *= 2;
+                o.pos = quadPos;
 
-	bool behindCam = centerClipPos.w <= 0;
-	if (behindCam)
-	{
-		o.vertex = asfloat(0x7fc00000); // NaN discards the primitive
-	}
-	else
-	{
+                float2 delta = (quadPos.x * view.axis1 + quadPos.y * view.axis2)
+                               * 2 / _ScreenParams.xy;
+                o.vertex = centerClipPos;
+                o.vertex.xy += delta * centerClipPos.w;
 
-		// ===== ★ 新增：裁剪判定 =====
-		if (InAnyClipRegion(centerWorldPos))
-		{
-			// 方法 A：完全丢弃
-			o.vertex = asfloat(0x7fc00000);   // NaN → primitive discard
-			return o;
-			// 如果你想留着混合，可改为：
-			// o.col.a = 0;
-		}
+                return o;
+            }
 
-		o.col.r = f16tof32(view.color.x >> 16);
-		o.col.g = f16tof32(view.color.x);
-		o.col.b = f16tof32(view.color.y >> 16);
-		o.col.a = f16tof32(view.color.y);
-		o.col.a *= alphaFactor;                        // 应用透明度表
+            half4 frag (v2f i) : SV_Target
+            {
+                // 初始高斯 α
+                half  alpha = exp(-dot(i.pos, i.pos));
+                half4 col   = half4(i.col.rgb, 1) * alpha;
 
+                // ─── 圆洞裁剪/渐变 ───
+                float d = distance(i.worldPos, _CutCenterR.xyz);
+                float r = _CutCenterR.w;
 
-		uint idx = vtxID;
-		float2 quadPos = float2(idx&1, (idx>>1)&1) * 2.0 - 1.0;
-		quadPos *= 2;
+            #ifdef FADE_ALPHA
+                float w = saturate(1 - d / r);      // 0→边缘 1→中心
+                w = w * w;                          // 二次衰减，可自行调整
+                col.a *= lerp(1, _CutMinAlpha, w);
+                col.rgb *= col.a;                   // 同步亮度
+            #else
+                if (d < r) discard;                 // 硬剪
+            #endif
 
-		o.pos = quadPos;
+                // 最终丢极低 α
+                if (col.a < 1.0/255.0) discard;
+                return col;
+            }
 
-		float2 deltaScreenPos = (quadPos.x * view.axis1 + quadPos.y * view.axis2) * 2 / _ScreenParams.xy;
-		o.vertex = centerClipPos;
-		o.vertex.xy += deltaScreenPos * centerClipPos.w;
-
-		// is this splat selected?
-		if (_SplatBitsValid)
-		{
-			uint wordIdx = instID / 32;
-			uint bitIdx = instID & 31;
-			uint selVal = _SplatSelectedBits.Load(wordIdx * 4);
-			if (selVal & (1 << bitIdx))
-			{
-				o.col.a = -1;				
-			}
-		}
-	}
-    return o;
-}
-
-half4 frag (v2f i) : SV_Target
-{
-	float power = -dot(i.pos, i.pos);
-	half alpha = exp(power);
-	if (i.col.a >= 0)
-	{
-		alpha = saturate(alpha * i.col.a);
-	}
-	else
-	{
-		// "selected" splat: magenta outline, increase opacity, magenta tint
-		half3 selectedColor = half3(1,0,1);
-		if (alpha > 7.0/255.0)
-		{
-			if (alpha < 10.0/255.0)
-			{
-				alpha = 1;
-				i.col.rgb = selectedColor;
-			}
-			alpha = saturate(alpha + 0.3);
-		}
-		i.col.rgb = lerp(i.col.rgb, selectedColor, 0.5);
-	}
-	
-    if (alpha < 1.0/255.0)
-        discard;
-
-    half4 res = half4(i.col.rgb * alpha, alpha);
-    return res;
-}
-
-ENDCG
+            ENDCG
         }
     }
 }

@@ -2,55 +2,61 @@
 using System.Collections.Generic;
 using GaussianSplatting.Runtime;
 
-[RequireComponent(typeof(GaussianSplatRenderer))]   // 防止忘挂错对象
+/// <summary>
+/// 把多段 “线段 + 半径” 上传到 Shader：
+/// • 开始点缓冲 _ClipStart（xyz = A，w = r）  
+/// • 结束点缓冲 _ClipEnd   （xyz = B，w = r）
+/// </summary>
+[RequireComponent(typeof(GaussianSplatRenderer))]
 public class PointCloudPathClipper : MonoBehaviour
 {
-    [Header("Upper limit of trimmable")]
-    [SerializeField] private int maxSegments = 32;
+    [Header("最多可同时裁剪的段数")]
+    [SerializeField] int maxSegments = 64;
 
-    [Header("Clipping radius")]
-    [SerializeField] private float radius = 0.20f;
-
-    [Header("Reserved length")]  // ← 只改这里！0.10 = 留 10 cm
-    [SerializeField] private float endMargin = 1.0f;
+    [Header("默认裁剪半径 (m) - 兼容旧 AddSegment")]
+    [SerializeField] float defaultRadius = 0.2f;
 
     // ───────── internal ─────────
     readonly List<Vector4> starts = new();
     readonly List<Vector4> ends = new();
+
     ComputeBuffer bufStart, bufEnd;
 
     void Awake()
     {
         bufStart = new ComputeBuffer(maxSegments, sizeof(float) * 4);
         bufEnd = new ComputeBuffer(maxSegments, sizeof(float) * 4);
-        Upload();                        // 初始 _ClipCount = 0
+        Upload();                       // 让 _ClipCount 初始为 0
     }
+
     void OnDestroy()
     {
         bufStart?.Release();
         bufEnd?.Release();
     }
 
-    // ── 外部调用：新增一段 A→B ──
-    public void AddSegment(Vector3 A, Vector3 B)
+    /// <summary>
+    /// 向裁剪列表里加入 “A→B，半径 r”。
+    /// 若已达上限，则忽略。
+    /// </summary>
+    public void AddSegment(Vector3 A, Vector3 B, float r)
     {
         if (starts.Count >= maxSegments) return;
 
-        // ① 计算 AB 长度
-        Vector3 v = B - A;
-        float d = v.magnitude;
-        if (d <= endMargin) return;      // 太短则不裁剪
-
-        // ② 把目标点往回缩 endMargin 得到 B'
-        Vector3 Bprime = A + v * ((d - endMargin) / d);
-
-        // ③ 写入列表
-        starts.Add(new Vector4(A.x, A.y, A.z, radius));
-        ends.Add(new Vector4(Bprime.x, Bprime.y, Bprime.z, radius));
+        starts.Add(new Vector4(A.x, A.y, A.z, r));
+        ends.Add(new Vector4(B.x, B.y, B.z, r));
         Upload();
     }
 
-    // ── 外部调用：清空全部 ──
+    /// <summary>
+    /// 兼容旧写法（自动使用 defaultRadius）
+    /// </summary>
+    public void AddSegment(Vector3 A, Vector3 B)
+    {
+        AddSegment(A, B, defaultRadius);
+    }
+
+    /// <summary>清空所有裁剪段</summary>
     public void ClearAll()
     {
         starts.Clear();
@@ -58,11 +64,12 @@ public class PointCloudPathClipper : MonoBehaviour
         Upload();
     }
 
-    // ── 把 List ➜ ComputeBuffer ➜ Shader（全局 uniform）──
+    // 把 List ➜ ComputeBuffer ➜ Shader (全局 uniform)
     void Upload()
     {
         int n = starts.Count;
         var dummy = new Vector4[maxSegments];
+
         bufStart.SetData(n == 0 ? dummy : starts.ToArray());
         bufEnd.SetData(n == 0 ? dummy : ends.ToArray());
 
