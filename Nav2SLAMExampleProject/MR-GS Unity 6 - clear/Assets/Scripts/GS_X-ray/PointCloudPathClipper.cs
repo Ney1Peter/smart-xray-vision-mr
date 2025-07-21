@@ -3,42 +3,33 @@ using System.Collections.Generic;
 using GaussianSplatting.Runtime;
 
 /// <summary>
-/// 把多段 “线段 + 半径” 上传到 Shader：
-/// • 开始点缓冲 _ClipStart（xyz = A，w = r）  
-/// • 结束点缓冲 _ClipEnd   （xyz = B，w = r）
+/// 将多条“线段 + 半径”上传到 Shader：
+/// ⮩ _ClipStart / _ClipEnd；w 分量存半径。  
 /// </summary>
 [RequireComponent(typeof(GaussianSplatRenderer))]
 public class PointCloudPathClipper : MonoBehaviour
 {
-    [Header("最多可同时裁剪的段数")]
+    [Header("最多同时裁剪段数")]
     [SerializeField] int maxSegments = 64;
 
-    [Header("默认裁剪半径 (m) - 兼容旧 AddSegment")]
-    [SerializeField] float defaultRadius = 0.2f;
-
-    // ───────── internal ─────────
+    // internal
     readonly List<Vector4> starts = new();
     readonly List<Vector4> ends = new();
-
     ComputeBuffer bufStart, bufEnd;
 
     void Awake()
     {
         bufStart = new ComputeBuffer(maxSegments, sizeof(float) * 4);
         bufEnd = new ComputeBuffer(maxSegments, sizeof(float) * 4);
-        Upload();                       // 让 _ClipCount 初始为 0
+        Upload();                            // 初始 _ClipCount = 0
     }
-
     void OnDestroy()
     {
         bufStart?.Release();
         bufEnd?.Release();
     }
 
-    /// <summary>
-    /// 向裁剪列表里加入 “A→B，半径 r”。
-    /// 若已达上限，则忽略。
-    /// </summary>
+    /// <summary>真正使用的接口：A → B，半径 r。</summary>
     public void AddSegment(Vector3 A, Vector3 B, float r)
     {
         if (starts.Count >= maxSegments) return;
@@ -49,22 +40,18 @@ public class PointCloudPathClipper : MonoBehaviour
     }
 
     /// <summary>
-    /// 兼容旧写法（自动使用 defaultRadius）
+    /// 兼容旧调用（未传半径）：自动取 <see cref="GazeHoleUpdater.CutRadius"/>。
     /// </summary>
     public void AddSegment(Vector3 A, Vector3 B)
-    {
-        AddSegment(A, B, defaultRadius);
-    }
+        => AddSegment(A, B, GazeHoleUpdater.CutRadius);
 
     /// <summary>清空所有裁剪段</summary>
     public void ClearAll()
     {
-        starts.Clear();
-        ends.Clear();
+        starts.Clear(); ends.Clear();
         Upload();
     }
 
-    // 把 List ➜ ComputeBuffer ➜ Shader (全局 uniform)
     void Upload()
     {
         int n = starts.Count;

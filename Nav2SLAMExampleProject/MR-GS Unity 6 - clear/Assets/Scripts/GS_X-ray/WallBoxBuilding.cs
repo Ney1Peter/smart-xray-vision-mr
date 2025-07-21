@@ -4,22 +4,18 @@ using Meta.XR.MRUtilityKit;
 using GaussianSplatting.Runtime;
 
 /// <summary>
-/// 生成四面墙的隐藏 BoxCollider，并把点云材质句柄公开给 GazeHoleUpdater。
+/// 根据 MRUK 四面墙生成隐藏 BoxCollider（供射线检测），
+/// 并缓存点云材质供 Shader 做裁剪。
 /// </summary>
 public class WallBoxBuilding : MonoBehaviour
 {
-    [Header("方块厚度 (Z)")]
-    [SerializeField] float thickness = 0.10f;
+    const float GAP_XY = 0.05f;              // 每边收缩量
 
-    [Header("在 X/Y 方向各收缩的缝隙 (m)")]
-    [SerializeField] float gap = 0.05f;
+    public static Material wallMat;          // 供 GazeHoleUpdater 写洞
 
-    // 供 GazeHoleUpdater 使用
-    public static Material wallMat;
+    void Start() => StartCoroutine(WaitAndBuild());
 
-    void Start() => StartCoroutine(WaitForRoomAndBuild());
-
-    IEnumerator WaitForRoomAndBuild()
+    IEnumerator WaitAndBuild()
     {
         while (MRUK.Instance == null || MRUK.Instance.GetCurrentRoom() == null)
             yield return null;
@@ -32,51 +28,43 @@ public class WallBoxBuilding : MonoBehaviour
         var room = MRUK.Instance.GetCurrentRoom();
         if (room == null)
         {
-            Debug.LogError("WallBoxBuilder ▶ 仍未拿到 Room");
-            return;
+            Debug.LogError("WallBoxBuilding ▶ Room 未就绪"); return;
         }
 
-        // 取 3-DGS 材质
-        var gsRenderer = FindObjectOfType<GaussianSplatRenderer>();
-        wallMat = gsRenderer ? gsRenderer.m_MatSplats : null;
+        var gs = FindObjectOfType<GaussianSplatRenderer>();
+        wallMat = gs ? gs.m_MatSplats : null;
 
         int count = 0;
         foreach (var anchor in room.WallAnchors)
         {
             if (!anchor.PlaneRect.HasValue) continue;
 
-            // 尺寸 & 方向
             var rect = anchor.PlaneRect.Value;
-            float w = Mathf.Max(0, rect.size.x - gap * 2f);
-            float h = Mathf.Max(0, rect.size.y - gap * 2f);
+            float w = Mathf.Max(0, rect.size.x - GAP_XY * 2f);
+            float h = Mathf.Max(0, rect.size.y - GAP_XY * 2f);
+            float z = Mathf.Max(0.01f, GazeHoleUpdater.CutDepth); // 取当前厚度
+
             Vector3 c = anchor.transform.position;
             Vector3 f = anchor.transform.forward;
             Vector3 u = anchor.transform.up;
 
-            // 创建父物体 + BoxCollider
-            var go = new GameObject($"WallBox_{count}");
-            go.transform.SetParent(transform, false);
-            go.transform.position = c;
-            go.transform.rotation = Quaternion.LookRotation(f, u);
+            var root = new GameObject($"WallBox_{count}");
+            root.transform.SetParent(transform, false);
+            root.transform.SetPositionAndRotation(c, Quaternion.LookRotation(f, u));
 
-            // ★★ 关键新增：指定 Layer & Tag  ★★
-            go.layer = LayerMask.NameToLayer("WallBox"); // ← 确保 Project Settings 里已创建 “WallBox” 层
-            go.tag = "WallBox";                        // ← 可选：同名 Tag，供 CompareTag 双保险
+            var bc = root.AddComponent<BoxCollider>();
+            bc.size = new Vector3(w, h, z);
 
-            var box = go.AddComponent<BoxCollider>();
-            box.size = new Vector3(w, h, thickness);
-
-            // 隐藏可视 Mesh
+            // 帮助可视 Cube（默认隐藏）
             var mesh = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            mesh.transform.SetParent(go.transform, false);
-            mesh.transform.localScale = box.size;
-            var rend = mesh.GetComponent<Renderer>();
-            rend.enabled = false;
-            Destroy(mesh.GetComponent<Collider>());   // 删除多余 Collider
+            mesh.transform.SetParent(root.transform, false);
+            mesh.transform.localScale = bc.size;
+            mesh.GetComponent<Renderer>().enabled = false;
+            Destroy(mesh.GetComponent<Collider>());
 
             count++;
         }
 
-        Debug.Log($"WallBoxBuilder ▶ 共生成 {count} 面墙方块。");
+        Debug.Log($"WallBoxBuilding ▶ 生成 {count} 面墙 BoxCollider (厚度={GazeHoleUpdater.CutDepth:F2}m)");
     }
 }
