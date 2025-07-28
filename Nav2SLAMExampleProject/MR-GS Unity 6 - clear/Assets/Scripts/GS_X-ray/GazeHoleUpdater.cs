@@ -1,72 +1,111 @@
 ﻿using UnityEngine;
 using GaussianSplatting.Runtime;
 
-/// <summary>
-/// 用头显摄像机视线对点云开“圆柱形洞”。<br/>
-/// ─ 中心 α 可调、半径 & 厚度可调。<br/>
-/// ─ 每帧把圆柱段写进 PointCloudPathClipper，Shader 再做裁剪/渐隐。<br/>
-/// </summary>
 [RequireComponent(typeof(Camera))]
 public class GazeHoleUpdater : MonoBehaviour
 {
-    /* ====== Inspector 参数 ====== */
-    [Header("裁剪器 (PointCloudPathClipper)")]
-    [SerializeField] PointCloudPathClipper clipper;
+    /*──────── Inspector ────────*/
+    [Header("裁剪器 (PointCloudPathClipper)")][SerializeField] PointCloudPathClipper clipper;
+    [Header("洞半径 (m)")][SerializeField] float cutRadius = 0.30f;
+    [Header("洞厚度 (m)")][SerializeField] float cutDepth = 0.10f;
+    [Header("最大检测距离 (m)")][SerializeField] float maxDist = 10f;
 
-    [Header("洞半径 (m)")]
-    [SerializeField] float cutRadius = 0.30f;
+    [Header("判定同一点半径 (m)")][SerializeField] float dwellRadius = 0.03f;
+    [Header("渐隐时长 1→0 (s)")][SerializeField] float fadeOutTime = 1.5f;
+    [Header("渐显时长 0→1 (s)")][SerializeField] float fadeInTime = 1.0f;
 
-    [Header("洞厚度 (m)   ← Inspector 可直接调")]
-    [SerializeField] float cutDepth = 0.10f;
+    /*──────── 内部常量 ────────*/
+    const float SEGMENT_THRESHOLD = 0.03f;   // α ≤ 3 % → 写段
 
-    [Header("洞中心最小透明度 (α)")]
-    [Range(0f, 1f)] public float centerAlpha = 0.05f;
-
-    [Header("最大检测距离 (m)")]
-    [SerializeField] float maxDistance = 10f;
-
-    [Header("每帧重置裁剪段")]
-    [SerializeField] bool clearEachFrame = true;
-
-    /* ====== 对外静态值 ====== */
+    /*──────── 外部只读 ────────*/
     public static float CutRadius { get; private set; }
     public static float CutDepth { get; private set; }
 
-    /* ====== 内部 ====== */
+    /*──────── 内部状态 ────────*/
     Camera cam;
-    int mask = ~0;                   // 默认所有层；若方块单独设 Layer，可在此改为 LayerMask
+    int mask = ~0;
+
+    Vector3 holePos;        // 洞中心（冻结）
+    Vector3 holeNormal;     // 对应法线
+    float alpha = 1f;   // 当前 α
+    float targetA = 1f;   // 目标 α（0 or 1）
+    bool segmentAdded = false;
+    bool holeOpen = false;   // 是否存在洞
 
     void Awake() => cam = GetComponent<Camera>();
 
     void Update()
     {
-        /* —— 把当前 Inspector 调整同步到静态，供其他脚本读取 —— */
+        if (clipper == null || WallBoxBuilding.wallMat == null) return;
         CutRadius = cutRadius;
         CutDepth = cutDepth;
 
-        if (clipper == null || WallBoxBuilding.wallMat == null) return;
-        if (clearEachFrame) clipper.ClearAll();
+        /* ── 1. 检测是否命中墙 ── */
+        bool hitWall = Physics.Raycast(
+            cam.transform.position, cam.transform.forward,
+            out var hit, maxDist, mask
+        ) && hit.collider.name.StartsWith("WallBox");
 
-        // ① 视线射线
-        Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+        bool onSameSpot = hitWall && holeOpen &&
+                          Vector3.Distance(hit.point, holePos) < dwellRadius;
 
-        if (Physics.Raycast(ray, out var hit, maxDistance, mask) &&
-            hit.collider.name.StartsWith("WallBox"))           // 只处理墙方块
+        /* ── 2. 决定 targetAlpha 与是否开启新洞 ── */
+        if (hitWall && (!holeOpen || (alpha >= 1f && !onSameSpot)))
         {
-            Vector3 p = hit.point;         // 命中点世界坐标
-            Vector3 back = -hit.normal * cutDepth;  // 厚度方向
+            // 创建新洞（第一次 or 旧洞已完全关闭）
+            holePos = hit.point;
+            holeNormal = hit.normal;
+            alpha = 1f;
+            targetA = 0f;           // 开始渐隐
+            holeOpen = true;
 
-            /* ② 更新 Shader 漏洞参数（中心+半径+α） */
-            WallBoxBuilding.wallMat.SetVector("_CutCenterR",
-                new Vector4(p.x, p.y, p.z, cutRadius));
-            WallBoxBuilding.wallMat.SetFloat("_CutMinAlpha", centerAlpha);
-
-            /* ③ 把圆柱段写入裁剪缓冲 */
-            clipper.AddSegment(p, p + back, cutRadius);
+            if (segmentAdded) { clipper.ClearAll(); segmentAdded = false; }
         }
-        else
+        else if (hitWall && onSameSpot)
         {
-            // 若视线离开墙，可选择关闭洞（半径 = 0）
+            // 继续在同一点 → 目标保持 0
+            targetA = 0f;
+        }
+        else if (holeOpen)   // 离开洞所在区域 → 渐显
+        {
+            targetA = 1f;
+
+            if (segmentAdded) { clipper.ClearAll(); segmentAdded = false; }
+        }
+
+        if (!holeOpen) return;     // 没洞可管，直接退出
+
+        /* ── 3. 用 MoveTowards 插值 α ── */
+        float speed = (alpha > targetA)
+                      ? Time.deltaTime / Mathf.Max(0.0001f, fadeOutTime)
+                      : Time.deltaTime / Mathf.Max(0.0001f, fadeInTime);
+
+        alpha = Mathf.MoveTowards(alpha, targetA, speed);
+
+        /* ── 4. 更新 Shader ── */
+        WallBoxBuilding.wallMat.SetVector(
+            "_CutCenterR",
+            new Vector4(holePos.x, holePos.y, holePos.z, cutRadius)
+        );
+        WallBoxBuilding.wallMat.SetFloat("_CutMinAlpha", alpha);
+
+        /* ── 5. 控制硬裁剪段 ── */
+        if (!segmentAdded && alpha <= SEGMENT_THRESHOLD)
+        {
+            Vector3 back = -holeNormal * cutDepth;
+            clipper.AddSegment(holePos, holePos + back, cutRadius);
+            segmentAdded = true;
+        }
+        else if (segmentAdded && alpha > SEGMENT_THRESHOLD)
+        {
+            clipper.ClearAll();
+            segmentAdded = false;
+        }
+
+        /* ── 6. 当 α==1 & 不再注视 → 关闭洞 ── */
+        if (!hitWall && Mathf.Approximately(alpha, 1f))
+        {
+            holeOpen = false;
             WallBoxBuilding.wallMat.SetVector("_CutCenterR", Vector4.zero);
         }
     }

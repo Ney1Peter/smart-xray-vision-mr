@@ -1,14 +1,13 @@
 // SPDX-License-Identifier: MIT
-Shader "Gaussian Splatting/Render Splats"
+Shader "Gaussian Splatting/Render Splats Minimal"
 {
     SubShader
     {
         Tags { "Queue"="Transparent" "RenderType"="Transparent" }
-
         Pass
         {
             ZWrite Off
-            Blend OneMinusDstAlpha One
+            Blend OneMinusDstAlpha One     // 与旧版相同
             Cull  Off
 
             CGPROGRAM
@@ -21,14 +20,7 @@ Shader "Gaussian Splatting/Render Splats"
             #include "UnityCG.cginc"
             #include "GaussianSplatting.hlsl"
 
-            /* ─────── 可选效果开关 ─────── */
-            #define  FADE_ALPHA          // 圆洞渐隐（去掉则硬剪）
-            #define  DITHER_EDGE         // 羽化噪声
-            #define  DEPTH_FADE          // 深度渐隐
-            //#define  EDGE_BLOOM          // 洞边缘高亮 → Bloom
-
-            /* ─────── 数据结构 / Uniform ─────── */
-            // (1) 线段裁剪
+            /* ---------- 仅保留“线段裁剪 + 圆洞”所需 uniform ---------- */
             StructuredBuffer<float4> _ClipStart;
             StructuredBuffer<float4> _ClipEnd;
             uint                     _ClipCount;
@@ -47,29 +39,17 @@ Shader "Gaussian Splatting/Render Splats"
                 return false;
             }
 
-            // (2) 圆洞
+            /* ---- 洞口参数：中心 xyz + 半径 w / 最小 α ---- */
             float4 _CutCenterR;   // xyz=center, w=radius
-            float  _CutMinAlpha;  // 最小 α（洞中心）
+            float  _CutMinAlpha;  // 0 完全透 – 1 不透
 
-            // (3) 深度渐隐参数
-            float _FadeNear = 0.0;     // m
-            float _FadeFar  = 3.0;     // m
-
-            // 其余 buffer...
+            /* ---- 点云相关 buffer，与原版保持一致 ---- */
             StructuredBuffer<uint> _OrderBuffer;
             StructuredBuffer<uint> _GroupId;
             float                  _GroupAlpha[32];
             StructuredBuffer<SplatViewData> _SplatViewData;
-            ByteAddressBuffer _SplatSelectedBits;
+            ByteAddressBuffer      _SplatSelectedBits;
             uint _SplatBitsValid, _OptimizeForQuest;
-
-            /* ─────── 工具函数 ─────── */
-            inline float Hash12(float2 p)
-            {
-                float3 p3 = frac(float3(p.xyx) * 0.1031);
-                p3 += dot(p3, p3.yzx + 33.33);
-                return frac((p3.x + p3.y) * p3.z);
-            }
 
             struct v2f
             {
@@ -79,7 +59,7 @@ Shader "Gaussian Splatting/Render Splats"
                 float4 vertex   : SV_POSITION;
             };
 
-            /* ─────── Vertex ─────── */
+            /* ---------- Vertex ---------- */
             v2f vert(uint vtxID:SV_VertexID,uint instID:SV_InstanceID)
             {
                 v2f o=(v2f)0;
@@ -88,7 +68,7 @@ Shader "Gaussian Splatting/Render Splats"
                 float alphaFactor=_GroupAlpha[_GroupId[instID]];
 
                 // world pos
-                SplatData        splat=LoadSplatData(instID);
+                SplatData splat=LoadSplatData(instID);
                 float3 centerW = mul(unity_ObjectToWorld,float4(splat.pos,1)).xyz;
                 o.worldPos = centerW;
 
@@ -100,7 +80,7 @@ Shader "Gaussian Splatting/Render Splats"
                 // 胶囊裁剪
                 if(InAnyClipRegion(centerW)){o.vertex=asfloat(0x7fc00000);return o;}
 
-                // base color+α
+                // base color + α
                 o.col.r=f16tof32(view.color.x>>16);
                 o.col.g=f16tof32(view.color.x);
                 o.col.b=f16tof32(view.color.y>>16);
@@ -115,46 +95,22 @@ Shader "Gaussian Splatting/Render Splats"
                 return o;
             }
 
-            /* ─────── Fragment ─────── */
+            /* ---------- Fragment ---------- */
             half4 frag(v2f i):SV_Target
             {
                 /* 0. 原始高斯 α */
                 half alphaBase = exp(-dot(i.pos,i.pos));
 
-                /* 1. 圆洞渐隐 or 硬剪 */
+                /* 1. 洞口裁剪：在圆内直接乘 _CutMinAlpha */
                 float d = distance(i.worldPos, _CutCenterR.xyz);
                 float r = _CutCenterR.w;
-            #ifdef FADE_ALPHA
-                float w = saturate(1 - d / r);     // 1→中心 0→边缘
-            #ifdef DITHER_EDGE
-                float noise  = Hash12(i.worldPos.xz*37.13);   // 0~1
-                w = saturate(w + (noise-0.5)*0.4);            // 羽化 ±0.1
-            #endif
-                float alphaHole = lerp(1.0, _CutMinAlpha, w*w); // 二次衰减
-            #else
-                if(d<r) discard;
-                float alphaHole = 1.0;
-            #endif
+                float alphaHole = (d < r) ? _CutMinAlpha : 1.0;
 
-                /* 2. 深度渐隐（离相机越近越透） */
-            #ifdef DEPTH_FADE
-                float camD = distance(_WorldSpaceCameraPos, i.worldPos);
-                float atten = saturate((camD - _FadeNear) / (_FadeFar - _FadeNear));
-                alphaHole *= atten;
-            #endif
-
+                /* 2. 组合最终 α */
                 float finalA = alphaBase * alphaHole;
                 if(finalA < 1.0/255.0) discard;
 
                 half3 rgb = i.col.rgb * finalA;
-
-            #ifdef EDGE_BLOOM
-                // 在洞边缘输出 HDR >1 高亮，供 Bloom
-                float edge = saturate((d - (r*0.9)) / (r*0.1)); // 0 中心 → 1 边缘
-                float glow = (1-edge) * 2.5;                    // 提升强度
-                rgb += glow;
-            #endif
-
                 return half4(rgb, finalA);
             }
             ENDCG

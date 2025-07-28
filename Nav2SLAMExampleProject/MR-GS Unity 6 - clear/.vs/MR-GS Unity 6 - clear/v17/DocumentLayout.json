@@ -3,29 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|c:\\users\\changrui\\final_project\\nav2slamexampleproject\\mr-gs unity 6 - clear\\assets\\scripts\\gs_x-ray\\gazeholeupdater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gs_x-ray\\gazeholeupdater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Shaders\\RenderGaussianSplats.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|c:\\users\\changrui\\final_project\\nav2slamexampleproject\\mr-gs unity 6 - clear\\assets\\scripts\\gs_x-ray\\pointcloudpathclipper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\assets\\scripts\\gs_x-ray\\pointcloudpathclipper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gs_x-ray\\pointcloudpathclipper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{499F8C65-04FA-FBBE-9145-97E0B8E35F04}|GaussianSplattingEditor.csproj|c:\\users\\changrui\\final_project\\nav2slamexampleproject\\package\\editor\\gaussiansplatrenderereditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\assets\\scripts\\gs_x-ray\\wallboxbuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gs_x-ray\\wallboxbuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\assets\\scripts\\gs_x-ray\\gazeholeupdater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gs_x-ray\\gazeholeupdater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{43311CE8-0D46-7318-9619-A61CFF21598F}|GaussianSplatting.csproj|c:\\users\\changrui\\final_project\\nav2slamexampleproject\\package\\runtime\\gaussiansplatrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\assets\\scripts\\my 3dgs\\gaussiansplatrtonlyrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\my 3dgs\\gaussiansplatrtonlyrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,32 +25,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RenderGaussianSplats.shader",
-              "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Shaders\\RenderGaussianSplats.shader",
-              "RelativeDocumentMoniker": "..\\package\\Shaders\\RenderGaussianSplats.shader",
-              "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Shaders\\RenderGaussianSplats.shader",
-              "RelativeToolTip": "..\\package\\Shaders\\RenderGaussianSplats.shader",
-              "ViewState": "AQIAAF8AAAAAAAAAAAAjwIIAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2025-07-22T16:46:44.7Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "GaussianSplatRendererEditor.cs",
-              "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Editor\\GaussianSplatRendererEditor.cs",
-              "RelativeDocumentMoniker": "..\\package\\Editor\\GaussianSplatRendererEditor.cs",
-              "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Editor\\GaussianSplatRendererEditor.cs",
-              "RelativeToolTip": "..\\package\\Editor\\GaussianSplatRendererEditor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAOYBAAABAAAA",
+              "Title": "PointCloudPathClipper.cs",
+              "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GS_X-ray\\PointCloudPathClipper.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GS_X-ray\\PointCloudPathClipper.cs",
+              "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GS_X-ray\\PointCloudPathClipper.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GS_X-ray\\PointCloudPathClipper.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAmwEMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T22:33:23.157Z"
+              "WhenOpened": "2025-07-27T14:43:49.605Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -70,58 +48,36 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\GS_X-ray\\WallBoxBuilding.cs",
               "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GS_X-ray\\WallBoxBuilding.cs",
               "RelativeToolTip": "Assets\\Scripts\\GS_X-ray\\WallBoxBuilding.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAyAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAuwEYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-20T23:15:53.297Z"
+              "WhenOpened": "2025-07-27T14:37:30.803Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "GazeHoleUpdater.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GS_X-ray\\GazeHoleUpdater.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GS_X-ray\\GazeHoleUpdater.cs",
               "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GS_X-ray\\GazeHoleUpdater.cs",
               "RelativeToolTip": "Assets\\Scripts\\GS_X-ray\\GazeHoleUpdater.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAowEkAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T23:03:27.691Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PointCloudPathClipper.cs",
-              "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GS_X-ray\\PointCloudPathClipper.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GS_X-ray\\PointCloudPathClipper.cs",
-              "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GS_X-ray\\PointCloudPathClipper.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GS_X-ray\\PointCloudPathClipper.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAYwDAAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T23:25:06.293Z",
+              "WhenOpened": "2025-07-27T14:37:15.164Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GaussianSplatRTOnlyRenderer.cs",
-              "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\My 3DGS\\GaussianSplatRTOnlyRenderer.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\My 3DGS\\GaussianSplatRTOnlyRenderer.cs",
-              "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\My 3DGS\\GaussianSplatRTOnlyRenderer.cs",
-              "RelativeToolTip": "Assets\\Scripts\\My 3DGS\\GaussianSplatRTOnlyRenderer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T22:25:27.347Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GaussianSplatRenderer.cs",
-              "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Runtime\\GaussianSplatRenderer.cs",
-              "RelativeDocumentMoniker": "..\\package\\Runtime\\GaussianSplatRenderer.cs",
-              "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Runtime\\GaussianSplatRenderer.cs",
-              "RelativeToolTip": "..\\package\\Runtime\\GaussianSplatRenderer.cs",
-              "ViewState": "AQIAANAEAAAAAAAAAAAAAA4FAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T15:18:57.072Z"
+              "DocumentIndex": 1,
+              "Title": "RenderGaussianSplats.shader",
+              "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Shaders\\RenderGaussianSplats.shader",
+              "RelativeDocumentMoniker": "..\\package\\Shaders\\RenderGaussianSplats.shader",
+              "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Shaders\\RenderGaussianSplats.shader",
+              "RelativeToolTip": "..\\package\\Shaders\\RenderGaussianSplats.shader",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-07-22T16:46:44.7Z",
+              "EditorCaption": ""
             }
           ]
         }
