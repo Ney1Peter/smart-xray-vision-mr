@@ -2,66 +2,88 @@
 using System.Collections.Generic;
 using GaussianSplatting.Runtime;
 
-/// <summary>
-/// 将多条“线段 + 半径”上传到 Shader：
-/// ⮩ _ClipStart / _ClipEnd；w 分量存半径。  
-/// </summary>
 [RequireComponent(typeof(GaussianSplatRenderer))]
 public class PointCloudPathClipper : MonoBehaviour
 {
-    [Header("最多同时裁剪段数")]
-    [SerializeField] int maxSegments = 64;
+    [Header("最多同时裁剪盒体（OBB）")]
+    [SerializeField] int maxBoxes = 32;
 
-    // internal
-    readonly List<Vector4> starts = new();
-    readonly List<Vector4> ends = new();
-    ComputeBuffer bufStart, bufEnd;
+    // 盒体（OBB）
+    readonly List<Vector4> boxCenterHalf = new(); // xyz=center, w=halfDepth
+    readonly List<Vector4> boxAxisR = new(); // xyz=axisR
+    readonly List<Vector4> boxAxisU = new(); // xyz=axisU
+    readonly List<Vector4> boxAxisN = new(); // xyz=axisN
+    readonly List<Vector4> boxHalfRU = new(); // x=halfW, y=halfH
+
+    ComputeBuffer bufBoxCenterHalf, bufBoxAxisR, bufBoxAxisU, bufBoxAxisN, bufBoxHalfRU;
+
+    static readonly int ID_BoxCenterHalf = Shader.PropertyToID("_BoxCenterHalf");
+    static readonly int ID_BoxAxisR = Shader.PropertyToID("_BoxAxisR");
+    static readonly int ID_BoxAxisU = Shader.PropertyToID("_BoxAxisU");
+    static readonly int ID_BoxAxisN = Shader.PropertyToID("_BoxAxisN");
+    static readonly int ID_BoxHalfRU = Shader.PropertyToID("_BoxHalfRU");
+    static readonly int ID_BoxCount = Shader.PropertyToID("_BoxCount");
 
     void Awake()
     {
-        bufStart = new ComputeBuffer(maxSegments, sizeof(float) * 4);
-        bufEnd = new ComputeBuffer(maxSegments, sizeof(float) * 4);
-        Upload();                            // 初始 _ClipCount = 0
+        bufBoxCenterHalf = new ComputeBuffer(maxBoxes, sizeof(float) * 4, ComputeBufferType.Structured);
+        bufBoxAxisR = new ComputeBuffer(maxBoxes, sizeof(float) * 4, ComputeBufferType.Structured);
+        bufBoxAxisU = new ComputeBuffer(maxBoxes, sizeof(float) * 4, ComputeBufferType.Structured);
+        bufBoxAxisN = new ComputeBuffer(maxBoxes, sizeof(float) * 4, ComputeBufferType.Structured);
+        bufBoxHalfRU = new ComputeBuffer(maxBoxes, sizeof(float) * 4, ComputeBufferType.Structured);
+        UploadBoxes(); // 初始清空
     }
+
     void OnDestroy()
     {
-        bufStart?.Release();
-        bufEnd?.Release();
+        Shader.SetGlobalInt(ID_BoxCount, 0);
+        bufBoxCenterHalf?.Release();
+        bufBoxAxisR?.Release();
+        bufBoxAxisU?.Release();
+        bufBoxAxisN?.Release();
+        bufBoxHalfRU?.Release();
     }
 
-    /// <summary>真正使用的接口：A → B，半径 r。</summary>
-    public void AddSegment(Vector3 A, Vector3 B, float r)
+    /// <summary>添加一个 OBB（中心、三轴、半尺寸）</summary>
+    public void AddBox(Vector3 center, Vector3 axisR, Vector3 axisU, Vector3 axisN,
+                       Vector2 halfRU, float halfDepth)
     {
-        if (starts.Count >= maxSegments) return;
-
-        starts.Add(new Vector4(A.x, A.y, A.z, r));
-        ends.Add(new Vector4(B.x, B.y, B.z, r));
-        Upload();
+        if (boxCenterHalf.Count >= maxBoxes)
+        {
+            Debug.LogWarning($"PointCloudPathClipper ▶ 超过盒体上限 {maxBoxes}");
+            return;
+        }
+        boxCenterHalf.Add(new Vector4(center.x, center.y, center.z, halfDepth));
+        boxAxisR.Add(new Vector4(axisR.x, axisR.y, axisR.z, 0));
+        boxAxisU.Add(new Vector4(axisU.x, axisU.y, axisU.z, 0));
+        boxAxisN.Add(new Vector4(axisN.x, axisN.y, axisN.z, 0));
+        boxHalfRU.Add(new Vector4(halfRU.x, halfRU.y, 0, 0));
+        UploadBoxes();
     }
 
-    /// <summary>
-    /// 兼容旧调用（未传半径）：自动取 <see cref="GazeHoleUpdater.CutRadius"/>。
-    /// </summary>
-    public void AddSegment(Vector3 A, Vector3 B)
-        => AddSegment(A, B, GazeHoleUpdater.CutRadius);
-
-    /// <summary>清空所有裁剪段</summary>
-    public void ClearAll()
+    /// <summary>清空所有 OBB</summary>
+    public void ClearBoxes()
     {
-        starts.Clear(); ends.Clear();
-        Upload();
+        boxCenterHalf.Clear(); boxAxisR.Clear(); boxAxisU.Clear(); boxAxisN.Clear(); boxHalfRU.Clear();
+        UploadBoxes();
     }
 
-    void Upload()
+    void UploadBoxes()
     {
-        int n = starts.Count;
-        var dummy = new Vector4[maxSegments];
-
-        bufStart.SetData(n == 0 ? dummy : starts.ToArray());
-        bufEnd.SetData(n == 0 ? dummy : ends.ToArray());
-
-        Shader.SetGlobalBuffer("_ClipStart", bufStart);
-        Shader.SetGlobalBuffer("_ClipEnd", bufEnd);
-        Shader.SetGlobalInt("_ClipCount", n);
+        int n = boxCenterHalf.Count;
+        if (n > 0)
+        {
+            bufBoxCenterHalf.SetData(boxCenterHalf, 0, 0, n);
+            bufBoxAxisR.SetData(boxAxisR, 0, 0, n);
+            bufBoxAxisU.SetData(boxAxisU, 0, 0, n);
+            bufBoxAxisN.SetData(boxAxisN, 0, 0, n);
+            bufBoxHalfRU.SetData(boxHalfRU, 0, 0, n);
+        }
+        Shader.SetGlobalBuffer(ID_BoxCenterHalf, bufBoxCenterHalf);
+        Shader.SetGlobalBuffer(ID_BoxAxisR, bufBoxAxisR);
+        Shader.SetGlobalBuffer(ID_BoxAxisU, bufBoxAxisU);
+        Shader.SetGlobalBuffer(ID_BoxAxisN, bufBoxAxisN);
+        Shader.SetGlobalBuffer(ID_BoxHalfRU, bufBoxHalfRU);
+        Shader.SetGlobalInt(ID_BoxCount, n);
     }
 }

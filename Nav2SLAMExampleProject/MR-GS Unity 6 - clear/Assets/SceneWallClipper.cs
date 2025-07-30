@@ -51,8 +51,8 @@ public class SceneWallClipper : MonoBehaviour
                 Vector3 A1 = A0 + shift;
                 Vector3 B1 = B0 + shift;
 
-                clipper.AddSegment(A0, B0);   // 原墙面
-                clipper.AddSegment(A1, B1);   // 前移后墙面
+                //clipper.AddSegment(A0, B0);   // 原墙面
+                //clipper.AddSegment(A1, B1);   // 前移后墙面
                 segCount += 2;
             }
 
