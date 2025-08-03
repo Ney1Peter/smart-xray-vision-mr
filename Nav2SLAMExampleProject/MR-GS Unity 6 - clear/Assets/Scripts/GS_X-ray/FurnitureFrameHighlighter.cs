@@ -11,8 +11,8 @@ public class FurnitureFrameHighlighter : MonoBehaviour
     [Header("线宽 (m)")]      public float lineWidth = 0.008f;
     [Header("偏离表面 (m)")]  public float offset    = 0.01f;
 
-    [Header("家具框颜色 (工业黄灰)")]
-    public Color furnitureColor = new Color32(193, 168, 117, 108);  // #C1A8756C
+    [Header("颜色")]
+    public Color furnitureColor = new Color32(140, 100, 100, 110);  // 暗灰红  (≈#8C6464)
 
     Shader unlit;  // URP Unlit
 

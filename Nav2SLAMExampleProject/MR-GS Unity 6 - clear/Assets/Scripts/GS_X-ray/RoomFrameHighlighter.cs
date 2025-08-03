@@ -1,4 +1,4 @@
-// RoomFrameHighlighter.cs  — URP 兼容，只有显式锚点，无法线兜底
+// RoomFrameHighlighter.cs  — URP 兼容，仅显式锚点
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,10 +13,11 @@ public class RoomFrameHighlighter : MonoBehaviour
     [Header("线宽 (m)")]      public float lineWidth = 0.01f;
     [Header("离平面偏移 (m)")] public float offset    = 0.008f;
 
+    // ─── 颜色设置 ───
     [Header("颜色设置")]
-    public Color wallColor    = new Color32( 90, 110, 140, 110); // 冷灰蓝
-    public Color floorColor   = new Color32(100, 120, 100, 110); // 暗灰绿
-    public Color ceilingColor = new Color32(140, 100, 100, 110); // 暗灰红
+    public Color wallColor    = new Color32(193, 168, 117, 108); // 工业黄灰
+    public Color floorColor   = new Color32( 90, 110, 140, 110); // 冷灰蓝
+    public Color ceilingColor = new Color32(100, 120, 100, 110); // 暗灰绿
 
     Shader _urpUnlit;
 
@@ -45,9 +46,10 @@ public class RoomFrameHighlighter : MonoBehaviour
     /* ---------- 通过反射读取集合或单个 ---------- */
     int BuildFrom(object obj, string memberName, Color clr, string prefix)
     {
-        MemberInfo m = obj.GetType().GetMember(memberName,
-                       BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                       .FirstOrDefault();
+        MemberInfo m = obj.GetType()
+                          .GetMember(memberName,
+                                     BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+                          .FirstOrDefault();
         if (m == null) return 0;
 
         object value = m switch
@@ -59,7 +61,6 @@ public class RoomFrameHighlighter : MonoBehaviour
         if (value == null) return 0;
 
         int n = 0;
-
         if (value is IEnumerable<MRUKAnchor> list)
         {
             foreach (var a in list)
@@ -69,11 +70,10 @@ public class RoomFrameHighlighter : MonoBehaviour
         {
             if (DrawFrame(single, clr, $"{prefix}_0")) n = 1;
         }
-
         return n;
     }
 
-    /* ---------- 画 LineRenderer ---------- */
+    /* ---------- 画 LineRenderer（含 Emission） ---------- */
     bool DrawFrame(MRUKAnchor anchor, Color clr, string goName)
     {
         if (!anchor || !anchor.PlaneRect.HasValue) return false;
@@ -106,10 +106,17 @@ public class RoomFrameHighlighter : MonoBehaviour
         lr.numCornerVertices = 2;
         lr.loop              = false;
         lr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-        lr.material          = new Material(_urpUnlit)
+
+        /* --- 创建开启 Emission 的材质 --- */
+        var mat = new Material(_urpUnlit)
         {
-            color = clr, enableInstancing = true
+            color            = clr,
+            enableInstancing = true
         };
+        mat.EnableKeyword("_EMISSION");
+        mat.SetColor("_EmissionColor", clr * 1.5f); // HDR 发光色
+
+        lr.material = mat;
         return true;
     }
 }
