@@ -12,7 +12,7 @@ public class FurnitureFrameHighlighter : MonoBehaviour
     [Header("偏离表面 (m)")]  public float offset    = 0.01f;
 
     [Header("颜色")]
-    public Color furnitureColor = new Color32(140, 100, 100, 110);  // 暗灰红  (≈#8C6464)
+    public Color furnitureColor = new Color32(90, 110, 140, 110);
 
     Shader unlit;  // URP Unlit
 
