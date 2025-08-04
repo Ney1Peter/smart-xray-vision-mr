@@ -50,7 +50,7 @@ Shader "Gaussian Splatting/Render Splats"
             float4 _CutCenterR;   // xyz = 圆心, w = 半径
             float  _CutMinAlpha;  // 圆心最小 α (0~1). 0 = 完全透明
 
-            #define FADE_ALPHA   // ← 取消注释启用渐变；保留注释为硬剪
+            //#define FADE_ALPHA   // ← 取消注释启用渐变；保留注释为硬剪
 
             // ───── 其余 Uniform/Sampler ─────
             StructuredBuffer<uint>  _OrderBuffer;

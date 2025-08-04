@@ -4567,9 +4567,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineWidth: 0.01
   offset: 0.008
-  wallColor: {r: 0.3529412, g: 0.43137255, b: 0.54901963, a: 0.43137255}
-  floorColor: {r: 0.39215687, g: 0.47058824, b: 0.39215687, a: 0.43137255}
-  ceilingColor: {r: 0.54901963, g: 0.39215687, b: 0.39215687, a: 0.43137255}
+  wallColor: {r: 0.75686276, g: 0.65882355, b: 0.45882353, a: 0.42352942}
+  floorColor: {r: 0.3529412, g: 0.43137255, b: 0.54901963, a: 0.43137255}
+  ceilingColor: {r: 0.39215687, g: 0.47058824, b: 0.39215687, a: 0.43137255}
 --- !u!1 &655028201
 GameObject:
   m_ObjectHideFlags: 0
@@ -4871,8 +4871,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clipper: {fileID: 1179490850}
-  cutRadius: 0.3
-  cutDepth: 0.1
+  cutRadius: 0.2
+  cutDepth: 0.3
   centerAlpha: 0.05
   maxDistance: 10
   clearEachFrame: 1
@@ -6178,34 +6178,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 956265869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &963594323
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: GaussianSplats
-  m_Shader: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &973537812
 GameObject:
   m_ObjectHideFlags: 0
@@ -7725,7 +7697,7 @@ MonoBehaviour:
     y: 1
   m_OptimizeForQuest: 0
   m_gpuSortType: 1
-  m_MatSplats: {fileID: 963594323}
+  m_MatSplats: {fileID: 1196610322}
 --- !u!4 &1179490849
 Transform:
   m_ObjectHideFlags: 0
@@ -7955,6 +7927,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!21 &1196610322
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GaussianSplats
+  m_Shader: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1201520825
 GameObject:
   m_ObjectHideFlags: 0
@@ -11557,15 +11557,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666632021}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.17364816, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: -1.962, y: 2.194, z: 0.994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.962, y: 2.29, z: 0.994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 642807486}
   - {fileID: 1925713900}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 20, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1666632027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13470,14 +13470,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965505436}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99705d6a2958ae6469bd3363a901853e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineWidth: 0.01
+  lineWidth: 0.008
   offset: 0.01
-  furnitureColor: {r: 0.75686276, g: 0.65882355, b: 0.45882353, a: 0.42352942}
+  furnitureColor: {r: 0.54901963, g: 0.39215687, b: 0.39215687, a: 0.43137255}
 --- !u!1 &1971576283
 GameObject:
   m_ObjectHideFlags: 0
