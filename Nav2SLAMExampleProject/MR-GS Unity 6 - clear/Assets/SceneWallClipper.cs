@@ -4,7 +4,7 @@ using Meta.XR.MRUtilityKit;
 
 public class SceneWallClipper : MonoBehaviour
 {
-    [SerializeField] PointCloudPathClipper clipper;
+    [SerializeField] PointCloudPathClipperRect clipper;
     [SerializeField] float radius = 0.20f;   // 与裁剪器保持一致
     [SerializeField] float thickness = 0.10f;   // 额外向前挖的厚度
 

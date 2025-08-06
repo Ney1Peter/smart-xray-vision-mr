@@ -4683,7 +4683,7 @@ GameObject:
   - component: {fileID: 783609571}
   - component: {fileID: 783609570}
   - component: {fileID: 783609572}
-  - component: {fileID: 783609574}
+  - component: {fileID: 783609573}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -4809,7 +4809,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &783609574
+--- !u!114 &783609573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4818,16 +4818,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 783609568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17fb50c6476a4a34299f3d0bc60d94a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f02a711144a096439d17336994c3630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clipper: {fileID: 1179490850}
-  rectSize: {x: 0.6, y: 0.3}
+  rectSize: {x: 0.8, y: 0.4}
+  distToScale:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.5
+      value: 1.5
+      inSlope: 0
+      outSlope: -0.4
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 3
+      value: 0.5
+      inSlope: -0.4
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   boxThickness: 0.5
-  maxDist: 2
+  maxDist: 10
   dwellRadius: 0.03
-  fadeOutTime: 2
-  fadeInTime: 1
+  fadeOutTime: 1
+  fadeInTime: 0.8
+  easeInOut: 1
 --- !u!1 &786935251
 GameObject:
   m_ObjectHideFlags: 0
@@ -7634,7 +7659,7 @@ MonoBehaviour:
   m_PointDisplaySize: 1.35
   m_Cutouts:
   - {fileID: 548298956}
-  m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_ShaderSplats: {fileID: 4800000, guid: 00c456192aad02c40917c73a3ecdc8cc, type: 3}
   m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
   m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
   m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
@@ -7649,7 +7674,7 @@ MonoBehaviour:
     y: 1
   m_OptimizeForQuest: 0
   m_gpuSortType: 1
-  m_MatSplats: {fileID: 1376096275}
+  m_MatSplats: {fileID: 1924062292}
 --- !u!4 &1179490849
 Transform:
   m_ObjectHideFlags: 0
@@ -7675,7 +7700,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1179490843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90826f1248ef23048800ca8dfd6d67ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 46bd5e8b22f368b49b9c5694596fb827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxBoxes: 32
@@ -9322,34 +9347,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 883985830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1376096275
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: GaussianSplats
-  m_Shader: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &1385758923
 GameObject:
   m_ObjectHideFlags: 0
@@ -9423,7 +9420,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1391830324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdf294c09fc97374c8987b495033736d, type: 3}
+  m_Script: {fileID: 11500000, guid: c8cceee30b0f0554a8fa7dff5fc43763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1393041556
@@ -12958,6 +12955,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1002190274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1924062292
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GaussianSplats
+  m_Shader: {fileID: 4800000, guid: 00c456192aad02c40917c73a3ecdc8cc, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1925713899
 GameObject:
   m_ObjectHideFlags: 0

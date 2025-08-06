@@ -7,7 +7,7 @@ using GaussianSplatting.Runtime;
 /// 根据 MRUK 四面墙生成隐藏 BoxCollider（供射线检测），
 /// 并缓存点云材质供 Shader 做裁剪。
 /// </summary>
-public class WallBoxBuilding : MonoBehaviour
+public class WallBoxBuildingRect : MonoBehaviour
 {
     const float GAP_XY = 0.05f;              // 每边收缩量
 
@@ -42,7 +42,7 @@ public class WallBoxBuilding : MonoBehaviour
             var rect = anchor.PlaneRect.Value;
             float w = Mathf.Max(0, rect.size.x - GAP_XY * 2f);
             float h = Mathf.Max(0, rect.size.y - GAP_XY * 2f);
-            float z = Mathf.Max(0.01f, GazeHoleUpdater.CutDepth); // 取当前厚度
+            float z = Mathf.Max(0.01f, GazeHoleUpdaterRect.CutDepth); // 取当前厚度
 
             Vector3 c = anchor.transform.position;
             Vector3 f = anchor.transform.forward;
@@ -65,6 +65,6 @@ public class WallBoxBuilding : MonoBehaviour
             count++;
         }
 
-        Debug.Log($"WallBoxBuilding ▶ 生成 {count} 面墙 BoxCollider (厚度={GazeHoleUpdater.CutDepth:F2}m)");
+        Debug.Log($"WallBoxBuilding ▶ 生成 {count} 面墙 BoxCollider (厚度={GazeHoleUpdaterRect.CutDepth:F2}m)");
     }
 }

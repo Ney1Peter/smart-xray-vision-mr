@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using GaussianSplatting.Runtime;
 
 [RequireComponent(typeof(GaussianSplatRenderer))]
-public class PointCloudPathClipper : MonoBehaviour
+public class PointCloudPathClipperRect : MonoBehaviour
 {
     [Header("最多同时裁剪盒体（OBB）")]
     [SerializeField] int maxBoxes = 32;
