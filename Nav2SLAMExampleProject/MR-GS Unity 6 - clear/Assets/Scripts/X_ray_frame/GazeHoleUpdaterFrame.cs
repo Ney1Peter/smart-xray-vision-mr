@@ -45,7 +45,7 @@ public class GazeHoleUpdaterFrame : MonoBehaviour
 
     void Update()
     {
-        if (clipper == null || WallBoxBuilding.wallMat == null) return;
+        if (clipper == null || WallBoxBuildingFrame.wallMat == null) return;
         if (clearEachFrame) clipper.ClearAll();
 
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
@@ -89,9 +89,9 @@ public class GazeHoleUpdaterFrame : MonoBehaviour
             CutRadius = Mathf.Lerp(CutRadius, targetRadius, Time.deltaTime * lerpSpeed);
 
             /* ---------- 更新 Shader ---------- */
-            WallBoxBuilding.wallMat.SetVector("_CutCenterR",
+            WallBoxBuildingFrame.wallMat.SetVector("_CutCenterR",
                 new Vector4(p.x, p.y, p.z, CutRadius));
-            WallBoxBuilding.wallMat.SetFloat("_CutMinAlpha", centerAlpha);
+            WallBoxBuildingFrame.wallMat.SetFloat("_CutMinAlpha", centerAlpha);
 
             /* ---------- 写入裁剪段 ---------- */
             clipper.AddSegment(p, p + back, CutRadius);
@@ -105,7 +105,7 @@ public class GazeHoleUpdaterFrame : MonoBehaviour
                 targetRadius = baseRadius;
             }
             CutRadius = Mathf.Lerp(CutRadius, targetRadius, Time.deltaTime * lerpSpeed);
-            WallBoxBuilding.wallMat.SetVector("_CutCenterR", Vector4.zero);
+            WallBoxBuildingFrame.wallMat.SetVector("_CutCenterR", Vector4.zero);
         }
     }
 }

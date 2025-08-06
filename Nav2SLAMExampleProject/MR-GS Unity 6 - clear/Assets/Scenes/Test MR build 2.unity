@@ -4687,18 +4687,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 783609568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4337f213a5c8b40bd83a4a2e0b69f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 384769f60b089a84ab8acde484d3b831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clipper: {fileID: 1179490850}
-  baseRadius: 0.3
+  cutRadius: 0.3
+  cutDepth: 0.1
   centerAlpha: 0.05
   maxDistance: 10
   clearEachFrame: 1
-  dwellTimeToEnlarge: 2
-  enlargeFactor: 1.2
-  releaseDelay: 1
-  lerpSpeed: 4
 --- !u!1 &786935251
 GameObject:
   m_ObjectHideFlags: 0
@@ -7404,7 +7401,7 @@ MonoBehaviour:
   m_PointDisplaySize: 1.35
   m_Cutouts:
   - {fileID: 548298956}
-  m_ShaderSplats: {fileID: 4800000, guid: 4fce4f63c7e58194da10e37d5f402529, type: 3}
+  m_ShaderSplats: {fileID: 4800000, guid: fa134b7067611f54bb55a9b07db05d33, type: 3}
   m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
   m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
   m_ShaderDebugBoxes: {fileID: 4800000, guid: 4006f2680fd7c8b4cbcb881454c782be, type: 3}
@@ -7419,7 +7416,7 @@ MonoBehaviour:
     y: 1
   m_OptimizeForQuest: 0
   m_gpuSortType: 1
-  m_MatSplats: {fileID: 2005621430}
+  m_MatSplats: {fileID: 1391945597}
 --- !u!4 &1179490849
 Transform:
   m_ObjectHideFlags: 0
@@ -7445,7 +7442,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1179490843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95e3f73f26a9c374aba9eff3e009d086, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f819e382587de54ea8aacbf19e86f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxSegments: 64
@@ -7706,53 +7703,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1204156651
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1204156652}
-  - component: {fileID: 1204156653}
-  m_Layer: 0
-  m_Name: FurnitureFrameHighlighter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1204156652
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204156651}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1930717696}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1204156653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204156651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86735ab65470b8a47ae3dd024a1f7625, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineWidth: 0.008
-  offset: 0.01
-  furnitureColor: {r: 0.3529412, g: 0.43137255, b: 0.54901963, a: 0.43137255}
 --- !u!1 &1211435037
 GameObject:
   m_ObjectHideFlags: 0
@@ -8742,56 +8692,6 @@ Transform:
   - {fileID: 1171304678}
   m_Father: {fileID: 1588816646}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1348776646
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1348776647}
-  - component: {fileID: 1348776648}
-  m_Layer: 0
-  m_Name: RoomFrameHighlighter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1348776647
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348776646}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1930717696}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1348776648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348776646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b532f88ae9d0c4a9082ad1663816af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineWidth: 0.01
-  offset: 0.008
-  wallInset: 0.02
-  wallColor: {r: 0.37254903, g: 0.27450982, b: 0.1764706, a: 0.42352942}
-  ceilingColor: {r: 0.23529412, g: 0.25490198, b: 0.27450982, a: 0.43137255}
-  floorColor: {r: 0.3137255, g: 0.23529412, b: 0.39215687, a: 0.42352942}
 --- !u!1 &1351397049
 GameObject:
   m_ObjectHideFlags: 0
@@ -9262,10 +9162,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1391830324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0843b7b57da989d4797a5ec4161d2741, type: 3}
+  m_Script: {fileID: 11500000, guid: e38aa18813fa2554a91cf22b97a645c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxThickness: 0.1
+--- !u!21 &1391945597
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GaussianSplats
+  m_Shader: {fileID: 4800000, guid: fa134b7067611f54bb55a9b07db05d33, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1393041556
 GameObject:
   m_ObjectHideFlags: 0
@@ -12951,8 +12878,6 @@ Transform:
   - {fileID: 1179490849}
   - {fileID: 1786758211}
   - {fileID: 1391830325}
-  - {fileID: 1348776647}
-  - {fileID: 1204156652}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1937464795
@@ -13328,34 +13253,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1530314505}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &2005621430
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: GaussianSplats
-  m_Shader: {fileID: 4800000, guid: 4fce4f63c7e58194da10e37d5f402529, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &2018288117
 GameObject:
   m_ObjectHideFlags: 0
