@@ -9,9 +9,12 @@ using GaussianSplatting.Runtime;
 /// </summary>
 public class WallBoxBuilding : MonoBehaviour
 {
-    const float GAP_XY = 0.05f;              // 每边收缩量
+    const float GAP_XY = 0.05f;          // 每边收缩量
 
-    public static Material wallMat;          // 供 GazeHoleUpdater 写洞
+    [Header("Box 厚度 (m)")]
+    public float boxThickness = 0.10f;   // ← Inspector 调整厚度
+
+    public static Material wallMat;      // 供 GazeHoleUpdater 写洞
 
     void Start() => StartCoroutine(WaitAndBuild());
 
@@ -26,10 +29,7 @@ public class WallBoxBuilding : MonoBehaviour
     void BuildBoxes()
     {
         var room = MRUK.Instance.GetCurrentRoom();
-        if (room == null)
-        {
-            Debug.LogError("WallBoxBuilding ▶ Room 未就绪"); return;
-        }
+        if (room == null) { Debug.LogError("Room 未就绪"); return; }
 
         var gs = FindObjectOfType<GaussianSplatRenderer>();
         wallMat = gs ? gs.m_MatSplats : null;
@@ -42,7 +42,7 @@ public class WallBoxBuilding : MonoBehaviour
             var rect = anchor.PlaneRect.Value;
             float w = Mathf.Max(0, rect.size.x - GAP_XY * 2f);
             float h = Mathf.Max(0, rect.size.y - GAP_XY * 2f);
-            float z = Mathf.Max(0.01f, GazeHoleUpdater.CutDepth); // 取当前厚度
+            float z = Mathf.Max(0.01f, boxThickness);          // 直接用 Inspector 厚度
 
             Vector3 c = anchor.transform.position;
             Vector3 f = anchor.transform.forward;
@@ -55,7 +55,7 @@ public class WallBoxBuilding : MonoBehaviour
             var bc = root.AddComponent<BoxCollider>();
             bc.size = new Vector3(w, h, z);
 
-            // 帮助可视 Cube（默认隐藏）
+            // 可视 Cube（默认隐藏）
             var mesh = GameObject.CreatePrimitive(PrimitiveType.Cube);
             mesh.transform.SetParent(root.transform, false);
             mesh.transform.localScale = bc.size;
@@ -64,7 +64,6 @@ public class WallBoxBuilding : MonoBehaviour
 
             count++;
         }
-
-        Debug.Log($"WallBoxBuilding ▶ 生成 {count} 面墙 BoxCollider (厚度={GazeHoleUpdater.CutDepth:F2}m)");
+        Debug.Log($"WallBoxBuilding ▶ 生成 {count} 面墙 BoxCollider (厚度={boxThickness:F2}m)");
     }
 }

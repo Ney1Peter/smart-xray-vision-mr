@@ -2,71 +2,109 @@
 using GaussianSplatting.Runtime;
 
 /// <summary>
-/// 用头显摄像机视线对点云开“圆柱形洞”。<br/>
-/// ─ 中心 α 可调、半径 & 厚度可调。<br/>
-/// ─ 每帧把圆柱段写进 PointCloudPathClipper，Shader 再做裁剪/渐隐。<br/>
+/// 洞裁剪 + 驻留放大（>2 s 放大 20%，离开 1 s 恢复）。<br/>
+/// 厚度 = 命中 BoxCollider 的 size.z * lossyScale.z
 /// </summary>
 [RequireComponent(typeof(Camera))]
 public class GazeHoleUpdater : MonoBehaviour
 {
-    /* ====== Inspector 参数 ====== */
+    /* ===== Inspector ===== */
     [Header("裁剪器 (PointCloudPathClipper)")]
     [SerializeField] PointCloudPathClipper clipper;
 
-    [Header("洞半径 (m)")]
-    [SerializeField] float cutRadius = 0.30f;
-
-    [Header("洞厚度 (m)   ← Inspector 可直接调")]
-    [SerializeField] float cutDepth = 0.10f;
+    [Header("洞半径 (m)")][SerializeField] float baseRadius = 0.30f;
 
     [Header("洞中心最小透明度 (α)")]
-    [Range(0f, 1f)] public float centerAlpha = 0.05f;
+    [Range(0, 1)] public float centerAlpha = 0.05f;
 
-    [Header("最大检测距离 (m)")]
-    [SerializeField] float maxDistance = 10f;
+    [Header("最大检测距离 (m)")][SerializeField] float maxDistance = 10f;
+    [Header("每帧重置裁剪段")][SerializeField] bool clearEachFrame = true;
 
-    [Header("每帧重置裁剪段")]
-    [SerializeField] bool clearEachFrame = true;
+    /* ===== 驻留放大 ===== */
+    [Header("驻留放大")]
+    [SerializeField] float dwellTimeToEnlarge = 2f;
+    [SerializeField] float enlargeFactor = 1.2f;
+    [SerializeField] float releaseDelay = 1f;
+    [SerializeField] float lerpSpeed = 4f;
 
-    /* ====== 对外静态值 ====== */
+    /* ===== 对外静态 ===== */
     public static float CutRadius { get; private set; }
     public static float CutDepth { get; private set; }
 
-    /* ====== 内部 ====== */
-    Camera cam;
-    int mask = ~0;                   // 默认所有层；若方块单独设 Layer，可在此改为 LayerMask
+    /* ===== 内部 ===== */
+    Camera cam; int mask = ~0;
+    float dwellTimer, releaseTimer, targetRadius;
+    Vector3 lastHit; bool isEnlarged;
 
-    void Awake() => cam = GetComponent<Camera>();
+    void Awake()
+    {
+        cam = GetComponent<Camera>();
+        CutRadius = baseRadius;
+        targetRadius = baseRadius;
+    }
 
     void Update()
     {
-        /* —— 把当前 Inspector 调整同步到静态，供其他脚本读取 —— */
-        CutRadius = cutRadius;
-        CutDepth = cutDepth;
-
         if (clipper == null || WallBoxBuilding.wallMat == null) return;
         if (clearEachFrame) clipper.ClearAll();
 
-        // ① 视线射线
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
 
         if (Physics.Raycast(ray, out var hit, maxDistance, mask) &&
-            hit.collider.name.StartsWith("WallBox"))           // 只处理墙方块
+            hit.collider.name.StartsWith("WallBox"))
         {
-            Vector3 p = hit.point;         // 命中点世界坐标
-            Vector3 back = -hit.normal * cutDepth;  // 厚度方向
+            /* ---------- 厚度直接取 Collider ---------- */
+            var bc = hit.collider as BoxCollider;
+            float depth = bc ? bc.size.z * hit.collider.transform.lossyScale.z : 0.10f;
+            CutDepth = depth;                         // 对外可用
 
-            /* ② 更新 Shader 漏洞参数（中心+半径+α） */
+
+            Vector3 p = hit.point;
+            Vector3 back = -hit.normal * depth;
+
+            Debug.Log($"depth={depth:F2}  backLen={back.magnitude:F2}");
+
+
+            /* ---------- 驻留放大 ---------- */
+            bool sameSpot = Vector3.Distance(p, lastHit) < 0.02f;
+            if (sameSpot)
+            {
+                dwellTimer += Time.deltaTime;
+                releaseTimer = 0f;
+                if (!isEnlarged && dwellTimer >= dwellTimeToEnlarge)
+                {
+                    isEnlarged = true;
+                    targetRadius = baseRadius * enlargeFactor;
+                }
+            }
+            else
+            {
+                dwellTimer = 0f;
+                releaseTimer = 0f;
+                if (isEnlarged) { isEnlarged = false; targetRadius = baseRadius; }
+            }
+            lastHit = p;
+
+            /* ---------- 半径插值 ---------- */
+            CutRadius = Mathf.Lerp(CutRadius, targetRadius, Time.deltaTime * lerpSpeed);
+
+            /* ---------- 更新 Shader ---------- */
             WallBoxBuilding.wallMat.SetVector("_CutCenterR",
-                new Vector4(p.x, p.y, p.z, cutRadius));
+                new Vector4(p.x, p.y, p.z, CutRadius));
             WallBoxBuilding.wallMat.SetFloat("_CutMinAlpha", centerAlpha);
 
-            /* ③ 把圆柱段写入裁剪缓冲 */
-            clipper.AddSegment(p, p + back, cutRadius);
+            /* ---------- 写入裁剪段 ---------- */
+            clipper.AddSegment(p, p + back, CutRadius);
         }
         else
         {
-            // 若视线离开墙，可选择关闭洞（半径 = 0）
+            releaseTimer += Time.deltaTime;
+            if (releaseTimer >= releaseDelay && isEnlarged)
+            {
+                isEnlarged = false;
+                targetRadius = baseRadius;
+            }
+            CutRadius = Mathf.Lerp(CutRadius, targetRadius, Time.deltaTime * lerpSpeed);
             WallBoxBuilding.wallMat.SetVector("_CutCenterR", Vector4.zero);
         }
     }

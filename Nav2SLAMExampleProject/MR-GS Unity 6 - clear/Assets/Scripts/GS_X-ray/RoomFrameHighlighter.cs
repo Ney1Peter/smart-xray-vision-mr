@@ -16,9 +16,10 @@ public class RoomFrameHighlighter : MonoBehaviour
 
     // ─── 颜色设置 ───
     [Header("颜色设置")]
-    public Color wallColor = new Color32(193, 168, 117, 108);
-    public Color floorColor = new Color32(140, 100, 100, 110);  // 暗灰红  (≈#8C6464)
-    public Color ceilingColor = new Color32(100, 120, 100, 110);
+    public Color wallColor = new Color32(95, 70, 45, 108);  // 深棕  ≈ #5F462D  α≈43%
+    public Color ceilingColor = new Color32(60, 65, 70, 110);  // 石灰灰 ≈ #3C4146
+    public Color floorColor = new Color32(80, 60, 100, 108);  // 暗紫  ≈ #503C64
+
 
     Shader _urpUnlit;
     static Texture2D _dashTex;  // 共享虚线纹理

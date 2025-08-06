@@ -4567,10 +4567,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineWidth: 0.01
   offset: 0.008
-  wallInset: 0.05
-  wallColor: {r: 0.75686276, g: 0.65882355, b: 0.45882353, a: 0.42352942}
-  floorColor: {r: 0.54901963, g: 0.39215687, b: 0.39215687, a: 0.43137255}
-  ceilingColor: {r: 0.39215687, g: 0.47058824, b: 0.39215687, a: 0.43137255}
+  wallInset: 0
+  wallColor: {r: 0.37254903, g: 0.27450982, b: 0.1764706, a: 0.42352942}
+  ceilingColor: {r: 0.23529412, g: 0.25490198, b: 0.27450982, a: 0.43137255}
+  floorColor: {r: 0.3137255, g: 0.23529412, b: 0.39215687, a: 0.42352942}
 --- !u!1 &655028201
 GameObject:
   m_ObjectHideFlags: 0
@@ -4733,7 +4733,7 @@ GameObject:
   - component: {fileID: 783609571}
   - component: {fileID: 783609570}
   - component: {fileID: 783609572}
-  - component: {fileID: 783609574}
+  - component: {fileID: 783609573}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -4859,7 +4859,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &783609574
+--- !u!114 &783609573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4872,11 +4872,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clipper: {fileID: 1179490850}
-  cutRadius: 0.6
-  cutDepth: 0.3
+  baseRadius: 0.5
   centerAlpha: 0.05
   maxDistance: 10
   clearEachFrame: 1
+  dwellTimeToEnlarge: 2
+  enlargeFactor: 1.5
+  releaseDelay: 1
+  lerpSpeed: 4
 --- !u!1 &786935251
 GameObject:
   m_ObjectHideFlags: 0
@@ -6691,6 +6694,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1547768892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1018204494
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GaussianSplats
+  m_Shader: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1020930528
 GameObject:
   m_ObjectHideFlags: 0
@@ -7698,7 +7729,7 @@ MonoBehaviour:
     y: 1
   m_OptimizeForQuest: 0
   m_gpuSortType: 1
-  m_MatSplats: {fileID: 1301549817}
+  m_MatSplats: {fileID: 1018204494}
 --- !u!4 &1179490849
 Transform:
   m_ObjectHideFlags: 0
@@ -8640,34 +8671,6 @@ MonoBehaviour:
   installationRoutineCheckpoint:
     _installationRoutineId: 
     _installationVariants: []
---- !u!21 &1301549817
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: GaussianSplats
-  m_Shader: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &1319594371
 GameObject:
   m_ObjectHideFlags: 0
@@ -9475,6 +9478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf294c09fc97374c8987b495033736d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxThickness: 0.1
 --- !u!1 &1393041556
 GameObject:
   m_ObjectHideFlags: 0
@@ -11559,7 +11563,7 @@ Transform:
   m_GameObject: {fileID: 1666632021}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.962, y: 2.29, z: 0.994}
+  m_LocalPosition: {x: -2.465, y: 2.29, z: 0.994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13448,7 +13452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1965505437
 Transform:
   m_ObjectHideFlags: 0
@@ -13471,7 +13475,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965505436}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99705d6a2958ae6469bd3363a901853e, type: 3}
   m_Name: 
