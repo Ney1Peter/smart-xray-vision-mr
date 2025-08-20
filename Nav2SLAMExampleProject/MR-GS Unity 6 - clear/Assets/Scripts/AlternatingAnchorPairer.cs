@@ -15,35 +15,35 @@ public class GSAnchorTag : MonoBehaviour { public int index; }
 public class AlternatingAnchorPairer : MonoBehaviour
 {
     [Header("Refs")]
-    public Transform gsRoot;                 // 3DGS 根（GS 锚挂其下）
-    public GaussianSplatRenderer gs;         // 仅用于缓存点（可为空）
-    public Transform rayOrigin;              // 备用姿态源（未找到手柄时使用）
+    public Transform gsRoot;                 // 3DGS root (GS anchors will be placed under this)
+    public GaussianSplatRenderer gs;         // Used only to cache splat points (can be null)
+    public Transform rayOrigin;              // Fallback transform when controller is unavailable
 
-    [Header("Anchor Visual Prefabs (可留空自动找)")]
-    [Tooltip("启动时尝试从 Sample/Spawner BuildingBlock 读取")]
-    public GameObject realAnchorPrefab;      // 真实锚：Prefab（可视+OVRSpatialAnchor）
-    [Tooltip("可为空：留空则复用 realAnchorPrefab")]
-    public GameObject gsAnchorPrefab;        // GS 锚：只做可视（会移除 OVRSpatialAnchor）
+    [Header("Anchor Visual Prefabs (can auto-detect if left empty)")]
+    [Tooltip("Tries to auto-assign from Sample/Spawner BuildingBlock at startup")]
+    public GameObject realAnchorPrefab;      // Real anchor: prefab (includes visual + OVRSpatialAnchor)
+    [Tooltip("Optional: if left empty, will reuse realAnchorPrefab")]
+    public GameObject gsAnchorPrefab;        // GS anchor: visual only (OVRSpatialAnchor will be removed)
 
     [Header("Anchor Colors")]
-    public Color realAnchorColor = new(0.30f, 0.80f, 1.00f, 1f);  // 真实锚：青
-    public Color gsAnchorColor = new(0.65f, 0.45f, 0.95f, 1f);  // GS 锚：紫
+    public Color realAnchorColor = new(0.30f, 0.80f, 1.00f, 1f);  // Real anchor: cyan
+    public Color gsAnchorColor = new(0.65f, 0.45f, 0.95f, 1f);    // GS anchor: purple
 
-    [Header("Follow Hand (官方同款放置)")]
-    public bool followRightController = true;          // 使用 rightControllerAnchor 的姿态
-    public Vector3 followLocalOffset = Vector3.zero;   // 相对手柄的局部位移(米)
-    public Vector3 followLocalEuler = Vector3.zero;   // 相对手柄的局部旋转(度)
+    [Header("Follow Hand (OVR-style placement)")]
+    public bool followRightController = true;          // Use pose from rightControllerAnchor
+    public Vector3 followLocalOffset = Vector3.zero;   // Local position offset relative to controller (in meters)
+    public Vector3 followLocalEuler = Vector3.zero;    // Local rotation relative to controller (in degrees)
 
-    [Header("非跟随模式的前向偏移(米)")]
-    public float handForwardOffset = 0.0f;             // 当 followRightController=false 时生效
+    [Header("Forward Offset when Not Following (m)")]
+    public float handForwardOffset = 0.0f;             // Applies when followRightController = false
 
     [Header("Visual Scale")]
-    public float realMarkerScale = 1.0f;     // 真实锚整体缩放倍数
-    public float gsMarkerScale = 1.0f;     // GS 锚整体缩放倍数
+    public float realMarkerScale = 1.0f;               // Scale multiplier for real anchor
+    public float gsMarkerScale = 1.0f;                 // Scale multiplier for GS anchor
 
     [Header("Flow / Links")]
-    public bool autoSaveRealAnchors = true;  // 放真实锚后自动保存
-    public bool drawLinkOnEachPair = true;  // 成对后立刻画连线
+    public bool autoSaveRealAnchors = true;            // Automatically save real anchor upon placement
+    public bool drawLinkOnEachPair = true;             // Draw link immediately after pairing
 
     [Header("Links & Stats")]
     public float linkWidth = 0.006f;
@@ -59,61 +59,61 @@ public class AlternatingAnchorPairer : MonoBehaviour
     [Header("CSV")]
     public string csvFileName = "anchor_eval.csv";
 
-    // 运行态
+    // Runtime state
     int _nextIndex = 1;
-    bool _expectReal = true;   // true=放真实锚；false=放GS锚
+    bool _expectReal = true;   // true = placing real anchor; false = placing GS anchor
     OVRSpatialAnchor _lastReal;
     readonly List<(int idx, Transform real, Transform gs, float pe, float re)> _pairs = new();
     readonly List<GameObject> _links = new();
 
-    // 跟随节点 / 设备
-    Transform _followPose;      // 用于取放置位姿的 Transform
+    // Follow target / device
+    Transform _followPose;      // Transform used to determine placement pose
     OVRCameraRig _rig;
 
     void Start()
     {
-        TryAutoFillPrefabsFromBuildingBlock();  // 自动找默认锚外观
-        SetupFollowPose();                      // 设置跟随节点
+        TryAutoFillPrefabsFromBuildingBlock();  // Try to auto-detect default anchor visual prefabs
+        SetupFollowPose();                      // Set up follow transform
         if (!realAnchorPrefab)
-            Debug.LogWarning("[AltPair] 未能自动找到 Anchor Prefab。将用内置可视兜底。");
+            Debug.LogWarning("[AltPair] Failed to auto-locate Anchor Prefab. Falling back to built-in visual.");
     }
 
     void Update()
     {
 #if OCULUS_INTEGRATION_PRESENT
-        if (OVRInput.GetDown(OVRInput.Button.One)) HandleToggle(); // 设备 A 键
+        if (OVRInput.GetDown(OVRInput.Button.One)) HandleToggle(); // A button on controller
 #else
-        if (Input.GetKeyDown(toggleKey)) HandleToggle();            // 编辑器键盘
+        if (Input.GetKeyDown(toggleKey)) HandleToggle();            // Keyboard toggle (Editor)
 #endif
         if (Input.GetKeyDown(evalKey)) EvaluateAndReport();
         if (Input.GetKeyDown(exportKey)) ExportCsv();
     }
 
-    // 提供给 Buttons Mapper 的公开方法
+    // Public methods (for external Buttons Mapper etc.)
     public void PlaceNext() => HandleToggle();
     public void EvaluateNow() => EvaluateAndReport();
     public void ExportNow() => ExportCsv();
 
-    /* =================== 放置姿态源 =================== */
+    /* =================== Placement Pose Source =================== */
     void SetupFollowPose()
     {
         if (!followRightController)
         {
             _followPose = rayOrigin ? rayOrigin : (Camera.main ? Camera.main.transform : null);
-            if (!_followPose) Debug.LogWarning("[AltPair] 未找到 rayOrigin/Camera，放置将使用 (0,0,0)。");
+            if (!_followPose) Debug.LogWarning("[AltPair] No rayOrigin/Camera found. Will default to (0,0,0) for placement.");
             return;
         }
 
-        // 找 OVRCameraRig
+        // Try to find OVRCameraRig
         _rig = FindObjectOfType<OVRCameraRig>();
         if (_rig == null || _rig.rightControllerAnchor == null)
         {
-            Debug.LogWarning("[AltPair] 未找到 OVRCameraRig/rightControllerAnchor，回退到 rayOrigin/Camera。");
+            Debug.LogWarning("[AltPair] OVRCameraRig or rightControllerAnchor not found. Falling back to rayOrigin/Camera.");
             _followPose = rayOrigin ? rayOrigin : (Camera.main ? Camera.main.transform : null);
             return;
         }
 
-        // 建一个跟随节点，直接当做“取位姿”的参照（与官方一致）
+        // Create a follow node under rightControllerAnchor (same approach as official sample)
         var go = new GameObject("AnchorFollowPose");
         go.transform.SetParent(_rig.rightControllerAnchor, false);
         go.transform.localPosition = followLocalOffset;
@@ -127,7 +127,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
         if (src)
         {
             p = src.position; q = src.rotation;
-            // 当未跟随手柄而你又希望有前向偏移时（例如 Camera/main）
+            // Apply forward offset when not following controller (e.g. when using camera)
             if (!followRightController && handForwardOffset != 0f)
                 p += src.forward * handForwardOffset;
         }
@@ -137,14 +137,14 @@ public class AlternatingAnchorPairer : MonoBehaviour
         }
     }
 
-    /* =================== 主流程：同一键交替 =================== */
+    /* =================== Main Flow: Toggle Placement =================== */
     void HandleToggle()
     {
         if (_expectReal) PlaceRealAnchor();
         else PlaceGSAnchor();
     }
 
-    // —— 真实锚 —— //
+    // —— Place Real Anchor —— //
     void PlaceRealAnchor()
     {
         GetSpawnPose(out Vector3 p, out Quaternion q);
@@ -157,18 +157,18 @@ public class AlternatingAnchorPairer : MonoBehaviour
         }
         else
         {
-            // 内置可视兜底（总在最前）
+            // Fallback to built-in visual (always appears in front)
             go = CreateBuiltInAnchorVisual(realAnchorColor, realMarkerScale);
         }
 
         go.name = $"Real_{_nextIndex}";
         go.transform.SetPositionAndRotation(p, q);
 
-        // 确保存在 OVRSpatialAnchor（prefab 里通常自带）
+        // Ensure OVRSpatialAnchor exists (usually already on prefab)
         var sa = go.GetComponent<OVRSpatialAnchor>();
         if (!sa) sa = go.AddComponent<OVRSpatialAnchor>();
 
-        // 标识 & 改色
+        // Add tag & tint color
         go.AddComponent<RealAnchorTag>().index = _nextIndex;
         TintAnchor(go, realAnchorColor);
 
@@ -177,12 +177,12 @@ public class AlternatingAnchorPairer : MonoBehaviour
 
         _lastReal = sa;
         _expectReal = false;
-        Debug.Log($"[AltPair] 放置真实锚 idx={_nextIndex} @ {p}");
+        Debug.Log($"[AltPair] Placed real anchor idx={_nextIndex} @ {p}");
     }
 
     IEnumerator SaveWhenReady(OVRSpatialAnchor sa, int idx)
     {
-        // 给 SDK 一帧缓冲，避免“创建当帧立即保存”失败
+        // Give SDK a frame delay to avoid save failure on creation frame
         yield return null; yield return null;
         if (sa)
         {
@@ -195,17 +195,18 @@ public class AlternatingAnchorPairer : MonoBehaviour
         }
     }
 
-    // —— GS 锚（挂在 gsRoot，下同位置/旋转） —— //
+    // —— Place GS Anchor (parented under gsRoot) —— //
+
     void PlaceGSAnchor()
     {
         if (_lastReal == null)
         {
-            Debug.LogWarning("[AltPair] 需要先放真实锚（按一次 A）。");
+            Debug.LogWarning("[AltPair] You must place a real anchor first (press A once).");
             return;
         }
         if (!gsRoot)
         {
-            Debug.LogWarning("[AltPair] 请设置 gsRoot（GS 锚需挂其下）。");
+            Debug.LogWarning("[AltPair] Please assign gsRoot (GS anchors must be parented under it).");
             return;
         }
 
@@ -217,7 +218,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
         {
             go = Instantiate(prefab);
             go.transform.localScale *= Mathf.Max(0.001f, gsMarkerScale);
-            // 先设世界位姿，再挂父，避免局部偏移
+            // Set world position/rotation first, then parent to avoid local offset
             go.transform.SetPositionAndRotation(p, q);
             go.transform.SetParent(gsRoot, true);
         }
@@ -230,15 +231,15 @@ public class AlternatingAnchorPairer : MonoBehaviour
 
         go.name = $"GS_{_nextIndex}";
 
-        // 确保不会被当成真实锚保存
+        // Make sure it’s not treated as a real anchor
         var sa = go.GetComponent<OVRSpatialAnchor>();
         if (sa) Destroy(sa);
 
-        // 标识 + 改色
+        // Add tag & tint
         go.AddComponent<GSAnchorTag>().index = _nextIndex;
         TintAnchor(go, gsAnchorColor);
 
-        // 成对记录并画连线
+        // Record pairing and draw link
         float posErr = Vector3.Distance(_lastReal.transform.position, go.transform.position);
         float rotErr = Quaternion.Angle(_lastReal.transform.rotation, go.transform.rotation);
         _pairs.Add((_nextIndex, _lastReal.transform, go.transform, posErr, rotErr));
@@ -246,17 +247,17 @@ public class AlternatingAnchorPairer : MonoBehaviour
         if (drawLinkOnEachPair)
             DrawLink(_lastReal.transform.position, go.transform.position, posErr);
 
-        Debug.Log($"[AltPair] 成对 idx={_nextIndex}  posErr={posErr * 100f:F1}cm  rotErr={rotErr:F1}°");
+        Debug.Log($"[AltPair] Paired idx={_nextIndex}  posErr={posErr * 100f:F1}cm  rotErr={rotErr:F1}°");
 
         _nextIndex++;
         _lastReal = null;
         _expectReal = true;
     }
 
-    /* =================== 统计 & 导出 =================== */
+    /* =================== Stats & Export =================== */
     public void EvaluateAndReport()
     {
-        if (_pairs.Count == 0) { Debug.Log("[AltPair] 暂无配对数据。"); return; }
+        if (_pairs.Count == 0) { Debug.Log("[AltPair] No pair data available."); return; }
 
         ClearLinks();
         foreach (var p in _pairs) DrawLink(p.real.position, p.gs.position, p.pe);
@@ -270,14 +271,14 @@ public class AlternatingAnchorPairer : MonoBehaviour
         float medR = Median(_pairs.Select(p => p.re));
         float maxR = _pairs.Max(p => p.re);
 
-        Debug.Log($"[AltPair] 对数={_pairs.Count} | " +
+        Debug.Log($"[AltPair] Pairs={_pairs.Count} | " +
                   $"pos mean={mean * 100f:F1}cm med={med * 100f:F1}cm rmse={rmse * 100f:F1}cm max={max * 100f:F1}cm | " +
                   $"rot mean={meanR:F1}° med={medR:F1}° max={maxR:F1}°");
     }
 
     public void ExportCsv()
     {
-        if (_pairs.Count == 0) { Debug.LogWarning("[AltPair] 先完成至少一对。"); return; }
+        if (_pairs.Count == 0) { Debug.LogWarning("[AltPair] You must complete at least one pair first."); return; }
         string path = Path.Combine(Application.persistentDataPath, csvFileName);
         using var sw = new StreamWriter(path);
         sw.WriteLine("index,pos_err_m,rot_err_deg,real_x,real_y,real_z,gs_x,gs_y,gs_z");
@@ -286,10 +287,10 @@ public class AlternatingAnchorPairer : MonoBehaviour
             Vector3 a = p.real.position, b = p.gs.position;
             sw.WriteLine($"{p.idx},{p.pe:F6},{p.re:F3},{a.x:F6},{a.y:F6},{a.z:F6},{b.x:F6},{b.y:F6},{b.z:F6}");
         }
-        Debug.Log($"[AltPair] CSV 导出：{path}");
+        Debug.Log($"[AltPair] CSV exported: {path}");
     }
 
-    /* =================== 自动取 Prefab =================== */
+    /* =================== Auto Prefab Detection =================== */
     void TryAutoFillPrefabsFromBuildingBlock()
     {
         if (realAnchorPrefab != null) { if (gsAnchorPrefab == null) gsAnchorPrefab = realAnchorPrefab; return; }
@@ -302,7 +303,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
                 m.GetType().Name.Contains("SpatialAnchorCoreBuildingBlock", StringComparison.OrdinalIgnoreCase)
             ));
 
-        if (!spawner) { Debug.Log("[AltPair] 未找到 Sample/Spawner 组件，无法自动读取 Anchor Prefab。"); return; }
+        if (!spawner) { Debug.Log("[AltPair] Sample/Spawner component not found. Cannot auto-load anchor prefab."); return; }
 
         GameObject prefab = null;
         var t = spawner.GetType();
@@ -317,22 +318,21 @@ public class AlternatingAnchorPairer : MonoBehaviour
         {
             realAnchorPrefab = prefab;
             if (gsAnchorPrefab == null) gsAnchorPrefab = realAnchorPrefab;
-            Debug.Log("[AltPair] 已自动从 Building Block 读取 Anchor Prefab。");
+            Debug.Log("[AltPair] Anchor Prefab auto-loaded from Building Block.");
         }
     }
 
-    /* =================== 可视/画线/工具 =================== */
+    /* =================== Visual Helpers =================== */
     Material MakeAlwaysOnTopUnlit(Color c)
     {
         var sh = Shader.Find("Universal Render Pipeline/Unlit");
         var mat = new Material(sh);
         if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", c);
         else if (mat.HasProperty("_Color")) mat.SetColor("_Color", c);
-        // 透明&置顶
+        // Transparent + always on top
         mat.SetFloat("_Surface", 1f); // Transparent
         mat.SetInt("_ZWrite", 0);
         mat.renderQueue = 5000;
-        // 若 shader 支持 _ZTest，则设为 Always（部分 URP 版本没有该属性，忽略即可）
         if (mat.HasProperty("_ZTest"))
             mat.SetInt("_ZTest", (int)UnityEngine.Rendering.CompareFunction.Always);
         if (mat.HasProperty("_EmissionColor"))
@@ -349,7 +349,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
         if (parent) root.transform.SetParent(parent, false);
         root.transform.localScale = Vector3.one * Mathf.Max(0.001f, scale);
 
-        // 球体
+        // Sphere
         var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.name = "Core";
         sphere.transform.SetParent(root.transform, false);
@@ -357,7 +357,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
         Destroy(sphere.GetComponent<Collider>());
         sphere.GetComponent<Renderer>().material = MakeAlwaysOnTopUnlit(c);
 
-        // 三个环
+        // Add rings
         void AddRing(string n, Vector3 axis, float r)
         {
             var go = new GameObject(n);
@@ -396,6 +396,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
         lr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         _links.Add(go);
     }
+
     void ClearLinks() { foreach (var g in _links) if (g) Destroy(g); _links.Clear(); }
 
     float Median(IEnumerable<float> v)
@@ -405,7 +406,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
         return (l.Count % 2 == 1) ? l[k] : (l[k - 1] + l[k]) * 0.5f;
     }
 
-    // 改色（不改共享材质）
+    // Tint anchor (does not affect shared material)
     void TintAnchor(GameObject root, Color c)
     {
         foreach (var r in root.GetComponentsInChildren<Renderer>(true))
@@ -421,3 +422,4 @@ public class AlternatingAnchorPairer : MonoBehaviour
         }
     }
 }
+

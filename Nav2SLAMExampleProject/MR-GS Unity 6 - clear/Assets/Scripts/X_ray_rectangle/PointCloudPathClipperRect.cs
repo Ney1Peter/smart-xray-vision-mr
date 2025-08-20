@@ -5,15 +5,15 @@ using GaussianSplatting.Runtime;
 [RequireComponent(typeof(GaussianSplatRenderer))]
 public class PointCloudPathClipperRect : MonoBehaviour
 {
-    [Header("最多同时裁剪盒体（OBB）")]
+    [Header("Maximum Number of Simultaneous Clipping Boxes (OBB)")]
     [SerializeField] int maxBoxes = 32;
 
-    // 盒体（OBB）
-    readonly List<Vector4> boxCenterHalf = new(); // xyz=center, w=halfDepth
-    readonly List<Vector4> boxAxisR = new(); // xyz=axisR
-    readonly List<Vector4> boxAxisU = new(); // xyz=axisU
-    readonly List<Vector4> boxAxisN = new(); // xyz=axisN
-    readonly List<Vector4> boxHalfRU = new(); // x=halfW, y=halfH
+    // Clipping Boxes (OBB)
+    readonly List<Vector4> boxCenterHalf = new(); // xyz = center, w = halfDepth
+    readonly List<Vector4> boxAxisR = new();      // xyz = axisR
+    readonly List<Vector4> boxAxisU = new();      // xyz = axisU
+    readonly List<Vector4> boxAxisN = new();      // xyz = axisN
+    readonly List<Vector4> boxHalfRU = new();     // x = halfWidth, y = halfHeight
 
     ComputeBuffer bufBoxCenterHalf, bufBoxAxisR, bufBoxAxisU, bufBoxAxisN, bufBoxHalfRU;
 
@@ -31,7 +31,7 @@ public class PointCloudPathClipperRect : MonoBehaviour
         bufBoxAxisU = new ComputeBuffer(maxBoxes, sizeof(float) * 4, ComputeBufferType.Structured);
         bufBoxAxisN = new ComputeBuffer(maxBoxes, sizeof(float) * 4, ComputeBufferType.Structured);
         bufBoxHalfRU = new ComputeBuffer(maxBoxes, sizeof(float) * 4, ComputeBufferType.Structured);
-        UploadBoxes(); // 初始清空
+        UploadBoxes(); // Initial clear
     }
 
     void OnDestroy()
@@ -44,13 +44,13 @@ public class PointCloudPathClipperRect : MonoBehaviour
         bufBoxHalfRU?.Release();
     }
 
-    /// <summary>添加一个 OBB（中心、三轴、半尺寸）</summary>
+    /// <summary>Adds an OBB (center, 3 axes, half size)</summary>
     public void AddBox(Vector3 center, Vector3 axisR, Vector3 axisU, Vector3 axisN,
                        Vector2 halfRU, float halfDepth)
     {
         if (boxCenterHalf.Count >= maxBoxes)
         {
-            Debug.LogWarning($"PointCloudPathClipper ▶ 超过盒体上限 {maxBoxes}");
+            Debug.LogWarning($"PointCloudPathClipper ▶ Exceeded max number of boxes: {maxBoxes}");
             return;
         }
         boxCenterHalf.Add(new Vector4(center.x, center.y, center.z, halfDepth));
@@ -61,7 +61,7 @@ public class PointCloudPathClipperRect : MonoBehaviour
         UploadBoxes();
     }
 
-    /// <summary>清空所有 OBB</summary>
+    /// <summary>Clears all OBBs</summary>
     public void ClearBoxes()
     {
         boxCenterHalf.Clear(); boxAxisR.Clear(); boxAxisU.Clear(); boxAxisN.Clear(); boxHalfRU.Clear();

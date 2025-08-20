@@ -8,10 +8,10 @@ using Meta.XR.MRUtilityKit;
 [DefaultExecutionOrder(110)]
 public class FurnitureFrameHighlighter : MonoBehaviour
 {
-    [Header("线宽 (m)")]      public float lineWidth = 0.008f;
-    [Header("偏离表面 (m)")]  public float offset    = 0.01f;
+    [Header("Line Width (m)")] public float lineWidth = 0.008f;
+    [Header("Offset from Surface (m)")] public float offset = 0.01f;
 
-    [Header("颜色")]
+    [Header("Color")]
     public Color furnitureColor = new Color32(90, 110, 140, 110);
 
     Shader unlit;  // URP Unlit
@@ -30,7 +30,7 @@ public class FurnitureFrameHighlighter : MonoBehaviour
     {
         List<MRUKAnchor> list = new();
 
-        // ① 先尝试专属集合 (WindowAnchors / WindowAnchor …)
+        // ① First try dedicated collections (WindowAnchors / WindowAnchor …)
         list.AddRange(CollectAnchors(room, "WindowAnchors"));
         list.AddRange(CollectAnchors(room, "WindowAnchor"));
         list.AddRange(CollectAnchors(room, "BedAnchors"));
@@ -38,7 +38,7 @@ public class FurnitureFrameHighlighter : MonoBehaviour
         list.AddRange(CollectAnchors(room, "TableAnchors"));
         list.AddRange(CollectAnchors(room, "TableAnchor"));
 
-        // ② 若依旧为空 → 遍历 room.Anchors 找标签
+        // ② If still empty → fallback to room.Anchors and check tags
         if (list.Count == 0 && room.GetType().GetProperty("Anchors") is PropertyInfo p)
         {
             if (p.GetValue(room) is IEnumerable<MRUKAnchor> all)
@@ -62,10 +62,10 @@ public class FurnitureFrameHighlighter : MonoBehaviour
             DrawBoundingBox(a, furnitureColor, $"FurnFrame_{count++}");
         }
 
-        Debug.Log($"FurnitureFrameHighlighter ▶ 绘制家具框 {count} 个");
+        Debug.Log($"FurnitureFrameHighlighter ▶ Drew {count} furniture frames");
     }
 
-    /* ------------ 反射收集 anchor 列表或单个 ------------ */
+    /* ------------ Use reflection to collect anchor list or single anchor ------------ */
     List<MRUKAnchor> CollectAnchors(object obj, string member)
     {
         var mi = obj.GetType().GetMember(member,
@@ -88,7 +88,7 @@ public class FurnitureFrameHighlighter : MonoBehaviour
         };
     }
 
-    /* ------------ 取得自带标签（若有） ------------ */
+    /* ------------ Try to get label (if available) ------------ */
     bool TryGetLabel(MRUKAnchor a, out string label)
     {
         label = null;
@@ -101,20 +101,20 @@ public class FurnitureFrameHighlighter : MonoBehaviour
         return false;
     }
 
-    /* ------------ 画立方体线框 ------------ */
+    /* ------------ Draw cube wireframe ------------ */
     void DrawBoundingBox(MRUKAnchor a, Color clr, string goName)
     {
-        // 1) 利用 plane rect + transform 给出局部方块，厚度用 offset
+        // 1) Use plane rect + transform to compute local box, thickness from offset
         var rect = a.PlaneRect!.Value;
         float hx = rect.size.x * 0.5f;
         float hy = rect.size.y * 0.5f;
-        float hz = rect.size.magnitude * 0.02f + offset; // 简易厚度 ≈ 2% 对角线
+        float hz = rect.size.magnitude * 0.02f + offset; // Approximate thickness ≈ 2% of diagonal
 
         Transform t = a.transform;
-        Vector3 c = t.position + t.forward * hz * 0.5f; // 中心往法线方向推进一半作为包围盒中心
+        Vector3 c = t.position + t.forward * hz * 0.5f; // Center moved forward by half thickness
         Vector3 r = t.right, u = t.up, f = t.forward;
 
-        // 8 角
+        // 8 corners
         Vector3[] v =
         {
             c + (-r*hx) + (-u*hy) + (-f*hz),
@@ -130,8 +130,8 @@ public class FurnitureFrameHighlighter : MonoBehaviour
 
         int[][] edges =
         {
-            new[]{0,1,2,3,0}, new[]{4,5,6,7,4}, // 前后面方框
-            new[]{0,4}, new[]{1,5}, new[]{2,6}, new[]{3,7} // 侧边连接
+            new[]{0,1,2,3,0}, new[]{4,5,6,7,4}, // Front and back rectangles
+            new[]{0,4}, new[]{1,5}, new[]{2,6}, new[]{3,7} // Side edges
         };
 
         var parent = new GameObject(goName);

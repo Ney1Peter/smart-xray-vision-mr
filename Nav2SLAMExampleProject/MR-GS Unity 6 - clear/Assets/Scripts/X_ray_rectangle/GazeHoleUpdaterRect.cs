@@ -2,65 +2,65 @@
 using GaussianSplatting.Runtime;
 
 /// <summary>
-/// 通过凝视射线在墙面点云上开一个“近大远小”的可透视洞。<br/>
-/// 洞的宽/高随相机到墙面的距离按 <see cref="distToScale"/> 曲线缩放，<br/>
-/// 厚度 <see cref="boxThickness"/> 保持不变。
+/// Opens a perspective "near-large, far-small" hole on a wall point cloud via gaze ray.<br/>
+/// The width/height of the hole scales with the camera-to-wall distance according to <see cref="distToScale"/>,<br/>
+/// while thickness <see cref="boxThickness"/> remains constant.
 /// </summary>
 [RequireComponent(typeof(Camera))]
 public class GazeHoleUpdaterRect : MonoBehaviour
 {
     /*──────── Inspector ────────*/
-    [Header("裁剪器 (PointCloudPathClipper)")]
+    [Header("Clipper (PointCloudPathClipper)")]
     [SerializeField] PointCloudPathClipperRect clipper;
 
-    [Header("基础矩形洞尺寸 (m)  宽 × 高")]
-    [SerializeField] Vector2 rectSize = new Vector2(0.40f, 0.25f);   // 基础尺寸
+    [Header("Base Rectangular Hole Size (m)  Width × Height")]
+    [SerializeField] Vector2 rectSize = new Vector2(0.40f, 0.25f);   // Base size
 
-    [Header("洞尺寸随距离缩放 (距离→倍率)")]
-    [Tooltip("X 轴 = 相机到墙面的距离 (m)，Y 轴 = 尺寸倍率。")]
+    [Header("Hole Size Scales with Distance (Distance → Scale Factor)")]
+    [Tooltip("X = distance from camera to wall (m), Y = size multiplier.")]
     [SerializeField]
     AnimationCurve distToScale =
         AnimationCurve.Linear(0.5f, 1.5f, 3.0f, 0.5f);
 
-    [Header("长方体厚度 (m)")]
-    [Tooltip("厚度仅向远离相机方向扩展：近端贴在命中点上，远端向里推进。")]
+    [Header("Cuboid Thickness (m)")]
+    [Tooltip("Thickness only extends away from the camera: front aligns with hit point, back pushed inward.")]
     [SerializeField] float boxThickness = 0.10f;
 
-    [Header("最大检测距离 (m)")]
+    [Header("Maximum Detection Distance (m)")]
     [SerializeField] float maxDist = 10f;
 
-    [Header("判定同一点半径 (m)")]
+    [Header("Same Spot Detection Radius (m)")]
     [SerializeField] float dwellRadius = 0.03f;
 
-    [Header("渐隐时长 1→0 (s)")]
+    [Header("Fade-Out Time 1→0 (s)")]
     [SerializeField] float fadeOutTime = 1.0f;
 
-    [Header("渐显时长 0→1 (s)")]
+    [Header("Fade-In Time 0→1 (s)")]
     [SerializeField] float fadeInTime = 0.8f;
 
-    [Header("开合曲线（可选：勾勒更丝滑的缓动）")]
+    [Header("Ease Curve for Smoother Transition (Optional)")]
     [SerializeField] bool easeInOut = true;
 
-    /*──────── 对外只读（兼容） ────────*/
-    public static float CutDepth { get; private set; } // 当前洞厚度
-    public static float CutRadius { get; private set; } // 当前洞最大半径
+    /*──────── Public Readonly (for compatibility) ────────*/
+    public static float CutDepth { get; private set; } // Current hole thickness
+    public static float CutRadius { get; private set; } // Current hole max radius
 
-    /*──────── 内部状态 ────────*/
+    /*──────── Internal State ────────*/
     Camera cam;
     int mask = ~0;
 
     Vector3 holePos, holeNormal, holeAxisR, holeAxisU;
-    float alpha = 1f, targetA = 1f;     // 1=关闭, 0=完全打开
+    float alpha = 1f, targetA = 1f;     // 1 = closed, 0 = fully open
     bool boxActive = false;
     bool holeOpen = false;
 
-    // 上一次已应用到 OBB 的参数，用于热更新判断
+    // Last applied OBB state, used for update diff check
     float lastAppliedHalfDepth = -1f;
     Vector2 lastAppliedHalfRU = new Vector2(-1f, -1f);
     Vector3 lastAppliedCenter = new Vector3(float.NaN, float.NaN, float.NaN);
     Vector3 lastAppliedAxisR, lastAppliedAxisU, lastAppliedAxisN;
 
-    // Shader property IDs（全局）
+    // Shader global property IDs
     static readonly int ID_Center = Shader.PropertyToID("_CutCenter");
     static readonly int ID_AxisR = Shader.PropertyToID("_CutAxisR");
     static readonly int ID_AxisU = Shader.PropertyToID("_CutAxisU");
@@ -74,14 +74,14 @@ public class GazeHoleUpdaterRect : MonoBehaviour
     {
         if (clipper == null) return;
 
-        /* ── 1. 根据相机 → 墙距离计算当前洞尺寸 ── */
+        /* ── 1. Compute hole size based on camera-to-wall distance ── */
         float viewDist = maxDist;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out var viewHit, maxDist, mask) &&
             viewHit.collider.name.StartsWith("WallBox"))
         {
             viewDist = viewHit.distance;
         }
-        else if (holeOpen) // 洞已开但当前未命中（视线偏移）
+        else if (holeOpen) // Hole already open but not currently hitting wall
         {
             viewDist = Vector3.Distance(cam.transform.position, holePos);
         }
@@ -89,11 +89,11 @@ public class GazeHoleUpdaterRect : MonoBehaviour
         float scale = distToScale?.Evaluate(viewDist) ?? 1f;
         Vector2 curRectSize = rectSize * Mathf.Max(0.01f, scale);
 
-        // 对外同步
+        // Update external values
         CutDepth = boxThickness;
         CutRadius = Mathf.Max(curRectSize.x, curRectSize.y) * 0.5f;
 
-        /* ── 2. Raycast 最近墙 ── */
+        /* ── 2. Raycast to closest wall ── */
         bool hitWall = Physics.Raycast(cam.transform.position, cam.transform.forward,
                                        out var hit, maxDist, mask) &&
                        hit.collider.name.StartsWith("WallBox");
@@ -101,7 +101,7 @@ public class GazeHoleUpdaterRect : MonoBehaviour
         bool onSameSpot = hitWall && holeOpen &&
                           Vector3.Distance(hit.point, holePos) < dwellRadius;
 
-        /* ── 3. 状态切换 ── */
+        /* ── 3. State transitions ── */
         if (hitWall && (!holeOpen || (alpha >= 1f && !onSameSpot)))
         {
             holePos = hit.point;
@@ -112,7 +112,7 @@ public class GazeHoleUpdaterRect : MonoBehaviour
             holeAxisU = wt.up.normalized;
 
             alpha = 1f;
-            targetA = 0f;        // 开始渐隐（开洞）
+            targetA = 0f;        // Begin fade-out (open hole)
             holeOpen = true;
 
             if (boxActive) { clipper.ClearBoxes(); boxActive = false; }
@@ -120,27 +120,27 @@ public class GazeHoleUpdaterRect : MonoBehaviour
         }
         else if (hitWall && onSameSpot)
         {
-            targetA = 0f;        // 洞持续开启
+            targetA = 0f;        // Keep hole open
         }
         else if (holeOpen)
         {
-            targetA = 1f;        // 渐显（关洞）
+            targetA = 1f;        // Begin fade-in (close hole)
         }
         else
         {
-            return;              // 没洞，无需往下
+            return;              // No hole, skip remaining steps
         }
 
-        /* ── 4. 插值 α ── */
+        /* ── 4. Interpolate alpha ── */
         float step = (alpha > targetA)
                      ? Time.deltaTime / Mathf.Max(0.0001f, fadeOutTime)
                      : Time.deltaTime / Mathf.Max(0.0001f, fadeInTime);
         alpha = Mathf.MoveTowards(alpha, targetA, step);
 
-        // 开合进度 t：0（关闭）→ 1（完全打开）
+        // Open-close progress t: 0 (closed) → 1 (fully open)
         float t = easeInOut ? Smoothstep01(1f - alpha) : 1f - alpha;
 
-        /* ── 5. 设置像素级矩形遮罩（全局参数） ── */
+        /* ── 5. Set pixel-level rectangular clipping (shader globals) ── */
         Shader.SetGlobalVector(ID_Center, holePos);
         Shader.SetGlobalVector(ID_AxisR, holeAxisR);
         Shader.SetGlobalVector(ID_AxisU, holeAxisU);
@@ -148,7 +148,7 @@ public class GazeHoleUpdaterRect : MonoBehaviour
         Shader.SetGlobalVector(ID_RectHalf, curRectSize * 0.5f);
         Shader.SetGlobalFloat(ID_MinAlpha, alpha);
 
-        /* ── 6. 依进度 t 更新 OBB ── */
+        /* ── 6. Update OBB clipping based on progress t ── */
         Vector3 camWS = cam.transform.position;
         Vector3 backDir = Vector3.Dot(holeNormal, (camWS - holePos)) > 0f
                           ? -holeNormal : holeNormal;
@@ -192,7 +192,7 @@ public class GazeHoleUpdaterRect : MonoBehaviour
             lastAppliedAxisN = holeNormal;
         }
 
-        /* ── 7. 洞完全关闭时清理 ── */
+        /* ── 7. Cleanup when hole fully closed ── */
         if (!hitWall && Mathf.Approximately(alpha, 1f))
         {
             holeOpen = false;

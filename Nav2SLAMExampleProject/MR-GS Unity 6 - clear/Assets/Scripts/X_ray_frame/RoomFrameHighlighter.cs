@@ -1,4 +1,4 @@
-// RoomFrameHighlighter.cs — URP 兼容，虚线 + Emission + 可收缩墙框
+// RoomFrameHighlighter.cs — URP compatible, dashed lines + Emission + shrinkable wall frames
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,19 +10,18 @@ using Meta.XR.MRUtilityKit;
 [DefaultExecutionOrder(100)]
 public class RoomFrameHighlighter : MonoBehaviour
 {
-    [Header("线宽 (m)")] public float lineWidth = 0.01f;
-    [Header("离平面偏移 (m)")] public float offset = 0.008f;
-    [Header("墙体内收 (m)")] public float wallInset = 0.02f;    // New: 墙框向内缩 2 cm
+    [Header("Line Width (m)")] public float lineWidth = 0.01f;
+    [Header("Offset from Plane (m)")] public float offset = 0.008f;
+    [Header("Wall Inset (m)")] public float wallInset = 0.02f;    // New: inset wall frame by 2 cm
 
-    // ─── 颜色设置 ───
-    [Header("颜色设置")]
-    public Color wallColor = new Color32(95, 70, 45, 108);  // 深棕  ≈ #5F462D  α≈43%
-    public Color ceilingColor = new Color32(60, 65, 70, 110);  // 石灰灰 ≈ #3C4146
-    public Color floorColor = new Color32(80, 60, 100, 108);  // 暗紫  ≈ #503C64
-
+    // ─── Color Settings ───
+    [Header("Color Settings")]
+    public Color wallColor = new Color32(95, 70, 45, 108);     // Dark Brown ≈ #5F462D α≈43%
+    public Color ceilingColor = new Color32(60, 65, 70, 110);  // Ash Gray   ≈ #3C4146
+    public Color floorColor = new Color32(80, 60, 100, 108);   // Dark Purple ≈ #503C64
 
     Shader _urpUnlit;
-    static Texture2D _dashTex;  // 共享虚线纹理
+    static Texture2D _dashTex;  // Shared dashed line texture
 
     IEnumerator Start()
     {
@@ -34,7 +33,7 @@ public class RoomFrameHighlighter : MonoBehaviour
         BuildFrames(MRUK.Instance.GetCurrentRoom());
     }
 
-    /* ---------- 主入口 ---------- */
+    /* ---------- Main Entry ---------- */
     void BuildFrames(MRUKRoom room)
     {
         int total = 0;
@@ -44,10 +43,10 @@ public class RoomFrameHighlighter : MonoBehaviour
         total += BuildFrom(room, "CeilingAnchors", ceilingColor, "CeilingFrame");
         total += BuildFrom(room, "CeilingAnchor", ceilingColor, "CeilingFrame");
 
-        Debug.Log($"RoomFrameHighlighter ▶ 绘制框架 {total} 个（无法线兜底）");
+        Debug.Log($"RoomFrameHighlighter ▶ Drew {total} frames (fallback to line not available)");
     }
 
-    /* ---------- 通过反射读取集合或单个 ---------- */
+    /* ---------- Use Reflection to Get Collection or Single ---------- */
     int BuildFrom(object obj, string member, Color clr, string prefix)
     {
         MemberInfo mi = obj.GetType()
@@ -66,7 +65,9 @@ public class RoomFrameHighlighter : MonoBehaviour
         int n = 0;
         if (val is IEnumerable<MRUKAnchor> list)
         {
-            foreach (var a in list) if (DrawFrame(a, clr, $"{prefix}_{n}", prefix.StartsWith("Wall"))) n++;
+            foreach (var a in list)
+                if (DrawFrame(a, clr, $"{prefix}_{n}", prefix.StartsWith("Wall")))
+                    n++;
         }
         else if (val is MRUKAnchor single)
         {
@@ -75,7 +76,7 @@ public class RoomFrameHighlighter : MonoBehaviour
         return n;
     }
 
-    /* ---------- 画 LineRenderer ---------- */
+    /* ---------- Draw LineRenderer ---------- */
     bool DrawFrame(MRUKAnchor a, Color clr, string goName, bool isWall)
     {
         if (!a || !a.PlaneRect.HasValue) return false;
@@ -84,7 +85,7 @@ public class RoomFrameHighlighter : MonoBehaviour
         float hx = rect.size.x * 0.5f;
         float hy = rect.size.y * 0.5f;
 
-        /* — 对墙体内收 — */
+        /* — Inset Wall Planes — */
         if (isWall)
         {
             hx = Mathf.Max(0, hx - wallInset);
@@ -107,7 +108,7 @@ public class RoomFrameHighlighter : MonoBehaviour
         var parent = new GameObject(goName);
         parent.transform.SetParent(transform, false);
 
-        // —— 虚线材质（共享） ——
+        // —— Dashed Line Material (Shared) ——
         var dashMat = new Material(_urpUnlit)
         {
             color = clr,
@@ -118,15 +119,15 @@ public class RoomFrameHighlighter : MonoBehaviour
         dashMat.EnableKeyword("_EMISSION");
         dashMat.SetColor("_EmissionColor", clr * 1.5f);
 
-        // 外粗线
+        // Outer thick line
         CreateLR(parent, "outer", pts, lineWidth, dashMat);
-        // 内细线
+        // Inner thin line
         CreateLR(parent, "inner", pts, lineWidth * 0.4f, dashMat);
 
         return true;
     }
 
-    /* ---------- LineRenderer 工具 ---------- */
+    /* ---------- LineRenderer Utility ---------- */
     void CreateLR(GameObject parent, string name, Vector3[] pts, float width, Material mat)
     {
         var lrObj = new GameObject(name);
@@ -144,7 +145,7 @@ public class RoomFrameHighlighter : MonoBehaviour
         lr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
     }
 
-    /* ---------- 生成 2×2 虚线纹理 ---------- */
+    /* ---------- Generate 2×2 Dashed Texture ---------- */
     static Texture2D MakeDashTex()
     {
         var tex = new Texture2D(2, 2, TextureFormat.RGBA32, false)

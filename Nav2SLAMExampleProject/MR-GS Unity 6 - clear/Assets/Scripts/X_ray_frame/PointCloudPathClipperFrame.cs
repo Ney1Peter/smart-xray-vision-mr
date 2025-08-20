@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using GaussianSplatting.Runtime;
 
 /// <summary>
-/// 将多条“线段 + 半径”上传到 Shader：
-/// ⮩ _ClipStart / _ClipEnd；w 分量存半径。  
+/// Uploads multiple "line segment + radius" pairs to the Shader:
+/// ⮩ _ClipStart / _ClipEnd; w component stores radius.
 /// </summary>
 [RequireComponent(typeof(GaussianSplatRenderer))]
 public class PointCloudPathClipperFrame : MonoBehaviour
 {
-    [Header("最多同时裁剪段数")]
+    [Header("Maximum Number of Simultaneous Segments")]
     [SerializeField] int maxSegments = 64;
 
     // internal
@@ -21,15 +21,16 @@ public class PointCloudPathClipperFrame : MonoBehaviour
     {
         bufStart = new ComputeBuffer(maxSegments, sizeof(float) * 4);
         bufEnd = new ComputeBuffer(maxSegments, sizeof(float) * 4);
-        Upload();                            // 初始 _ClipCount = 0
+        Upload(); // Initially _ClipCount = 0
     }
+
     void OnDestroy()
     {
         bufStart?.Release();
         bufEnd?.Release();
     }
 
-    /// <summary>真正使用的接口：A → B，半径 r。</summary>
+    /// <summary>Main interface: A → B with radius r.</summary>
     public void AddSegment(Vector3 A, Vector3 B, float r)
     {
         if (starts.Count >= maxSegments) return;
@@ -40,12 +41,12 @@ public class PointCloudPathClipperFrame : MonoBehaviour
     }
 
     /// <summary>
-    /// 兼容旧调用（未传半径）：自动取 <see cref="GazeHoleUpdater.CutRadius"/>。
+    /// Backward-compatible method (without radius): automatically uses <see cref="GazeHoleUpdater.CutRadius"/>.
     /// </summary>
     public void AddSegment(Vector3 A, Vector3 B)
         => AddSegment(A, B, GazeHoleUpdaterFrame.CutRadius);
 
-    /// <summary>清空所有裁剪段</summary>
+    /// <summary>Clears all segments</summary>
     public void ClearAll()
     {
         starts.Clear(); ends.Clear();

@@ -2,71 +2,71 @@
 using GaussianSplatting.Runtime;
 
 /// <summary>
-/// 用头显摄像机视线对点云开“圆柱形洞”。<br/>
-/// ─ 中心 α 可调、半径 & 厚度可调。<br/>
-/// ─ 每帧把圆柱段写进 PointCloudPathClipper，Shader 再做裁剪/渐隐。<br/>
+/// Use the headset camera gaze to open a "cylindrical hole" in the point cloud.<br/>
+/// ─ Adjustable center alpha, radius & depth.<br/>
+/// ─ Each frame writes a cylinder segment into PointCloudPathClipper, then clipped/faded in Shader.<br/>
 /// </summary>
 [RequireComponent(typeof(Camera))]
 public class GazeHoleUpdaterBase: MonoBehaviour
 {
-    /* ====== Inspector 参数 ====== */
-    [Header("裁剪器 (PointCloudPathClipper)")]
+    /* ====== Inspector Parameters ====== */
+    [Header("Clipper (PointCloudPathClipper)")]
     [SerializeField] PointCloudPathClipperBase clipper;
 
-    [Header("洞半径 (m)")]
+    [Header("Hole Radius (m)")]
     [SerializeField] float cutRadius = 0.30f;
 
-    [Header("洞厚度 (m)   ← Inspector 可直接调")]
+    [Header("Hole Depth (m)   ← Adjustable in Inspector")]
     [SerializeField] float cutDepth = 0.10f;
 
-    [Header("洞中心最小透明度 (α)")]
+    [Header("Minimum Transparency at Center (α)")]
     [Range(0f, 1f)] public float centerAlpha = 0.05f;
 
-    [Header("最大检测距离 (m)")]
+    [Header("Maximum Detection Distance (m)")]
     [SerializeField] float maxDistance = 10f;
 
-    [Header("每帧重置裁剪段")]
+    [Header("Reset Clip Segments Each Frame")]
     [SerializeField] bool clearEachFrame = true;
 
-    /* ====== 对外静态值 ====== */
+    /* ====== Public Static Values ====== */
     public static float CutRadius { get; private set; }
     public static float CutDepth { get; private set; }
 
-    /* ====== 内部 ====== */
+    /* ====== Internal ====== */
     Camera cam;
-    int mask = ~0;                   // 默认所有层；若方块单独设 Layer，可在此改为 LayerMask
+    int mask = ~0; // Default all layers; if cubes are on a separate layer, change this to LayerMask
 
     void Awake() => cam = GetComponent<Camera>();
 
     void Update()
     {
-        /* —— 把当前 Inspector 调整同步到静态，供其他脚本读取 —— */
+        /* —— Sync current Inspector values to static for other scripts to read —— */
         CutRadius = cutRadius;
         CutDepth = cutDepth;
 
         if (clipper == null || WallBoxBuildingBase.wallMat == null) return;
         if (clearEachFrame) clipper.ClearAll();
 
-        // ① 视线射线
+        // ① Gaze Ray
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
 
         if (Physics.Raycast(ray, out var hit, maxDistance, mask) &&
-            hit.collider.name.StartsWith("WallBox"))           // 只处理墙方块
+            hit.collider.name.StartsWith("WallBox")) // Only process wall cubes
         {
-            Vector3 p = hit.point;         // 命中点世界坐标
-            Vector3 back = -hit.normal * cutDepth;  // 厚度方向
+            Vector3 p = hit.point;         // World position of hit point
+            Vector3 back = -hit.normal * cutDepth;  // Direction of thickness
 
-            /* ② 更新 Shader 漏洞参数（中心+半径+α） */
+            /* ② Update Shader hole parameters (center + radius + alpha) */
             WallBoxBuildingBase.wallMat.SetVector("_CutCenterR",
                 new Vector4(p.x, p.y, p.z, cutRadius));
             WallBoxBuildingBase.wallMat.SetFloat("_CutMinAlpha", centerAlpha);
 
-            /* ③ 把圆柱段写入裁剪缓冲 */
+            /* ③ Write the cylindrical segment to the clipper buffer */
             clipper.AddSegment(p, p + back, cutRadius);
         }
         else
         {
-            // 若视线离开墙，可选择关闭洞（半径 = 0）
+            // If the gaze leaves the wall, optionally disable the hole (radius = 0)
             WallBoxBuildingBase.wallMat.SetVector("_CutCenterR", Vector4.zero);
         }
     }

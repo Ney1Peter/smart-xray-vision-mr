@@ -21,7 +21,7 @@ Shader "Gaussian Splatting/Render Splats Frame"
             #include "UnityCG.cginc"
             #include "GaussianSplatting.hlsl"
 
-            // ───── ① 线段裁剪 ─────
+            // ───── ① Segment Clipping ─────
             StructuredBuffer<float4> _ClipStart;
             StructuredBuffer<float4> _ClipEnd;
             uint                     _ClipCount;
@@ -46,13 +46,13 @@ Shader "Gaussian Splatting/Render Splats Frame"
                 return false;
             }
 
-            // ───── ② 视线洞参数 ─────
-            float4 _CutCenterR;   // xyz = 圆心, w = 半径
-            float  _CutMinAlpha;  // 圆心最小 α (0~1). 0 = 完全透明
+            // ───── ② Gaze Hole Parameters ─────
+            float4 _CutCenterR;   // xyz = center, w = radius
+            float  _CutMinAlpha;  // Minimum alpha at center (0~1). 0 = fully transparent
 
-            //#define FADE_ALPHA   // ← 取消注释启用渐变；保留注释为硬剪
+            //#define FADE_ALPHA   // ← Uncomment to enable gradient fade; keep commented for hard clipping
 
-            // ───── 其余 Uniform/Sampler ─────
+            // ───── Other Uniforms / Samplers ─────
             StructuredBuffer<uint>  _OrderBuffer;
             StructuredBuffer<uint>  _GroupId;
             float                   _GroupAlpha[32];
@@ -117,19 +117,19 @@ Shader "Gaussian Splatting/Render Splats Frame"
 
             half4 frag (v2f i) : SV_Target
             {
-                // 原始高斯 α
+                // Original Gaussian alpha
                 half alphaBase = exp(-dot(i.pos, i.pos));
 
-                // 圆洞透明度衰减
+                // Gaze hole alpha fade
                 float d = distance(i.worldPos, _CutCenterR.xyz);
                 float r = _CutCenterR.w;
 
             #ifdef FADE_ALPHA
-                float w = saturate(1.0 - d / r);   // 0→边缘, 1→中心
-                w = w * w;                         // 指数衰减，可调整
+                float w = saturate(1.0 - d / r);   // 0 → edge, 1 → center
+                w = w * w;                         // Exponential falloff, tweakable
                 float alphaFade = lerp(1.0, _CutMinAlpha, w);
             #else
-                if (d < r) discard;                // 硬剪
+                if (d < r) discard;                // Hard clipping
                 float alphaFade = 1.0;
             #endif
 
@@ -138,7 +138,7 @@ Shader "Gaussian Splatting/Render Splats Frame"
 
                 half4 res;
                 res.a   = finalAlpha;
-                res.rgb = i.col.rgb * finalAlpha;  // 仅一次预乘 α
+                res.rgb = i.col.rgb * finalAlpha;  // Single premultiplied alpha
                 return res;
             }
 
