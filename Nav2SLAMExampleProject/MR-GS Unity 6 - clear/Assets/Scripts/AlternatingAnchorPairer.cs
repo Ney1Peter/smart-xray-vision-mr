@@ -8,42 +8,42 @@ using Unity.Mathematics;
 using UnityEngine;
 using GaussianSplatting.Runtime;
 
-// 小标签（可选）
+// Optional tags to distinguish anchors
 public class RealAnchorTag : MonoBehaviour { public int index; }
 public class GSAnchorTag : MonoBehaviour { public int index; }
 
 public class AlternatingAnchorPairer : MonoBehaviour
 {
     [Header("Refs")]
-    public Transform gsRoot;                 // 3DGS root (GS anchors will be placed under this)
-    public GaussianSplatRenderer gs;         // Used only to cache splat points (can be null)
+    public Transform gsRoot;                 // Root transform for 3DGS anchors
+    public GaussianSplatRenderer gs;         // Used to cache splat points (optional)
     public Transform rayOrigin;              // Fallback transform when controller is unavailable
 
-    [Header("Anchor Visual Prefabs (can auto-detect if left empty)")]
-    [Tooltip("Tries to auto-assign from Sample/Spawner BuildingBlock at startup")]
-    public GameObject realAnchorPrefab;      // Real anchor: prefab (includes visual + OVRSpatialAnchor)
-    [Tooltip("Optional: if left empty, will reuse realAnchorPrefab")]
-    public GameObject gsAnchorPrefab;        // GS anchor: visual only (OVRSpatialAnchor will be removed)
+    [Header("Anchor Visual Prefabs (auto-detect if empty)")]
+    [Tooltip("Will try to auto-assign from Sample/Spawner BuildingBlock at startup")]
+    public GameObject realAnchorPrefab;      // Real anchor prefab (visual + OVRSpatialAnchor)
+    [Tooltip("If left empty, will reuse realAnchorPrefab")]
+    public GameObject gsAnchorPrefab;        // GS anchor prefab (visual only, no OVRSpatialAnchor)
 
     [Header("Anchor Colors")]
-    public Color realAnchorColor = new(0.30f, 0.80f, 1.00f, 1f);  // Real anchor: cyan
-    public Color gsAnchorColor = new(0.65f, 0.45f, 0.95f, 1f);    // GS anchor: purple
+    public Color realAnchorColor = new(0.30f, 0.80f, 1.00f, 1f);  // Cyan for real anchor
+    public Color gsAnchorColor = new(0.65f, 0.45f, 0.95f, 1f);    // Purple for GS anchor
 
     [Header("Follow Hand (OVR-style placement)")]
-    public bool followRightController = true;          // Use pose from rightControllerAnchor
-    public Vector3 followLocalOffset = Vector3.zero;   // Local position offset relative to controller (in meters)
-    public Vector3 followLocalEuler = Vector3.zero;    // Local rotation relative to controller (in degrees)
+    public bool followRightController = true;          // Use right controller pose
+    public Vector3 followLocalOffset = Vector3.zero;   // Local position offset relative to controller
+    public Vector3 followLocalEuler = Vector3.zero;    // Local rotation offset relative to controller
 
     [Header("Forward Offset when Not Following (m)")]
     public float handForwardOffset = 0.0f;             // Applies when followRightController = false
 
     [Header("Visual Scale")]
-    public float realMarkerScale = 1.0f;               // Scale multiplier for real anchor
-    public float gsMarkerScale = 1.0f;                 // Scale multiplier for GS anchor
+    public float realMarkerScale = 1.0f;               // Scale multiplier for real anchor visuals
+    public float gsMarkerScale = 1.0f;                 // Scale multiplier for GS anchor visuals
 
     [Header("Flow / Links")]
-    public bool autoSaveRealAnchors = true;            // Automatically save real anchor upon placement
-    public bool drawLinkOnEachPair = true;             // Draw link immediately after pairing
+    public bool autoSaveRealAnchors = true;            // Automatically save real anchor after placement
+    public bool drawLinkOnEachPair = true;             // Draw link line immediately after pairing
 
     [Header("Links & Stats")]
     public float linkWidth = 0.006f;
@@ -59,40 +59,111 @@ public class AlternatingAnchorPairer : MonoBehaviour
     [Header("CSV")]
     public string csvFileName = "anchor_eval.csv";
 
-    // Runtime state
+    // ================== Point Cloud Toggle ==================
+    [Header("Point Cloud Toggle")]
+    [Tooltip("Whether point cloud is visible on start")]
+    public bool pointCloudVisibleOnStart = true;
+
+    // Keyboard fallback: B key
+    public KeyCode pointCloudToggleKey = KeyCode.B;
+
+    // Runtime state for visibility
+    bool _pointCloudVisible = true;
+
+    // Runtime state for anchor pairing
     int _nextIndex = 1;
     bool _expectReal = true;   // true = placing real anchor; false = placing GS anchor
     OVRSpatialAnchor _lastReal;
     readonly List<(int idx, Transform real, Transform gs, float pe, float re)> _pairs = new();
     readonly List<GameObject> _links = new();
 
-    // Follow target / device
-    Transform _followPose;      // Transform used to determine placement pose
+    // Controller pose references
+    Transform _followPose;
     OVRCameraRig _rig;
 
     void Start()
     {
-        TryAutoFillPrefabsFromBuildingBlock();  // Try to auto-detect default anchor visual prefabs
-        SetupFollowPose();                      // Set up follow transform
+        TryAutoFillPrefabsFromBuildingBlock();
+        SetupFollowPose();
         if (!realAnchorPrefab)
             Debug.LogWarning("[AltPair] Failed to auto-locate Anchor Prefab. Falling back to built-in visual.");
+
+        // Initialize point cloud visibility
+        _pointCloudVisible = pointCloudVisibleOnStart;
+        ApplyPointCloudVisible(_pointCloudVisible);
     }
 
     void Update()
     {
 #if OCULUS_INTEGRATION_PRESENT
-        if (OVRInput.GetDown(OVRInput.Button.One)) HandleToggle(); // A button on controller
+        // Controller inputs
+        // A (right hand) → alternate anchor placement
+        if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch)
+         || OVRInput.GetDown(OVRInput.RawButton.A))
+        {
+            HandleToggle();
+        }
+
+        // B (right hand) → toggle point cloud visibility (multiple fallbacks)
+        if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch)   // Two = B (right) or Y (left)
+         || OVRInput.GetDown(OVRInput.RawButton.B)                              // Raw B
+         || OVRInput.GetDown(OVRInput.Button.Two))                              // No-hand fallback
+        {
+            TogglePointCloud();
+        }
 #else
-        if (Input.GetKeyDown(toggleKey)) HandleToggle();            // Keyboard toggle (Editor)
+        // Keyboard inputs (for editor debugging)
+        if (Input.GetKeyDown(toggleKey)) HandleToggle();
+        if (Input.GetKeyDown(pointCloudToggleKey)) TogglePointCloud();
 #endif
         if (Input.GetKeyDown(evalKey)) EvaluateAndReport();
         if (Input.GetKeyDown(exportKey)) ExportCsv();
     }
 
-    // Public methods (for external Buttons Mapper etc.)
+    // Public methods for UI Buttons / external scripts
     public void PlaceNext() => HandleToggle();
     public void EvaluateNow() => EvaluateAndReport();
     public void ExportNow() => ExportCsv();
+
+    // ================== Toggle Point Cloud ==================
+    void TogglePointCloud()
+    {
+        _pointCloudVisible = !_pointCloudVisible;
+        ApplyPointCloudVisible(_pointCloudVisible);
+        Debug.Log($"[AltPair] PointCloud visible = {_pointCloudVisible}");
+    }
+
+    void ApplyPointCloudVisible(bool visible)
+    {
+        // Preferred: toggle GaussianSplatRenderer directly
+        if (gs != null)
+        {
+            gs.enabled = visible;
+            return;
+        }
+
+        // Fallback: disable all Renderers under gsRoot that use Gaussian Splatting shader
+        // Skip GSAnchorTag visuals
+        if (gsRoot != null)
+        {
+            foreach (var r in gsRoot.GetComponentsInChildren<Renderer>(true))
+            {
+                if (r.GetComponentInParent<GSAnchorTag>() != null) continue;
+
+                var mat = r.sharedMaterial;
+                var shaderName = mat ? mat.shader?.name : null;
+                bool looksLikeGSSplat =
+                    !string.IsNullOrEmpty(shaderName) &&
+                    shaderName.IndexOf("Gaussian Splatting", StringComparison.OrdinalIgnoreCase) >= 0;
+
+                if (looksLikeGSSplat)
+                    r.enabled = visible;
+            }
+            return;
+        }
+
+        Debug.LogWarning("[AltPair] No 'gs' assigned and no recognizable GS renderers under 'gsRoot'. Assign 'gs' for reliable toggle.");
+    }
 
     /* =================== Placement Pose Source =================== */
     void SetupFollowPose()
@@ -113,7 +184,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
             return;
         }
 
-        // Create a follow node under rightControllerAnchor (same approach as official sample)
+        // Create a follow node under rightControllerAnchor
         var go = new GameObject("AnchorFollowPose");
         go.transform.SetParent(_rig.rightControllerAnchor, false);
         go.transform.localPosition = followLocalOffset;
@@ -127,7 +198,6 @@ public class AlternatingAnchorPairer : MonoBehaviour
         if (src)
         {
             p = src.position; q = src.rotation;
-            // Apply forward offset when not following controller (e.g. when using camera)
             if (!followRightController && handForwardOffset != 0f)
                 p += src.forward * handForwardOffset;
         }
@@ -137,7 +207,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
         }
     }
 
-    /* =================== Main Flow: Toggle Placement =================== */
+    /* =================== Anchor Placement Flow =================== */
     void HandleToggle()
     {
         if (_expectReal) PlaceRealAnchor();
@@ -157,18 +227,17 @@ public class AlternatingAnchorPairer : MonoBehaviour
         }
         else
         {
-            // Fallback to built-in visual (always appears in front)
             go = CreateBuiltInAnchorVisual(realAnchorColor, realMarkerScale);
         }
 
         go.name = $"Real_{_nextIndex}";
         go.transform.SetPositionAndRotation(p, q);
 
-        // Ensure OVRSpatialAnchor exists (usually already on prefab)
+        // Ensure OVRSpatialAnchor exists
         var sa = go.GetComponent<OVRSpatialAnchor>();
         if (!sa) sa = go.AddComponent<OVRSpatialAnchor>();
 
-        // Add tag & tint color
+        // Add tag & color
         go.AddComponent<RealAnchorTag>().index = _nextIndex;
         TintAnchor(go, realAnchorColor);
 
@@ -182,7 +251,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
 
     IEnumerator SaveWhenReady(OVRSpatialAnchor sa, int idx)
     {
-        // Give SDK a frame delay to avoid save failure on creation frame
+        // Delay 2 frames before saving
         yield return null; yield return null;
         if (sa)
         {
@@ -195,13 +264,12 @@ public class AlternatingAnchorPairer : MonoBehaviour
         }
     }
 
-    // —— Place GS Anchor (parented under gsRoot) —— //
-
+    // —— Place GS Anchor —— //
     void PlaceGSAnchor()
     {
         if (_lastReal == null)
         {
-            Debug.LogWarning("[AltPair] You must place a real anchor first (press A once).");
+            Debug.LogWarning("[AltPair] Place a real anchor first.");
             return;
         }
         if (!gsRoot)
@@ -218,7 +286,6 @@ public class AlternatingAnchorPairer : MonoBehaviour
         {
             go = Instantiate(prefab);
             go.transform.localScale *= Mathf.Max(0.001f, gsMarkerScale);
-            // Set world position/rotation first, then parent to avoid local offset
             go.transform.SetPositionAndRotation(p, q);
             go.transform.SetParent(gsRoot, true);
         }
@@ -231,15 +298,15 @@ public class AlternatingAnchorPairer : MonoBehaviour
 
         go.name = $"GS_{_nextIndex}";
 
-        // Make sure it’s not treated as a real anchor
+        // Ensure it's not a real anchor
         var sa = go.GetComponent<OVRSpatialAnchor>();
         if (sa) Destroy(sa);
 
-        // Add tag & tint
+        // Add tag & color
         go.AddComponent<GSAnchorTag>().index = _nextIndex;
         TintAnchor(go, gsAnchorColor);
 
-        // Record pairing and draw link
+        // Record pair and draw link
         float posErr = Vector3.Distance(_lastReal.transform.position, go.transform.position);
         float rotErr = Quaternion.Angle(_lastReal.transform.rotation, go.transform.rotation);
         _pairs.Add((_nextIndex, _lastReal.transform, go.transform, posErr, rotErr));
@@ -278,7 +345,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
 
     public void ExportCsv()
     {
-        if (_pairs.Count == 0) { Debug.LogWarning("[AltPair] You must complete at least one pair first."); return; }
+        if (_pairs.Count == 0) { Debug.LogWarning("[AltPair] No pairs to export."); return; }
         string path = Path.Combine(Application.persistentDataPath, csvFileName);
         using var sw = new StreamWriter(path);
         sw.WriteLine("index,pos_err_m,rot_err_deg,real_x,real_y,real_z,gs_x,gs_y,gs_z");
@@ -329,7 +396,6 @@ public class AlternatingAnchorPairer : MonoBehaviour
         var mat = new Material(sh);
         if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", c);
         else if (mat.HasProperty("_Color")) mat.SetColor("_Color", c);
-        // Transparent + always on top
         mat.SetFloat("_Surface", 1f); // Transparent
         mat.SetInt("_ZWrite", 0);
         mat.renderQueue = 5000;
@@ -349,7 +415,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
         if (parent) root.transform.SetParent(parent, false);
         root.transform.localScale = Vector3.one * Mathf.Max(0.001f, scale);
 
-        // Sphere
+        // Sphere core
         var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.name = "Core";
         sphere.transform.SetParent(root.transform, false);
@@ -357,7 +423,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
         Destroy(sphere.GetComponent<Collider>());
         sphere.GetComponent<Renderer>().material = MakeAlwaysOnTopUnlit(c);
 
-        // Add rings
+        // Helper method to add rings
         void AddRing(string n, Vector3 axis, float r)
         {
             var go = new GameObject(n);
@@ -406,7 +472,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
         return (l.Count % 2 == 1) ? l[k] : (l[k - 1] + l[k]) * 0.5f;
     }
 
-    // Tint anchor (does not affect shared material)
+    // Tint anchor visuals (instance materials only)
     void TintAnchor(GameObject root, Color c)
     {
         foreach (var r in root.GetComponentsInChildren<Renderer>(true))
@@ -422,4 +488,3 @@ public class AlternatingAnchorPairer : MonoBehaviour
         }
     }
 }
-
