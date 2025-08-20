@@ -3,12 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\assets\\scripts\\gicp\\complexregistrationcombined.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gicp\\complexregistrationcombined.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\assets\\scripts\\alternatinganchorpairer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\alternatinganchorpairer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|c:\\users\\changrui\\final_project\\nav2slamexampleproject\\mr-gs unity 6 - clear\\assets\\scripts\\alternatinganchorpairer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\alternatinganchorpairer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Shaders\\RenderGaussianSplats_Base.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|c:\\users\\changrui\\final_project\\nav2slamexampleproject\\mr-gs unity 6 - clear\\assets\\scripts\\gicp\\complexregistrationcombined.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16A4CA1E-EA31-E80B-ACDC-15953EF3E5B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gicp\\complexregistrationcombined.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Library\\PackageCache\\com.meta.xr.sdk.core@5c4cefc6b3e8\\Scripts\\BuildingBlocks\\SampleSpatialAnchorControllerScripts\\SpatialAnchorSpawnerBuildingBlock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +41,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "RenderGaussianSplats_Base.shader",
+              "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Shaders\\RenderGaussianSplats_Base.shader",
+              "RelativeDocumentMoniker": "..\\package\\Shaders\\RenderGaussianSplats_Base.shader",
+              "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\package\\Shaders\\RenderGaussianSplats_Base.shader",
+              "RelativeToolTip": "..\\package\\Shaders\\RenderGaussianSplats_Base.shader",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAswJQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-08-20T18:11:21.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "SpatialAnchorSpawnerBuildingBlock.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Library\\PackageCache\\com.meta.xr.sdk.core@5c4cefc6b3e8\\Scripts\\BuildingBlocks\\SampleSpatialAnchorControllerScripts\\SpatialAnchorSpawnerBuildingBlock.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.meta.xr.sdk.core@5c4cefc6b3e8\\Scripts\\BuildingBlocks\\SampleSpatialAnchorControllerScripts\\SpatialAnchorSpawnerBuildingBlock.cs",
@@ -54,20 +70,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AlternatingAnchorPairer.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\AlternatingAnchorPairer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AlternatingAnchorPairer.cs",
               "ToolTip": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\AlternatingAnchorPairer.cs",
               "RelativeToolTip": "Assets\\Scripts\\AlternatingAnchorPairer.cs",
-              "ViewState": "AQIAAIgBAAAAAAAAAAAqwJABAAAmAAAA",
+              "ViewState": "AQIAALABAAAAAAAAAAAIwOQBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-16T15:03:39.869Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AnchorSaveHelper.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\AnchorSaveHelper.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AnchorSaveHelper.cs",
@@ -79,7 +95,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ComplexRegistrationCombined.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\GICP\\ComplexRegistrationCombined.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GICP\\ComplexRegistrationCombined.cs",
@@ -92,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "GazeHoleUpdater.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\X_ray_baseline\\GazeHoleUpdater.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\X_ray_baseline\\GazeHoleUpdater.cs",
@@ -104,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "WallBoxBuilding.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\X_ray_baseline\\WallBoxBuilding.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\X_ray_baseline\\WallBoxBuilding.cs",
@@ -115,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "PointCloudPathClipper.cs",
               "DocumentMoniker": "C:\\Users\\ChangRui\\Final_Project\\Nav2SLAMExampleProject\\MR-GS Unity 6 - clear\\Assets\\Scripts\\X_ray_baseline\\PointCloudPathClipper.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\X_ray_baseline\\PointCloudPathClipper.cs",
