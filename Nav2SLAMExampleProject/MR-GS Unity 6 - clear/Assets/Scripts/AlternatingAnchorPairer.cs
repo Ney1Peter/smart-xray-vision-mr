@@ -64,7 +64,7 @@ public class AlternatingAnchorPairer : MonoBehaviour
     [Tooltip("Whether point cloud is visible on start")]
     public bool pointCloudVisibleOnStart = true;
 
-    // Keyboard fallback: B key
+    // Keyboard: B key (保留且全平台可用)
     public KeyCode pointCloudToggleKey = KeyCode.B;
 
     // Runtime state for visibility
@@ -103,19 +103,13 @@ public class AlternatingAnchorPairer : MonoBehaviour
         {
             HandleToggle();
         }
-
-        // B (right hand) → toggle point cloud visibility (multiple fallbacks)
-        if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch)   // Two = B (right) or Y (left)
-         || OVRInput.GetDown(OVRInput.RawButton.B)                              // Raw B
-         || OVRInput.GetDown(OVRInput.Button.Two))                              // No-hand fallback
-        {
-            TogglePointCloud();
-        }
 #else
         // Keyboard inputs (for editor debugging)
         if (Input.GetKeyDown(toggleKey)) HandleToggle();
-        if (Input.GetKeyDown(pointCloudToggleKey)) TogglePointCloud();
 #endif
+        // —— 只保留键盘 B 切换点云（无论是否有 Oculus 定义，均可用）——
+        if (Input.GetKeyDown(pointCloudToggleKey)) TogglePointCloud();
+
         if (Input.GetKeyDown(evalKey)) EvaluateAndReport();
         if (Input.GetKeyDown(exportKey)) ExportCsv();
     }
