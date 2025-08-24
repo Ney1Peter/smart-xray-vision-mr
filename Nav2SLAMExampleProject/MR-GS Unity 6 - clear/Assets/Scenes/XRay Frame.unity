@@ -2734,7 +2734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Asset: {fileID: 11400000, guid: 2451b09f951688947b71874ff850cee2, type: 2}
+  m_Asset: {fileID: 11400000, guid: 9cb9e7279cba051408048b6a0b55ccb3, type: 2}
   m_SplatScale: 1
   m_OpacityScale: 1.8
   m_SHOrder: 3
@@ -2760,7 +2760,7 @@ MonoBehaviour:
     y: 1
   m_OptimizeForQuest: 0
   m_gpuSortType: 1
-  m_MatSplats: {fileID: 1911720758}
+  m_MatSplats: {fileID: 2124088804}
 --- !u!4 &373941316
 Transform:
   m_ObjectHideFlags: 0
@@ -2770,7 +2770,7 @@ Transform:
   m_GameObject: {fileID: 373941313}
   serializedVersion: 2
   m_LocalRotation: {x: 0.9182921, y: -0.0016046755, z: 0.39589217, w: -0.0025461928}
-  m_LocalPosition: {x: -0.09525275, y: 0.72037315, z: 0.17312342}
+  m_LocalPosition: {x: -0.09525275, y: 0.72037315, z: -0.05}
   m_LocalScale: {x: 1, y: 1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7277,15 +7277,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954239578}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.23344536, z: 0, w: 0.97236997}
-  m_LocalPosition: {x: -3.196, y: 1.963, z: 0.788}
+  m_LocalRotation: {x: 0, y: -0.55919296, z: 0, w: 0.8290375}
+  m_LocalPosition: {x: -4.52, y: 2.02, z: -0.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1297982917}
   - {fileID: 1379394951}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -27, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -68, z: 0}
 --- !u!114 &954239580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13254,41 +13254,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899321681}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.5735764, z: 0, w: 0.8191521}
-  m_LocalPosition: {x: 0.459, y: -0.498, z: 0.159}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 2.3}
+  m_LocalRotation: {x: 0, y: 0.5735764, z: 0, w: 0.8191521}
+  m_LocalPosition: {x: -1.02, y: -0.12, z: 1.11}
+  m_LocalScale: {x: 1.5, y: 1.8, z: 2.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 373941316}
-  m_LocalEulerAnglesHint: {x: 0, y: -70, z: 0}
---- !u!21 &1911720758
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: GaussianSplats
-  m_Shader: {fileID: 4800000, guid: 4fce4f63c7e58194da10e37d5f402529, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 70, z: 0}
 --- !u!1 &1912761413
 GameObject:
   m_ObjectHideFlags: 0
@@ -13367,7 +13339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1927652017
 Transform:
   m_ObjectHideFlags: 0
@@ -14832,6 +14804,34 @@ Transform:
   - {fileID: 2020707807}
   m_Father: {fileID: 1136594138}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &2124088804
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GaussianSplats
+  m_Shader: {fileID: 4800000, guid: 4fce4f63c7e58194da10e37d5f402529, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &2129259611
 GameObject:
   m_ObjectHideFlags: 0

@@ -974,34 +974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3b589a6d80b5140aad4724ba0d1961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &141501540
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: GaussianSplats
-  m_Shader: {fileID: 4800000, guid: 00c456192aad02c40917c73a3ecdc8cc, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &147138151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,13 +2846,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453863916}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.5735764, z: 0, w: 0.8191521}
-  m_LocalPosition: {x: 0.06, y: -0.33, z: 0.11}
-  m_LocalScale: {x: 1.5, y: 1.6, z: 2.3}
+  m_LocalRotation: {x: 0, y: 0.5591929, z: 0, w: 0.8290376}
+  m_LocalPosition: {x: -0.83, y: -0.4, z: 1.08}
+  m_LocalScale: {x: 1.5, y: 1.7, z: 2.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1166478142}
-  m_LocalEulerAnglesHint: {x: 0, y: -70, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 68, z: 0}
 --- !u!1 &464189139
 GameObject:
   m_ObjectHideFlags: 0
@@ -7584,7 +7556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12d929a7f62c48adbe9ff45c9a33ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Asset: {fileID: 11400000, guid: 2451b09f951688947b71874ff850cee2, type: 2}
+  m_Asset: {fileID: 11400000, guid: 9cb9e7279cba051408048b6a0b55ccb3, type: 2}
   m_SplatScale: 1
   m_OpacityScale: 1.8
   m_SHOrder: 3
@@ -7610,7 +7582,7 @@ MonoBehaviour:
     y: 1
   m_OptimizeForQuest: 0
   m_gpuSortType: 1
-  m_MatSplats: {fileID: 141501540}
+  m_MatSplats: {fileID: 1248453498}
 --- !u!4 &1166478142
 Transform:
   m_ObjectHideFlags: 0
@@ -8242,6 +8214,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 147138152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1248453498
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GaussianSplats
+  m_Shader: {fileID: 4800000, guid: 00c456192aad02c40917c73a3ecdc8cc, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1255110368
 GameObject:
   m_ObjectHideFlags: 0
@@ -11901,15 +11901,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645212737}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.23344536, z: 0, w: 0.97236997}
-  m_LocalPosition: {x: -3.158, y: 2.029, z: 0.808}
+  m_LocalRotation: {x: 0, y: -0.55919296, z: 0, w: 0.8290375}
+  m_LocalPosition: {x: -4.25, y: 1.74, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2140064770}
   - {fileID: 1030136924}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -27, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -68, z: 0}
 --- !u!114 &1645212739
 MonoBehaviour:
   m_ObjectHideFlags: 0
