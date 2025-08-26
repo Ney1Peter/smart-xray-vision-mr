@@ -24,11 +24,11 @@ public class FurnitureFrameHighlighter : MonoBehaviour
 
     IEnumerator Start()
     {
-        // Wait until MRUK data is ready
+        // 等待 MRUK Room 数据就绪
         while (MRUK.Instance == null || MRUK.Instance.GetCurrentRoom() == null)
             yield return null;
 
-        // Create or assign group roots
+        // 如果未手动指定，就自动创建父容器
         if (windowFramesRoot == null)
         {
             windowFramesRoot = new GameObject("WindowFrames").transform;
@@ -50,8 +50,7 @@ public class FurnitureFrameHighlighter : MonoBehaviour
         var windowAnchors = new List<MRUKAnchor>();
         windowAnchors.AddRange(CollectAnchors(room, "WindowAnchors"));
         windowAnchors.AddRange(CollectAnchors(room, "WindowAnchor"));
-
-        // Fallback: scan all anchors for "WINDOW"
+        // 回退扫描所有 Anchors 名称或标签包含 WINDOW
         if (windowAnchors.Count == 0 && room.GetType().GetProperty("Anchors") is PropertyInfo pWin)
         {
             if (pWin.GetValue(room) is IEnumerable<MRUKAnchor> allWin)
@@ -59,20 +58,16 @@ public class FurnitureFrameHighlighter : MonoBehaviour
                 foreach (var a in allWin)
                 {
                     if (a == null) continue;
-                    string nameU = a.name.ToUpper();
-                    if (nameU.Contains("WINDOW") ||
-                        (TryGetLabel(a, out var lab) && lab.Contains("WINDOW")))
-                    {
+                    var nameU = a.name.ToUpper();
+                    if (nameU.Contains("WINDOW") || (TryGetLabel(a, out var lab) && lab.Contains("WINDOW")))
                         windowAnchors.Add(a);
-                    }
                 }
             }
         }
-
         int wCount = 0;
         foreach (var a in windowAnchors.Distinct())
         {
-            if (!a || !a.PlaneRect.HasValue) continue;
+            if (a == null || !a.PlaneRect.HasValue) continue;
             DrawBoundingBox(a, furnitureColor, windowFramesRoot, $"WindowFrame_{wCount++}");
         }
         Debug.Log($"FurnitureFrameHighlighter ▶ Drew {wCount} window frames");
@@ -81,8 +76,7 @@ public class FurnitureFrameHighlighter : MonoBehaviour
         var tableAnchors = new List<MRUKAnchor>();
         tableAnchors.AddRange(CollectAnchors(room, "TableAnchors"));
         tableAnchors.AddRange(CollectAnchors(room, "TableAnchor"));
-
-        // Fallback: scan all anchors for "TABLE"
+        // 回退扫描所有 Anchors 名称或标签包含 TABLE
         if (tableAnchors.Count == 0 && room.GetType().GetProperty("Anchors") is PropertyInfo pTab)
         {
             if (pTab.GetValue(room) is IEnumerable<MRUKAnchor> allTab)
@@ -90,27 +84,23 @@ public class FurnitureFrameHighlighter : MonoBehaviour
                 foreach (var a in allTab)
                 {
                     if (a == null) continue;
-                    string nameU = a.name.ToUpper();
-                    if (nameU.Contains("TABLE") ||
-                        (TryGetLabel(a, out var lab) && lab.Contains("TABLE")))
-                    {
+                    var nameU = a.name.ToUpper();
+                    if (nameU.Contains("TABLE") || (TryGetLabel(a, out var lab) && lab.Contains("TABLE")))
                         tableAnchors.Add(a);
-                    }
                 }
             }
         }
-
         int tCount = 0;
         foreach (var a in tableAnchors.Distinct())
         {
-            if (!a || !a.PlaneRect.HasValue) continue;
+            if (a == null || !a.PlaneRect.HasValue) continue;
             DrawBoundingBox(a, furnitureColor, tableFramesRoot, $"TableFrame_{tCount++}");
         }
         Debug.Log($"FurnitureFrameHighlighter ▶ Drew {tCount} table frames");
     }
 
     /// <summary>
-    /// Collects anchors via reflection on the room (dedicated fields or properties).
+    /// 使用反射收集指定字段/属性的 Anchors
     /// </summary>
     List<MRUKAnchor> CollectAnchors(object obj, string member)
     {
@@ -121,27 +111,27 @@ public class FurnitureFrameHighlighter : MonoBehaviour
 
         object val = mi switch
         {
-            FieldInfo f => f.GetValue(obj),
+            FieldInfo f    => f.GetValue(obj),
             PropertyInfo p => p.GetValue(obj),
-            _ => null
+            _              => null
         };
         if (val == null) return new List<MRUKAnchor>();
 
         return val switch
         {
             IEnumerable<MRUKAnchor> list => list.ToList(),
-            MRUKAnchor single => new List<MRUKAnchor> { single },
-            _ => new List<MRUKAnchor>()
+            MRUKAnchor single            => new List<MRUKAnchor> { single },
+            _                            => new List<MRUKAnchor>()
         };
     }
 
     /// <summary>
-    /// Attempts to read a classification label (string[]) from the anchor.
+    /// 尝试读取 Anchor 的 ClassificationLabels（如果有）
     /// </summary>
     bool TryGetLabel(MRUKAnchor a, out string label)
     {
         label = null;
-        var f = a.GetType().GetField("ClassificationLabels", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+        var f = a.GetType().GetField("ClassificationLabels", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
         if (f?.GetValue(a) is string[] arr && arr.Length > 0)
         {
             label = arr[0].ToUpper();
@@ -151,7 +141,7 @@ public class FurnitureFrameHighlighter : MonoBehaviour
     }
 
     /// <summary>
-    /// Draws a 3D wireframe box under the given parent using LineRenderers.
+    /// 绘制 3D 线框并立即隐藏
     /// </summary>
     void DrawBoundingBox(MRUKAnchor a, Color clr, Transform parent, string goName)
     {
@@ -162,9 +152,9 @@ public class FurnitureFrameHighlighter : MonoBehaviour
 
         Transform t = a.transform;
         Vector3 center = t.position + t.forward * hz * 0.5f;
-        Vector3 right = t.right;
-        Vector3 up = t.up;
-        Vector3 fwd = t.forward;
+        Vector3 right  = t.right;
+        Vector3 up     = t.up;
+        Vector3 fwd    = t.forward;
 
         Vector3[] verts = {
             center + (-right*hx) + (-up*hy) + (-fwd*hz),
@@ -183,19 +173,25 @@ public class FurnitureFrameHighlighter : MonoBehaviour
             new[]{0,4}, new[]{1,5}, new[]{2,6}, new[]{3,7}
         };
 
+        // 创建容器并马上隐藏
         var frameObj = new GameObject(goName);
         frameObj.transform.SetParent(parent, false);
+        frameObj.SetActive(false);
 
+        // 线条材质
+        var mat = new Material(unlit) { color = clr, enableInstancing = true };
+
+        // 绘制每条边
         foreach (var e in edges)
         {
             var lrGO = new GameObject("edge");
             lrGO.transform.SetParent(frameObj.transform, false);
             var lr = lrGO.AddComponent<LineRenderer>();
-            lr.positionCount = e.Length;
-            lr.widthMultiplier = lineWidth;
-            lr.useWorldSpace = true;
-            lr.material = new Material(unlit) { color = clr, enableInstancing = true };
-            lr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            lr.positionCount       = e.Length;
+            lr.widthMultiplier     = lineWidth;
+            lr.useWorldSpace       = true;
+            lr.material            = mat;
+            lr.shadowCastingMode   = UnityEngine.Rendering.ShadowCastingMode.Off;
             lr.SetPositions(e.Select(i => verts[i]).ToArray());
         }
     }
