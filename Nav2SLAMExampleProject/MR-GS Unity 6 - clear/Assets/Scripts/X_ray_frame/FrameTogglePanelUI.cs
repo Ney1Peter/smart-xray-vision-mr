@@ -75,10 +75,16 @@ public class FrameTogglePanelUI : MonoBehaviour
     {
         if (panelInstance == null)
         {
+            // Instantiate and position panel: parented to camera, only setting position
             panelInstance = Instantiate(panelPrefab);
             panelInstance.transform.SetParent(mainCam.transform, false);
-            panelInstance.transform.localPosition = Vector3.forward * showDistance;
-            panelInstance.transform.localRotation = Quaternion.LookRotation(-mainCam.transform.forward, mainCam.transform.up);
+
+            // Scale down to 10%
+            panelInstance.transform.localScale = Vector3.one * 0.001f;
+
+            // Position to lower-left quadrant (negative X, negative Y)
+            panelInstance.transform.localPosition = new Vector3(-0.2f, -0.2f, showDistance);
+            // Do not modify rotation; prefab's own orientation is preserved
 
             // Bind button callbacks
             var buttons = panelInstance.GetComponentsInChildren<Button>(true);
