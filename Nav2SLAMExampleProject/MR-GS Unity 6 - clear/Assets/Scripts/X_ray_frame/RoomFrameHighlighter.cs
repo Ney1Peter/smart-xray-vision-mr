@@ -1,27 +1,67 @@
-// RoomFrameHighlighter.cs — URP compatible, dashed lines + Emission + shrinkable wall frames
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.XR;
 using Meta.XR.MRUtilityKit;
 
 [DefaultExecutionOrder(100)]
 public class RoomFrameHighlighter : MonoBehaviour
 {
-    [Header("Line Width (m)")] public float lineWidth = 0.01f;
+    [Header("Line Width (m)")]     public float lineWidth = 0.01f;
     [Header("Offset from Plane (m)")] public float offset = 0.008f;
-    [Header("Wall Inset (m)")] public float wallInset = 0.02f;    // New: inset wall frame by 2 cm
+    [Header("Wall Inset (m)")]      public float wallInset = 0.02f;
 
-    // ─── Color Settings ───
     [Header("Color Settings")]
-    public Color wallColor = new Color32(95, 70, 45, 108);     // Dark Brown ≈ #5F462D α≈43%
-    public Color ceilingColor = new Color32(60, 65, 70, 110);  // Ash Gray   ≈ #3C4146
-    public Color floorColor = new Color32(80, 60, 100, 108);   // Dark Purple ≈ #503C64
+    public Color wallColor    = new Color32(95,  70,  45,  108);
+    public Color ceilingColor = new Color32(60,  65,  70,  110);
+    public Color floorColor   = new Color32(80,  60, 100, 108);
 
-    Shader _urpUnlit;
-    static Texture2D _dashTex;  // Shared dashed line texture
+    private GameObject wallParent;
+    private GameObject ceilingParent;
+    private GameObject floorParent;
+
+    private InputDevice rightController;
+    private bool prevA, prevB, prevStick;
+
+    private Shader _urpUnlit;
+    private static Texture2D _dashTex;
+
+    void Awake()
+    {
+        // 订阅设备连接事件
+        InputDevices.deviceConnected += OnDeviceConnected;
+        RefreshController();
+    }
+
+    void OnDestroy()
+    {
+        InputDevices.deviceConnected -= OnDeviceConnected;
+    }
+
+    private void OnDeviceConnected(InputDevice device)
+    {
+        // 如果右手控制器接入，则缓存
+        if ((device.characteristics & InputDeviceCharacteristics.Right) != 0 &&
+            (device.characteristics & InputDeviceCharacteristics.Controller) != 0)
+        {
+            rightController = device;
+            Debug.Log("RoomFrameHighlighter ▶ Right controller connected");
+        }
+    }
+
+    private void RefreshController()
+    {
+        var devices = new List<InputDevice>();
+        InputDevices.GetDevicesWithCharacteristics(
+            InputDeviceCharacteristics.HeldInHand |
+            InputDeviceCharacteristics.Right |
+            InputDeviceCharacteristics.Controller,
+            devices);
+        if (devices.Count > 0)
+            rightController = devices[0];
+    }
 
     IEnumerator Start()
     {
@@ -30,131 +70,125 @@ public class RoomFrameHighlighter : MonoBehaviour
 
         _urpUnlit = Shader.Find("Universal Render Pipeline/Unlit");
         if (_dashTex == null) _dashTex = MakeDashTex();
-        BuildFrames(MRUK.Instance.GetCurrentRoom());
+
+        wallParent    = new GameObject("WallFrames");
+        ceilingParent = new GameObject("CeilingFrames");
+        floorParent   = new GameObject("FloorFrames");
+        wallParent.transform.SetParent(transform, false);
+        ceilingParent.transform.SetParent(transform, false);
+        floorParent.transform.SetParent(transform, false);
+
+        var room = MRUK.Instance.GetCurrentRoom();
+        BuildFrom(room, "WallAnchors",    wallColor,    "WallFrame",    wallParent.transform,    true);
+        BuildFrom(room, "CeilingAnchors", ceilingColor, "CeilingFrame", ceilingParent.transform, false);
+        BuildFrom(room, "CeilingAnchor",  ceilingColor, "CeilingFrame", ceilingParent.transform, false);
+        BuildFrom(room, "FloorAnchors",   floorColor,   "FloorFrame",   floorParent.transform,   false);
+        BuildFrom(room, "FloorAnchor",    floorColor,   "FloorFrame",   floorParent.transform,   false);
+
+        Debug.Log("RoomFrameHighlighter ▶ Frames built and bound to controls");
     }
 
-    /* ---------- Main Entry ---------- */
-    void BuildFrames(MRUKRoom room)
+    void Update()
     {
-        int total = 0;
-        total += BuildFrom(room, "WallAnchors", wallColor, "WallFrame");
-        total += BuildFrom(room, "FloorAnchors", floorColor, "FloorFrame");
-        total += BuildFrom(room, "FloorAnchor", floorColor, "FloorFrame");
-        total += BuildFrom(room, "CeilingAnchors", ceilingColor, "CeilingFrame");
-        total += BuildFrom(room, "CeilingAnchor", ceilingColor, "CeilingFrame");
+        // 如果控制器无效，尝试刷新
+        if (!rightController.isValid)
+            RefreshController();
 
-        Debug.Log($"RoomFrameHighlighter ▶ Drew {total} frames (fallback to line not available)");
-    }
-
-    /* ---------- Use Reflection to Get Collection or Single ---------- */
-    int BuildFrom(object obj, string member, Color clr, string prefix)
-    {
-        MemberInfo mi = obj.GetType()
-                           .GetMember(member, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                           .FirstOrDefault();
-        if (mi == null) return 0;
-
-        object val = mi switch
+        if (rightController.isValid)
         {
-            FieldInfo f => f.GetValue(obj),
-            PropertyInfo p => p.GetValue(obj),
-            _ => null
-        };
+            if (rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool a) && a && !prevA)
+                wallParent.SetActive(!wallParent.activeSelf);
+            prevA = a;
+
+            if (rightController.TryGetFeatureValue(CommonUsages.secondaryButton, out bool b) && b && !prevB)
+                ceilingParent.SetActive(!ceilingParent.activeSelf);
+            prevB = b;
+
+            if (rightController.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out bool stick) && stick && !prevStick)
+                floorParent.SetActive(!floorParent.activeSelf);
+            prevStick = stick;
+        }
+
+        // 键盘备选
+        if (Input.GetKeyDown(KeyCode.W)) wallParent.SetActive(!wallParent.activeSelf);
+        if (Input.GetKeyDown(KeyCode.C)) ceilingParent.SetActive(!ceilingParent.activeSelf);
+        if (Input.GetKeyDown(KeyCode.F)) floorParent.SetActive(!floorParent.activeSelf);
+    }
+
+    int BuildFrom(object obj, string member, Color clr, string prefix, Transform parent, bool isWall)
+    {
+        var mi = obj.GetType().GetMember(member, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).FirstOrDefault();
+        if (mi == null) return 0;
+        object val = mi is FieldInfo f ? f.GetValue(obj) : mi is PropertyInfo p ? p.GetValue(obj) : null;
         if (val == null) return 0;
 
-        int n = 0;
+        int count = 0;
         if (val is IEnumerable<MRUKAnchor> list)
         {
             foreach (var a in list)
-                if (DrawFrame(a, clr, $"{prefix}_{n}", prefix.StartsWith("Wall")))
-                    n++;
+                if (DrawFrame(a, clr, $"{prefix}_{count}", parent, isWall)) count++;
         }
         else if (val is MRUKAnchor single)
         {
-            if (DrawFrame(single, clr, $"{prefix}_0", prefix.StartsWith("Wall"))) n = 1;
+            if (DrawFrame(single, clr, $"{prefix}_0", parent, isWall)) count = 1;
         }
-        return n;
+        return count;
     }
 
-    /* ---------- Draw LineRenderer ---------- */
-    bool DrawFrame(MRUKAnchor a, Color clr, string goName, bool isWall)
+    bool DrawFrame(MRUKAnchor a, Color clr, string goName, Transform parent, bool isWall)
     {
-        if (!a || !a.PlaneRect.HasValue) return false;
-
+        if (a == null || !a.PlaneRect.HasValue) return false;
         var rect = a.PlaneRect.Value;
-        float hx = rect.size.x * 0.5f;
-        float hy = rect.size.y * 0.5f;
-
-        /* — Inset Wall Planes — */
-        if (isWall)
-        {
-            hx = Mathf.Max(0, hx - wallInset);
-            hy = Mathf.Max(0, hy - wallInset);
-        }
-
-        Transform t = a.transform;
-        Vector3 c = t.position + t.forward * offset;
-        Vector3 r = t.right, u = t.up;
-
-        Vector3[] pts =
-        {
-            c + (-r*hx) + (-u*hy),
-            c + ( r*hx) + (-u*hy),
-            c + ( r*hx) + ( u*hy),
-            c + (-r*hx) + ( u*hy),
-            c + (-r*hx) + (-u*hy)
+        float hx = rect.size.x * 0.5f - (isWall ? wallInset : 0);
+        float hy = rect.size.y * 0.5f - (isWall ? wallInset : 0);
+        Vector3 c = a.transform.position + a.transform.forward * offset;
+        Vector3 r = a.transform.right, u = a.transform.up;
+        Vector3[] pts = {
+            c + (-r * hx) + (-u * hy),
+            c + ( r * hx) + (-u * hy),
+            c + ( r * hx) + ( u * hy),
+            c + (-r * hx) + ( u * hy),
+            c + (-r * hx) + (-u * hy)
         };
 
-        var parent = new GameObject(goName);
-        parent.transform.SetParent(transform, false);
+        var go = new GameObject(goName);
+        go.transform.SetParent(parent, false);
 
-        // —— Dashed Line Material (Shared) ——
-        var dashMat = new Material(_urpUnlit)
-        {
-            color = clr,
-            enableInstancing = true,
-            mainTexture = _dashTex
-        };
-        dashMat.SetTextureScale("_BaseMap", new Vector2(20, 1));
-        dashMat.EnableKeyword("_EMISSION");
-        dashMat.SetColor("_EmissionColor", clr * 1.5f);
+        var mat = new Material(_urpUnlit) { color = clr, enableInstancing = true, mainTexture = _dashTex };
+        mat.SetTextureScale("_BaseMap", new Vector2(20, 1));
+        mat.EnableKeyword("_EMISSION");
+        mat.SetColor("_EmissionColor", clr * 1.5f);
 
-        // Outer thick line
-        CreateLR(parent, "outer", pts, lineWidth, dashMat);
-        // Inner thin line
-        CreateLR(parent, "inner", pts, lineWidth * 0.4f, dashMat);
-
+        CreateLR(go, "outer", pts, lineWidth, mat);
+        CreateLR(go, "inner", pts, lineWidth * 0.4f, mat);
         return true;
     }
 
-    /* ---------- LineRenderer Utility ---------- */
     void CreateLR(GameObject parent, string name, Vector3[] pts, float width, Material mat)
     {
-        var lrObj = new GameObject(name);
-        lrObj.transform.SetParent(parent.transform, false);
-
-        var lr = lrObj.AddComponent<LineRenderer>();
-        lr.positionCount = pts.Length;
+        var lrGo = new GameObject(name);
+        lrGo.transform.SetParent(parent.transform, false);
+        var lr = lrGo.AddComponent<LineRenderer>();
+        lr.positionCount     = pts.Length;
         lr.SetPositions(pts);
-        lr.widthMultiplier = width;
-        lr.useWorldSpace = true;
+        lr.widthMultiplier   = width;
+        lr.useWorldSpace     = true;
         lr.numCornerVertices = 2;
-        lr.loop = false;
-        lr.textureMode = LineTextureMode.Tile;
-        lr.material = mat;
+        lr.loop              = false;
+        lr.textureMode       = LineTextureMode.Tile;
+        lr.material          = mat;
         lr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
     }
 
-    /* ---------- Generate 2×2 Dashed Texture ---------- */
     static Texture2D MakeDashTex()
     {
         var tex = new Texture2D(2, 2, TextureFormat.RGBA32, false)
         {
             filterMode = FilterMode.Point,
-            wrapMode = TextureWrapMode.Repeat
+            wrapMode   = TextureWrapMode.Repeat
         };
-        Color32 O = new Color32(255, 255, 255, 255);
-        Color32 T = new Color32(255, 255, 255, 0);
+        var O = new Color32(255, 255, 255, 255);
+        var T = new Color32(255, 255, 255,   0);
         tex.SetPixels32(new[] { O, T, O, T });
         tex.Apply();
         return tex;
