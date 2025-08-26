@@ -1,0 +1,54 @@
+{
+    "name": "DefaultInputActions",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "1de5a7b1-8850-4708-bdc2-98a0388b8105",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "c9e80d42-138f-40a4-9a79-ab60f4d76f58",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Submit",
+                    "type": "Button",
+                    "id": "1a260bec-f493-4c4b-aa7f-8da93e799b34",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0cfdbadd-ce61-4c33-9eee-c1a8bc23e2e8",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5324e627-c28e-49d2-907a-2c73afb70568",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
