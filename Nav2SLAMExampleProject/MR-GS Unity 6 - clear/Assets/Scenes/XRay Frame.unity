@@ -1683,6 +1683,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1122345865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &225091894
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GaussianSplats
+  m_Shader: {fileID: 4800000, guid: 4fce4f63c7e58194da10e37d5f402529, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &229368287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3376,7 +3404,7 @@ MonoBehaviour:
     y: 1
   m_OptimizeForQuest: 0
   m_gpuSortType: 1
-  m_MatSplats: {fileID: 1430039540}
+  m_MatSplats: {fileID: 225091894}
 --- !u!4 &373941316
 Transform:
   m_ObjectHideFlags: 0
@@ -3636,26 +3664,6 @@ PrefabInstance:
     - target: {fileID: 171921404940119990, guid: 4656d72ad05e0964ba69ca4bff3f931a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1865082555611704210, guid: 4656d72ad05e0964ba69ca4bff3f931a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2408209727323231895, guid: 4656d72ad05e0964ba69ca4bff3f931a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 3911071234364550456, guid: 4656d72ad05e0964ba69ca4bff3f931a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4565600618266371790, guid: 4656d72ad05e0964ba69ca4bff3f931a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -60
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408026733134367502, guid: 4656d72ad05e0964ba69ca4bff3f931a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6899587296689834973, guid: 4656d72ad05e0964ba69ca4bff3f931a, type: 3}
       propertyPath: m_Name
@@ -11655,34 +11663,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 1425222069}
---- !u!21 &1430039540
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: GaussianSplats
-  m_Shader: {fileID: 4800000, guid: 4fce4f63c7e58194da10e37d5f402529, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &1436004599
 GameObject:
   m_ObjectHideFlags: 0

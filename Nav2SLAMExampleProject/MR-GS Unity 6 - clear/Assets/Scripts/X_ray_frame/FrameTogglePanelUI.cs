@@ -83,7 +83,7 @@ public class FrameTogglePanelUI : MonoBehaviour
             panelInstance.transform.localScale = Vector3.one * 0.001f;
 
             // Position to lower-left quadrant (negative X, negative Y)
-            panelInstance.transform.localPosition = new Vector3(-0.2f, -0.2f, showDistance);
+            panelInstance.transform.localPosition = new Vector3(-0.1f, -0.2f, showDistance);
             // Do not modify rotation; prefab's own orientation is preserved
 
             // Bind button callbacks
